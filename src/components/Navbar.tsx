@@ -18,7 +18,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           <a href="/adn-nasua" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             ADN Nasua
           </a>
@@ -40,13 +40,13 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-primary-foreground">
+        <button onClick={() => setOpen(!open)} className="lg:hidden text-primary-foreground">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-primary border-t border-primary-foreground/10 px-6 py-4 space-y-4">
+        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 py-4 space-y-4">
           <a href="/adn-nasua" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             ADN Nasua
           </a>
