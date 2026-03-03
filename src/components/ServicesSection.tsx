@@ -16,7 +16,7 @@ const services = [
     purpose: "Para generar CONFIANZA.",
     goal: "Para cobrar en AUTOMÁTICO.",
     desc: "Tu oficina virtual completa para mostrar tus servicios y atraer mejores clientes.",
-    href: "#contacto",
+    href: "/sitio-corporativo",
   },
   {
     icon: ShoppingCart,

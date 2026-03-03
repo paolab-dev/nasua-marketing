@@ -9,10 +9,12 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/90 backdrop-blur-md border-b border-primary-foreground/10">
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-2">
-          <img src={nasuaLogo} alt="Nasua" className="w-10 h-10 rounded-lg object-cover" />
-          <span className="text-primary-foreground font-display font-bold text-lg">
+          <a href="/">
+            <img src={nasuaLogo} alt="Nasua" className="w-10 h-10 rounded-lg object-cover" />
+          </a>
+          <a href="/" className="text-primary-foreground font-display font-bold text-lg">
             nasua
-          </span>
+          </a>
         </div>
 
         {/* Desktop */}
@@ -22,6 +24,9 @@ const Navbar = () => {
           </a>
           <a href="/landing-page" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             Landing Page
+          </a>
+          <a href="/sitio-corporativo" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
+            Sitio Corporativo
           </a>
           <a href="/ecommerce" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             eCommerce
@@ -50,6 +55,9 @@ const Navbar = () => {
           </a>
           <a href="/landing-page" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             Landing Page
+          </a>
+          <a href="/sitio-corporativo" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
+            Sitio Corporativo
           </a>
           <a href="/ecommerce" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             eCommerce
