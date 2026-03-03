@@ -9,6 +9,7 @@ import Ecommerce from "./pages/Ecommerce";
 import LandingPage from "./pages/LandingPage";
 import SitioCorporativo from "./pages/SitioCorporativo";
 import NotFound from "./pages/NotFound";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -24,9 +25,9 @@ const App = () => (
           <Route path="/ecommerce" element={<Ecommerce />} />
           <Route path="/landing-page" element={<LandingPage />} />
           <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
