@@ -35,7 +35,7 @@ const Navbar = () => {
             FAQ
           </a>
           <a
-            href="#contacto"
+            href="/contacto"
             className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm transition-all"
           >
             Quiero mi Sitio
@@ -66,7 +66,7 @@ const Navbar = () => {
             FAQ
           </a>
           <a
-            href="#contacto"
+            href="/contacto"
             className="block bg-secondary text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm text-center"
             onClick={() => setOpen(false)}
           >
