@@ -8,6 +8,7 @@ const services = [
     purpose: "Para vender YA.",
     goal: "Para generar CONFIANZA.",
     desc: "Una página directa enfocada en que te contacten o compren un solo producto.",
+    href: "#contacto",
   },
   {
     icon: Building2,
@@ -15,6 +16,7 @@ const services = [
     purpose: "Para generar CONFIANZA.",
     goal: "Para cobrar en AUTOMÁTICO.",
     desc: "Tu oficina virtual completa para mostrar tus servicios y atraer mejores clientes.",
+    href: "#contacto",
   },
   {
     icon: ShoppingCart,
@@ -22,6 +24,7 @@ const services = [
     purpose: "Para cobrar en AUTOMÁTICO.",
     goal: "O a través del WHATSAPP DE TU NEGOCIO.",
     desc: "Tu local abierto 24/7. Catálogo, carrito de compras y pagos con Wompi.",
+    href: "/ecommerce",
   },
 ];
 
@@ -52,7 +55,7 @@ const ServicesSection = () => {
                 {s.desc}
               </p>
               <a
-                href="#contacto"
+                href={s.href}
                 className="inline-block border border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold px-6 py-3 rounded-lg transition-all"
               >
                 Ver más
