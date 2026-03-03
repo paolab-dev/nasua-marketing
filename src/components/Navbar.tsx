@@ -31,9 +31,6 @@ const Navbar = () => {
           <a href="/ecommerce" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             eCommerce
           </a>
-          <a href="/#faq" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
-            FAQ
-          </a>
           <a
             href="/contacto"
             className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm transition-all"
@@ -61,9 +58,6 @@ const Navbar = () => {
           </a>
           <a href="/ecommerce" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             eCommerce
-          </a>
-          <a href="/#faq" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
-            FAQ
           </a>
           <a
             href="/contacto"
