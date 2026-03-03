@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-primary/70" />
       </div>
 
-      <div className="relative z-10 container mx-auto section-padding flex flex-col items-center text-center gap-8">
+      <div className="relative z-10 container mx-auto section-padding pt-32 md:pt-24 flex flex-col items-center text-center gap-8">
         {/* Row: H1 left + Mockup right */}
         <div className="w-full grid lg:grid-cols-2 gap-8 items-center">
           <motion.div
