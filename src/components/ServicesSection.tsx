@@ -8,7 +8,7 @@ const services = [
     purpose: "Para vender YA.",
     goal: "Para generar CONFIANZA.",
     desc: "Una página directa enfocada en que te contacten o compren un solo producto.",
-    href: "#contacto",
+    href: "/landing-page",
   },
   {
     icon: Building2,
