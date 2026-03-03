@@ -17,7 +17,10 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#faq" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
+          <a href="/adn-nasua" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
+            ADN Nasua
+          </a>
+          <a href="/#faq" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             FAQ
           </a>
           <a
@@ -36,7 +39,10 @@ const Navbar = () => {
 
       {open && (
         <div className="md:hidden bg-primary border-t border-primary-foreground/10 px-6 py-4 space-y-4">
-          <a href="#faq" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
+          <a href="/adn-nasua" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
+            ADN Nasua
+          </a>
+          <a href="/#faq" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             FAQ
           </a>
           <a
