@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ShoppingCart, MessageCircle, Shield, CreditCard, Search } from "lucide-react";
+import { Award, Wrench, Shield, Phone, ClipboardCheck, CreditCard, Zap, Rocket } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -10,14 +11,80 @@ const fadeUp = {
   transition: { duration: 0.7 },
 };
 
+const faqItems = [
+  {
+    q: "¿Qué es un sitio web empresarial gestionado?",
+    a: "Es una solución donde Nasua diseña y administra la presencia digital de tu empresa. Nosotros nos encargamos del mantenimiento, seguridad y actualizaciones, para que tú no tengas que aprender a programar ni contratar personal técnico interno.",
+  },
+  {
+    q: "¿Cómo ayuda Wompi a financiar mi sitio corporativo?",
+    a: "Gracias a nuestra alianza, puedes diferir el costo de tu sitio web en cuotas mensuales con tarjetas de crédito o PSE. Es la forma más inteligente de profesionalizar tu imagen sin descapitalizar tu operación de contado.",
+  },
+  {
+    q: "¿Por qué es mejor que Nasua gestione mi web en lugar de hacerlo yo?",
+    a: "Un sitio empresarial requiere seguridad constante y optimización de velocidad. Al delegarlo en Nasua, garantizas que tu imagen siempre sea perfecta y que expertos resuelvan cualquier duda técnica en minutos, ahorrándote horas de frustración.",
+  },
+  {
+    q: "¿Quién figura como dueño legal del dominio y la web?",
+    a: "Tú. Aunque nosotros operamos la infraestructura, el dominio y los archivos son de tu propiedad legal. Esto queda estipulado en nuestro contrato de transparencia para tu total tranquilidad.",
+  },
+  {
+    q: "¿Mi empresa tendrá correos electrónicos corporativos?",
+    a: "Sí. Parte de tu sede digital es proyectar seriedad. Incluimos la configuración de correos profesionales (ej: contacto@tuempresa.com) para que cada comunicación que envíes refuerce tu marca.",
+  },
+  {
+    q: "¿El sitio web estará optimizado para Google en Colombia?",
+    a: "Totalmente. Aplicamos arquitectura semántica y SEO local para que, cuando busquen tus servicios en tu ciudad, tu empresa aparezca como una opción de autoridad ante los algoritmos de búsqueda.",
+  },
+  {
+    q: "¿Qué pasa si necesito añadir un nuevo servicio o proyecto al sitio?",
+    a: "Con nuestro modelo gestionado, simplemente nos envías la información y nosotros la subimos con el diseño correcto. Así mantienes la coherencia visual sin riesgo de dañar la estructura del sitio.",
+  },
+  {
+    q: "¿Qué seguridad tiene mi sitio web empresarial contra ataques?",
+    a: "Implementamos capas de seguridad de última generación y monitoreo constante. Al ser un sitio gestionado por Nasua, nosotros respondemos por la integridad técnica de tu oficina virtual 24/7.",
+  },
+  {
+    q: "¿Puedo pedir que me entreguen el sitio si decido irme de Nasua?",
+    a: "Sí. Contamos con un Contrato de Transferencia Transparente. Si decides llevarte tu web a otro proveedor, te entregamos todos tus activos digitales de manera organizada y sin obstáculos.",
+  },
+  {
+    q: "¿Por qué un sitio web es mejor que solo tener redes sociales?",
+    a: "Las redes sociales son \"terreno alquilado\" que puede cambiar sus reglas en cualquier momento. Un sitio web empresarial es tu activo propio, el centro de tu ecosistema digital donde tú controlas la narrativa y la experiencia del cliente.",
+  },
+];
+
+const steps = [
+  { icon: Phone, title: "Consulta de Marca", text: "Definimos la identidad y los servicios que quieres proyectar." },
+  { icon: ClipboardCheck, title: "Diagnóstico de Autoridad", text: "Evaluamos los pilares que harán que tu empresa se vea líder en su sector." },
+  { icon: CreditCard, title: "Formalización", text: "Cotización aceptada y pago procesado para iniciar el montaje." },
+  { icon: Zap, title: "Sprint de Identidad", text: "7 días para levantar la infraestructura de tu oficina virtual con acabados de élite." },
+  { icon: Rocket, title: "Entrega y Soporte", text: "Lanzamos tu marca al mundo y nos quedamos como tu departamento técnico delegado." },
+];
+
 const Ecommerce = () => {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <div className="bg-background text-foreground">
+      <Helmet>
+        <title>Sitio Web Empresarial en Colombia | Nasua</title>
+        <meta name="description" content="Proyecta la imagen de una multinacional con una sede digital de élite. Construida en 7 días, gestionada por expertos y financiada con Wompi." />
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Helmet>
       <Navbar />
 
-      {/* 1. Hero */}
+      {/* Hero */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-accent/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -25,10 +92,8 @@ const Ecommerce = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Crea tu Página Web Profesional en 7 días:{" "}
-            <span className="text-gradient">
-              Con Financiación Wompi y Control Total del Código.
-            </span>
+            Tu Sitio Web Empresarial: Autoridad, Confianza y{" "}
+            <span className="text-gradient">Financiación Wompi</span>.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -36,181 +101,137 @@ const Ecommerce = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
-            Lanzamos tu infraestructura de ventas hoy. Elige cobro automático o cierre
-            por WhatsApp. Tú pones el negocio, nosotros la tecnología y Wompi la financiación.
+            Proyecta la imagen de una multinacional con una sede digital de élite. Nosotros la construimos y gestionamos en 7 días, tú eres el dueño legal y la pagas a cuotas mientras tu marca crece.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-10"
           >
-            <a
-              href="#contacto"
-              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
-            >
-              Iniciar Proyecto
-            </a>
-            <a
-              href="#credito"
-              className="border-2 border-primary-foreground/50 hover:border-primary-foreground text-primary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
-            >
-              🔍 Realizar mi estudio de crédito con Wompi
-            </a>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-4 text-xs text-primary-foreground/50 font-body"
-          >
-            Análisis inmediato. Tu cupo depende de tu buen historial financiero, sin compromisos con Nasua.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* 2. Barra de Confianza */}
-      <section className="py-8 bg-muted/50 border-y border-border">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-sm text-muted-foreground font-body mb-4">
-            Habilitamos tu crecimiento con el respaldo de:
-          </p>
-          <div className="flex items-center justify-center gap-6">
-            <div className="bg-card border border-border rounded-lg px-6 py-3">
-              <span className="font-display font-bold text-xl text-foreground">Wompi</span>
-              <span className="block text-xs text-muted-foreground">by Bancolombia</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. eCommerce Adaptativo */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
-              Tú defines el canal, nosotros la <span className="text-gradient">potencia</span>.
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Lado A */}
-            <motion.div
-              {...fadeUp}
-              className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
-            >
-              <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
-                <CreditCard className="w-7 h-7 text-secondary" />
-              </div>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-3">
-                Cobro Automático
-              </h3>
-              <p className="text-muted-foreground font-body leading-relaxed mb-4">
-                Integración total con pasarela Wompi. Tu cliente elige, paga y recibe
-                confirmación sin intervención humana.
-              </p>
-              <p className="text-sm font-semibold text-secondary font-body">
-                ✦ Ideal para productos de venta rápida.
-              </p>
-              <div className="mt-6 bg-muted/50 rounded-xl p-5 border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <ShoppingCart className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-semibold text-foreground font-body">Ejemplo: Pasarela de pagos</span>
-                </div>
-                <div className="space-y-2">
-                  <div className="h-3 bg-muted rounded w-full" />
-                  <div className="h-3 bg-muted rounded w-3/4" />
-                  <div className="flex gap-2 mt-3">
-                    <div className="h-8 bg-secondary/20 rounded flex-1 flex items-center justify-center">
-                      <span className="text-xs text-secondary font-semibold">💳 Pagar</span>
-                    </div>
-                    <div className="h-8 bg-accent/20 rounded flex-1 flex items-center justify-center">
-                      <span className="text-xs text-accent font-semibold">PSE</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Lado B */}
-            <motion.div
-              {...fadeUp}
-              className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-accent/50 transition-colors"
-            >
-              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mb-6">
-                <MessageCircle className="w-7 h-7 text-accent" />
-              </div>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-3">
-                Cierre por WhatsApp
-              </h3>
-              <p className="text-muted-foreground font-body leading-relaxed mb-4">
-                Embudo hacia chat asistido por agentes de IA o representantes de ventas
-                de tu empresa.
-              </p>
-              <p className="text-sm font-semibold text-accent font-body">
-                ✦ Ideal para ventas que requieren confianza y asesoría.
-              </p>
-              <div className="mt-6 bg-muted/50 rounded-xl p-5 border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <MessageCircle className="w-5 h-5 text-secondary" />
-                  <span className="text-sm font-semibold text-foreground font-body">Ejemplo: Embudo a WhatsApp</span>
-                </div>
-                <div className="space-y-2">
-                  <div className="h-3 bg-muted rounded w-full" />
-                  <div className="h-3 bg-muted rounded w-2/3" />
-                  <div className="mt-3 h-8 bg-secondary/20 rounded flex items-center justify-center">
-                    <span className="text-xs text-secondary font-semibold">💬 Hablar por WhatsApp</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Soberanía */}
-      <section className="py-20 md:py-28 bg-primary">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp}>
-            <Shield className="w-12 h-12 text-secondary mx-auto mb-6" />
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-primary-foreground mb-6">
-              Tu código es tuyo. <span className="text-gradient">Punto.</span>
-            </h2>
-            <p className="text-lg md:text-xl text-primary-foreground/80 font-body leading-relaxed">
-              En 2026, depender de una agencia que retiene tus accesos es un riesgo.
-              Con Nasua, recibes el código fuente y el control total de tus activos.
-              Usamos <strong className="text-primary-foreground">Vibe Coding</strong> para
-              entregarte una web blindada, rápida y 100% soberana.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 5. Gancho Wompi */}
-      <section id="credito" className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp}>
-            <Search className="w-12 h-12 text-accent mx-auto mb-6" />
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">
-              ¿Quieres saber si tienes el{" "}
-              <span className="text-gradient">crédito aprobado</span>?
-            </h2>
-            <p className="text-lg text-muted-foreground font-body leading-relaxed mb-8">
-              No necesitas descapitalizarte para tener tecnología de punta. El estudio
-              de crédito es gestionado íntegramente por Wompi (Bancolombia). Si tienes
-              un buen comportamiento financiero, ellos financian tu transformación digital.
-            </p>
             <a
               href="#contacto"
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
-              🔍 Iniciar análisis de crédito en Wompi
+              Profesionalizar mi empresa financiada con Wompi
             </a>
-            <p className="mt-4 text-xs text-muted-foreground/70 font-body max-w-lg mx-auto">
-              Nasua no otorga créditos ni influye en la decisión de Wompi. Tu responsabilidad
-              crediticia es con la entidad financiera.
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tu Oficina Virtual */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <motion.div {...fadeUp}>
+            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-8">
+              Tu Oficina Virtual, Siempre <span className="text-gradient">Impecable</span>
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground font-body leading-relaxed">
+              En Colombia, la confianza es la moneda más valiosa. Si un cliente no encuentra una web seria, tu negocio no existe. En Nasua nos encargamos de que tu oficina virtual esté siempre actualizada, segura y rápida. Tú pones la visión, nosotros ponemos la tecnología.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* 3 Pilares */}
+      <section className="py-20 md:py-28 bg-muted/30">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+              Los 3 Pilares de tu <span className="text-gradient">Sede Digital</span> Gestionada
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Award,
+                title: "Imagen de Élite",
+                text: "Un diseño que grita profesionalismo y atrae a mejores clientes con mayor presupuesto.",
+              },
+              {
+                icon: Wrench,
+                title: "Cero Estrés Técnico",
+                text: "¿Cambiaste de dirección o tienes un nuevo servicio? Solo dinos y lo actualizamos. No pierdas tiempo peleando con códigos.",
+              },
+              {
+                icon: Shield,
+                title: "Propiedad Protegida",
+                text: "Gestionamos la técnica para tu comodidad, pero el dominio y la marca son legalmente tuyos bajo contrato.",
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                {...fadeUp}
+                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+              >
+                <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
+                <h4 className="font-display font-bold text-xl text-foreground mb-3">
+                  {item.title}
+                </h4>
+                <p className="text-muted-foreground font-body leading-relaxed">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proceso en 5 pasos */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+              Proceso de construcción de tu <span className="text-gradient">sede digital</span> corporativa
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-5 gap-6">
+            {steps.map((step, i) => (
+              <motion.div key={step.title} {...fadeUp} className="text-center">
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                  <step.icon className="w-7 h-7 text-secondary" />
+                </div>
+                <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
+                <h3 className="font-display font-bold text-foreground mb-2">{step.title}</h3>
+                <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p {...fadeUp} className="text-center text-muted-foreground text-sm mt-10 italic">
+            El plazo de 7 días hábiles inicia una vez Nasua reciba la totalidad de la información necesaria (logos, textos y fotos) por parte del cliente.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 md:py-28 bg-muted/30">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+              Preguntas <span className="text-gradient">Frecuentes</span>
+            </h2>
+          </motion.div>
+
+          <div className="space-y-6">
+            {faqItems.map((item, i) => (
+              <motion.details
+                key={i}
+                {...fadeUp}
+                className="group bg-card rounded-xl border border-border p-6 cursor-pointer hover:border-secondary/50 transition-colors"
+              >
+                <summary className="font-display font-bold text-foreground list-none flex items-center justify-between">
+                  <span>{item.q}</span>
+                  <span className="text-secondary ml-4 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <p className="text-muted-foreground font-body leading-relaxed mt-4">
+                  {item.a}
+                </p>
+              </motion.details>
+            ))}
+          </div>
         </div>
       </section>
 
