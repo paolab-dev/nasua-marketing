@@ -9,6 +9,7 @@ import AdnNasua from "./pages/AdnNasua";
 import Ecommerce from "./pages/Ecommerce";
 import LandingPage from "./pages/LandingPage";
 import SitioCorporativo from "./pages/SitioCorporativo";
+import QuienesSomos from "./pages/QuienesSomos";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/ecommerce" element={<Ecommerce />} />
           <Route path="/landing-page" element={<LandingPage />} />
           <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
+          <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
