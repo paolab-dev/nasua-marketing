@@ -20,9 +20,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display text-left">
-              Páginas Web Profesionales en Colombia:{" "}
+              Tu Sitio Web Profesional en Colombia:{" "}
               <span className="text-gradient">
-                Ten tu sitio hoy y págalo a cuotas con Wompi.
+                Listo en 7 días y Financiado con Wompi.
               </span>
             </h1>
           </motion.div>
@@ -49,16 +49,16 @@ const HeroSection = () => {
           className="max-w-2xl space-y-6"
         >
           <p className="text-lg md:text-xl text-primary-foreground/80 font-body">
-            ¿Sin liquidez para digitalizar tu negocio? No te detengas. Lanzamos
-            tu maquinaria de ventas en 7 días, la pagas en cuotas con Wompi y
-            eres el dueño absoluto de todo desde el primer momento.
+            Lanzamos y gestionamos tu infraestructura digital para que tú solo
+            te preocupes por vender. Sin complicaciones técnicas, con pago a
+            cuotas y la seguridad de un contrato de propiedad transparente.
           </p>
           <div className="space-y-3">
             <a
               href="#contacto"
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
-              👉 Quiero mi Sitio Web
+              👉 Iniciar mi proyecto con Wompi
             </a>
             <p className="text-xs text-primary-foreground/50">
               Aprobación inmediata con Wompi. Nasua no otorga créditos ni influye en la decisión de Wompi. Tu responsabilidad crediticia es con la entidad financiera.

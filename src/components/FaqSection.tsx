@@ -5,41 +5,70 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const faqs = [
   {
-    q: "¿Cuánto tiempo tarda en estar listo mi sitio web?",
-    a: "Nuestro proceso de Vibe Coding nos permite entregar un sitio de alta fidelidad en 7 días hábiles, contados a partir de que recibimos la información básica de tu negocio. No sacrificamos calidad por velocidad; simplemente usamos tecnología más eficiente.",
+    q: "¿Cómo puedo financiar la creación de un sitio web para mi negocio en Colombia?",
+    a: "A través de Nasua, puedes digitalizar tu empresa hoy mismo y pagar la inversión en cuotas mensuales utilizando el respaldo de Wompi. Esto permite que cualquier emprendedor o pyme en Colombia acceda a tecnología de élite sin afectar su flujo de caja de contado, difiriendo el costo según sus posibilidades financieras.",
   },
   {
-    q: "¿Es seguro realizar el análisis de crédito con Wompi?",
-    a: "Totalmente. Wompi (respaldado por Bancolombia) es la pasarela líder en seguridad. El proceso ocurre en sus servidores cifrados; Nasua nunca tiene acceso a tus datos bancarios ni financieros. Tu cupo de crédito depende 100% de tu historial con ellos.",
+    q: "¿Por qué Nasua puede entregar una página web profesional en solo 7 días?",
+    a: "Utilizamos un método de desarrollo avanzado llamado Vibe Coding, que combina la experiencia de arquitectos humanos con el poder de la Inteligencia Artificial profesional. Esto nos permite eliminar los tiempos muertos de la programación tradicional y entregar una infraestructura comercial completa, probada y funcional en una semana calendario.",
   },
   {
-    q: "¿Puedo llevarme mi web a otro servidor si decido no seguir con Nasua?",
-    a: "Sí. A diferencia de las agencias tradicionales o plataformas alquiladas, aquí tú eres el dueño total del código fuente. Creemos en la Soberanía Digital: tu negocio no debe ser rehén de ningún proveedor.",
+    q: "¿Necesito tener conocimientos técnicos para administrar mi sitio web con Nasua?",
+    a: "No, en absoluto. Nasua opera bajo un modelo de Infraestructura Gestionada. Esto significa que nosotros somos tu departamento de tecnología delegado. Tú te enfocas en vender y atender a tus clientes, mientras nuestro equipo experto se encarga de todas las actualizaciones, ajustes técnicos y mantenimiento de tu sitio.",
   },
   {
-    q: "¿Por qué Nasua no usa WordPress para sus desarrollos?",
-    a: "En 2026, WordPress es vulnerable y lento para las exigencias del mercado. En Nasua usamos arquitecturas modernas (Vercel/Edge) que son virtualmente imposibles de hackear, cargan en milisegundos y no dependen de plugins que se rompen todo el tiempo.",
+    q: "Si Nasua gestiona mi web, ¿quién es el dueño legal del dominio y del código?",
+    a: "El dueño legal y absoluto eres tú como cliente. Aunque Nasua administra la operación técnica para garantizar que tu sitio siempre vuele, la propiedad legal de los activos digitales (dominio, contenidos y archivos) te pertenece. Esto queda blindado bajo un contrato de transparencia desde el primer día.",
   },
   {
-    q: "¿Qué pasa si prefiero cerrar mis ventas por WhatsApp en lugar de cobrar automático?",
-    a: "Tu tienda es adaptativa. Podemos configurar un embudo híbrido: el cliente ve tu catálogo profesional y, al dar clic, llega a tu WhatsApp con el pedido listo y filtrado. Es ideal para negocios que requieren asesoría antes de cobrar.",
+    q: "¿Qué pasa si quiero cambiar un precio o una foto en mi página web?",
+    a: "Con nuestro modelo gestionado, no tienes que preocuparte por aprender a usar herramientas complejas. Simplemente nos solicitas el cambio y nuestro equipo lo ejecuta por ti. Esto garantiza que tu sitio nunca se \"rompa\" por un error de edición y que siempre mantenga una imagen profesional ante tus clientes.",
   },
   {
-    q: "¿Qué cubre el pago del soporte y mantenimiento anual?",
-    a: "El fee de $490.000 COP anuales asegura que tu web esté siempre en línea en redes de alta velocidad, protegida contra nuevas amenazas y actualizada con las últimas mejoras de IA. Es el seguro de vida de tu activo digital.",
+    q: "¿Es seguro realizar el pago de mi sitio web a través de Wompi?",
+    a: "Es totalmente seguro. Wompi es la pasarela de pagos líder en Colombia, respaldada por Bancolombia. Al usar este sistema, tus datos financieros están protegidos por estándares bancarios internacionales y puedes elegir pagar con tarjetas de crédito, PSE o corresponsales bancarios con total tranquilidad.",
   },
   {
-    q: "¿Mi página web aparecerá como respuesta en ChatGPT o Gemini?",
-    a: "Sí. Aplicamos estrategias de AEO (Answer Engine Optimization) y datos estructurados. Esto facilita que los motores de inteligencia artificial lean, entiendan y recomienden tu negocio cuando un usuario haga preguntas relacionadas con tus servicios.",
+    q: "¿Qué diferencia hay entre una Página de Lanzamiento y una Tienda Virtual?",
+    a: "Una Página de Lanzamiento (Landing Page) es un \"francotirador\" diseñado para convertir publicidad en contactos directos de clientes. Una Tienda Virtual (Ecommerce) es un local digital completo con catálogo, carrito de compras e integración de pagos automáticos para que vendas tus productos sin intervención humana manual.",
+  },
+  {
+    q: "¿Qué sucede si en el futuro decido dejar de trabajar con Nasua?",
+    a: "Creemos en la libertad, no en los rehenes. Si decides migrar tu operación, activamos nuestro Contrato de Transferencia Transparente. Te entregamos tus activos digitales de forma organizada para que puedas llevarlos a otro proveedor, asegurando que nunca pierdas tu inversión ni tu presencia en internet.",
+  },
+  {
+    q: "¿Mi sitio web aparecerá en los primeros resultados de Google en Colombia?",
+    a: "Todos los sitios de Nasua están construidos con una arquitectura de SEO Semántico. Esto facilita que tanto Google como las nuevas inteligencias artificiales de búsqueda entiendan exactamente qué vendes y dónde estás ubicado, aumentando drásticamente tus posibilidades de aparecer ante clientes potenciales en tu ciudad.",
+  },
+  {
+    q: "¿Por qué es mejor un sitio gestionado por Nasua que hacerlo yo mismo en plataformas gratuitas?",
+    a: "Las plataformas gratuitas suelen ser lentas, limitadas y no te pertenecen realmente. Al elegir la infraestructura gestionada de Nasua, obtienes velocidad de carga superior, diseño profesional de alta conversión y un equipo experto que resuelve problemas por ti, convirtiendo tu web en una herramienta de ingresos y no en una tarea pendiente en tu lista.",
   },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
 
 const FaqSection = () => {
   return (
     <section className="section-padding bg-background" id="faq">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Helmet>
       <div className="container mx-auto max-w-3xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

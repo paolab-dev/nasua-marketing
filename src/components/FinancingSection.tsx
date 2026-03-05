@@ -9,14 +9,13 @@ const FinancingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display mb-6">
-            Tu éxito no puede esperar a que tengas todo el capital.
-          </h2>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground font-display mb-6">
+            Digitalización para Todos
+          </h3>
           <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-            Con el respaldo de Wompi, puedes pagar tu inversión en las cuotas
-            que mejor le queden a tu flujo de caja. Usa tus tarjetas, PSE o
-            créditos preferidos. Digitalízate hoy y paga con las ventas de
-            mañana.
+            Democratizamos el acceso a la mejor tecnología. No necesitas
+            descapitalizarte; paga tu sitio web a cuotas con tus tarjetas o
+            créditos preferidos a través de Wompi.
           </p>
           <a
             href="#contacto"
