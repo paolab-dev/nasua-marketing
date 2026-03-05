@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-2">
           <a href="/">
-            <img src={nasuaLogo} alt="Nasua" className="w-10 h-10 rounded-lg object-cover" />
+            <img src={nasuaLogo} alt="Nasua" className="w-[46px] h-[46px] rounded-lg object-cover" />
           </a>
           <a href="/" className="text-primary-foreground font-display font-bold text-lg">
             nasua

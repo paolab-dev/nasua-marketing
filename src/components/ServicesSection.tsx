@@ -5,25 +5,22 @@ const services = [
   {
     icon: FileText,
     title: "Landing Page",
-    purpose: "Para vender YA.",
-    goal: "Para generar CONFIANZA.",
-    desc: "Una página directa enfocada en que te contacten o compren un solo producto.",
+    purpose: "Vendedor 24/7",
+    desc: "Captura clientes hoy mismo con una página diseñada para convertir clics en ventas.",
     href: "/landing-page",
   },
   {
     icon: Building2,
-    title: "Sitio web empresarial",
-    purpose: "Para generar CONFIANZA.",
-    goal: "Para cobrar en AUTOMÁTICO.",
-    desc: "Tu oficina virtual completa para mostrar tus servicios y atraer mejores clientes.",
+    title: "Sitio Empresarial",
+    purpose: "Oficina Virtual",
+    desc: "Proyecta la autoridad de una multinacional y gana la confianza de mejores clientes.",
     href: "/sitio-corporativo",
   },
   {
     icon: ShoppingCart,
-    title: "Tienda virtual",
-    purpose: "Para cobrar en AUTOMÁTICO.",
-    goal: "O a través del WHATSAPP DE TU NEGOCIO.",
-    desc: "Tu local abierto 24/7. Catálogo, carrito de compras y pagos con Wompi.",
+    title: "Tienda Virtual",
+    purpose: "E-commerce",
+    desc: "Deja de cobrar por chat. Organiza tus productos y recibe pagos automáticos con Wompi.",
     href: "/ecommerce",
   },
 ];
@@ -32,6 +29,17 @@ const ServicesSection = () => {
   return (
     <section className="section-padding bg-primary">
       <div className="container mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+            Los 3 Motores de <span className="text-gradient">Crecimiento</span>
+          </h2>
+        </motion.div>
+
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <motion.div

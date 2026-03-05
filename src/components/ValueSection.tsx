@@ -30,12 +30,14 @@ const ValueSection = () => {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display mb-4">
-            Deja de "alquilar" tu presencia digital.
+            Tú vendes, nosotros operamos.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Las agencias tradicionales te cobran millones de contado, tardan
-            muchas veces meses y al final, las claves y el sitio son de ellos.
-            En Nasua cambiamos las reglas:
+            Sabemos que tu tiempo vale oro. Por eso, en Nasua no te entregamos
+            un código que no sabes usar; te entregamos una operación
+            funcionando. Nosotros nos encargamos de que todo vuele, mientras tú
+            recuperas horas de tu vida para lo que realmente importa: tu
+            negocio.
           </p>
         </motion.div>
 

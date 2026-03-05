@@ -15,16 +15,16 @@ const SovereigntySection = () => {
             <Shield className="w-8 h-8 text-secondary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-            Aquí tú eres el jefe.
+            Sin Secuestros Técnicos.
           </h2>
           <p className="text-primary-foreground/80 text-lg leading-relaxed max-w-2xl mx-auto">
-            Muchos emprendedores sufren porque su proveedor "desapareció" con
-            las claves. En Nasua, te firmamos un{" "}
+            Depender de nuestro equipo es tu mayor ventaja operativa, pero nunca
+            serás nuestro rehén. Aunque nosotros gestionamos la técnica, la{" "}
             <span className="text-secondary font-semibold">
-              Contrato de Soberanía
+              Propiedad Legal es 100% tuya
             </span>
-            : El dominio, el código y los accesos son 100% tuyos. Nosotros
-            construimos la máquina, pero tú tienes el título de propiedad.
+            . Si algún día decides irte, te entregamos tus activos mediante un
+            contrato de transferencia transparente. Sin peleas, sin trucos.
           </p>
         </motion.div>
       </div>
