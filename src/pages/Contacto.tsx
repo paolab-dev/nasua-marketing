@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { MessageCircle, Mail, MapPin, Clock, Zap, CreditCard, Shield } from "lucide-react";
+import { Mail, MapPin, Clock, Zap, CreditCard, Shield } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -100,7 +100,7 @@ const Contacto = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>WhatsApp o teléfono</FormLabel>
+                        <FormLabel>WhatsApp</FormLabel>
                         <FormControl>
                           <div className="flex">
                             <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-input bg-muted text-muted-foreground text-sm">
@@ -199,26 +199,24 @@ const Contacto = () => {
             <h3 className="font-display text-xl font-bold text-foreground">Contacto directo</h3>
 
             <a
-              href="https://wa.me/573001234567"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-secondary transition-colors group"
-            >
-              <MessageCircle className="h-5 w-5 text-secondary group-hover:scale-110 transition-transform" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">WhatsApp</p>
-                <p className="text-xs text-muted-foreground">+57 300 123 4567</p>
-              </div>
-            </a>
-
-            <a
-              href="mailto:hola@nasua.co"
+              href="mailto:alex@nasua.marketing"
               className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-secondary transition-colors group"
             >
               <Mail className="h-5 w-5 text-secondary group-hover:scale-110 transition-transform" />
               <div>
-                <p className="text-sm font-semibold text-foreground">Email</p>
-                <p className="text-xs text-muted-foreground">hola@nasua.co</p>
+                <p className="text-sm font-semibold text-foreground">Alex Escobar</p>
+                <p className="text-xs text-muted-foreground">alex@nasua.marketing</p>
+              </div>
+            </a>
+
+            <a
+              href="mailto:pao@nasua.marketing"
+              className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-secondary transition-colors group"
+            >
+              <Mail className="h-5 w-5 text-secondary group-hover:scale-110 transition-transform" />
+              <div>
+                <p className="text-sm font-semibold text-foreground">Paola Bohórquez</p>
+                <p className="text-xs text-muted-foreground">pao@nasua.marketing</p>
               </div>
             </a>
 
