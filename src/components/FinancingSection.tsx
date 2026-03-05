@@ -3,7 +3,7 @@ import { Shield } from "lucide-react";
 
 const FinancingSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-primary">
       <div className="container mx-auto max-w-3xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -14,10 +14,10 @@ const FinancingSection = () => {
           <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto">
             <Shield className="w-8 h-8 text-secondary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
             Sin Secuestros Técnicos.
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-primary-foreground/80 text-lg leading-relaxed max-w-2xl mx-auto">
             Depender de nuestro equipo es tu mayor ventaja operativa, pero nunca
             serás nuestro rehén. Aunque nosotros gestionamos la técnica, la{" "}
             <span className="text-secondary font-semibold">
