@@ -110,7 +110,7 @@ const Ecommerce = () => {
             className="mt-10"
           >
             <a
-              href="#contacto"
+              href="#maquinaria-ventas"
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Elegir mi modelo de Tienda
@@ -120,7 +120,7 @@ const Ecommerce = () => {
       </section>
 
       {/* Elige tu Maquinaria */}
-      <section className="py-20 md:py-28 bg-background">
+      <section id="maquinaria-ventas" className="py-20 md:py-28 bg-background scroll-mt-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
@@ -175,6 +175,17 @@ const Ecommerce = () => {
               </p>
             </motion.div>
           </div>
+
+          <motion.div {...fadeUp} className="text-center mt-12">
+            <a
+              href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+            >
+              Empieza ahora con Wompi
+            </a>
+          </motion.div>
         </div>
       </section>
 
