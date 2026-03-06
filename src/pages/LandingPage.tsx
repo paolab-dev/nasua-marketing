@@ -110,7 +110,9 @@ const LandingPage = () => {
             className="mt-10"
           >
             <a
-              href="#contacto"
+              href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Activar mi vendedor 24/7 con Wompi
