@@ -31,6 +31,9 @@ const Navbar = () => {
           <a href="/ecommerce" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             eCommerce
           </a>
+          <a href="/blog" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
+            Blog
+          </a>
           <a href="/quienes-somos" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             Quiénes Somos
           </a>
