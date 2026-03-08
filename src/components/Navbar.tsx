@@ -1,9 +1,28 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import nasuaLogo from "@/assets/nasua-logo.jpg";
+
+const servicios = [
+  { href: "/landing-page", label: "Landing Page" },
+  { href: "/sitio-corporativo", label: "Sitio Corporativo" },
+  { href: "/ecommerce", label: "eCommerce" },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [serviciosOpen, setServiciosOpen] = useState(false);
+  const [mobileServiciosOpen, setMobileServiciosOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServiciosOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/90 backdrop-blur-md border-b border-primary-foreground/10">
@@ -22,15 +41,36 @@ const Navbar = () => {
           <a href="/adn-nasua" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             ADN Nasua
           </a>
-          <a href="/landing-page" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
-            Landing Page
-          </a>
-          <a href="/sitio-corporativo" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
-            Sitio Corporativo
-          </a>
-          <a href="/ecommerce" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
-            eCommerce
-          </a>
+
+          {/* Servicios dropdown */}
+          <div ref={dropdownRef} className="relative">
+            <button
+              onClick={() => setServiciosOpen(!serviciosOpen)}
+              className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
+            >
+              Servicios
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${serviciosOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {serviciosOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-primary border border-primary-foreground/15 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                {servicios.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    className="block px-4 py-2.5 text-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/5 transition-colors"
+                    onClick={() => setServiciosOpen(false)}
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
           <a href="/blog" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             Blog
           </a>
@@ -56,15 +96,35 @@ const Navbar = () => {
           <a href="/adn-nasua" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             ADN Nasua
           </a>
-          <a href="/landing-page" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
-            Landing Page
-          </a>
-          <a href="/sitio-corporativo" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
-            Sitio Corporativo
-          </a>
-          <a href="/ecommerce" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
-            eCommerce
-          </a>
+
+          {/* Mobile servicios accordion */}
+          <div>
+            <button
+              onClick={() => setMobileServiciosOpen(!mobileServiciosOpen)}
+              className="flex items-center gap-1 text-primary-foreground/70 text-sm w-full"
+            >
+              Servicios
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${mobileServiciosOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            {mobileServiciosOpen && (
+              <div className="pl-4 mt-2 space-y-3">
+                {servicios.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    className="block text-primary-foreground/60 text-sm"
+                    onClick={() => setOpen(false)}
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
           <a href="/blog" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             Blog
           </a>
