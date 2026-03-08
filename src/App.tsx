@@ -11,6 +11,8 @@ import LandingPage from "./pages/LandingPage";
 import SitioCorporativo from "./pages/SitioCorporativo";
 import QuienesSomos from "./pages/QuienesSomos";
 import Contacto from "./pages/Contacto";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
+import TerminosCondiciones from "./pages/TerminosCondiciones";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -31,6 +33,9 @@ const App = () => (
           <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+          <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />

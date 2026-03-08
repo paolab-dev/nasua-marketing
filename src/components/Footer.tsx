@@ -34,7 +34,15 @@ const Footer = () => {
             ))}
           </nav>
         </div>
-        <div className="border-t border-primary-foreground/10 pt-6">
+        <div className="border-t border-primary-foreground/10 pt-6 flex flex-col items-center gap-3">
+          <div className="flex gap-4">
+            <a href="/politica-privacidad" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+              Política de Privacidad
+            </a>
+            <a href="/terminos-condiciones" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+              Términos y Condiciones
+            </a>
+          </div>
           <p className="text-primary-foreground/60 text-sm text-center">
             © 2026 Nasua. Todos los derechos reservados. Hecho en Colombia 🇨🇴
           </p>
