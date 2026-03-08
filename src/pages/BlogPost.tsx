@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BlogPost, fetchPosts } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog";
+import { fetchPosts } from "@/lib/blog";
 
-const BlogPost = () => {
+const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
