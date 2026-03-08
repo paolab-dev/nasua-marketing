@@ -9,44 +9,44 @@ import { Helmet } from "react-helmet-async";
 
 const faqs = [
   {
-    q: "¿Cómo puedo financiar la creación de un sitio web para mi negocio en Colombia?",
-    a: "A través de Nasua, puedes digitalizar tu empresa hoy mismo y pagar la inversión en cuotas mensuales utilizando el respaldo de Wompi. Esto permite que cualquier emprendedor o pyme en Colombia acceda a tecnología de élite sin afectar su flujo de caja de contado, difiriendo el costo según sus posibilidades financieras.",
+    q: "¿De verdad entregan mi página en solo 2 días?",
+    a: "Sí, para las Landing Pages nuestra promesa es de 48 horas hábiles. El cronómetro empieza a correr en el momento en que confirmamos tu pago y nos entregas el \"Kit de Insumos\" (tu logo, fotos y los textos básicos). Para proyectos más grandes como E-commerce, nos tomamos hasta 10 días para asegurar que toda la maquinaria de ventas quede a punto.",
   },
   {
-    q: "¿Por qué Nasua puede entregar una página web profesional en solo 7 días?",
-    a: "Utilizamos un método de desarrollo avanzado llamado Vibe Coding, que combina la experiencia de arquitectos humanos con el poder de la Inteligencia Artificial profesional. Esto nos permite eliminar los tiempos muertos de la programación tradicional y entregar una infraestructura comercial completa, probada y funcional en una semana calendario.",
+    q: "¿Qué hacen exactamente con mis textos para que Google me encuentre?",
+    a: "No somos una agencia que solo \"pega\" información. Nuestro Director de Mercadeo y el equipo de contenido revisan tus textos y los organizan bajo una estructura lógica que Google ama. Usamos títulos, palabras clave y jerarquías que le explican claramente a los buscadores qué haces y por qué eres la mejor opción. Es SEO real incluido desde el día uno.",
   },
   {
-    q: "¿Necesito tener conocimientos técnicos para administrar mi sitio web con Nasua?",
-    a: "No, en absoluto. Nasua opera bajo un modelo de Infraestructura Gestionada. Esto significa que nosotros somos tu departamento de tecnología delegado. Tú te enfocas en vender y atender a tus clientes, mientras nuestro equipo experto se encarga de todas las actualizaciones, ajustes técnicos y mantenimiento de tu sitio.",
+    q: "¿Cómo funciona la financiación con Wompi?",
+    a: "Queremos que tu negocio crezca sin asfixiar tu bolsillo. Al momento de pagar, eliges la opción de Wompi y puedes diferir el valor de tu infraestructura digital hasta en 4 cuotas. Es una forma flexible de estrenar casa digital mientras los nuevos clientes empiezan a llegar.",
   },
   {
-    q: "Si Nasua gestiona mi web, ¿quién es el dueño legal del dominio y del código?",
-    a: "El dueño legal y absoluto eres tú como cliente. Aunque Nasua administra la operación técnica para garantizar que tu sitio siempre vuele, la propiedad legal de los activos digitales (dominio, contenidos y archivos) te pertenece. Esto queda blindado bajo un contrato de transparencia desde el primer día.",
+    q: "¿Por qué el costo es bajo si dicen que la calidad es de élite?",
+    a: "La respuesta es tecnología. Gracias al Vibe Coding y al uso de Inteligencia Artificial avanzada, eliminamos cientos de horas de trabajo manual que las agencias tradicionales te cobran carísimo. No ahorramos en calidad, ahorramos en tiempo de ejecución y te transferimos ese beneficio a ti.",
   },
   {
-    q: "¿Qué pasa si quiero cambiar un precio o una foto en mi página web?",
-    a: "Con nuestro modelo gestionado, no tienes que preocuparte por aprender a usar herramientas complejas. Simplemente nos solicitas el cambio y nuestro equipo lo ejecuta por ti. Esto garantiza que tu sitio nunca se \"rompa\" por un error de edición y que siempre mantenga una imagen profesional ante tus clientes.",
+    q: "¿Yo soy el dueño legal de mi página web?",
+    a: "100% sí. A diferencia de otros que te \"alquilan\" la web o te tienen de rehén, en Nasua tú eres el dueño absoluto de tu dominio, tus archivos y tu base de datos. Nosotros operamos y gestionamos la tecnología para que tú no sufras, pero el activo es tuyo y tienes el título de propiedad legal por contrato.",
   },
   {
-    q: "¿Es seguro realizar el pago de mi sitio web a través de Wompi?",
-    a: "Es totalmente seguro. Wompi es la pasarela de pagos líder en Colombia, respaldada por Bancolombia. Al usar este sistema, tus datos financieros están protegidos por estándares bancarios internacionales y puedes elegir pagar con tarjetas de crédito, PSE o corresponsales bancarios con total tranquilidad.",
+    q: "¿Necesito saber de programación o tecnología para manejar mi web?",
+    a: "Para nada. Ese es precisamente el \"ADN Nasua\". Nosotros somos tu departamento de tecnología delegado. Si necesitas cambiar un precio, subir una foto o actualizar un servicio, simplemente nos lo pides y nuestro equipo lo hace por ti. Tú dedícate a vender, que nosotros nos encargamos de que los cables funcionen.",
   },
   {
-    q: "¿Qué diferencia hay entre una Página de Lanzamiento y una Tienda Virtual?",
-    a: "Una Página de Lanzamiento (Landing Page) es un \"francotirador\" diseñado para convertir publicidad en contactos directos de clientes. Una Tienda Virtual (Ecommerce) es un local digital completo con catálogo, carrito de compras e integración de pagos automáticos para que vendas tus productos sin intervención humana manual.",
+    q: "¿Qué pasa si después quiero convertir mi página informativa en una tienda?",
+    a: "Nuestra arquitectura es escalable. No tienes que botar lo que ya hiciste. Si empiezas con una web empresarial y luego decides vender productos en automático, podemos evolucionar tu plataforma sin traumas técnicos. Tu inversión inicial siempre está protegida.",
   },
   {
-    q: "¿Qué sucede si en el futuro decido dejar de trabajar con Nasua?",
-    a: "Creemos en la libertad, no en los rehenes. Si decides migrar tu operación, activamos nuestro Contrato de Transferencia Transparente. Te entregamos tus activos digitales de forma organizada para que puedas llevarlos a otro proveedor, asegurando que nunca pierdas tu inversión ni tu presencia en internet.",
+    q: "¿Qué incluye el mantenimiento y la gestión de Nasua?",
+    a: "Incluye que tu página esté siempre al aire, sea rápida y segura. Vigilamos los servidores, actualizamos la tecnología para que no se quede obsoleta y estamos pendientes de cualquier ajuste que necesites. Es como tener un mecánico de confianza para tu local digital 24/7.",
   },
   {
-    q: "¿Mi sitio web aparecerá en los primeros resultados de Google en Colombia?",
-    a: "Todos los sitios de Nasua están construidos con una arquitectura de SEO Semántico. Esto facilita que tanto Google como las nuevas inteligencias artificiales de búsqueda entiendan exactamente qué vendes y dónde estás ubicado, aumentando drásticamente tus posibilidades de aparecer ante clientes potenciales en tu ciudad.",
+    q: "¿Qué necesito entregarles para que empiecen a trabajar?",
+    a: "Necesitamos tres cosas básicas: tu logo (en buena calidad), las fotos que quieras mostrar y los textos con la información de tu negocio. Una vez recibamos esto y el pago, activamos nuestro equipo de diseño y mercadeo para cumplir con los tiempos de entrega.",
   },
   {
-    q: "¿Por qué es mejor un sitio gestionado por Nasua que hacerlo yo mismo en plataformas gratuitas?",
-    a: "Las plataformas gratuitas suelen ser lentas, limitadas y no te pertenecen realmente. Al elegir la infraestructura gestionada de Nasua, obtienes velocidad de carga superior, diseño profesional de alta conversión y un equipo experto que resuelve problemas por ti, convirtiendo tu web en una herramienta de ingresos y no en una tarea pendiente en tu lista.",
+    q: "¿Por qué elegir a Nasua y no a un diseñador independiente?",
+    a: "Porque en Nasua no solo compras diseño. Compras la experiencia de una Directora UX/UI que ha trabajado para mercados globales y un Director de Mercadeo que ha gestionado marcas como Samsung. Te llevas una estrategia de crecimiento y una infraestructura técnica de nivel multinacional a un precio de mercado local.",
   },
 ];
 
@@ -76,7 +76,7 @@ const FaqSection = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
         >
-          Preguntas Frecuentes
+          Preguntas frecuentes: Todo lo que necesitas saber sobre tu nueva web
         </motion.h2>
         <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, i) => (
