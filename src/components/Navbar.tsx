@@ -65,6 +65,9 @@ const Navbar = () => {
           <a href="/ecommerce" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             eCommerce
           </a>
+          <a href="/blog" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
+            Blog
+          </a>
           <a href="/quienes-somos" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             Quiénes Somos
           </a>
