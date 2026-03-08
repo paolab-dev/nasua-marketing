@@ -33,6 +33,9 @@ const App = () => (
           <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+          <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />
