@@ -5,22 +5,25 @@ const services = [
   {
     icon: FileText,
     title: "Landing Page",
-    purpose: "Vendedor 24/7",
-    desc: "Captura clientes hoy mismo con una página diseñada para convertir clics en ventas.",
+    subtitle: "Ventas Relámpago",
+    time: "2 días hábiles",
+    desc: "Ideal para captar leads y vender un producto o servicio específico ya mismo.",
     href: "/landing-page",
   },
   {
     icon: Building2,
-    title: "Sitio Empresarial",
-    purpose: "Oficina Virtual",
-    desc: "Proyecta la autoridad de una multinacional y gana la confianza de mejores clientes.",
+    title: "Web Empresarial",
+    subtitle: "Autoridad Corporativa",
+    time: "5 días hábiles",
+    desc: "Perfecta para oficinas de servicios, consultores y empresas que buscan proyectar confianza.",
     href: "/sitio-corporativo",
   },
   {
     icon: ShoppingCart,
     title: "Tienda Virtual",
-    purpose: "E-commerce",
-    desc: "Deja de cobrar por chat. Organiza tus productos y recibe pagos automáticos con Wompi.",
+    subtitle: "Venta en Automático",
+    time: "Hasta 10 días hábiles",
+    desc: "Tu local abierto 24/7 con catálogo integrado y cierre por WhatsApp o pasarela de pagos.",
     href: "/ecommerce",
   },
 ];
@@ -36,7 +39,8 @@ const ServicesSection = () => {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-            Los 3 Motores de <span className="text-gradient">Crecimiento</span>
+            Infraestructura Digital diseñada para la{" "}
+            <span className="text-gradient">velocidad de tu negocio</span>.
           </h2>
         </motion.div>
 
@@ -53,11 +57,14 @@ const ServicesSection = () => {
               <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
                 <s.icon className="w-7 h-7 text-secondary" />
               </div>
-              <h3 className="font-display font-bold text-xl text-primary-foreground mb-2">
+              <h3 className="font-display font-bold text-xl text-primary-foreground mb-1">
                 {s.title}
               </h3>
-              <p className="text-accent font-semibold text-sm mb-3">
-                {s.purpose}
+              <p className="text-accent font-semibold text-sm mb-2">
+                {s.subtitle}
+              </p>
+              <p className="text-secondary font-bold text-sm mb-3">
+                ⏱ {s.time}
               </p>
               <p className="text-primary-foreground/70 text-sm flex-1 mb-6">
                 {s.desc}

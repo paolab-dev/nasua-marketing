@@ -20,9 +20,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display text-left">
-              Tu Sitio Web Profesional en Colombia:{" "}
+              Web Profesional de Alta Calidad y Bajo Costo:{" "}
               <span className="text-gradient">
-                Listo en 7 días y Financiado con Wompi.
+                Lista desde 48 horas.
               </span>
             </h1>
           </motion.div>
@@ -49,22 +49,26 @@ const HeroSection = () => {
           className="max-w-2xl space-y-6"
         >
           <p className="text-lg md:text-xl text-primary-foreground/80 font-body">
-            Lanzamos y gestionamos tu infraestructura digital para que tú solo
-            te preocupes por vender. Sin complicaciones técnicas, con pago a
-            cuotas y la seguridad de un contrato de propiedad transparente.
+            Tu negocio no puede esperar. Activamos tu infraestructura digital
+            con altos estándares en tiempo récord. Desde 2 días para tu landing
+            de ventas hasta 10 días para tu tienda virtual completa. Calidad
+            premium a precio justo.
           </p>
-          <div className="space-y-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/contacto"
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+            >
+              👉 ¡Quiero mi web ahora!
+            </a>
             <a
               href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              className="inline-block border-2 border-primary-foreground/40 hover:border-primary-foreground text-primary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
             >
-              👉 Iniciar mi proyecto con Wompi
+              Paga en 4 cuotas con Wompi
             </a>
-            <p className="text-xs text-primary-foreground/50">
-              Aprobación inmediata con Wompi. Nasua no otorga créditos ni influye en la decisión de Wompi. Tu responsabilidad crediticia es con la entidad financiera.
-            </p>
           </div>
         </motion.div>
       </div>
