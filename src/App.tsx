@@ -13,6 +13,8 @@ import QuienesSomos from "./pages/QuienesSomos";
 import Contacto from "./pages/Contacto";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -33,7 +35,8 @@ const App = () => (
           <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
           <Route path="*" element={<NotFound />} />
