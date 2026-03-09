@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import EcommerceLeadForm from "@/components/EcommerceLeadForm";
 import { MessageCircle, CreditCard, Search, Smartphone, CheckCircle, Zap, Package, Rocket, ShoppingCart, Shield, Users } from "lucide-react";
 
 const fadeUp = {
