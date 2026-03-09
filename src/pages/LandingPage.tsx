@@ -79,6 +79,7 @@ const infraFeatures = [
 ];
 
 const LandingPage = () => {
+  const [formOpen, setFormOpen] = useState(false);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
