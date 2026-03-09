@@ -196,7 +196,7 @@ const Contacto = () => {
 
           {/* Sidebar */}
           <motion.aside {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="space-y-6">
-            <h3 className="font-display text-xl font-bold text-foreground">Contacto directo</h3>
+            <h3 className="font-body text-xl font-normal text-foreground">Contacto directo</h3>
 
             <a
               href="mailto:alex@nasua.marketing"
