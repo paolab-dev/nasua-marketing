@@ -23,7 +23,7 @@ const Footer = () => {
                 nasua
               </a>
             </div>
-            <h3 className="text-primary-foreground/80 font-display text-sm max-w-xs text-center md:text-left">
+            <h3 className="text-primary-foreground/80 font-body text-sm max-w-xs text-center md:text-left">
               Nasua: Democratizando la tecnología de punta en Colombia.
             </h3>
           </div>
