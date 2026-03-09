@@ -119,7 +119,7 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
             >
               <DialogTitle className="sr-only">Solicitud recibida</DialogTitle>
               <CheckCircle className="w-16 h-16 text-secondary mx-auto" />
-              <h3 className="text-2xl font-bold font-display text-foreground">
+              <h3 className="text-2xl font-medium font-display text-foreground">
                 ¡Solicitud recibida!
               </h3>
               <p className="text-muted-foreground font-body leading-relaxed">
