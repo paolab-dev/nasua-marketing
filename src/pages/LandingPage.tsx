@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Zap, Gauge, Wrench, Shield, MessageSquare, ClipboardCheck, CreditCard, Rocket, Phone } from "lucide-react";
+import { Zap, Rocket, Target, Lightbulb, CreditCard, FileText, Palette, CheckCircle, Shield, Database, Server, MessageSquare } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -13,53 +13,66 @@ const fadeUp = {
 
 const faqItems = [
   {
-    q: "¿Qué es una página de lanzamiento gestionada y en qué se diferencia de una normal?",
-    a: "Una landing page gestionada por Nasua es una infraestructura diseñada exclusivamente para convertir publicidad en ventas, donde nosotros nos encargamos de toda la operación técnica (servidores, velocidad, actualizaciones). A diferencia de una página normal donde tú debes aprender a usar el software, aquí nosotros operamos la máquina para que tú solo te encargues de atender a los clientes.",
+    q: "¿Por qué una Landing Page es más rápida de entregar que una web normal?",
+    a: "Porque está enfocada en un solo objetivo y una sola oferta. Esto nos permite aplicar nuestro proceso de Vibe Coding con máxima eficiencia y entregarte una herramienta lista para campañas en solo 2 días hábiles.",
   },
   {
-    q: "¿Cómo funciona el pago a cuotas con Wompi para mi landing page?",
-    a: "A través de nuestra alianza con Wompi (Bancolombia), puedes financiar el 100% de la creación de tu landing page. Al momento de la compra, eliges el número de cuotas que mejor se adapte a tu flujo de caja. Esto permite que tu nueva página empiece a generar ventas que ayuden a pagar su propia inversión mes a mes.",
+    q: "¿Qué pasa si mis fotos o textos no son profesionales?",
+    a: "Para eso estamos nosotros. Organizamos tu mensaje para que suene profesional y amigable para los buscadores, y nos encargamos de que visualmente tu marca se vea de primer nivel, sin importar lo que nos entregues al inicio.",
   },
   {
-    q: "¿Realmente mi página de ventas estará lista en solo 7 días?",
-    a: "Sí. Gracias a nuestro flujo de trabajo apoyado en IA profesional (Vibe Coding), eliminamos las semanas de espera de las agencias tradicionales. En 7 días hábiles entregamos tu estructura comercial probada, integrada con tus canales de contacto y lista para recibir tráfico pago.",
+    q: "¿Puedo pagar mi Landing en cuotas?",
+    a: "Claro. A través de Wompi puedes financiar tu Landing Page hasta en 4 cuotas. Inviertes hoy y dejas que las ventas que genere la página ayuden a pagarla.",
   },
   {
-    q: "¿Quién es el dueño legal de la landing page si Nasua se encarga de la parte técnica?",
-    a: "El dueño legal absoluto eres tú. En Nasua somos los administradores de tu infraestructura, pero la propiedad del dominio, los archivos y el código te pertenece por contrato. Si en el futuro decides gestionar tu propia tecnología, facilitamos la transferencia de todos tus activos de manera transparente.",
+    q: "¿Esta Landing sirve para hacer publicidad en Google o Facebook?",
+    a: "Está diseñada específicamente para eso. Creamos estructuras que cargan rápido y tienen el mensaje claro, lo que baja tus costos de publicidad y sube tus conversiones.",
   },
   {
-    q: "¿Necesito contratar un hosting o servidor por aparte?",
-    a: "No. En el modelo de Infraestructura Gestionada de Nasua, nosotros nos encargamos de que tu página esté siempre en línea, sea segura y cargue a velocidad relámpago. Tú no tienes que lidiar con facturas técnicas adicionales ni configuraciones complejas de servidores.",
+    q: "¿La Landing es mía o se la alquilo a Nasua?",
+    a: "Es tuya. Nasua es el operador que se encarga de que siempre funcione bien, pero tú tienes el título de propiedad legal. La transparencia es nuestro pilar.",
   },
   {
-    q: "¿Qué pasa si quiero cambiar una promoción o un precio en mi landing?",
-    a: "Con Nasua no tienes que entrar a editar códigos ni aprender a usar constructores visuales. Simplemente nos envías el cambio que necesitas y nuestro equipo experto lo ejecuta por ti. Esto garantiza que tu página nunca pierda su diseño profesional ni sufra errores técnicos por una mala edición.",
+    q: "¿Cómo ayuda la \"semántica\" u organización de textos a mi Landing?",
+    a: "Ayuda a que Google entienda qué vendes y te posicione mejor orgánicamente, incluso si estás haciendo pauta. Un sitio bien organizado siempre es más barato de anunciar.",
   },
   {
-    q: "¿Mi página de lanzamiento está optimizada para verse en celulares?",
-    a: "Totalmente. Diseñamos bajo la filosofía Mobile-First, ya que en globalmente más del 90% de las conversiones ocurren desde un smartphone. Tu landing page cargará de forma impecable y rápida en cualquier dispositivo, asegurando que no pierdas ni un solo prospecto por problemas de visualización.",
+    q: "¿Puedo conectar mi WhatsApp directamente?",
+    a: "Sí. Integramos botones de contacto directo para que el cliente pase de ver tu oferta a hablar contigo en un segundo.",
   },
   {
-    q: "¿Por qué es mejor una landing page de Nasua que enviar clientes a mi Instagram?",
-    a: "Enviar publicidad a Instagram distrae al usuario con contenido de otros perfiles o notificaciones. Una Landing Page de Nasua es un entorno controlado sin distracciones, diseñado con un solo objetivo: que el cliente te deje sus datos o te contacte por WhatsApp. Esto aumenta tu tasa de cierre hasta en un 300%.",
+    q: "¿Qué garantía tengo de que la página sea rápida?",
+    a: "Utilizamos estándares modernos de optimización. Una Landing lenta es una venta perdida, por eso nos obsesionamos con la velocidad de carga.",
   },
   {
-    q: "¿Puedo conectar mi WhatsApp y mis formularios de correo directamente?",
-    a: "Sí. Integramos botones de contacto directo a WhatsApp y formularios de captura que envían la información de tus prospectos a donde tú la necesites. Así, cada clic en tu publicidad se convierte en una conversación real con un cliente potencial.",
+    q: "¿Qué pasa si quiero cambiar algo después de los 2 días?",
+    a: "Al ser una infraestructura gestionada, solo nos pides el cambio y nosotros lo ejecutamos. No tienes que aprender a usar editores complicados.",
   },
   {
-    q: "¿Qué garantía tengo de que mi página aparecerá en las búsquedas de IA y Google?",
-    a: "Construimos cada landing con arquitectura semántica, lo que facilita que algoritmos de búsqueda y motores de respuesta por IA (como ChatGPT o Gemini) entiendan exactamente qué ofreces. Esto te da una ventaja competitiva de posicionamiento frente a páginas construidas con otros métodos.",
+    q: "¿Inician el trabajo apenas pague?",
+    a: "Exactamente. Una vez confirmado el pago y recibida tu información, el equipo de Nasua activa el cronómetro de 48 horas.",
   },
 ];
 
-const steps = [
-  { icon: Phone, title: "Contacto y Objetivo", text: "Iniciamos con tu visión de ventas." },
-  { icon: ClipboardCheck, title: "Diagnóstico de Conversión", text: "Evaluamos si tu oferta es apta para nuestra infraestructura de alta conversión." },
-  { icon: CreditCard, title: "Activación y Pago", text: "Aseguras tu cupo de desarrollo (Financiación Wompi disponible)." },
-  { icon: Zap, title: "Sprint de Optimización", text: "7 días para diseñar, redactar y programar tu embudo de ventas." },
-  { icon: Rocket, title: "Lanzamiento y Tracción", text: "Tu landing queda al aire bajo nuestra gestión técnica para que no pierdas ni un lead." },
+const targetAudience = [
+  { icon: Rocket, title: "Lanzamiento de Productos o Servicios Únicos" },
+  { icon: Target, title: "Campañas de Google Ads o Meta (Instagram/Facebook)" },
+  { icon: Lightbulb, title: "Profesionales Independientes que necesitan resultados ya" },
+  { icon: Zap, title: "Pruebas de mercado para nuevas ideas de negocio" },
+];
+
+const sprintSteps = [
+  { icon: CreditCard, title: "Activación Instantánea", text: "Eliges tu plan, realizas el pago (puedes usar Wompi a 4 cuotas) y el reloj empieza a correr." },
+  { icon: FileText, title: "Entrega de Insumos", text: "Nos pasas tu logo, fotos y lo que quieres decir." },
+  { icon: MessageSquare, title: "Curaduría de Contenido", text: "Alex (Director de Mercadeo) pule tus textos para que Google los adore." },
+  { icon: Palette, title: "Arquitectura de Élite", text: "Paola (Directora UX/UI) diseña una interfaz que vuela y convence." },
+  { icon: CheckCircle, title: "Entrega Final", text: "En 2 días tu Landing está al aire, lista para recibir tráfico." },
+];
+
+const infraFeatures = [
+  { icon: Server, title: "Soporte Técnico Total", text: "Tú no tienes que saber qué es un hosting o un dominio. Nosotros operamos todo el enredo técnico." },
+  { icon: Shield, title: "Propiedad Soberana", text: "Tú eres el dueño legal de tu Landing. Si decides irte, te entregamos tu casa digital sin obstáculos." },
+  { icon: Database, title: "Soberanía en los Datos", text: "Los prospectos (leads) que lleguen son 100% tuyos." },
 ];
 
 const LandingPage = () => {
@@ -76,8 +89,8 @@ const LandingPage = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Landing Page Profesional en Colombia | Nasua</title>
-        <meta name="description" content="Construimos y gestionamos tu landing page de alta conversión en 7 días. Financiación con Wompi. Propiedad 100% tuya." />
+        <title>Landing Page Profesional en 48 Horas | Nasua Colombia</title>
+        <meta name="description" content="Construimos tu Landing Page de alta conversión en solo 2 días. Calidad de élite, bajo costo y financiación con Wompi. Propiedad 100% tuya." />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
@@ -92,8 +105,8 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Tu Landing Page Profesional: Atrae Clientes Rápidamente y{" "}
-            <span className="text-gradient">Financia con Wompi</span>.
+            Tu Landing Page Profesional en 48 Horas:{" "}
+            <span className="text-gradient">Convierte Clics en Clientes ya mismo.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -101,76 +114,116 @@ const LandingPage = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
-            Construimos y gestionamos tu landing page para que dejes de perder dinero en publicidad. Una infraestructura de alta conversión, operada por expertos y financiada a tu ritmo.
+            No pierdas más dinero enviando tráfico a un sitio lento o confuso. Construimos tu máquina de ventas de alta conversión en solo 2 días. Calidad de élite, bajo costo y optimizada para que Google y tus clientes entiendan tu oferta de inmediato.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
+            <a
+              href="/contacto"
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+            >
+              👉 ¡Quiero mi Landing en 2 días!
+            </a>
             <a
               href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              className="inline-block border-2 border-primary-foreground/40 hover:border-primary-foreground text-primary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
             >
-              Activar mi vendedor 24/7 con Wompi
+              Financia con Wompi en 4 cuotas
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Gestión para Resultados */}
+      {/* Diferencial Nasua */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-8">
-              Gestión para <span className="text-gradient">Resultados</span>
+              Tú pones la oferta, nosotros la organizamos para que <span className="text-gradient">venda</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground font-body leading-relaxed">
-              Una landing page no es un folleto digital; es una herramienta de precisión. En Nasua no te entregamos una plantilla vacía. Diseñamos la estrategia, montamos la tecnología y nos encargamos de que siempre esté a punto. Tú solo ocúpate de atender a los clientes que empezarán a llegar.
+              Una Landing Page no es solo poner un botón de WhatsApp. En Nasua tomamos tu propuesta y la estructuramos para que Google la lea con claridad y tus clientes la entiendan sin rodeos. Organizamos tus textos para que los buscadores te den prioridad y tu mensaje sea tan directo que el cliente no tenga más opción que contactarte.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ¿Por qué una Landing Gestionada? */}
+      {/* ¿Para quién es? */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              ¿Por qué una Landing <span className="text-gradient">Gestionada</span> y no un sitio web común?
+              ¿Para quién es este <span className="text-gradient">"Vendedor Relámpago"</span>?
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {targetAudience.map((item) => (
+              <motion.div
+                key={item.title}
+                {...fadeUp}
+                className="bg-card rounded-xl p-6 border border-border hover:border-secondary/50 transition-colors text-center"
+              >
+                <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
+                <h3 className="font-display font-bold text-lg text-foreground">
+                  {item.title}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sprint de 48 Horas */}
+      <section className="py-20 md:py-28 bg-primary">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-primary-foreground">
+              El Sprint de 48 Horas: <span className="text-gradient">Sin Vueltas</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-5 gap-6">
+            {sprintSteps.map((step, i) => (
+              <motion.div key={step.title} {...fadeUp} className="text-center">
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                  <step.icon className="w-7 h-7 text-secondary" />
+                </div>
+                <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
+                <h3 className="font-display font-bold text-primary-foreground mb-2">{step.title}</h3>
+                <p className="text-primary-foreground/70 text-sm font-body leading-relaxed">{step.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Infraestructura Gestionada */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+              Infraestructura Gestionada: <span className="text-gradient">Cero Enredos</span>
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: MessageSquare,
-                title: "Cero Distracciones",
-                text: "Diseñada para una sola acción: que te contacten o te compren.",
-              },
-              {
-                icon: Gauge,
-                title: "Velocidad de Carga Élite",
-                text: "Optimizada para que nadie se vaya por lentitud.",
-              },
-              {
-                icon: Wrench,
-                title: "Mantenimiento Incluido",
-                text: "¿Quieres cambiar un bono o una oferta? Nosotros lo hacemos. No pierdas tiempo aprendiendo a editar.",
-              },
-            ].map((item) => (
+            {infraFeatures.map((item) => (
               <motion.div
                 key={item.title}
                 {...fadeUp}
                 className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
               >
                 <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
-                <h4 className="font-display font-bold text-xl text-foreground mb-3">
+                <h3 className="font-display font-bold text-xl text-foreground mb-3">
                   {item.title}
-                </h4>
+                </h3>
                 <p className="text-muted-foreground font-body leading-relaxed">
                   {item.text}
                 </p>
@@ -180,55 +233,12 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Transparencia y Propiedad */}
-      <section className="py-20 md:py-28 bg-primary">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp}>
-            <Shield className="w-12 h-12 text-secondary mx-auto mb-6" />
-            <h3 className="text-2xl md:text-4xl font-bold font-display text-primary-foreground mb-6">
-              Transparencia y Propiedad
-            </h3>
-            <p className="text-lg md:text-xl text-primary-foreground/80 font-body leading-relaxed">
-              Aunque nuestro equipo experto opera la maquinaria para que tú no sufras con la técnica, la propiedad legal de la landing y los datos de tus clientes son 100% tuyos. Si algún día decides gestionar tu propio equipo, te transferimos todo sin fricciones.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Proceso en 5 pasos */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Cómo activamos tu <span className="text-gradient">máquina de captación</span> de clientes en una semana
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-5 gap-6">
-            {steps.map((step, i) => (
-              <motion.div key={step.title} {...fadeUp} className="text-center">
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-                <h3 className="font-display font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-sm mt-10 italic">
-            El plazo de 7 días hábiles inicia una vez Nasua reciba la totalidad de la información necesaria (logos, textos y fotos) por parte del cliente.
-          </motion.p>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-3xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Preguntas <span className="text-gradient">Frecuentes</span>
+              Centro de Respuestas <span className="text-gradient">Landing Page</span>
             </h2>
           </motion.div>
 
