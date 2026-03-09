@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CreditCard, MessageCircle, Settings, Smartphone, Shield, Phone, ClipboardCheck, Zap, Rocket } from "lucide-react";
+import { MessageCircle, CreditCard, Search, Smartphone, CheckCircle, Zap, Package, Rocket, ShoppingCart, Shield, Users } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -13,53 +13,53 @@ const fadeUp = {
 
 const faqItems = [
   {
-    q: "¿Qué es mejor: venta automática o cierre por WhatsApp?",
-    a: "Depende de tu negocio. Si tus productos son estándar, la venta automática te da escala. Si tus productos requieren asesoría o personalización, el cierre por WhatsApp genera más confianza y aumenta el ticket promedio.",
+    q: "¿Por qué varían los precios entre los dos modelos de tienda?",
+    a: "Porque la Venta Automática requiere una integración técnica más compleja con entidades bancarias y pasarelas de pago, además de una configuración de seguridad más robusta. El Modelo WhatsApp es más sencillo y económico de implementar.",
   },
   {
-    q: "¿Puedo empezar con WhatsApp y luego pasar a venta automática?",
-    a: "Absolutamente. La infraestructura de Nasua es escalable. Puedes iniciar captando clientes por chat y, cuando estés listo, activamos la pasarela de pagos para automatizar el cobro.",
+    q: "¿Puedo empezar con WhatsApp y después pasar a Pasarela de Pagos?",
+    a: "¡Claro que sí! Nuestra infraestructura es escalable. Puedes iniciar con el modelo de WhatsApp para validar tus ventas y, cuando estés listo para automatizar, hacemos el upgrade a la pasarela de pagos.",
   },
   {
-    q: "¿Con qué pasarelas de pago se puede integrar la tienda?",
-    a: "Nos integramos con las pasarelas líderes en Colombia (como Wompi, PayU o ePayco). El objetivo es que recibas tarjetas, PSE y efectivo de la manera más cómoda para ti.",
+    q: "¿Nasua cobra comisión por mis ventas en alguno de los modelos?",
+    a: "Nunca. El 100% de lo que vendas es tuyo. Nosotros cobramos por la creación y gestión técnica de la tienda, no por tus resultados.",
   },
   {
-    q: "¿Cómo funciona el pedido por WhatsApp?",
-    a: "El cliente navega por tu tienda, añade productos al carrito y, al finalizar, el sistema genera un mensaje automático detallado que llega a tu WhatsApp con la lista de productos y el total.",
+    q: "¿La opción de WhatsApp incluye el carrito de compras?",
+    a: "Sí. El cliente puede ir sumando productos a un carrito y, al finalizar, el sistema le genera un resumen profesional que te llega a tu WhatsApp con el listado y el total de la compra.",
   },
   {
-    q: "¿Tengo que pagar comisiones a Nasua por mis ventas?",
-    a: "No. En ninguno de los dos modelos cobramos comisiones. Tu éxito y tu rentabilidad son 100% tuyos.",
+    q: "¿Qué necesito para la opción de Pasarela de Pagos?",
+    a: "Necesitas tener una cuenta activa en una pasarela (como Wompi). Si no la tienes, nosotros te orientamos en el proceso, pero recuerda que este modelo tiene un costo de implementación técnica diferente.",
   },
   {
-    q: "¿Puedo financiar la creación de mi tienda virtual?",
-    a: "Sí, ofrecemos opciones de financiación para que no descapitalices tu negocio. Puedes pagar tu infraestructura a cuotas mientras empiezas a vender.",
+    q: "¿Cómo ayuda la organización de textos a mi tienda?",
+    a: "Nos aseguramos que los nombres y descripciones de tus productos sigan una lógica que Google premia. Esto significa que tienes más oportunidades de aparecer cuando alguien busque lo que tú vendes en internet.",
   },
   {
-    q: "¿Quién se encarga de subir los productos y precios?",
-    a: "En el modelo gestionado, nosotros te apoyamos con la configuración inicial y cambios importantes para que tu tienda siempre luzca profesional y sin errores.",
+    q: "¿Puedo pagar cualquiera de los dos modelos con Wompi a cuotas?",
+    a: "Sí. Ambos modelos pueden financiarse hasta en 4 cuotas usando Wompi, facilitando tu flujo de caja desde el primer día.",
   },
   {
-    q: "¿Mi tienda virtual es apta para vender servicios o solo productos?",
-    a: "Funciona para ambos. Puedes tener un catálogo de servicios que lleve a una cita por WhatsApp o una venta directa de un paquete de servicios.",
+    q: "¿Quién se encarga de subir los productos?",
+    a: "Nosotros te entregamos la tienda con tu inventario inicial configurado. Como es una infraestructura gestionada, si en el futuro necesitas cambios masivos, nuestro equipo de soporte técnico los ejecuta por ti.",
   },
   {
-    q: "¿Qué pasa si quiero cambiar mi número de WhatsApp o mi pasarela?",
-    a: "Solo nos lo pides y nosotros lo actualizamos. Al ser una infraestructura gestionada, tú no tienes que pelear con configuraciones técnicas.",
+    q: "¿La tienda es fácil de usar desde un celular?",
+    a: "Totalmente. Diseñamos cada tienda bajo el concepto Mobile-First, asegurando que comprar desde un smartphone sea rápido, fluido y sin errores.",
   },
   {
-    q: "¿Soy el dueño de la información de mis clientes?",
-    a: "Siempre. A diferencia de las redes sociales, en tu tienda tú posees la base de datos de quienes te compran o te consultan, permitiéndote hacer marketing directo en el futuro.",
+    q: "¿Qué pasa con la propiedad legal de mis clientes?",
+    a: "Toda la base de datos de los clientes que te compren o te contacten es tuya. Nasua solo opera la tecnología; tú eres el dueño legal de toda la información y de tu marca.",
   },
 ];
 
 const steps = [
-  { icon: Phone, title: "Conexión Comercial", text: "Cuéntanos qué vendes y cómo quieres cobrar." },
-  { icon: ClipboardCheck, title: "Evaluación de Catálogo", text: "Verificamos que tus productos se adapten a nuestro motor de ventas automático o vía WhatsApp." },
-  { icon: CreditCard, title: "Inversión y Financiación", text: "Activas el proyecto con pago único o cuotas Wompi." },
-  { icon: Zap, title: "Sprint de Configuración", text: "7 días para subir tu inventario, integrar pagos y dejar tu local abierto 24/7." },
-  { icon: Rocket, title: "Venta y Operación", text: "Recibes tus primeros pedidos mientras nosotros vigilamos la estabilidad de tu tienda." },
+  { icon: CheckCircle, title: "Elección del Modelo", text: "Decides entre WhatsApp o Pasarela según tu necesidad y presupuesto." },
+  { icon: CreditCard, title: "Activación y Pago", text: "Inicias el proyecto (puedes financiar hasta en 4 cuotas con Wompi)." },
+  { icon: Package, title: "Carga de Insumos", text: "Nos envías el listado de productos, precios y fotos." },
+  { icon: Search, title: "Optimización Semántica", text: "Pulimos tus descripciones para que Google te prefiera." },
+  { icon: Rocket, title: "Lanzamiento", text: "En máximo 10 días tu tienda está facturando." },
 ];
 
 const Ecommerce = () => {
@@ -77,7 +77,7 @@ const Ecommerce = () => {
     <div className="bg-background text-foreground">
       <Helmet>
         <title>Tienda Virtual en Colombia | E-commerce Gestionado | Nasua</title>
-        <meta name="description" content="Lanzamos tu tienda virtual en 7 días. Vende en automático con pasarela de pagos o cierra por WhatsApp. Infraestructura gestionada y financiada con Wompi." />
+        <meta name="description" content="Tienda virtual profesional en 10 días. Elige entre catálogo con cierre por WhatsApp o venta automática con pasarela de pagos. Calidad de élite a precio justo." />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
@@ -92,8 +92,8 @@ const Ecommerce = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Tu Tienda Virtual en Colombia: Vende en Automático o{" "}
-            <span className="text-gradient">Cierra por WhatsApp</span>.
+            Tienda Virtual Profesional en 10 días:{" "}
+            <span className="text-gradient">Elige cómo quieres vender.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -101,58 +101,43 @@ const Ecommerce = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
-            Lanzamos y gestionamos la infraestructura de ventas que tu negocio necesita. Elige entre cobros automáticos 24/7 o un catálogo profesional que lleve a tus clientes directo a tu WhatsApp. Listo en 7 días y financiado.
+            Desde catálogos ágiles para cerrar ventas por WhatsApp hasta infraestructuras 100% automatizadas con pasarela de pagos. Calidad de élite a precio justo y lista en máximo 10 días. Tú eliges el modelo que mejor se adapte a tu presupuesto y operación.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="#maquinaria-ventas"
+              href="#modelos-tienda"
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
-              Elegir mi modelo de Tienda
+              Ver modelos y precios
+            </a>
+            <a
+              href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border-2 border-primary-foreground/40 hover:border-primary-foreground text-primary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
+            >
+              Financia hasta en 4 cuotas con Wompi
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Elige tu Maquinaria */}
-      <section id="maquinaria-ventas" className="py-20 md:py-28 bg-background scroll-mt-20">
+      {/* Elige tu Motor de Ventas */}
+      <section id="modelos-tienda" className="py-20 md:py-28 bg-background scroll-mt-20">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
-              Elige tu Maquinaria de <span className="text-gradient">Ventas</span>
+              Elige tu Motor de <span className="text-gradient">Ventas</span>
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Ruta A */}
-            <motion.div
-              {...fadeUp}
-              className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
-            >
-              <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
-                <CreditCard className="w-7 h-7 text-secondary" />
-              </div>
-              <p className="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Ruta A</p>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-2">
-                Venta en Automático
-              </h3>
-              <p className="text-sm font-semibold text-secondary font-body mb-4">
-                Para escalar sin límites.
-              </p>
-              <p className="text-muted-foreground font-body leading-relaxed mb-4">
-                Pasarela de pagos integrada para que el dinero entre a tu cuenta sin mover un dedo. Ideal para productos estandarizados.
-              </p>
-              <p className="text-sm font-semibold text-foreground font-body">
-                ✦ Cero intervención humana.
-              </p>
-            </motion.div>
-
-            {/* Ruta B */}
+            {/* Opción A: WhatsApp */}
             <motion.div
               {...fadeUp}
               className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-accent/50 transition-colors"
@@ -160,86 +145,77 @@ const Ecommerce = () => {
               <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mb-6">
                 <MessageCircle className="w-7 h-7 text-accent" />
               </div>
-              <p className="text-accent font-bold text-sm uppercase tracking-wider mb-2">Ruta B</p>
+              <p className="text-accent font-bold text-sm uppercase tracking-wider mb-2">Opción A</p>
               <h3 className="font-display font-bold text-2xl text-foreground mb-2">
-                Cierre en WhatsApp
+                Venta Directa a WhatsApp
               </h3>
               <p className="text-sm font-semibold text-accent font-body mb-4">
-                Para asesorar y cerrar.
+                Modelo Ágil
               </p>
               <p className="text-muted-foreground font-body leading-relaxed mb-4">
-                Catálogo profesional donde el cliente elige y te envía el pedido listo al chat. Ideal para ventas consultivas.
+                Ideal para negocios que prefieren el cierre humano o asesorado. Tus clientes eligen los productos en un catálogo profesional y te envían el pedido detallado directamente a tu chat.
               </p>
-              <p className="text-sm font-semibold text-foreground font-body">
-                ✦ El poder del contacto humano.
+              <p className="text-sm font-semibold text-foreground font-body mb-4">
+                ✦ Más económico, configuración rápida y control total del contacto con el cliente.
+              </p>
+              <p className="text-lg font-bold text-accent font-display">
+                Desde $X.XXX.XXX
+              </p>
+            </motion.div>
+
+            {/* Opción B: Pasarela */}
+            <motion.div
+              {...fadeUp}
+              className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
+            >
+              <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
+                <CreditCard className="w-7 h-7 text-secondary" />
+              </div>
+              <p className="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Opción B</p>
+              <h3 className="font-display font-bold text-2xl text-foreground mb-2">
+                Venta 100% Automática
+              </h3>
+              <p className="text-sm font-semibold text-secondary font-body mb-4">
+                Modelo Escala
+              </p>
+              <p className="text-muted-foreground font-body leading-relaxed mb-4">
+                Para negocios que buscan vender sin mover un dedo. Integramos una pasarela de pagos (Wompi, PayU, ePayco) para que el cliente pague de inmediato con tarjeta o PSE.
+              </p>
+              <p className="text-sm font-semibold text-foreground font-body mb-4">
+                ✦ Automatización total, cobros 24/7 y gestión de pedidos sin intervención humana.
+              </p>
+              <p className="text-lg font-bold text-secondary font-display">
+                Desde $Y.YYY.YYY
               </p>
             </motion.div>
           </div>
-
-          <motion.div {...fadeUp} className="text-center mt-12">
-            <a
-              href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
-            >
-              Empieza ahora con Wompi
-            </a>
-          </motion.div>
         </div>
       </section>
 
-      {/* 3 Pilares */}
+      {/* El Valor Nasua */}
       <section className="py-20 md:py-28 bg-muted/30">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h3 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Los 3 Pilares del <span className="text-gradient">E-commerce Nasua</span>
-            </h3>
+        <div className="container mx-auto px-6 max-w-4xl">
+          <motion.div {...fadeUp} className="text-center">
+            <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-6">
+              <Search className="w-8 h-8 text-secondary" />
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground mb-6">
+              No solo subimos productos:{" "}
+              <span className="text-gradient">Organizamos tu catálogo para Google.</span>
+            </h2>
+            <p className="text-muted-foreground font-body leading-relaxed text-lg max-w-3xl mx-auto">
+              Sin importar el modelo que elijas, en Nasua tomamos la información de tus productos y la organizamos para que Google la entienda de inmediato. Le 'hablamos clarito' al buscador sobre lo que vendes, ayudando a que tus productos aparezcan en los resultados de búsqueda de forma orgánica.
+            </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Settings,
-                title: "Infraestructura Gestionada",
-                text: "No importa cuál ruta elijas, nosotros operamos la técnica. Tú solo cargas productos o atiendes chats.",
-              },
-              {
-                icon: Smartphone,
-                title: "Diseño que Convierte",
-                text: "Tiendas rápidas, optimizadas para celular y diseñadas para que el cliente no se pierda en el camino.",
-              },
-              {
-                icon: Shield,
-                title: "Propiedad Legal",
-                text: "Eres el dueño de tu catálogo y de la base de datos de tus clientes. Nosotros solo somos tu motor técnico.",
-              },
-            ].map((item) => (
-              <motion.div
-                key={item.title}
-                {...fadeUp}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
-              >
-                <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
-                <h4 className="font-display font-bold text-xl text-foreground mb-3">
-                  {item.title}
-                </h4>
-                <p className="text-muted-foreground font-body leading-relaxed">
-                  {item.text}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Proceso en 5 pasos */}
+      {/* Proceso de 10 días */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              El camino hacia tu <span className="text-gradient">tienda virtual</span> automatizada
+              El Proceso de <span className="text-gradient">10 Días</span>
             </h2>
           </motion.div>
 
@@ -255,10 +231,6 @@ const Ecommerce = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-sm mt-10 italic">
-            El plazo de 7 días hábiles inicia una vez Nasua reciba la totalidad de la información necesaria (logos, textos y fotos) por parte del cliente.
-          </motion.p>
         </div>
       </section>
 
@@ -267,7 +239,7 @@ const Ecommerce = () => {
         <div className="container mx-auto px-6 max-w-3xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Preguntas <span className="text-gradient">Frecuentes</span>
+              FAQ de <span className="text-gradient">E-commerce</span>
             </h2>
           </motion.div>
 
