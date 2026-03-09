@@ -266,6 +266,7 @@ const LandingPage = () => {
         </div>
       </section>
 
+      <LeadCaptureForm open={formOpen} onOpenChange={setFormOpen} />
       <Footer />
     </div>
   );
