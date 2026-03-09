@@ -183,7 +183,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
 
               {step === 2 && (
                 <motion.div key="step2" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                  <h3 className="text-xl font-body font-normal text-foreground mb-1">Sobre tu empresa</h3>
+                  <h3 className="text-xl font-display font-medium text-foreground mb-1">Sobre tu empresa</h3>
                   <p className="text-sm text-muted-foreground font-body mb-6">Necesitamos entender qué hace tu negocio para estructurar correctamente el sitio.</p>
 
                   <div className="space-y-4">
