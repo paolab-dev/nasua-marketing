@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CorporateLeadForm from "@/components/CorporateLeadForm";
 import { Briefcase, Scale, Building2, Award, CreditCard, FileText, Palette, CheckCircle, Rocket, Wrench, Shield, TrendingUp } from "lucide-react";
 
 const fadeUp = {
