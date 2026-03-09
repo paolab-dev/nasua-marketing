@@ -10,6 +10,7 @@ import Ecommerce from "./pages/Ecommerce";
 import LandingPage from "./pages/LandingPage";
 import SitioCorporativo from "./pages/SitioCorporativo";
 import QuienesSomos from "./pages/QuienesSomos";
+import Estrategia from "./pages/Estrategia";
 import Contacto from "./pages/Contacto";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
