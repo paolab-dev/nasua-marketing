@@ -65,6 +65,14 @@ const steps = [
 ];
 
 const Ecommerce = () => {
+  const [formOpen, setFormOpen] = useState(false);
+  const [preselectedModel, setPreselectedModel] = useState<string | undefined>();
+
+  const openFormWithModel = (model: string) => {
+    setPreselectedModel(model);
+    setFormOpen(true);
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
