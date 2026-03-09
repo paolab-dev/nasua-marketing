@@ -174,7 +174,7 @@ const SitioCorporativo = () => {
                 className="bg-card rounded-xl p-6 border border-border hover:border-secondary/50 transition-colors text-center"
               >
                 <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
-                <h3 className="font-display font-bold text-lg text-foreground">
+                <h3 className="font-body font-normal text-lg text-foreground">
                   {item.title}
                 </h3>
               </motion.div>
