@@ -134,12 +134,12 @@ const Estrategia = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <a
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               ¡Escalar mi negocio ahora!
-            </a>
+            </button>
           </motion.div>
         </div>
       </section>
