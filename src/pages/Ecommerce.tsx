@@ -168,9 +168,15 @@ const Ecommerce = () => {
               <p className="text-sm font-semibold text-foreground font-body mb-4">
                 ✦ Más económico, configuración rápida y control total del contacto con el cliente.
               </p>
-              <p className="text-lg font-bold text-accent font-display">
+              <p className="text-lg font-bold text-accent font-display mb-6">
                 Desde $X.XXX.XXX
               </p>
+              <button
+                onClick={() => openFormWithModel("whatsapp")}
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Crear tienda por WhatsApp
+              </button>
             </motion.div>
 
             {/* Opción B: Pasarela */}
