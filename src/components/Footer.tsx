@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-5xl flex flex-col gap-8">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           {/* Logo y tagline */}
-          <div className="flex flex-col items-center md:items-start gap-3">
+          <div className="flex flex-col items-center md:items-start gap-3 md:max-w-[180px] md:pr-0">
             <div className="flex items-center gap-3">
               <a href="/">
                 <img src={nasuaLogo} alt="Nasua" className="w-12 h-12 rounded-lg object-cover" />
