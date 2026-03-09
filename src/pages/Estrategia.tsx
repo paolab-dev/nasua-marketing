@@ -87,6 +87,7 @@ const faqItems = [
 ];
 
 const Estrategia = () => {
+  const [formOpen, setFormOpen] = useState(false);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
