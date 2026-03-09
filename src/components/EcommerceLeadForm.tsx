@@ -242,7 +242,7 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
 
               {step === 3 && (
                 <motion.div key="step3" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                  <h3 className="text-xl font-body font-normal text-foreground mb-1">Contenido para tu tienda</h3>
+                  <h3 className="text-xl font-display font-medium text-foreground mb-1">Contenido para tu tienda</h3>
                   <p className="text-sm text-muted-foreground font-body mb-6">Esto nos ayuda a preparar la estructura inicial de tu e-commerce.</p>
 
                   <div className="space-y-5">
