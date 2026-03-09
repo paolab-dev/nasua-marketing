@@ -163,7 +163,7 @@ const QuienesSomos = () => {
                   <TrendingUp className="w-7 h-7 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-body font-normal text-xl text-foreground">John Alexander Escobar Sánchez</h3>
+                  <h3 className="font-display font-medium text-xl text-foreground">John Alexander Escobar Sánchez</h3>
                   <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
                 </div>
               </div>
