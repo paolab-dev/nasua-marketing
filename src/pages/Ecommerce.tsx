@@ -250,7 +250,7 @@ const Ecommerce = () => {
                 {...fadeUp}
                 className="group bg-card rounded-xl border border-border p-6 cursor-pointer hover:border-secondary/50 transition-colors"
               >
-                <summary className="font-display font-bold text-foreground list-none flex items-center justify-between">
+                <summary className="font-body font-bold text-foreground list-none flex items-center justify-between">
                   <span>{item.q}</span>
                   <span className="text-secondary ml-4 group-open:rotate-45 transition-transform text-2xl">+</span>
                 </summary>
