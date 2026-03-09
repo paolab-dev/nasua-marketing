@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 import { Zap, Rocket, Target, Lightbulb, CreditCard, FileText, Palette, CheckCircle, Shield, Database, Server, MessageSquare } from "lucide-react";
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
