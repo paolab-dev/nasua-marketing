@@ -44,9 +44,13 @@ const Navbar = () => {
           </a>
 
           {/* Servicios dropdown */}
-          <div ref={dropdownRef} className="relative">
+          <div
+            ref={dropdownRef}
+            className="relative"
+            onMouseEnter={() => setServiciosOpen(true)}
+            onMouseLeave={() => setServiciosOpen(false)}
+          >
             <button
-              onClick={() => setServiciosOpen(!serviciosOpen)}
               className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
             >
               Servicios
@@ -57,17 +61,18 @@ const Navbar = () => {
             </button>
 
             {serviciosOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-primary border border-primary-foreground/15 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                {servicios.map((s) => (
-                  <a
-                    key={s.href}
-                    href={s.href}
-                    className="block px-4 py-2.5 text-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/5 transition-colors"
-                    onClick={() => setServiciosOpen(false)}
-                  >
-                    {s.label}
-                  </a>
-                ))}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-52">
+                <div className="bg-primary border border-primary-foreground/15 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                  {servicios.map((s) => (
+                    <a
+                      key={s.href}
+                      href={s.href}
+                      className="block px-4 py-2.5 text-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/5 transition-colors"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
           </div>
