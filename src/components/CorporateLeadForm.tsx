@@ -300,7 +300,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
             <DialogTitle className="sr-only">Solicitud recibida</DialogTitle>
             <CheckCircle className="w-16 h-16 text-secondary mx-auto mb-4" />
-            <h3 className="text-2xl font-display font-bold text-foreground mb-3">¡Solicitud recibida!</h3>
+            <h3 className="text-2xl font-body font-normal text-foreground mb-3">¡Solicitud recibida!</h3>
             <p className="text-muted-foreground font-body leading-relaxed max-w-md mx-auto">
               Tu información ha sido enviada correctamente. Nuestro equipo revisará tu proyecto y te contactará pronto para iniciar el proceso de creación de tu sitio web empresarial.
             </p>
