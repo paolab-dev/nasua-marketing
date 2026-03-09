@@ -200,9 +200,15 @@ const Ecommerce = () => {
               <p className="text-sm font-semibold text-foreground font-body mb-4">
                 ✦ Automatización total, cobros 24/7 y gestión de pedidos sin intervención humana.
               </p>
-              <p className="text-lg font-bold text-secondary font-display">
+              <p className="text-lg font-bold text-secondary font-display mb-6">
                 Desde $Y.YYY.YYY
               </p>
+              <button
+                onClick={() => openFormWithModel("automatica")}
+                className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Crear tienda automática
+              </button>
             </motion.div>
           </div>
         </div>
