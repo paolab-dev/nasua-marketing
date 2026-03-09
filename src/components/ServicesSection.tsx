@@ -57,21 +57,21 @@ const ServicesSection = () => {
               <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
                 <s.icon className="w-7 h-7 text-secondary" />
               </div>
-              <h3 className="font-display font-medium text-xl text-primary-foreground mb-1">
+              <h3 className="font-body font-medium text-xl text-primary-foreground mb-1">
                 {s.title}
               </h3>
-              <p className="text-accent font-semibold text-sm mb-2">
+              <p className="text-accent font-semibold font-body text-sm mb-2">
                 {s.subtitle}
               </p>
-              <p className="text-secondary font-bold text-sm mb-3">
+              <p className="text-secondary font-bold font-body text-sm mb-3">
                 ⏱ {s.time}
               </p>
-              <p className="text-primary-foreground/70 text-sm flex-1 mb-6">
+              <p className="text-primary-foreground/70 text-sm font-body font-normal flex-1 mb-6">
                 {s.desc}
               </p>
               <a
                 href={s.href}
-                className="inline-block border border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold px-6 py-3 rounded-lg transition-all"
+                className="inline-block border border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold font-body px-6 py-3 rounded-lg transition-all"
               >
                 Ver más
               </a>
