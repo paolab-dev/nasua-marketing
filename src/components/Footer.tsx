@@ -1,19 +1,24 @@
 import nasuaLogo from "@/assets/nasua-logo.jpg";
 
-const navLinks = [
-  { href: "/adn-nasua", label: "ADN" },
-  { href: "/landing-page", label: "Landing" },
+const serviciosLinks = [
+  { href: "/landing-page", label: "Landing Page" },
   { href: "/ecommerce", label: "E-commerce" },
-  { href: "/sitio-corporativo", label: "Empresa" },
+  { href: "/sitio-corporativo", label: "Sitio Corporativo" },
   { href: "/estrategia", label: "Estrategia" },
-  { href: "/contacto", label: "Contacto" },
+];
+
+const agenciaLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/adn-nasua", label: "ADN Nasua" },
+  { href: "/quienes-somos", label: "Quiénes Somos" },
 ];
 
 const Footer = () => {
   return (
     <footer className="bg-primary section-padding py-12">
       <div className="container mx-auto max-w-5xl flex flex-col gap-8">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+          {/* Logo y tagline */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-3">
               <a href="/">
@@ -23,33 +28,61 @@ const Footer = () => {
                 nasua
               </a>
             </div>
-            <h3 className="text-primary-foreground/80 font-body text-sm max-w-xs text-center md:text-left">
+            <p className="text-primary-foreground/80 font-body text-sm max-w-xs text-center md:text-left">
               Nasua: Democratizando la tecnología de punta en Colombia.
-            </h3>
+            </p>
           </div>
-          <nav className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+
+          {/* Columnas */}
+          <div className="flex flex-wrap justify-center md:justify-end gap-12">
+            {/* Servicios */}
+            <div className="flex flex-col gap-3">
+              <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Servicios</h4>
+              <nav className="flex flex-col gap-2">
+                {serviciosLinks.map((link) => (
+                  <a key={link.href} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Agencia */}
+            <div className="flex flex-col gap-3">
+              <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Agencia</h4>
+              <nav className="flex flex-col gap-2">
+                {agenciaLinks.map((link) => (
+                  <a key={link.href} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Contacto */}
+            <div className="flex flex-col gap-3">
+              <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Contacto</h4>
+              <div className="flex flex-col gap-2 text-primary-foreground/60 text-sm">
+                <a href="mailto:paola@nasua.co" className="hover:text-primary-foreground transition-colors">paola@nasua.co</a>
+                <a href="mailto:alex@nasua.co" className="hover:text-primary-foreground transition-colors">alex@nasua.co</a>
+                <p className="text-primary-foreground/50 mt-1">Bogotá & Medellín, Colombia 🇨🇴</p>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col items-center gap-3">
-          <div className="flex gap-4">
+          <div className="flex gap-2 items-center">
             <a href="/politica-privacidad" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
               Política de Privacidad
             </a>
+            <span className="text-primary-foreground/30">|</span>
             <a href="/terminos-condiciones" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
               Términos y Condiciones
             </a>
           </div>
           <p className="text-primary-foreground/60 text-sm text-center">
-            © 2026 Nasua. Todos los derechos reservados. Hecho en Colombia 🇨🇴
+            © 2026 Nasua. Todos los derechos reservados.
           </p>
         </div>
       </div>
