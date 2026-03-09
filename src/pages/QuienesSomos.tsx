@@ -141,7 +141,7 @@ const QuienesSomos = () => {
                   <Palette className="w-7 h-7 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-xl text-foreground">Paola Bohórquez Guevara</h3>
+                  <h3 className="font-body font-normal text-xl text-foreground">Paola Bohórquez Guevara</h3>
                   <p className="text-secondary font-semibold text-sm">Directora UX/UI</p>
                 </div>
               </div>
