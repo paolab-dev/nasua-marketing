@@ -145,7 +145,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
             <AnimatePresence mode="wait">
               {step === 1 && (
                 <motion.div key="step1" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                  <h3 className="text-xl font-display font-bold text-foreground mb-1">Cuéntanos sobre tu empresa</h3>
+                  <h3 className="text-xl font-body font-normal text-foreground mb-1">Cuéntanos sobre tu empresa</h3>
                   <p className="text-sm text-muted-foreground font-body mb-6">Esto nos permitirá preparar tu proyecto de sitio web empresarial.</p>
 
                   <div className="space-y-4">
@@ -183,7 +183,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
 
               {step === 2 && (
                 <motion.div key="step2" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                  <h3 className="text-xl font-display font-bold text-foreground mb-1">Sobre tu empresa</h3>
+                  <h3 className="text-xl font-body font-normal text-foreground mb-1">Sobre tu empresa</h3>
                   <p className="text-sm text-muted-foreground font-body mb-6">Necesitamos entender qué hace tu negocio para estructurar correctamente el sitio.</p>
 
                   <div className="space-y-4">
@@ -224,7 +224,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
 
               {step === 3 && (
                 <motion.div key="step3" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                  <h3 className="text-xl font-display font-bold text-foreground mb-1">Contenido para tu sitio web</h3>
+                  <h3 className="text-xl font-body font-normal text-foreground mb-1">Contenido para tu sitio web</h3>
                   <p className="text-sm text-muted-foreground font-body mb-6">Esto nos ayuda a organizar tu web empresarial.</p>
 
                   <div className="space-y-5">
@@ -300,7 +300,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
             <DialogTitle className="sr-only">Solicitud recibida</DialogTitle>
             <CheckCircle className="w-16 h-16 text-secondary mx-auto mb-4" />
-            <h3 className="text-2xl font-display font-bold text-foreground mb-3">¡Solicitud recibida!</h3>
+            <h3 className="text-2xl font-body font-normal text-foreground mb-3">¡Solicitud recibida!</h3>
             <p className="text-muted-foreground font-body leading-relaxed max-w-md mx-auto">
               Tu información ha sido enviada correctamente. Nuestro equipo revisará tu proyecto y te contactará pronto para iniciar el proceso de creación de tu sitio web empresarial.
             </p>

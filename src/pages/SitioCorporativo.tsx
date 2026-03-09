@@ -199,7 +199,7 @@ const SitioCorporativo = () => {
                   <step.icon className="w-7 h-7 text-secondary" />
                 </div>
                 <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-                <h3 className="font-display font-bold text-primary-foreground mb-2">{step.title}</h3>
+                <h3 className="font-body font-normal text-primary-foreground mb-2">{step.title}</h3>
                 <p className="text-primary-foreground/70 text-sm font-body leading-relaxed">{step.text}</p>
               </motion.div>
             ))}

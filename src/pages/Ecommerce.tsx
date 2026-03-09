@@ -156,7 +156,7 @@ const Ecommerce = () => {
                 <MessageCircle className="w-7 h-7 text-accent" />
               </div>
               <p className="text-accent font-bold text-sm uppercase tracking-wider mb-2">Opción A</p>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-2">
+              <h3 className="font-body font-normal text-2xl text-foreground mb-2">
                 Venta Directa a WhatsApp
               </h3>
               <p className="text-sm font-semibold text-accent font-body mb-4">
@@ -188,7 +188,7 @@ const Ecommerce = () => {
                 <CreditCard className="w-7 h-7 text-secondary" />
               </div>
               <p className="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Opción B</p>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-2">
+              <h3 className="font-body font-normal text-2xl text-foreground mb-2">
                 Venta 100% Automática
               </h3>
               <p className="text-sm font-semibold text-secondary font-body mb-4">
@@ -248,7 +248,7 @@ const Ecommerce = () => {
                   <step.icon className="w-7 h-7 text-secondary" />
                 </div>
                 <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-                <h3 className="font-display font-bold text-foreground mb-2">{step.title}</h3>
+                <h3 className="font-body font-normal text-foreground mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
               </motion.div>
             ))}
