@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StrategyLeadForm from "@/components/StrategyLeadForm";
 import { Search, Zap, BarChart3, Target, Megaphone, ClipboardCheck, Rocket, TrendingUp } from "lucide-react";
 
 const fadeUp = {
