@@ -242,7 +242,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-6 max-w-3xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Preguntas frecuentes
+              Preguntas <span className="text-gradient">frecuentes</span>
             </h2>
           </motion.div>
 
