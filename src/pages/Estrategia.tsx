@@ -244,6 +244,7 @@ const Estrategia = () => {
       </section>
 
       <Footer />
+      <StrategyLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };
