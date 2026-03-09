@@ -224,7 +224,7 @@ const SitioCorporativo = () => {
                 className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
               >
                 <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
-                <h3 className="font-display font-bold text-xl text-foreground mb-3">
+                <h3 className="font-body font-normal text-xl text-foreground mb-3">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground font-body leading-relaxed">

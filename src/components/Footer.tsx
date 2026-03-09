@@ -18,9 +18,9 @@ const Footer = () => {
   return (
     <footer className="bg-primary section-padding py-12">
       <div className="container mx-auto max-w-5xl flex flex-col gap-8">
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
           {/* Logo y tagline */}
-          <div className="flex flex-col items-center md:items-start gap-3 md:max-w-[140px]">
+          <div className="flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-3">
               <a href="/">
                 <img src={nasuaLogo} alt="Nasua" className="w-12 h-12 rounded-lg object-cover" />
@@ -34,51 +34,49 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Columnas */}
-          <div className="flex flex-wrap justify-center md:justify-end gap-12">
-            {/* Servicios */}
-            <div className="flex flex-col gap-3">
-              <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Servicios</h4>
-              <nav className="flex flex-col gap-2">
-                {serviciosLinks.map((link) => (
-                  <a key={link.href} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
-                    {link.label}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Agencia */}
-            <div className="flex flex-col gap-3">
-              <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Agencia</h4>
-              <nav className="flex flex-col gap-2">
-                {agenciaLinks.map((link) => (
-                  <a key={link.href} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
-                    {link.label}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Contacto */}
-            <div className="flex flex-col gap-3">
-              <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Contacto</h4>
-              <div className="flex flex-col gap-2 text-primary-foreground/60 text-sm">
-                <a href="mailto:paola@nasua.co" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
-                  <Mail size={14} />
-                  paola@nasua.co
+          {/* Servicios */}
+          <div className="flex flex-col gap-3 text-center md:text-left">
+            <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Servicios</h4>
+            <nav className="flex flex-col gap-2">
+              {serviciosLinks.map((link) => (
+                <a key={link.href} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+                  {link.label}
                 </a>
-                <a href="mailto:alex@nasua.co" className="hover:text-primary-foreground transition-colors flex items-center gap-2">
-                  <Mail size={14} />
-                  alex@nasua.co
+              ))}
+            </nav>
+          </div>
+
+          {/* Agencia */}
+          <div className="flex flex-col gap-3 text-center md:text-left">
+            <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Agencia</h4>
+            <nav className="flex flex-col gap-2">
+              {agenciaLinks.map((link) => (
+                <a key={link.href} href={link.href} className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+                  {link.label}
                 </a>
-                <p className="text-primary-foreground/50 mt-1 flex items-center gap-2">
-                  <MapPin size={14} />
-                  Bogotá & Medellín, Colombia 🇨🇴
-                </p>
-              </div>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contacto */}
+          <div className="flex flex-col gap-3 text-center md:text-left">
+            <h4 className="text-primary-foreground font-display font-bold text-sm uppercase tracking-wider">Contacto</h4>
+            <div className="flex flex-col gap-2 text-primary-foreground/60 text-sm">
+              <a href="mailto:paola@nasua.co" className="hover:text-primary-foreground transition-colors flex items-center gap-2 justify-center md:justify-start">
+                <Mail size={14} />
+                paola@nasua.co
+              </a>
+              <a href="mailto:alex@nasua.co" className="hover:text-primary-foreground transition-colors flex items-center gap-2 justify-center md:justify-start">
+                <Mail size={14} />
+                alex@nasua.co
+              </a>
+              <p className="text-primary-foreground/50 mt-1 flex items-center gap-2 justify-center md:justify-start">
+                <MapPin size={14} />
+                Bogotá & Medellín, Colombia 🇨🇴
+              </p>
             </div>
           </div>
+        </div>
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col items-center gap-3">
