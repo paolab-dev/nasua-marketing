@@ -285,6 +285,7 @@ const Ecommerce = () => {
         </div>
       </section>
 
+      <EcommerceLeadForm open={formOpen} onOpenChange={setFormOpen} preselectedModel={preselectedModel} />
       <Footer />
     </div>
   );
