@@ -126,12 +126,12 @@ const LandingPage = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <a
-              href="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+            <button
+              onClick={() => setFormOpen(true)}
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
             >
               👉 ¡Quiero mi Landing en 2 días!
-            </a>
+            </button>
             <a
               href="https://www.bancolombia.com/pagos/compra-y-paga-despues"
               target="_blank"
