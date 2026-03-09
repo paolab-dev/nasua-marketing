@@ -145,7 +145,7 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
             <AnimatePresence mode="wait">
               {step === 1 && (
                 <motion.div key="step1" variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.3 }}>
-                  <h3 className="text-xl font-body font-normal text-foreground mb-1">Cuéntanos sobre tu empresa</h3>
+                  <h3 className="text-xl font-display font-medium text-foreground mb-1">Cuéntanos sobre tu empresa</h3>
                   <p className="text-sm text-muted-foreground font-body mb-6">Esto nos permitirá preparar tu proyecto de sitio web empresarial.</p>
 
                   <div className="space-y-4">
