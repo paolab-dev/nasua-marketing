@@ -5,6 +5,7 @@ const navLinks = [
   { href: "/landing-page", label: "Landing" },
   { href: "/ecommerce", label: "E-commerce" },
   { href: "/sitio-corporativo", label: "Empresa" },
+  { href: "/estrategia", label: "Estrategia" },
   { href: "/contacto", label: "Contacto" },
 ];
 
