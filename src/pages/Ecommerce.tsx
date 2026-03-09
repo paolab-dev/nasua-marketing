@@ -156,7 +156,7 @@ const Ecommerce = () => {
                 <MessageCircle className="w-7 h-7 text-accent" />
               </div>
               <p className="text-accent font-bold text-sm uppercase tracking-wider mb-2">Opción A</p>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-2">
+              <h3 className="font-body font-normal text-2xl text-foreground mb-2">
                 Venta Directa a WhatsApp
               </h3>
               <p className="text-sm font-semibold text-accent font-body mb-4">
