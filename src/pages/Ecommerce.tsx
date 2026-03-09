@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import EcommerceLeadForm from "@/components/EcommerceLeadForm";
 import { MessageCircle, CreditCard, Search, Smartphone, CheckCircle, Zap, Package, Rocket, ShoppingCart, Shield, Users } from "lucide-react";
 
 const fadeUp = {
@@ -63,6 +65,14 @@ const steps = [
 ];
 
 const Ecommerce = () => {
+  const [formOpen, setFormOpen] = useState(false);
+  const [preselectedModel, setPreselectedModel] = useState<string | undefined>();
+
+  const openFormWithModel = (model: string) => {
+    setPreselectedModel(model);
+    setFormOpen(true);
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -158,9 +168,15 @@ const Ecommerce = () => {
               <p className="text-sm font-semibold text-foreground font-body mb-4">
                 ✦ Más económico, configuración rápida y control total del contacto con el cliente.
               </p>
-              <p className="text-lg font-bold text-accent font-display">
+              <p className="text-lg font-bold text-accent font-display mb-6">
                 Desde $X.XXX.XXX
               </p>
+              <button
+                onClick={() => openFormWithModel("whatsapp")}
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Crear tienda por WhatsApp
+              </button>
             </motion.div>
 
             {/* Opción B: Pasarela */}
@@ -184,9 +200,15 @@ const Ecommerce = () => {
               <p className="text-sm font-semibold text-foreground font-body mb-4">
                 ✦ Automatización total, cobros 24/7 y gestión de pedidos sin intervención humana.
               </p>
-              <p className="text-lg font-bold text-secondary font-display">
+              <p className="text-lg font-bold text-secondary font-display mb-6">
                 Desde $Y.YYY.YYY
               </p>
+              <button
+                onClick={() => openFormWithModel("automatica")}
+                className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Crear tienda automática
+              </button>
             </motion.div>
           </div>
         </div>
@@ -263,6 +285,7 @@ const Ecommerce = () => {
         </div>
       </section>
 
+      <EcommerceLeadForm open={formOpen} onOpenChange={setFormOpen} preselectedModel={preselectedModel} />
       <Footer />
     </div>
   );
