@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Zap, CreditCard, FileCheck, BookOpen, ShieldCheck, Headphones } from "lucide-react";
+import { Zap, CreditCard, Search, BookOpen, ShieldCheck, Headphones } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -25,7 +25,7 @@ const AdnNasua = () => {
             transition={{ duration: 0.5 }}
             className="text-secondary font-semibold tracking-widest uppercase text-sm mb-4 font-body"
           >
-            La Realidad del Crecimiento
+            🧬 Nuestra Filosofía de Trabajo
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -33,8 +33,8 @@ const AdnNasua = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            ADN Nasua: Tu Infraestructura de Crecimiento Gestionada con{" "}
-            <span className="text-gradient">Transparencia Total</span>.
+            ADN Nasua: Tu Infraestructura de Crecimiento Gestionada desde{" "}
+            <span className="text-gradient">48 horas</span>.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -43,8 +43,9 @@ const AdnNasua = () => {
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
             Creemos que los dueños de negocio en Colombia deben enfocarse en vender,
-            no en programar. Somos el motor técnico detrás de tu marca, garantizando
-            rapidez, financiación y la propiedad legal de tus activos.
+            no en programar. Somos el motor técnico y estratégico detrás de tu marca,
+            garantizando resultados rápidos, opciones de financiación y la propiedad
+            legal absoluta de tus activos.
           </motion.p>
         </div>
       </section>
@@ -64,15 +65,16 @@ const AdnNasua = () => {
           >
             <p>
               En el modelo tradicional, te entregan un sitio web y te dejan solo en un
-              laberinto técnico. O peor, te mantienen como rehén sin acceso a nada.
+              laberinto técnico. O peor, te mantienen como rehén sin acceso a tus propias claves.
             </p>
             <p>
-              <strong className="text-foreground">La Diferencia Nasua:</strong> En Nasua
-              operamos bajo el concepto de{" "}
+              <strong className="text-foreground">La Diferencia Nasua:</strong> Operamos
+              bajo el concepto de{" "}
               <strong className="text-foreground">Infraestructura Gestionada</strong>.
-              Nosotros nos encargamos de que todo vuele, se actualice y funcione. Tú te
-              apalancas de nuestra técnica para la excelencia, pero nunca serás nuestro
-              rehén. Tú eres el dueño legal de la empresa, y por ende, de su casa digital.
+              Nosotros nos encargamos de que todo vuele, se actualice y funcione a la
+              perfección. Tú te apalancas en nuestra técnica para alcanzar la excelencia,
+              pero nunca serás nuestro rehén. Tú eres el dueño legal de tu empresa y,
+              por lo tanto, el único dueño de su casa digital.
             </p>
           </motion.div>
         </div>
@@ -83,7 +85,7 @@ const AdnNasua = () => {
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div {...fadeUp} className="text-center mb-8">
             <h3 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Los 3 Pilares de la Filosofía{" "}
+              Los 3 Pilares{" "}
               <span className="text-gradient">Nasua</span>
             </h3>
           </motion.div>
@@ -92,18 +94,18 @@ const AdnNasua = () => {
             {[
               {
                 icon: Zap,
-                label: "Velocidad sin Excusas",
-                desc: "Usamos IA profesional para entregar en 7 días. Lo que otros tardan meses, nosotros lo resolvemos en una semana porque el mercado no espera.",
+                label: "Velocidad Radical (Desde 48 Horas)",
+                desc: "El mercado no espera. Por eso, usamos tecnología de vanguardia (IA y Vibe Coding) para entregar una Landing Page profesional en solo 2 días. Lo que otros tardan meses, nosotros lo resolvemos en tiempo récord porque sabemos que cada día sin web es un día sin ventas.",
               },
               {
                 icon: CreditCard,
-                label: "Democratización Financiera",
-                desc: "Gracias a nuestro aliado Wompi, eliminamos la barrera del capital. Si tienes la visión, tienes la financiación.",
+                label: "Alta Calidad a Bajo Costo",
+                desc: "Democratizamos la tecnología de punta. Ofrecemos soluciones de nivel multinacional a precios accesibles para el empresario local. Además, flexibilizamos tu inversión: puedes pagar de contado o financiar hasta en 4 cuotas con Wompi. Tú eliges cómo crecer.",
               },
               {
-                icon: FileCheck,
-                label: "Transparencia de Salida",
-                desc: "Nuestra mayor garantía de calidad es que no te obligamos a quedarte. Si algún día decides migrar, facilitamos la entrega de tus activos mediante un Contrato de Transferencia claro y directo.",
+                icon: Search,
+                label: "Contenido que Google Entiende",
+                desc: "No solo 'pegamos' tus textos. Nuestro equipo de mercadeo organiza tu información para que los buscadores te encuentren fácil. Le hablamos clarito a Google para que tu mensaje no se pierda y tu negocio aparezca donde tiene que estar: frente a tus clientes.",
               },
             ].map((item) => (
               <div
@@ -128,7 +130,7 @@ const AdnNasua = () => {
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div {...fadeUp} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              ¿Por qué construir tu sitio web con Nasua es tu{" "}
+              ¿Por qué construir con Nasua es tu{" "}
               <span className="text-gradient">mejor decisión</span>?
             </h2>
           </motion.div>
@@ -138,17 +140,17 @@ const AdnNasua = () => {
               {
                 icon: BookOpen,
                 title: "Cero curva de aprendizaje",
-                text: "No tienes que aprender a usar herramientas difíciles.",
+                text: "No pierdas tiempo aprendiendo a usar herramientas difíciles. Tú nos dices qué necesitas y nosotros lo ejecutamos.",
               },
               {
                 icon: ShieldCheck,
-                title: "Seguridad Continua",
-                text: "Nosotros vigilamos que tu sitio esté en línea y seguro.",
+                title: "Soberanía Legal",
+                text: "Si algún día decides migrar, te facilitamos la entrega de tus activos mediante un Contrato de Transferencia claro. Sin peleas, sin dramas.",
               },
               {
                 icon: Headphones,
-                title: "Soporte de Élite",
-                text: "Un equipo que entiende tu negocio en Colombia y ejecuta tus cambios en tiempo récord.",
+                title: "Soporte de Directores",
+                text: "Tu proyecto no lo hace un pasante. Tienes el respaldo directo de Paola (Directora UX/UI) y Alex (Director de Mercadeo).",
               },
             ].map((pillar) => (
               <motion.div
