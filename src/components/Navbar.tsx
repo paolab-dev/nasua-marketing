@@ -6,6 +6,7 @@ const servicios = [
   { href: "/landing-page", label: "Landing Page" },
   { href: "/sitio-corporativo", label: "Sitio Corporativo" },
   { href: "/ecommerce", label: "eCommerce" },
+  { href: "/estrategia", label: "Estrategia" },
 ];
 
 const Navbar = () => {
