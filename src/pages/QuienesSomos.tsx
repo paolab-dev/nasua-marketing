@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Users, Palette, TrendingUp } from "lucide-react";
+import { Palette, TrendingUp, Zap, Clock, Search, Shield } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -13,44 +13,67 @@ const fadeUp = {
 
 const faqItems = [
   {
-    q: "¿Qué hace diferente al equipo de Nasua frente a otras agencias?",
-    a: "La diferencia radica en nuestro equilibrio: unimos la arquitectura digital estética de Paola (Canva Creator) con la estrategia de crecimiento y psicología del consumidor de John (ex-Samsung). No solo creamos páginas; construimos infraestructuras comerciales que generan dinero.",
+    q: "¿Quiénes están detrás de Nasua?",
+    a: "Nasua es liderada por Paola Bohórquez (experta en diseño UX/UI global) y John Alexander Escobar (estratega de mercadeo ex-Samsung). Juntos combinan diseño de primer nivel con estrategias de ventas probadas.",
   },
   {
-    q: "¿Por qué confiar en la dirección técnica de Paola Bohórquez?",
-    a: "Paola cuenta con más de dos décadas de experiencia y ha sido validada globalmente como creadora oficial de Canva para Latinoamérica. Su capacidad para simplificar arquitecturas complejas permite que tu negocio tenga tecnología de punta sin la fricción de los métodos tradicionales.",
+    q: "¿Por qué dicen que soy el dueño legal de mi web?",
+    a: "Porque lo eres. A diferencia de otros modelos, en Nasua el dominio y los activos están a tu nombre. Nosotros gestionamos la técnica por comodidad para ti, pero tú tienes la soberanía total por contrato.",
   },
   {
-    q: "¿Cómo garantiza John Escobar que mi inversión sea rentable?",
-    a: "John ha manejado presupuestos masivos y ha liderado estrategias para marcas líderes como Samsung. Su enfoque no es \"tener una web\", sino usar la inteligencia de negocios y el posicionamiento orgánico para que tu inversión se traduzca en flujo de caja constante.",
+    q: "¿Cómo ayuda un Director de Mercadeo en la creación de mi web?",
+    a: "Alex se encarga de que tu contenido no sea solo 'bonito'. Él organiza la información para que Google la entienda (semántica), mejorando tus posibilidades de aparecer en los primeros resultados.",
   },
   {
-    q: "¿Los fundadores de Nasua realmente entienden los retos de una Pyme en Colombia?",
-    a: "Totalmente. John ha fundado empresas en sectores reales como el turismo y el retail. Conocemos de primera mano los desafíos de presupuesto, nómina y ventas que enfrentas. Por eso creamos un modelo financiado y rápido.",
+    q: "¿Qué significa que Paola sea Creadora Oficial de Canva?",
+    a: "Es un sello de calidad global. Significa que su criterio estético y capacidad de diseño han sido validados por una de las plataformas tecnológicas más grandes del mundo. Tu web tendrá estándares de diseño internacional.",
   },
   {
-    q: '¿Qué es el "Vibe Coding" y cómo beneficia a mi empresa?',
-    a: "Es nuestra metodología de desarrollo guiada por IA que Paola lidera. Nos permite ser 10 veces más rápidos que la competencia sin sacrificar la calidad técnica, entregando tu proyecto en 7 días en lugar de meses.",
+    q: "¿Nasua es una agencia tradicional?",
+    a: "No. Somos un aliado de Infraestructura Gestionada. No te cobramos por 'horas hombre' lentas, sino por resultados rápidos y soporte técnico continuo para que tú nunca sufras con la tecnología.",
   },
   {
-    q: "¿Cómo se aplica la psicología del consumidor en el diseño de mi sitio?",
-    a: "John integra el análisis del comportamiento humano en la estructura de cada página. Esto asegura que cada botón, texto y sección esté diseñado para capturar la atención y convertir visitantes en clientes reales.",
+    q: "¿Realmente entienden el mercado colombiano?",
+    a: "Totalmente. Alex ha fundado empresas en Colombia y entiende los retos de flujo de caja y ventas de las Pymes locales. Por eso incluimos opciones de pago como Wompi hasta en 4 cuotas.",
   },
   {
-    q: "¿Nasua tiene experiencia en mercados fuera de Colombia?",
-    a: "Sí. Ambos fundadores han liderado proyectos y equipos en EE.UU., Canadá, Europa, Australia e India. Traemos los estándares de calidad del primer mundo a la realidad del empresario colombiano.",
+    q: "¿Qué es el Vibe Coding que mencionan?",
+    a: "Es nuestra metodología de desarrollo acelerada por IA. Nos permite construir en horas lo que antes tomaba semanas, manteniendo una calidad técnica superior y reduciendo los costos para ti.",
   },
   {
-    q: '¿Por qué el equipo de Nasua insiste en la "Infraestructura Gestionada"?',
-    a: "Porque sabemos que tú debes dedicarte a tu negocio. Paola y John diseñaron un modelo donde Nasua opera la tecnología para que tú nunca tengas que pelear con un código o un servidor, actuando como tu departamento técnico delegado.",
+    q: "¿Qué pasa si necesito soporte un domingo?",
+    a: "Contamos con sistemas de monitoreo 24/7. Nuestra gestión asegura que tu sitio esté siempre en línea, y nuestro equipo de soporte humano atiende tus cambios en tiempo récord.",
   },
   {
-    q: "¿Qué respaldo legal me dan los fundadores sobre mi propiedad?",
-    a: "La transparencia es nuestro valor no negociable. Aunque nosotros gestionamos la operación para tu comodidad, Paola y John garantizan mediante contrato que tú eres el único dueño legal de tu dominio, tus datos y tus activos digitales.",
+    q: "¿Por qué ofrecen precios tan bajos comparados con agencias grandes?",
+    a: "Porque no tenemos la burocracia ni la lentitud de las agencias grandes. Usamos tecnología de punta para ser eficientes y te pasamos ese ahorro a ti en el precio final.",
   },
   {
-    q: "¿Es posible escalar mi negocio con Nasua a largo plazo?",
-    a: "Esa es nuestra especialidad. La visión de John en modelos de negocio y la capacidad de Paola para crear Micro-SaaS y aplicaciones aseguran que la infraestructura que construimos hoy sea el cimiento sólido sobre el cual puedas escalar mañana.",
+    q: "¿Cuál es la visión a largo plazo de Nasua con mi negocio?",
+    a: "Queremos ser tu departamento de tecnología. Que tú te olvides de los servidores, los virus y las actualizaciones, y te concentres en lo que mejor haces: hacer crecer tu negocio.",
+  },
+];
+
+const benefits = [
+  {
+    icon: Zap,
+    title: "Bajo Costo y Alta Calidad",
+    text: "Gracias a la IA y procesos optimizados, eliminamos los sobrecostos de las agencias lentas.",
+  },
+  {
+    icon: Clock,
+    title: "Velocidad sin Excusas",
+    text: "Entregamos desde 2 días (Landings) hasta 10 días (E-commerce).",
+  },
+  {
+    icon: Search,
+    title: "Organización de Contenidos",
+    text: "No 'pegamos' textos; los estructuramos para que Google te encuentre de una.",
+  },
+  {
+    icon: Shield,
+    title: "Soberanía Legal",
+    text: "Tú tienes el título de propiedad. Si algún día decides irte, te facilitamos el camino.",
   },
 ];
 
@@ -68,8 +91,8 @@ const QuienesSomos = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Quiénes Somos | Nasua - Arquitectura Digital y Estrategia de Crecimiento</title>
-        <meta name="description" content="Conoce al equipo fundador de Nasua: Paola Bohórquez (Canva Creator LATAM) y John Escobar (ex-Samsung). Arquitectura digital global y estrategia de crecimiento para tu negocio." />
+        <title>Quiénes Somos | Nasua - Las mentes detrás de tu infraestructura de crecimiento</title>
+        <meta name="description" content="Conoce al equipo de Nasua: Paola Bohórquez (Canva Creator LATAM, Directora UX/UI) y John Escobar (Director de Mercadeo ex-Samsung). Infraestructura gestionada para tu negocio." />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
@@ -84,27 +107,26 @@ const QuienesSomos = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Nasua: Arquitectura Digital Global y{" "}
-            <span className="text-gradient">Estrategia de Crecimiento</span>.
+            Las mentes detrás de tu{" "}
+            <span className="text-gradient">infraestructura de crecimiento.</span>
           </motion.h1>
-          <motion.h3
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
-            Nasua nace de la unión de dos trayectorias de alto impacto que fusionan el diseño de clase mundial con la inteligencia de negocios a gran escala.
-          </motion.h3>
+            En Nasua no solo construimos sitios web; diseñamos la base técnica y estratégica para que tu negocio escale sin fricciones. Somos el equipo que entiende que tú debes dedicarte a vender, mientras nosotros hacemos que la tecnología trabaje para ti.
+          </motion.p>
         </div>
       </section>
 
-      {/* Equipo Fundador */}
+      {/* El Dúo Estratégico */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
-              El Equipo Fundador: Experiencia que{" "}
-              <span className="text-gradient">Transforma Negocios</span>
+              El Dúo <span className="text-gradient">Estratégico</span>
             </h2>
           </motion.div>
 
@@ -120,11 +142,14 @@ const QuienesSomos = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl text-foreground">Paola Bohórquez Guevara</h3>
-                  <p className="text-secondary font-semibold text-sm">Lead Digital Architect · Canva Creator LATAM</p>
+                  <p className="text-secondary font-semibold text-sm">Directora UX/UI</p>
                 </div>
               </div>
+              <p className="text-muted-foreground font-body leading-relaxed italic mb-4">
+                "La arquitectura digital no es solo que se vea bien, es que funcione para el usuario."
+              </p>
               <p className="text-muted-foreground font-body leading-relaxed">
-                Aporta más de 20 años de experiencia construyendo ecosistemas digitales en mercados globales. Su maestría en Vibe Coding y arquitectura de información garantiza que cada proyecto sea una pieza de ingeniería visual rápida, escalable y estética.
+                Arquitecta digital con más de 20 años de experiencia en mercados globales (EE.UU., Australia, Europa). Como Creadora Oficial de Canva para LATAM, Paola fusiona una sensibilidad estética de élite con la eficiencia del Vibe Coding. Su misión es asegurar que tu web no solo sea hermosa, sino que sea rápida, intuitiva y profesional.
               </p>
             </motion.div>
 
@@ -139,32 +164,55 @@ const QuienesSomos = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl text-foreground">John Alexander Escobar Sánchez</h3>
-                  <p className="text-secondary font-semibold text-sm">Strategic Growth Director</p>
+                  <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
                 </div>
               </div>
+              <p className="text-muted-foreground font-body leading-relaxed italic mb-4">
+                "La tecnología sin estrategia es solo un adorno. Hablémosle clarito a Google."
+              </p>
               <p className="text-muted-foreground font-body leading-relaxed">
-                Aporta la visión del emprendedor serial y el rigor del estratega corporativo. Con experiencia liderando el SEO de Samsung Colombia y gestionando presupuestos de pauta superiores a los $5.000 millones COP anuales, John asegura que cada infraestructura digital no solo sea funcional, sino que esté blindada por la psicología del consumidor y diseñada para generar rentabilidad real.
+                Estratega de mercadeo con más de una década de experiencia. Su trayectoria incluye el liderazgo SEO para Samsung Colombia y la gestión de presupuestos de pauta superiores a los $5.000 millones COP anuales. Alex es el experto en psicología del consumidor que toma tus textos y los organiza para que los buscadores te premien y tus clientes te elijan.
               </p>
             </motion.div>
           </div>
+        </div>
+      </section>
 
-          <motion.div {...fadeUp} className="text-center mt-14">
-            <div className="bg-primary/10 rounded-2xl p-8 border border-secondary/20">
-              <Users className="w-10 h-10 text-secondary mx-auto mb-4" />
-              <p className="text-lg md:text-xl text-foreground font-body leading-relaxed font-semibold">
-                Juntos, democratizan la tecnología de punta, entregando en 7 días la robustez que antes solo estaba al alcance de las grandes multinacionales.
-              </p>
-            </div>
+      {/* Por qué Nasua es tu mejor aliado */}
+      <section className="py-20 md:py-28 bg-muted/30">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+              Por qué Nasua es tu <span className="text-gradient">mejor aliado</span>
+            </h2>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {benefits.map((item) => (
+              <motion.div
+                key={item.title}
+                {...fadeUp}
+                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
+              >
+                <item.icon className="w-10 h-10 text-secondary mb-4" />
+                <h3 className="font-display font-bold text-xl text-foreground mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground font-body leading-relaxed">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-muted/30">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Las mentes detrás de <span className="text-gradient">Nasua</span>
+              Centro de Respuestas de <span className="text-gradient">Confianza</span>
             </h2>
           </motion.div>
 
