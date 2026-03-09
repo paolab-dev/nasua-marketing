@@ -142,10 +142,13 @@ const QuienesSomos = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-medium text-xl text-foreground">Paola Bohórquez Guevara</h3>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <p className="text-secondary font-semibold text-sm">Directora UX/UI</p>
-                    <a href="https://www.linkedin.com/in/paolabohorquez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Paola Bohórquez">
-                      <Linkedin className="w-4 h-4 text-secondary hover:text-secondary/70 transition-colors" />
+                    <a href="https://www.linkedin.com/in/paolabohorquez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Paola Bohórquez" className="bg-[#0A66C2] rounded p-0.5 hover:opacity-80 transition-opacity">
+                      <Linkedin className="w-4 h-4 text-white" />
+                    </a>
+                    <a href="https://www.canva.com/p/paola-bohorquez/" target="_blank" rel="noopener noreferrer" aria-label="Canva Creator de Paola Bohórquez" className="bg-gradient-to-r from-[#7D2AE8] to-[#00C4CC] rounded px-2 py-0.5 hover:opacity-80 transition-opacity">
+                      <span className="text-white text-xs font-bold">Canva Creator</span>
                     </a>
                   </div>
                 </div>
@@ -169,10 +172,10 @@ const QuienesSomos = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-medium text-xl text-foreground">John Alexander Escobar Sánchez</h3>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
-                    <a href="https://www.linkedin.com/in/alexanderescobarsanchez-marketing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de John Alexander Escobar">
-                      <Linkedin className="w-4 h-4 text-secondary hover:text-secondary/70 transition-colors" />
+                    <a href="https://www.linkedin.com/in/alexanderescobarsanchez-marketing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de John Alexander Escobar" className="bg-[#0A66C2] rounded p-0.5 hover:opacity-80 transition-opacity">
+                      <Linkedin className="w-4 h-4 text-white" />
                     </a>
                   </div>
                 </div>
