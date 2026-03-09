@@ -255,7 +255,7 @@ const Contacto = () => {
               className="bg-card rounded-2xl p-8 text-center border border-border"
             >
               <d.icon className="h-10 w-10 mx-auto mb-4 text-secondary" />
-              <h3 className="font-display text-lg font-bold text-foreground mb-2">{d.title}</h3>
+              <h3 className="font-body text-lg font-normal text-foreground mb-2">{d.title}</h3>
               <p className="text-sm text-muted-foreground">{d.desc}</p>
             </motion.div>
           ))}
