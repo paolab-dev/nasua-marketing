@@ -188,7 +188,7 @@ const Ecommerce = () => {
                 <CreditCard className="w-7 h-7 text-secondary" />
               </div>
               <p className="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Opción B</p>
-              <h3 className="font-body font-normal text-2xl text-foreground mb-2">
+              <h3 className="font-display font-medium text-2xl text-foreground mb-2">
                 Venta 100% Automática
               </h3>
               <p className="text-sm font-semibold text-secondary font-body mb-4">
