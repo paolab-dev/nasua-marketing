@@ -174,7 +174,7 @@ const QuienesSomos = () => {
                   <h3 className="font-display font-medium text-xl text-foreground">John Alexander Escobar Sánchez</h3>
                   <div className="flex items-center gap-3">
                     <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
-                    <a href="https://www.linkedin.com/in/alexanderescobarsanchez-marketing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de John Alexander Escobar" className="bg-[#0A66C2] rounded p-0.5 hover:opacity-80 transition-opacity">
+                    <a href="https://www.linkedin.com/in/alexanderescobarsanchez-marketing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de John Alexander Escobar" className="bg-[#0A66C2] rounded p-1 hover:opacity-80 transition-opacity">
                       <Linkedin className="w-4 h-4 text-white" />
                     </a>
                   </div>
