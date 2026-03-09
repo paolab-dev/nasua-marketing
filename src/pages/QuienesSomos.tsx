@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Palette, TrendingUp, Zap, Clock, Search, Shield } from "lucide-react";
+import { Palette, TrendingUp, Zap, Clock, Search, Shield, Linkedin } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
