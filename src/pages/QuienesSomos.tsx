@@ -141,7 +141,7 @@ const QuienesSomos = () => {
                   <Palette className="w-7 h-7 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-body font-normal text-xl text-foreground">Paola Bohórquez Guevara</h3>
+                  <h3 className="font-display font-medium text-xl text-foreground">Paola Bohórquez Guevara</h3>
                   <p className="text-secondary font-semibold text-sm">Directora UX/UI</p>
                 </div>
               </div>
@@ -163,7 +163,7 @@ const QuienesSomos = () => {
                   <TrendingUp className="w-7 h-7 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-body font-normal text-xl text-foreground">John Alexander Escobar Sánchez</h3>
+                  <h3 className="font-display font-medium text-xl text-foreground">John Alexander Escobar Sánchez</h3>
                   <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
                 </div>
               </div>
@@ -195,7 +195,7 @@ const QuienesSomos = () => {
                 className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
               >
                 <item.icon className="w-10 h-10 text-secondary mb-4" />
-                <h3 className="font-body font-normal text-xl text-foreground mb-3">
+                <h3 className="font-display font-medium text-xl text-foreground mb-3">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground font-body leading-relaxed">

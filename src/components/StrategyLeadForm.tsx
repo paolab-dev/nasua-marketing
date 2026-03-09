@@ -122,7 +122,7 @@ const StrategyLeadForm = ({ open, onOpenChange }: StrategyLeadFormProps) => {
         {isSuccess ? (
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-10 text-center space-y-4">
             <CheckCircle className="w-16 h-16 text-secondary mx-auto" />
-            <h3 className="text-2xl font-normal font-body text-foreground">¡Solicitud recibida!</h3>
+            <h3 className="text-2xl font-medium font-display text-foreground">¡Solicitud recibida!</h3>
             <p className="text-muted-foreground font-body">
               Gracias. Nuestro equipo revisará tu información y te contactará pronto para tu diagnóstico estratégico.
             </p>

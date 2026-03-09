@@ -175,7 +175,7 @@ const LandingPage = () => {
                 className="bg-card rounded-xl p-6 border border-border hover:border-secondary/50 transition-colors text-center"
               >
                 <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
-                <h3 className="font-body font-normal text-lg text-foreground">
+                <h3 className="font-display font-medium text-lg text-foreground">
                   {item.title}
                 </h3>
               </motion.div>
@@ -200,7 +200,7 @@ const LandingPage = () => {
                   <step.icon className="w-7 h-7 text-secondary" />
                 </div>
                 <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-                <h3 className="font-body font-normal text-primary-foreground mb-2">{step.title}</h3>
+                <h3 className="font-display font-medium text-primary-foreground mb-2">{step.title}</h3>
                 <p className="text-primary-foreground/70 text-sm font-body leading-relaxed">{step.text}</p>
               </motion.div>
             ))}
@@ -225,7 +225,7 @@ const LandingPage = () => {
                 className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
               >
                 <item.icon className="w-10 h-10 text-secondary mx-auto mb-4" />
-                <h3 className="font-body font-normal text-xl text-foreground mb-3">
+                <h3 className="font-display font-medium text-xl text-foreground mb-3">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground font-body leading-relaxed">
