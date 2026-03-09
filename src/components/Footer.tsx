@@ -77,7 +77,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col items-center gap-3">
           <div className="flex gap-2 items-center">
