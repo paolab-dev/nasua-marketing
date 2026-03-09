@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StrategyLeadForm from "@/components/StrategyLeadForm";
 import { Search, Zap, BarChart3, Target, Megaphone, ClipboardCheck, Rocket, TrendingUp } from "lucide-react";
 
 const fadeUp = {
@@ -85,6 +87,7 @@ const faqItems = [
 ];
 
 const Estrategia = () => {
+  const [formOpen, setFormOpen] = useState(false);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -131,12 +134,12 @@ const Estrategia = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <a
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               ¡Escalar mi negocio ahora!
-            </a>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -241,6 +244,7 @@ const Estrategia = () => {
       </section>
 
       <Footer />
+      <StrategyLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };
