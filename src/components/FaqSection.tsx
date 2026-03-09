@@ -76,7 +76,7 @@ const FaqSection = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
         >
-          Preguntas frecuentes
+          Preguntas <span className="text-gradient">frecuentes</span>
         </motion.h2>
         <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, i) => (
