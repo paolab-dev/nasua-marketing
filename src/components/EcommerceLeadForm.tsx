@@ -313,7 +313,7 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
             <DialogTitle className="sr-only">Solicitud recibida</DialogTitle>
             <CheckCircle className="w-16 h-16 text-secondary mx-auto mb-4" />
-            <h3 className="text-2xl font-body font-normal text-foreground mb-3">¡Solicitud recibida!</h3>
+            <h3 className="text-2xl font-display font-medium text-foreground mb-3">¡Solicitud recibida!</h3>
             <p className="text-muted-foreground font-body leading-relaxed max-w-md mx-auto">
               Gracias por compartir la información de tu negocio. Nuestro equipo revisará tu caso y te contactará pronto para definir el modelo de tienda ideal y los siguientes pasos.
             </p>

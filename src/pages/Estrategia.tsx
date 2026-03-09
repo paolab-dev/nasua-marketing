@@ -206,7 +206,7 @@ const Estrategia = () => {
                   <step.icon className="w-7 h-7 text-secondary" />
                 </div>
                 <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-                <h3 className="font-body font-normal text-foreground mb-2">{step.title}</h3>
+                <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
               </motion.div>
             ))}

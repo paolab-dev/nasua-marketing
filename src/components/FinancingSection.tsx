@@ -9,7 +9,7 @@ const FinancingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-normal text-primary-foreground font-body mb-6">
+          <h3 className="text-2xl md:text-3xl font-medium text-primary-foreground font-display mb-6">
             Digitalización para Todos
           </h3>
           <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed">
