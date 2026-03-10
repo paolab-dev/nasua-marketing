@@ -14,6 +14,16 @@ const fadeUp = {
 const AdnNasua = () => {
   return (
     <div className="bg-background text-foreground">
+      <Helmet>
+        <title>ADN Nasua | Filosofía de Trabajo – Infraestructura de Crecimiento</title>
+        <meta name="description" content="Conoce la filosofía Nasua: velocidad radical, alta calidad a bajo costo y contenido que Google entiende. Tu infraestructura de crecimiento gestionada." />
+        <meta property="og:title" content="ADN Nasua | Filosofía de Trabajo" />
+        <meta property="og:description" content="Velocidad radical, alta calidad a bajo costo y contenido que Google entiende. Tu infraestructura de crecimiento gestionada." />
+        <meta property="og:image" content="https://nasua.co/ADNNasua.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/ADNNasua.jpg" />
+      </Helmet>
       <Navbar />
 
       {/* Hero */}
