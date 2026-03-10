@@ -56,6 +56,12 @@ const BlogPostPage = () => {
       <Helmet>
         <title>{post.nombre} | Nasua Blog</title>
         <meta name="description" content={post.metaDescription} />
+        <meta property="og:title" content={`${post.nombre} | Nasua Blog`} />
+        <meta property="og:description" content={post.metaDescription} />
+        <meta property="og:image" content={post.imagenDestacada || "https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg"} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={post.imagenDestacada || "https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg"} />
       </Helmet>
       <Navbar />
 
