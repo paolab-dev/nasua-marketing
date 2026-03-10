@@ -1,43 +1,45 @@
 
 
-## Página de Contacto — Estructura Propuesta
+## Problema
 
-Basándome en el ADN de Nasua (soberanía digital, financiación Wompi, entrega en 7 días, tres servicios), propongo esta estructura:
+Este es un problema clásico de las SPAs (Single Page Applications). Cuando WhatsApp, Facebook o LinkedIn rastrean una URL, **no ejecutan JavaScript**. Solo leen el HTML inicial que el servidor entrega, que siempre es `index.html`.
 
----
+Las meta tags que pusimos con `react-helmet-async` solo se inyectan **después** de que React se ejecuta en el navegador. Los crawlers sociales nunca las ven — solo ven las meta tags hardcodeadas en `index.html` (líneas 12-21), que corresponden al Home.
 
-### A. Hero compacto
-- **H1**: "Hablemos de tu proyecto digital"
-- **Subtítulo**: "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
+### Solución
 
-### B. Formulario de contacto (columna principal)
-Campos:
-1. **Nombre completo** (texto)
-2. **WhatsApp o teléfono** (texto, con código +57 prefijado)
-3. **Correo electrónico** (email)
-4. **¿Qué servicio te interesa?** (select: Landing Page / Sitio Corporativo / Tienda Virtual / No estoy seguro)
-5. **Cuéntanos brevemente tu proyecto** (textarea)
-6. **¿Te interesa financiar con Wompi?** (checkbox: Sí, quiero conocer mis opciones de crédito)
-7. **Botón CTA**: "Enviar mi solicitud" (naranja, estilo primario)
-8. **Disclaimer**: "Nasua protege tus datos. No compartimos tu información con terceros."
+Hay dos opciones:
 
-### C. Columna lateral — Info de contacto rápido
-- Ícono WhatsApp + número directo (link wa.me)
-- Ícono correo + email de contacto
-- Ícono ubicación + "Colombia 🇨🇴"
-- Horario de atención
+**Opción A — Vercel Edge Middleware (recomendada)**
+Crear un middleware en Vercel que intercepte las peticiones de crawlers sociales (WhatsApp, Facebook, Twitter, LinkedIn) y devuelva HTML con las meta tags OG correctas según la ruta.
 
-### D. Sección inferior — "¿Por qué elegirnos?"
-Tres mini-cards reutilizando los diferenciadores:
-1. **Entrega en 7 días** — Vibe Coding con IA
-2. **Financiación Wompi** — Empieza sin descapitalizarte
-3. **100% tuyo** — Código y dominio bajo tu propiedad
+- Crear archivo `api/og.ts` o `vercel.json` rewrite + middleware
+- Detectar el User-Agent del crawler
+- Devolver HTML mínimo con las meta tags correctas por ruta
+- Los usuarios normales siguen viendo la SPA sin cambios
 
-### Detalles técnicos
-- **Ruta**: `/contacto`, con `id="contacto"` en la sección para que los CTAs existentes (`href="#contacto"`) funcionen desde el home.
-- **Validación**: Zod schema para todos los campos del formulario con react-hook-form.
-- **Envío**: Por ahora sin backend — mostrar toast de confirmación y loguear datos. Se puede conectar a Supabase o un webhook después.
-- **Navegación**: Agregar "Contacto" al menú del Navbar (desktop y mobile).
-- **Animaciones**: `framer-motion` fade-up consistente con las demás páginas.
-- **Layout**: Grid de 2 columnas en desktop (formulario 2/3 + info 1/3), una columna en móvil.
+**Opción B — Pre-rendering con `vercel.json` rewrites**
+Configurar `vercel.json` para usar un servicio de pre-rendering (como prerender.io) que genera HTML estático para los crawlers.
+
+### Plan de implementación (Opción A)
+
+1. **Crear `api/og-meta.ts`** — Serverless function que mapea cada ruta a sus meta tags OG específicas y devuelve HTML mínimo con las tags correctas cuando detecta un crawler social.
+
+2. **Actualizar `vercel.json`** — Agregar un middleware o rewrite que envíe las peticiones de crawlers a la función serverless antes del SPA.
+
+3. **Mapa de rutas → meta tags:**
+   - `/` → `Nasua-PaginasWebProfesionalesEnColombia.jpg`
+   - `/adn-nasua` → `ADNNasua.jpg`
+   - `/landing-page` → `LandingPageNasua.jpg`
+   - `/sitio-corporativo` → `SitioCorporativoNasua.jpg`
+   - `/ecommerce` → `EmpezarProyectoNasua.jpg`
+   - `/estrategia` → `EstrategiaNasua.jpg`
+   - `/quienes-somos` → `QuienesSomosNasua.jpg`
+   - `/contacto` → `EmpezarProyectoNasua.jpg`
+   - `/blog` → default
+   - etc.
+
+### Detalle técnico
+
+La función serverless verificará el User-Agent contra patrones conocidos de crawlers (`facebookexternalhit`, `WhatsApp`, `Twitterbot`, `LinkedInBot`). Si es un crawler, responde con HTML mínimo con las meta tags. Si no, deja pasar la petición al SPA normalmente.
 
