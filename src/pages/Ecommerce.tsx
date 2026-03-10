@@ -90,10 +90,10 @@ const Ecommerce = () => {
         <meta name="description" content="Tienda virtual profesional en 10 días. Elige entre catálogo con cierre por WhatsApp o venta automática con pasarela de pagos. Calidad de élite a precio justo." />
         <meta property="og:title" content="Tienda Virtual en Colombia | E-commerce Gestionado | Nasua" />
         <meta property="og:description" content="Tienda virtual profesional en 10 días. Catálogo WhatsApp o venta automática con pasarela de pagos." />
-        <meta property="og:image" content="https://nasua.co/EmpezarProyectoNasua.jpg" />
+        <meta property="og:image" content="https://nasua.marketing/EmpezarProyectoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://nasua.co/EmpezarProyectoNasua.jpg" />
+        <meta name="twitter:image" content="https://nasua.marketing/EmpezarProyectoNasua.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
