@@ -96,10 +96,10 @@ const SitioCorporativo = () => {
         <meta name="description" content="Proyecta la imagen profesional que tu negocio merece en solo 5 días. Alta calidad, textos optimizados para Google y financiación con Wompi." />
         <meta property="og:title" content="Sitio Web Empresarial en 5 Días | Nasua Colombia" />
         <meta property="og:description" content="Proyecta la imagen profesional que tu negocio merece en solo 5 días. Alta calidad y financiación con Wompi." />
-        <meta property="og:image" content="https://nasua.co/SitioCorporativoNasua.jpg" />
+        <meta property="og:image" content="https://nasua.marketing/SitioCorporativoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://nasua.co/SitioCorporativoNasua.jpg" />
+        <meta name="twitter:image" content="https://nasua.marketing/SitioCorporativoNasua.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
