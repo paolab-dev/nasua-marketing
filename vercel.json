@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/((?!api|static|.*\\..*).*)",
-      "destination": "/api/og-meta?path=$1"
+      "destination": "/index.html"
     }
   ]
 }
