@@ -103,6 +103,12 @@ const Estrategia = () => {
       <Helmet>
         <title>Estrategia y Crecimiento Digital | Agencia Nasua</title>
         <meta name="description" content="SEO, SEM (Google Partner), automatizaciones y estrategia de crecimiento. Equipo con experiencia en Samsung y presupuestos de más de $5.000 millones COP anuales." />
+        <meta property="og:title" content="Estrategia y Crecimiento Digital | Agencia Nasua" />
+        <meta property="og:description" content="SEO, SEM (Google Partner), automatizaciones y estrategia de crecimiento digital para tu negocio." />
+        <meta property="og:image" content="https://nasua.co/EstrategiaNasua.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/EstrategiaNasua.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />

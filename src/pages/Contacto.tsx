@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -62,6 +63,16 @@ const Contacto = () => {
 
   return (
     <div className="min-h-screen bg-background" id="contacto">
+      <Helmet>
+        <title>Contacto | Nasua – Páginas Web Profesionales</title>
+        <meta name="description" content="Hablemos de tu proyecto digital. Cuéntanos qué necesitas y en menos de 24 horas te contactamos con una propuesta personalizada." />
+        <meta property="og:title" content="Contacto | Nasua" />
+        <meta property="og:description" content="Cuéntanos qué necesitas y en menos de 24 horas te contactamos con una propuesta personalizada." />
+        <meta property="og:image" content="https://nasua.co/EmpezarProyectoNasua.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/EmpezarProyectoNasua.jpg" />
+      </Helmet>
       <Navbar />
 
       {/* Hero */}

@@ -95,6 +95,12 @@ const LandingPage = () => {
       <Helmet>
         <title>Landing Page Profesional en 48 Horas | Nasua Colombia</title>
         <meta name="description" content="Construimos tu Landing Page de alta conversión en solo 2 días. Calidad de élite, bajo costo y financiación con Wompi. Propiedad 100% tuya." />
+        <meta property="og:title" content="Landing Page Profesional en 48 Horas | Nasua Colombia" />
+        <meta property="og:description" content="Landing Page de alta conversión en solo 2 días. Calidad de élite, bajo costo y financiación con Wompi." />
+        <meta property="og:image" content="https://nasua.co/LandingPageNasua.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/LandingPageNasua.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />

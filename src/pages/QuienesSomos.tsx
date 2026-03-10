@@ -93,6 +93,12 @@ const QuienesSomos = () => {
       <Helmet>
         <title>Quiénes Somos | Nasua - Las mentes detrás de tu infraestructura de crecimiento</title>
         <meta name="description" content="Conoce al equipo de Nasua: Paola Bohórquez (Canva Creator LATAM, Directora UX/UI) y John Escobar (Director de Mercadeo ex-Samsung). Infraestructura gestionada para tu negocio." />
+        <meta property="og:title" content="Quiénes Somos | Nasua" />
+        <meta property="og:description" content="Conoce al equipo de Nasua: Paola Bohórquez (Directora UX/UI) y John Escobar (Director de Mercadeo ex-Samsung)." />
+        <meta property="og:image" content="https://nasua.co/QuienesSomosNasua.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/QuienesSomosNasua.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />

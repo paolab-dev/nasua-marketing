@@ -21,6 +21,12 @@ const Blog = () => {
       <Helmet>
         <title>Blog | Nasua – Páginas Web Profesionales</title>
         <meta name="description" content="Artículos, guías y novedades sobre diseño web, marketing digital y estrategia online para empresas en Colombia." />
+        <meta property="og:title" content="Blog | Nasua – Páginas Web Profesionales" />
+        <meta property="og:description" content="Artículos, guías y novedades sobre diseño web, marketing digital y estrategia online para empresas en Colombia." />
+        <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
       </Helmet>
       <Navbar />
 

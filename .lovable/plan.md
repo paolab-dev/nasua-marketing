@@ -1,65 +1,43 @@
 
 
-## Dónde agregar las meta tags Open Graph
+## Página de Contacto — Estructura Propuesta
 
-En cada página ya tienes un bloque `<Helmet>` con `<title>` y `<meta name="description">`. Las meta tags OG van **dentro de ese mismo bloque `<Helmet>`**, justo después de las tags existentes.
+Basándome en el ADN de Nasua (soberanía digital, financiación Wompi, entrega en 7 días, tres servicios), propongo esta estructura:
 
-### Ejemplo con Index.tsx (que aún no tiene Helmet)
+---
 
-```tsx
-<Helmet>
-  <title>Nasua – Páginas Web Profesionales en Colombia</title>
-  <meta name="description" content="..." />
-  {/* ↓ Agregar estas líneas ↓ */}
-  <meta property="og:title" content="Nasua – Páginas Web Profesionales" />
-  <meta property="og:description" content="..." />
-  <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
-</Helmet>
-```
+### A. Hero compacto
+- **H1**: "Hablemos de tu proyecto digital"
+- **Subtítulo**: "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
 
-### Ejemplo con una página que ya tiene Helmet (AdnNasua, Ecommerce, etc.)
+### B. Formulario de contacto (columna principal)
+Campos:
+1. **Nombre completo** (texto)
+2. **WhatsApp o teléfono** (texto, con código +57 prefijado)
+3. **Correo electrónico** (email)
+4. **¿Qué servicio te interesa?** (select: Landing Page / Sitio Corporativo / Tienda Virtual / No estoy seguro)
+5. **Cuéntanos brevemente tu proyecto** (textarea)
+6. **¿Te interesa financiar con Wompi?** (checkbox: Sí, quiero conocer mis opciones de crédito)
+7. **Botón CTA**: "Enviar mi solicitud" (naranja, estilo primario)
+8. **Disclaimer**: "Nasua protege tus datos. No compartimos tu información con terceros."
 
-En `PoliticaPrivacidad.tsx` por ejemplo, ya tienes:
-```tsx
-<Helmet>
-  <title>Política de Privacidad | Nasua</title>
-  <meta name="description" content="..." />
-</Helmet>
-```
+### C. Columna lateral — Info de contacto rápido
+- Ícono WhatsApp + número directo (link wa.me)
+- Ícono correo + email de contacto
+- Ícono ubicación + "Colombia 🇨🇴"
+- Horario de atención
 
-Solo agregas las líneas OG adentro:
-```tsx
-<Helmet>
-  <title>Política de Privacidad | Nasua</title>
-  <meta name="description" content="..." />
-  <meta property="og:title" content="Política de Privacidad | Nasua" />
-  <meta property="og:description" content="..." />
-  <meta property="og:image" content="https://nasua.co/QuienesSomosNasua.jpg" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-</Helmet>
-```
+### D. Sección inferior — "¿Por qué elegirnos?"
+Tres mini-cards reutilizando los diferenciadores:
+1. **Entrega en 7 días** — Vibe Coding con IA
+2. **Financiación Wompi** — Empieza sin descapitalizarte
+3. **100% tuyo** — Código y dominio bajo tu propiedad
 
-### Mapeo imagen por página
-
-| Página | Imagen OG |
-|---|---|
-| Index | `Nasua-PaginasWebProfesionalesEnColombia.jpg` |
-| AdnNasua | `ADNNasua.jpg` |
-| LandingPage | `LandingPageNasua.jpg` |
-| SitioCorporativo | `SitioCorporativoNasua.jpg` |
-| Ecommerce | `EmpezarProyectoNasua.jpg` |
-| Estrategia | `EstrategiaNasua.jpg` |
-| QuienesSomos | `QuienesSomosNasua.jpg` |
-| Contacto | `EmpezarProyectoNasua.jpg` |
-| Blog | `Nasua-PaginasWebProfesionalesEnColombia.jpg` |
-| Privacidad/Términos | `Nasua-PaginasWebProfesionalesEnColombia.jpg` |
-
-### Nota importante
-Las URLs de `og:image` deben ser **absolutas** (con `https://tudominio.com/`). Rutas relativas como `/ADNNasua.jpg` no funcionan en redes sociales.
-
-¿Quieres que implemente todas las meta tags en las 10 páginas con este mapeo?
+### Detalles técnicos
+- **Ruta**: `/contacto`, con `id="contacto"` en la sección para que los CTAs existentes (`href="#contacto"`) funcionen desde el home.
+- **Validación**: Zod schema para todos los campos del formulario con react-hook-form.
+- **Envío**: Por ahora sin backend — mostrar toast de confirmación y loguear datos. Se puede conectar a Supabase o un webhook después.
+- **Navegación**: Agregar "Contacto" al menú del Navbar (desktop y mobile).
+- **Animaciones**: `framer-motion` fade-up consistente con las demás páginas.
+- **Layout**: Grid de 2 columnas en desktop (formulario 2/3 + info 1/3), una columna en móvil.
 

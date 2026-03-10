@@ -8,6 +8,12 @@ const TerminosCondiciones = () => {
       <Helmet>
         <title>Términos y Condiciones | Nasua</title>
         <meta name="description" content="Términos y condiciones de uso del sitio web de Nasua." />
+        <meta property="og:title" content="Términos y Condiciones | Nasua" />
+        <meta property="og:description" content="Términos y condiciones de uso del sitio web de Nasua." />
+        <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-16 section-padding">

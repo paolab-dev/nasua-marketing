@@ -8,6 +8,12 @@ const PoliticaPrivacidad = () => {
       <Helmet>
         <title>Política de Privacidad | Nasua</title>
         <meta name="description" content="Política de privacidad de Nasua. Conoce cómo protegemos tus datos personales." />
+        <meta property="og:title" content="Política de Privacidad | Nasua" />
+        <meta property="og:description" content="Política de privacidad de Nasua. Conoce cómo protegemos tus datos personales." />
+        <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-16 section-padding">
