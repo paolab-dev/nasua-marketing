@@ -107,13 +107,19 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
-  const handleSubmit = () => {
-    console.log("Ecommerce lead submitted:", {
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    const ok = await sendLead("ecommerce", {
       nombre, email, whatsapp, marca, ciudad,
       tipoTienda, productos, cantidadProductos, ventaActual,
       materiales, metodosPago, lanzamiento, publicidad,
     });
-    setSubmitted(true);
+    setIsSubmitting(false);
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   const handleClose = () => {
