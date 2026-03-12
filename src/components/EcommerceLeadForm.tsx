@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { sendLead } from "@/lib/send-lead";
+import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
