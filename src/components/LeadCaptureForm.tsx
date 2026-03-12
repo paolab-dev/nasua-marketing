@@ -80,14 +80,18 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
     }
   };
 
-  const handleSubmit = () => {
-    if (validateStep2()) {
-      // Here you would send data to backend
-      console.log({
-        nombre, email, whatsapp, negocio, sitioWeb,
-        producto, precio, objetivo, materiales, lanzamiento,
-      });
+  const handleSubmit = async () => {
+    if (!validateStep2()) return;
+    setIsSubmitting(true);
+    const ok = await sendLead("landing", {
+      nombre, email, whatsapp, negocio, sitioWeb,
+      producto, precio, objetivo, materiales, lanzamiento,
+    });
+    setIsSubmitting(false);
+    if (ok) {
       setSubmitted(true);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
     }
   };
 
