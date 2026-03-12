@@ -103,13 +103,19 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
-  const handleSubmit = () => {
-    console.log("Corporate lead submitted:", {
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    const ok = await sendLead("corporativo", {
       nombre, email, whatsapp, empresa, ciudad,
       dedicacion, servicios, clienteIdeal, presenciaDigital,
       secciones, materiales, lanzamiento, seo,
     });
-    setSubmitted(true);
+    setIsSubmitting(false);
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   const handleClose = () => {
