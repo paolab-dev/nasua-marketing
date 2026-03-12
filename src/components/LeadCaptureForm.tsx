@@ -33,6 +33,8 @@ const materialOptions = [
 const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   // Step 1
   const [nombre, setNombre] = useState("");
