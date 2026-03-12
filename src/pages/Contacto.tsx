@@ -56,12 +56,19 @@ const Contacto = () => {
     },
   });
 
-  const onSubmit = (data: ContactForm) => {
-    toast({
-      title: "¡Solicitud enviada!",
-      description: "Un estratega de Nasua te contactará en menos de 24 horas.",
-    });
-    form.reset();
+  const onSubmit = async (data: ContactForm) => {
+    setIsSubmitting(true);
+    const ok = await sendLead("contacto", data);
+    setIsSubmitting(false);
+    if (ok) {
+      toast({
+        title: "¡Solicitud enviada!",
+        description: "Un estratega de Nasua te contactará en menos de 24 horas.",
+      });
+      form.reset();
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   return (
