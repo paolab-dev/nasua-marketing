@@ -42,6 +42,7 @@ const differentiators = [
 
 const Contacto = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
