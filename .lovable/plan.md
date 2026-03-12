@@ -1,43 +1,47 @@
 
 
-## Página de Contacto — Estructura Propuesta
+## Enviar formularios por email con Resend
 
-Basándome en el ADN de Nasua (soberanía digital, financiación Wompi, entrega en 7 días, tres servicios), propongo esta estructura:
+### Arquitectura
 
----
+```text
+[Form Submit] → fetch("/api/send-lead") → [Vercel Serverless] → [Resend API] → pao@ + alex@
+```
 
-### A. Hero compacto
-- **H1**: "Hablemos de tu proyecto digital"
-- **Subtítulo**: "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
+### Cambios
 
-### B. Formulario de contacto (columna principal)
-Campos:
-1. **Nombre completo** (texto)
-2. **WhatsApp o teléfono** (texto, con código +57 prefijado)
-3. **Correo electrónico** (email)
-4. **¿Qué servicio te interesa?** (select: Landing Page / Sitio Corporativo / Tienda Virtual / No estoy seguro)
-5. **Cuéntanos brevemente tu proyecto** (textarea)
-6. **¿Te interesa financiar con Wompi?** (checkbox: Sí, quiero conocer mis opciones de crédito)
-7. **Botón CTA**: "Enviar mi solicitud" (naranja, estilo primario)
-8. **Disclaimer**: "Nasua protege tus datos. No compartimos tu información con terceros."
+**1. Crear `api/send-lead.ts`** — Serverless function que:
+- Recibe `POST` con `{ formType, data }` (tipo de formulario + campos)
+- Valida los datos del lado del servidor
+- Construye un email HTML con plantilla profesional según el `formType` (Landing, Corporativo, Ecommerce, Estrategia, Contacto)
+- Envía a `pao@nasua.marketing` y `alex@nasua.marketing` vía Resend API
+- El "from" será `leads@nasua.marketing` (o el dominio verificado en Resend)
 
-### C. Columna lateral — Info de contacto rápido
-- Ícono WhatsApp + número directo (link wa.me)
-- Ícono correo + email de contacto
-- Ícono ubicación + "Colombia 🇨🇴"
-- Horario de atención
+**2. Agregar secret `RESEND_API_KEY`** — Variable de entorno en Vercel con la API key de Resend.
 
-### D. Sección inferior — "¿Por qué elegirnos?"
-Tres mini-cards reutilizando los diferenciadores:
-1. **Entrega en 7 días** — Vibe Coding con IA
-2. **Financiación Wompi** — Empieza sin descapitalizarte
-3. **100% tuyo** — Código y dominio bajo tu propiedad
+**3. Actualizar los 5 formularios** para enviar datos al endpoint:
+- `LeadCaptureForm.tsx` — reemplazar `console.log` por `fetch("/api/send-lead")`
+- `CorporateLeadForm.tsx` — igual
+- `EcommerceLeadForm.tsx` — igual
+- `StrategyLeadForm.tsx` — reemplazar `setTimeout` simulado
+- `Contacto.tsx` — reemplazar toast-only
 
-### Detalles técnicos
-- **Ruta**: `/contacto`, con `id="contacto"` en la sección para que los CTAs existentes (`href="#contacto"`) funcionen desde el home.
-- **Validación**: Zod schema para todos los campos del formulario con react-hook-form.
-- **Envío**: Por ahora sin backend — mostrar toast de confirmación y loguear datos. Se puede conectar a Supabase o un webhook después.
-- **Navegación**: Agregar "Contacto" al menú del Navbar (desktop y mobile).
-- **Animaciones**: `framer-motion` fade-up consistente con las demás páginas.
-- **Layout**: Grid de 2 columnas en desktop (formulario 2/3 + info 1/3), una columna en móvil.
+Cada formulario enviará su `formType` y todos los campos capturados. El endpoint construirá la plantilla HTML con los datos específicos de cada tipo.
+
+**4. Plantilla de email** — HTML inline con:
+- Header con logo/nombre Nasua
+- Tipo de formulario como título
+- Tabla con todos los campos capturados (label + valor)
+- Timestamp de envío
+- Footer con link al sitio
+
+### Requisitos previos
+
+Para que funcione necesitas:
+1. **Cuenta en Resend** (resend.com) — plan gratuito permite 100 emails/día
+2. **Verificar dominio** `nasua.marketing` en Resend (agregar registros DNS)
+3. **Agregar `RESEND_API_KEY`** como variable de entorno en Vercel
+
+### Dependencia nueva
+- `resend` (npm package) para el serverless function
 
