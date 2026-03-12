@@ -204,8 +204,8 @@ const Contacto = () => {
                   )}
                 />
 
-                <Button type="submit" size="lg" className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
-                  Enviar mi solicitud
+                <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
+                  {isSubmitting ? "Enviando..." : "Enviar mi solicitud"}
                 </Button>
 
                 <p className="text-xs text-muted-foreground">

@@ -308,8 +308,8 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
 
                   <div className="flex gap-3 mt-6">
                     <Button variant="outline" onClick={handleBack} className="flex-1 py-6">← Atrás</Button>
-                    <Button onClick={handleSubmit} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
-                      Solicitar mi tienda virtual
+                    <Button onClick={handleSubmit} disabled={isSubmitting} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
+                      {isSubmitting ? "Enviando..." : "Solicitar mi tienda virtual"}
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground text-center mt-3 font-body">

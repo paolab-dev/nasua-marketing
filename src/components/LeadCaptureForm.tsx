@@ -348,8 +348,8 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
                   </div>
 
                   <div className="space-y-3">
-                    <Button onClick={handleSubmit} className="w-full" variant="secondary" size="lg">
-                      Solicitar diagnóstico de mi Landing
+                    <Button onClick={handleSubmit} disabled={isSubmitting} className="w-full" variant="secondary" size="lg">
+                      {isSubmitting ? "Enviando..." : "Solicitar diagnóstico de mi Landing"}
                     </Button>
                     <p className="text-xs text-muted-foreground font-body text-center leading-relaxed">
                       Revisaremos tu información y te contactaremos para confirmar si tu
