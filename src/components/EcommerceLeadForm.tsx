@@ -44,6 +44,8 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
   const totalSteps = 3;
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   // Step 1
   const [nombre, setNombre] = useState("");
