@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { sendLead } from "@/lib/send-lead";
+import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -31,6 +33,8 @@ const materialOptions = [
 const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   // Step 1
   const [nombre, setNombre] = useState("");
@@ -76,14 +80,18 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
     }
   };
 
-  const handleSubmit = () => {
-    if (validateStep2()) {
-      // Here you would send data to backend
-      console.log({
-        nombre, email, whatsapp, negocio, sitioWeb,
-        producto, precio, objetivo, materiales, lanzamiento,
-      });
+  const handleSubmit = async () => {
+    if (!validateStep2()) return;
+    setIsSubmitting(true);
+    const ok = await sendLead("landing", {
+      nombre, email, whatsapp, negocio, sitioWeb,
+      producto, precio, objetivo, materiales, lanzamiento,
+    });
+    setIsSubmitting(false);
+    if (ok) {
       setSubmitted(true);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
     }
   };
 
@@ -340,8 +348,8 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
                   </div>
 
                   <div className="space-y-3">
-                    <Button onClick={handleSubmit} className="w-full" variant="secondary" size="lg">
-                      Solicitar diagnóstico de mi Landing
+                    <Button onClick={handleSubmit} disabled={isSubmitting} className="w-full" variant="secondary" size="lg">
+                      {isSubmitting ? "Enviando..." : "Solicitar diagnóstico de mi Landing"}
                     </Button>
                     <p className="text-xs text-muted-foreground font-body text-center leading-relaxed">
                       Revisaremos tu información y te contactaremos para confirmar si tu

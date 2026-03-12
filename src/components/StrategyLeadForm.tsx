@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { sendLead } from "@/lib/send-lead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -101,17 +102,21 @@ const StrategyLeadForm = ({ open, onOpenChange }: StrategyLeadFormProps) => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1500));
+    const ok = await sendLead("estrategia", form);
     setIsSubmitting(false);
-    setIsSuccess(true);
-    setTimeout(() => {
-      onOpenChange(false);
+    if (ok) {
+      setIsSuccess(true);
       setTimeout(() => {
-        setStep(1);
-        setIsSuccess(false);
-        setForm({ name: "", email: "", phone: "", company: "", objective: "", website: "", industry: "", budget: "", channels: [], challenge: "" });
-      }, 300);
-    }, 4000);
+        onOpenChange(false);
+        setTimeout(() => {
+          setStep(1);
+          setIsSuccess(false);
+          setForm({ name: "", email: "", phone: "", company: "", objective: "", website: "", industry: "", budget: "", channels: [], challenge: "" });
+        }, 300);
+      }, 4000);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   const progress = isSuccess ? 100 : step === 1 ? 50 : 100;

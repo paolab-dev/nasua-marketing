@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { sendLead } from "@/lib/send-lead";
+import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -43,6 +45,8 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
   const totalSteps = 3;
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   // Step 1
   const [nombre, setNombre] = useState("");
@@ -99,13 +103,19 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
-  const handleSubmit = () => {
-    console.log("Corporate lead submitted:", {
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    const ok = await sendLead("corporativo", {
       nombre, email, whatsapp, empresa, ciudad,
       dedicacion, servicios, clienteIdeal, presenciaDigital,
       secciones, materiales, lanzamiento, seo,
     });
-    setSubmitted(true);
+    setIsSubmitting(false);
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   const handleClose = () => {
@@ -285,8 +295,8 @@ const CorporateLeadForm = ({ open, onOpenChange }: CorporateLeadFormProps) => {
 
                   <div className="flex gap-3 mt-6">
                     <Button variant="outline" onClick={handleBack} className="flex-1 py-6">← Atrás</Button>
-                    <Button onClick={handleSubmit} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
-                      Solicitar mi sitio web empresarial
+                    <Button onClick={handleSubmit} disabled={isSubmitting} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
+                      {isSubmitting ? "Enviando..." : "Solicitar mi sitio web empresarial"}
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground text-center mt-3 font-body">

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { sendLead } from "@/lib/send-lead";
+import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -42,6 +44,8 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
   const totalSteps = 3;
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   // Step 1
   const [nombre, setNombre] = useState("");
@@ -103,13 +107,19 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
-  const handleSubmit = () => {
-    console.log("Ecommerce lead submitted:", {
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    const ok = await sendLead("ecommerce", {
       nombre, email, whatsapp, marca, ciudad,
       tipoTienda, productos, cantidadProductos, ventaActual,
       materiales, metodosPago, lanzamiento, publicidad,
     });
-    setSubmitted(true);
+    setIsSubmitting(false);
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   const handleClose = () => {
@@ -298,8 +308,8 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
 
                   <div className="flex gap-3 mt-6">
                     <Button variant="outline" onClick={handleBack} className="flex-1 py-6">← Atrás</Button>
-                    <Button onClick={handleSubmit} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
-                      Solicitar mi tienda virtual
+                    <Button onClick={handleSubmit} disabled={isSubmitting} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
+                      {isSubmitting ? "Enviando..." : "Solicitar mi tienda virtual"}
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground text-center mt-3 font-body">

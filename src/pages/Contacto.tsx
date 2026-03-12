@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -10,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { sendLead } from "@/lib/send-lead";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -40,6 +42,7 @@ const differentiators = [
 
 const Contacto = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
@@ -53,12 +56,19 @@ const Contacto = () => {
     },
   });
 
-  const onSubmit = (data: ContactForm) => {
-    toast({
-      title: "¡Solicitud enviada!",
-      description: "Un estratega de Nasua te contactará en menos de 24 horas.",
-    });
-    form.reset();
+  const onSubmit = async (data: ContactForm) => {
+    setIsSubmitting(true);
+    const ok = await sendLead("contacto", data);
+    setIsSubmitting(false);
+    if (ok) {
+      toast({
+        title: "¡Solicitud enviada!",
+        description: "Un estratega de Nasua te contactará en menos de 24 horas.",
+      });
+      form.reset();
+    } else {
+      toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
+    }
   };
 
   return (
@@ -194,8 +204,8 @@ const Contacto = () => {
                   )}
                 />
 
-                <Button type="submit" size="lg" className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
-                  Enviar mi solicitud
+                <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
+                  {isSubmitting ? "Enviando..." : "Enviar mi solicitud"}
                 </Button>
 
                 <p className="text-xs text-muted-foreground">
