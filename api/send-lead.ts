@@ -4,7 +4,8 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const RECIPIENTS = ["hello@nasua.marketing"];
-const FROM = "Nasua Leads <leads@nasua.marketing>";
+const PRIMARY_FROM = "Nasua Leads <leads@nasua.marketing>";
+const FALLBACK_FROM = "Nasua Leads <onboarding@resend.dev>";
 
 interface LeadPayload {
   formType: string;
@@ -59,11 +60,38 @@ const FIELD_LABELS: Record<string, string> = {
   financing: "Financiación Wompi",
 };
 
+function setCorsHeaders(res: VercelResponse) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
 function formatValue(value: unknown): string {
   if (Array.isArray(value)) return value.length > 0 ? value.join(", ") : "—";
   if (typeof value === "boolean") return value ? "Sí" : "No";
   if (value === "" || value === null || value === undefined) return "—";
   return String(value);
+}
+
+function getLeadEmail(data: Record<string, unknown>): string | undefined {
+  const maybeEmail = data.email ?? data.correo;
+  if (typeof maybeEmail !== "string") return undefined;
+
+  const email = maybeEmail.trim();
+  if (!email) return undefined;
+
+  return /^\S+@\S+\.\S+$/.test(email) ? email : undefined;
+}
+
+function shouldUseFallback(error: unknown): boolean {
+  const serialized = JSON.stringify(error).toLowerCase();
+
+  return (
+    serialized.includes("verify a domain") ||
+    serialized.includes("domain is not verified") ||
+    serialized.includes("testing emails") ||
+    serialized.includes("from address")
+  );
 }
 
 function buildEmailHtml(formType: string, data: Record<string, unknown>): string {
@@ -128,10 +156,9 @@ function buildEmailHtml(formType: string, data: Record<string, unknown>): string
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  setCorsHeaders(res);
+
   if (req.method === "OPTIONS") {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     return res.status(204).end();
   }
 
@@ -139,8 +166,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    return res.status(500).json({ error: "RESEND_API_KEY not configured" });
+  }
+
   try {
-    const { formType, data } = req.body as LeadPayload;
+    const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    const { formType, data } = body as LeadPayload;
 
     if (!formType || !data || typeof data !== "object") {
       return res.status(400).json({ error: "Missing formType or data" });
@@ -148,23 +180,47 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const title = FORM_LABELS[formType] || formType;
     const contactName = data.nombre || data.name || "Sin nombre";
+    const replyTo = getLeadEmail(data);
 
-    const { error } = await resend.emails.send({
-      from: FROM,
+    const basePayload = {
       to: RECIPIENTS,
       subject: `🦝 Nuevo lead: ${title} — ${contactName}`,
       html: buildEmailHtml(formType, data),
+      ...(replyTo ? { replyTo } : {}),
+    };
+
+    const primaryAttempt = await resend.emails.send({
+      from: PRIMARY_FROM,
+      ...basePayload,
     });
 
-    if (error) {
-      console.error("Resend error:", error);
-      return res.status(500).json({ error: "Failed to send email" });
+    let sendError = primaryAttempt.error;
+
+    if (sendError && shouldUseFallback(sendError)) {
+      const fallbackAttempt = await resend.emails.send({
+        from: FALLBACK_FROM,
+        ...basePayload,
+      });
+      sendError = fallbackAttempt.error;
     }
 
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    if (sendError) {
+      console.error("Resend error:", sendError);
+      return res.status(500).json({
+        error: "Failed to send email",
+        details:
+          typeof sendError === "object" && sendError !== null && "message" in sendError
+            ? String((sendError as { message?: unknown }).message ?? "Unknown Resend error")
+            : String(sendError),
+      });
+    }
+
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error("Server error:", err);
-    return res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({
+      error: "Internal server error",
+      details: err instanceof Error ? err.message : String(err),
+    });
   }
 }
