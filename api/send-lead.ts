@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const RECIPIENTS = ["pao@nasua.marketing", "alex@nasua.marketing"];
+const RECIPIENTS = ["hello@nasua.marketing"];
 const FROM = "Nasua Leads <leads@nasua.marketing>";
 
 interface LeadPayload {
