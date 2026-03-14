@@ -5,9 +5,24 @@ export async function sendLead(formType: string, data: Record<string, unknown>):
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ formType, data }),
     });
-    return res.ok;
-  } catch {
-    console.error("Error sending lead");
+
+    if (!res.ok) {
+      let details = "";
+
+      try {
+        const payload = await res.json();
+        details = payload?.details || payload?.error || "";
+      } catch {
+        details = await res.text();
+      }
+
+      console.error(`Error sending lead (${res.status}):`, details || "Unknown error");
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.error("Error sending lead:", error);
     return false;
   }
 }
