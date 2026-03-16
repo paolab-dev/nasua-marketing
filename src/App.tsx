@@ -16,6 +16,9 @@ import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Login from "./pages/Login";
+import AdminDashboard from "./pages/AdminDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
