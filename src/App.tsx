@@ -52,6 +52,8 @@ const App = () => (
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/proyectos" element={<Jobs />} />
+          <Route path="/proyectos/:slug" element={<JobDetail />} />
           <Route path="/login" element={<Login />} />
 
           {/* Admin protegido */}
@@ -62,6 +64,9 @@ const App = () => (
               <Route path="posts/editar/:id" element={<AdminPostEdit />} />
               <Route path="categorias" element={<AdminCategories />} />
               <Route path="autores" element={<AdminAuthors />} />
+              <Route path="vacantes" element={<AdminJobs />} />
+              <Route path="vacantes/nueva" element={<AdminJobNew />} />
+              <Route path="vacantes/editar/:id" element={<AdminJobEdit />} />
             </Route>
           </Route>
 
