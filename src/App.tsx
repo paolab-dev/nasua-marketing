@@ -42,6 +42,10 @@ const App = () => (
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin-NM" element={<ProtectedRoute />}>
+            <Route index element={<AdminDashboard />} />
+          </Route>
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
           <Route path="*" element={<NotFound />} />
