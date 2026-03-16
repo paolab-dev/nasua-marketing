@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/lib/supabase";
-import { convertToWebP } from "@/lib/convert-to-webp";
+
 import type { Job } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,7 +13,7 @@ import { Calendar, Clock, DollarSign, ArrowLeft, Paperclip, CheckCircle2 } from 
 import { useToast } from "@/hooks/use-toast";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
-const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
+const ALLOWED_TYPES = ["application/pdf"];
 
 function fileToBase64(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -73,16 +73,10 @@ const JobDetail = () => {
       return;
     }
     if (!ALLOWED_TYPES.includes(f.type)) {
-      toast({ title: "Tipo no permitido", description: "Solo PDF, JPG, PNG", variant: "destructive" });
+      toast({ title: "Tipo no permitido", description: "Solo archivos PDF", variant: "destructive" });
       return;
     }
-    // Convert images to webp
-    if (f.type.startsWith("image/") && f.type !== "image/webp") {
-      const webp = await convertToWebP(f);
-      setFile(webp);
-    } else {
-      setFile(f);
-    }
+    setFile(f);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -259,7 +253,7 @@ const JobDetail = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="font-body font-medium">Adjuntar archivo * (PDF, JPG, PNG — máx 10 MB)</Label>
+                  <Label className="font-body font-medium">Adjuntar archivo * (Solo PDF — máx 10 MB)</Label>
                   <div
                     onClick={() => fileRef.current?.click()}
                     className="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-secondary/50 transition-colors"
@@ -271,7 +265,7 @@ const JobDetail = () => {
                     <input
                       ref={fileRef}
                       type="file"
-                      accept=".pdf,.jpg,.jpeg,.png"
+                      accept=".pdf"
                       className="hidden"
                       onChange={handleFile}
                     />
@@ -289,7 +283,7 @@ const JobDetail = () => {
                       Enviando...
                     </>
                   ) : (
-                    "Enviar Propuesta"
+                    "Enviar Propuesta Definitiva"
                   )}
                 </button>
               </form>
