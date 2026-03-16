@@ -1,43 +1,57 @@
 
 
-## Página de Contacto — Estructura Propuesta
+## Diagnóstico del error 500 en formularios
 
-Basándome en el ADN de Nasua (soberanía digital, financiación Wompi, entrega en 7 días, tres servicios), propongo esta estructura:
+El error en la consola muestra: **"body stream already read"** en `src/lib/send-lead.ts`. Esto ocurre porque:
 
----
+1. Primero intentamos leer `res.json()` para obtener detalles del error
+2. Si eso falla, caemos al `catch` e intentamos `res.text()` 
+3. Pero el stream de la respuesta ya fue consumido por el primer intento
 
-### A. Hero compacto
-- **H1**: "Hablemos de tu proyecto digital"
-- **Subtítulo**: "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
+### Solución técnica
 
-### B. Formulario de contacto (columna principal)
-Campos:
-1. **Nombre completo** (texto)
-2. **WhatsApp o teléfono** (texto, con código +57 prefijado)
-3. **Correo electrónico** (email)
-4. **¿Qué servicio te interesa?** (select: Landing Page / Sitio Corporativo / Tienda Virtual / No estoy seguro)
-5. **Cuéntanos brevemente tu proyecto** (textarea)
-6. **¿Te interesa financiar con Wompi?** (checkbox: Sí, quiero conocer mis opciones de crédito)
-7. **Botón CTA**: "Enviar mi solicitud" (naranja, estilo primario)
-8. **Disclaimer**: "Nasua protege tus datos. No compartimos tu información con terceros."
+**Archivo: `src/lib/send-lead.ts`**
 
-### C. Columna lateral — Info de contacto rápido
-- Ícono WhatsApp + número directo (link wa.me)
-- Ícono correo + email de contacto
-- Ícono ubicación + "Colombia 🇨🇴"
-- Horario de atención
+Modificar la función `sendLead` para clonar la respuesta antes de leerla, o reestructurar el manejo de errores:
 
-### D. Sección inferior — "¿Por qué elegirnos?"
-Tres mini-cards reutilizando los diferenciadores:
-1. **Entrega en 7 días** — Vibe Coding con IA
-2. **Financiación Wompi** — Empieza sin descapitalizarte
-3. **100% tuyo** — Código y dominio bajo tu propiedad
+```typescript
+export async function sendLead(formType: string, data: Record<string, unknown>): Promise<boolean> {
+  try {
+    const res = await fetch("/api/send-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType, data }),
+    });
 
-### Detalles técnicos
-- **Ruta**: `/contacto`, con `id="contacto"` en la sección para que los CTAs existentes (`href="#contacto"`) funcionen desde el home.
-- **Validación**: Zod schema para todos los campos del formulario con react-hook-form.
-- **Envío**: Por ahora sin backend — mostrar toast de confirmación y loguear datos. Se puede conectar a Supabase o un webhook después.
-- **Navegación**: Agregar "Contacto" al menú del Navbar (desktop y mobile).
-- **Animaciones**: `framer-motion` fade-up consistente con las demás páginas.
-- **Layout**: Grid de 2 columnas en desktop (formulario 2/3 + info 1/3), una columna en móvil.
+    if (!res.ok) {
+      let details = "";
+      
+      // Clonamos la respuesta para poder leerla múltiples veces si es necesario
+      const clonedRes = res.clone();
+      
+      try {
+        const payload = await res.json();
+        details = payload?.details || payload?.error || "";
+      } catch {
+        // Si JSON falla, usamos el clon para leer como texto
+        try {
+          details = await clonedRes.text();
+        } catch {
+          details = `HTTP ${res.status}`;
+        }
+      }
+
+      console.error(`Error sending lead (${res.status}):`, details || "Unknown error");
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.error("Error sending lead:", error);
+    return false;
+  }
+}
+```
+
+También verificar que el backend en `api/send-lead.ts` maneje correctamente los errores de Resend y devuelva respuestas JSON válidas.
 
