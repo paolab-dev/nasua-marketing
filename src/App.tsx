@@ -29,6 +29,7 @@ import AdminAuthors from "./pages/admin/AdminAuthors";
 import AdminJobs from "./pages/admin/AdminJobs";
 import AdminJobNew from "./pages/admin/AdminJobNew";
 import AdminJobEdit from "./pages/admin/AdminJobEdit";
+import AdminJobCategories from "./pages/admin/AdminJobCategories";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
