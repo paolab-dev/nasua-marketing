@@ -8,12 +8,17 @@ export async function sendLead(formType: string, data: Record<string, unknown>):
 
     if (!res.ok) {
       let details = "";
+      const clonedRes = res.clone();
 
       try {
         const payload = await res.json();
         details = payload?.details || payload?.error || "";
       } catch {
-        details = await res.text();
+        try {
+          details = await clonedRes.text();
+        } catch {
+          details = `HTTP ${res.status}`;
+        }
       }
 
       console.error(`Error sending lead (${res.status}):`, details || "Unknown error");
