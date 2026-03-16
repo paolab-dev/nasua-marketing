@@ -11,10 +11,10 @@ const Index = () => {
   return (
     <main>
       <Helmet>
-        <title>Nasua – Páginas Web Profesionales en Colombia</title>
-        <meta name="description" content="Páginas web profesionales en Colombia desde 48 horas. Landing pages, sitios corporativos y tiendas virtuales con financiación Wompi. 100% tuyo." />
-        <meta property="og:title" content="Nasua – Páginas Web Profesionales en Colombia" />
-        <meta property="og:description" content="Páginas web profesionales en Colombia desde 48 horas. Landing pages, sitios corporativos y tiendas virtuales con financiación Wompi." />
+        <title>Nasua Marketing | Estrategia SEO, UX/UI y Desarrollo Web</title>
+        <meta name="description" content="Transformamos tu modelo de negocio con SEO de alto impacto, diseño UX/UI centrado en conversión y desarrollo web robusto. Haz tu marca sostenible hoy." />
+        <meta property="og:title" content="Nasua Marketing | Estrategia SEO, UX/UI y Desarrollo Web" />
+        <meta property="og:description" content="Transformamos tu modelo de negocio con SEO de alto impacto, diseño UX/UI centrado en conversión y desarrollo web robusto. Haz tu marca sostenible hoy." />
         <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

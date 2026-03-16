@@ -10,48 +10,48 @@ interface PageMeta {
 
 const routeMeta: Record<string, PageMeta> = {
   "/": {
-    title: "Nasua – Páginas Web Profesionales en Colombia",
-    description: "Páginas web profesionales en Colombia desde 48 horas. Landing pages, sitios corporativos y tiendas virtuales con financiación Wompi. 100% tuyo.",
+    title: "Nasua Marketing | Estrategia SEO, UX/UI y Desarrollo Web",
+    description: "Transformamos tu modelo de negocio con SEO de alto impacto, diseño UX/UI centrado en conversión y desarrollo web robusto. Haz tu marca sostenible hoy.",
     image: `${BASE_URL}/Nasua-PaginasWebProfesionalesEnColombia.jpg`,
   },
   "/adn-nasua": {
-    title: "ADN Nasua | Filosofía de Trabajo",
-    description: "Velocidad radical, alta calidad a bajo costo y contenido que Google entiende. Tu infraestructura de crecimiento gestionada.",
+    title: "ADN Nasua | Metodología Estratégica en SEO, UX/UI y Negocios",
+    description: "Conoce el ADN Nasua: una fusión entre diseño UX/UI, desarrollo web y SEO estratégico para crear negocios rentables y sostenibles.",
     image: `${BASE_URL}/ADNNasua.jpg`,
   },
   "/landing-page": {
-    title: "Landing Page Profesional en 48 Horas | Nasua Colombia",
-    description: "Landing Page de alta conversión en solo 2 días. Calidad de élite, bajo costo y financiación con Wompi.",
+    title: "Diseño de Landing Pages de Alta Conversión | Nasua Marketing",
+    description: "Convierte clics en clientes con landing pages optimizadas. Diseño UX/UI experto, desarrollo en Lovable y SEO para maximizar tu ROI. ¡Empieza a vender más!",
     image: `${BASE_URL}/LandingPageNasua.jpg`,
   },
   "/sitio-corporativo": {
-    title: "Sitio Web Empresarial en 5 Días | Nasua Colombia",
-    description: "Proyecta la imagen profesional que tu negocio merece en solo 5 días. Alta calidad y financiación con Wompi.",
+    title: "Diseño de Sitios Web Corporativos | Lovable & UX/UI | Nasua",
+    description: "Construimos la presencia digital de tu empresa con sitios web de alto nivel. Diseño UX/UI premium, SEO técnico y arquitectura escalable para tu negocio.",
     image: `${BASE_URL}/SitioCorporativoNasua.jpg`,
   },
   "/ecommerce": {
-    title: "Tienda Virtual en Colombia | E-commerce Gestionado | Nasua",
-    description: "Tienda virtual profesional en 10 días. Catálogo WhatsApp o venta automática con pasarela de pagos.",
+    title: "Diseño de Tiendas Online Lovable | eCommerce & UX | Nasua",
+    description: "Lleva tu negocio al siguiente nivel con una tienda online optimizada. Desarrollo eCommerce en Lovable con foco en UX/UI, SEO y conversión. ¡Vende más hoy!",
     image: `${BASE_URL}/EmpezarProyectoNasua.jpg`,
   },
   "/estrategia": {
-    title: "Estrategia y Crecimiento Digital | Agencia Nasua",
-    description: "SEO, SEM (Google Partner), automatizaciones y estrategia de crecimiento digital para tu negocio.",
+    title: "Ads, SEO e Investigación de Mercados | Crecimiento Nasua",
+    description: "Escala tu negocio con pauta digital (Ads), SEO técnico e investigación de mercados profunda. Estrategias de crecimiento basadas en datos y rentabilidad.",
     image: `${BASE_URL}/EstrategiaNasua.jpg`,
   },
   "/quienes-somos": {
-    title: "Quiénes Somos | Nasua",
-    description: "Conoce al equipo de Nasua: Paola Bohórquez (Directora UX/UI) y John Escobar (Director de Mercadeo ex-Samsung).",
+    title: "Quiénes Somos | Nasua Marketing | Expertos en Growth y Web",
+    description: "Conoce al equipo multidisciplinario de Nasua. Unimos marketing, diseño UX/UI y desarrollo web para impulsar negocios sostenibles y rentables. ¡Conócenos!",
     image: `${BASE_URL}/QuienesSomosNasua.jpg`,
   },
   "/contacto": {
-    title: "Contacto | Nasua",
-    description: "Cuéntanos qué necesitas y en menos de 24 horas te contactamos con una propuesta personalizada.",
+    title: "Contacto | Nasua Marketing | Agencia de Growth y WordPress",
+    description: "¿Listo para escalar tu negocio? Contacta a Nasua Marketing. Expertos en SEO, Ads, UX/UI y Desarrollo Web en Colombia. Agenda tu consultoría estratégica hoy.",
     image: `${BASE_URL}/EmpezarProyectoNasua.jpg`,
   },
   "/blog": {
-    title: "Blog | Nasua – Páginas Web Profesionales",
-    description: "Artículos, guías y novedades sobre diseño web, marketing digital y estrategia online para empresas en Colombia.",
+    title: "Blog de Marketing, Publicidad y Tecnología Digital | Nasua",
+    description: "Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad. Aprende a escalar tu negocio con el equipo de expertos de Nasua Marketing.",
     image: `${BASE_URL}/Nasua-PaginasWebProfesionalesEnColombia.jpg`,
   },
   "/terminos-y-condiciones": {

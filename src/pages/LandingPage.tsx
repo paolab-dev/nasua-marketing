@@ -93,10 +93,10 @@ const LandingPage = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Landing Page Profesional en 48 Horas | Nasua Colombia</title>
-        <meta name="description" content="Construimos tu Landing Page de alta conversión en solo 2 días. Calidad de élite, bajo costo y financiación con Wompi. Propiedad 100% tuya." />
-        <meta property="og:title" content="Landing Page Profesional en 48 Horas | Nasua Colombia" />
-        <meta property="og:description" content="Landing Page de alta conversión en solo 2 días. Calidad de élite, bajo costo y financiación con Wompi." />
+        <title>Diseño de Landing Pages de Alta Conversión | Nasua Marketing</title>
+        <meta name="description" content="Convierte clics en clientes con landing pages optimizadas. Diseño UX/UI experto, desarrollo en Lovable y SEO para maximizar tu ROI. ¡Empieza a vender más!" />
+        <meta property="og:title" content="Diseño de Landing Pages de Alta Conversión | Nasua Marketing" />
+        <meta property="og:description" content="Convierte clics en clientes con landing pages optimizadas. Diseño UX/UI experto, desarrollo en Lovable y SEO para maximizar tu ROI. ¡Empieza a vender más!" />
         <meta property="og:image" content="https://nasua.marketing/LandingPageNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

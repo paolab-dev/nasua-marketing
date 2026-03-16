@@ -101,10 +101,10 @@ const Estrategia = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Estrategia y Crecimiento Digital | Agencia Nasua</title>
-        <meta name="description" content="SEO, SEM (Google Partner), automatizaciones y estrategia de crecimiento. Equipo con experiencia en Samsung y presupuestos de más de $5.000 millones COP anuales." />
-        <meta property="og:title" content="Estrategia y Crecimiento Digital | Agencia Nasua" />
-        <meta property="og:description" content="SEO, SEM (Google Partner), automatizaciones y estrategia de crecimiento digital para tu negocio." />
+        <title>Ads, SEO e Investigación de Mercados | Crecimiento Nasua</title>
+        <meta name="description" content="Escala tu negocio con pauta digital (Ads), SEO técnico e investigación de mercados profunda. Estrategias de crecimiento basadas en datos y rentabilidad." />
+        <meta property="og:title" content="Ads, SEO e Investigación de Mercados | Crecimiento Nasua" />
+        <meta property="og:description" content="Escala tu negocio con pauta digital (Ads), SEO técnico e investigación de mercados profunda. Estrategias de crecimiento basadas en datos y rentabilidad." />
         <meta property="og:image" content="https://nasua.marketing/EstrategiaNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

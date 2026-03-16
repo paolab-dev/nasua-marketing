@@ -74,10 +74,10 @@ const Contacto = () => {
   return (
     <div className="min-h-screen bg-background" id="contacto">
       <Helmet>
-        <title>Contacto | Nasua – Páginas Web Profesionales</title>
-        <meta name="description" content="Hablemos de tu proyecto digital. Cuéntanos qué necesitas y en menos de 24 horas te contactamos con una propuesta personalizada." />
-        <meta property="og:title" content="Contacto | Nasua" />
-        <meta property="og:description" content="Cuéntanos qué necesitas y en menos de 24 horas te contactamos con una propuesta personalizada." />
+        <title>Contacto | Nasua Marketing | Agencia de Growth y WordPress</title>
+        <meta name="description" content="¿Listo para escalar tu negocio? Contacta a Nasua Marketing. Expertos en SEO, Ads, UX/UI y Desarrollo Web en Colombia. Agenda tu consultoría estratégica hoy." />
+        <meta property="og:title" content="Contacto | Nasua Marketing | Agencia de Growth y WordPress" />
+        <meta property="og:description" content="¿Listo para escalar tu negocio? Contacta a Nasua Marketing. Expertos en SEO, Ads, UX/UI y Desarrollo Web en Colombia. Agenda tu consultoría estratégica hoy." />
         <meta property="og:image" content="https://nasua.marketing/EmpezarProyectoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

@@ -19,10 +19,10 @@ const Blog = () => {
   return (
     <main>
       <Helmet>
-        <title>Blog | Nasua – Páginas Web Profesionales</title>
-        <meta name="description" content="Artículos, guías y novedades sobre diseño web, marketing digital y estrategia online para empresas en Colombia." />
-        <meta property="og:title" content="Blog | Nasua – Páginas Web Profesionales" />
-        <meta property="og:description" content="Artículos, guías y novedades sobre diseño web, marketing digital y estrategia online para empresas en Colombia." />
+        <title>Blog de Marketing, Publicidad y Tecnología Digital | Nasua</title>
+        <meta name="description" content="Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad. Aprende a escalar tu negocio con el equipo de expertos de Nasua Marketing." />
+        <meta property="og:title" content="Blog de Marketing, Publicidad y Tecnología Digital | Nasua" />
+        <meta property="og:description" content="Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad. Aprende a escalar tu negocio con el equipo de expertos de Nasua Marketing." />
         <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

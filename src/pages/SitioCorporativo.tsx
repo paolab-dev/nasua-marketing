@@ -92,10 +92,10 @@ const SitioCorporativo = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Sitio Web Empresarial en 5 Días | Nasua Colombia</title>
-        <meta name="description" content="Proyecta la imagen profesional que tu negocio merece en solo 5 días. Alta calidad, textos optimizados para Google y financiación con Wompi." />
-        <meta property="og:title" content="Sitio Web Empresarial en 5 Días | Nasua Colombia" />
-        <meta property="og:description" content="Proyecta la imagen profesional que tu negocio merece en solo 5 días. Alta calidad y financiación con Wompi." />
+        <title>Diseño de Sitios Web Corporativos | Lovable & UX/UI | Nasua</title>
+        <meta name="description" content="Construimos la presencia digital de tu empresa con sitios web de alto nivel. Diseño UX/UI premium, SEO técnico y arquitectura escalable para tu negocio." />
+        <meta property="og:title" content="Diseño de Sitios Web Corporativos | Lovable & UX/UI | Nasua" />
+        <meta property="og:description" content="Construimos la presencia digital de tu empresa con sitios web de alto nivel. Diseño UX/UI premium, SEO técnico y arquitectura escalable para tu negocio." />
         <meta property="og:image" content="https://nasua.marketing/SitioCorporativoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

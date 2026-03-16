@@ -86,10 +86,10 @@ const Ecommerce = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Tienda Virtual en Colombia | E-commerce Gestionado | Nasua</title>
-        <meta name="description" content="Tienda virtual profesional en 10 días. Elige entre catálogo con cierre por WhatsApp o venta automática con pasarela de pagos. Calidad de élite a precio justo." />
-        <meta property="og:title" content="Tienda Virtual en Colombia | E-commerce Gestionado | Nasua" />
-        <meta property="og:description" content="Tienda virtual profesional en 10 días. Catálogo WhatsApp o venta automática con pasarela de pagos." />
+        <title>Diseño de Tiendas Online Lovable | eCommerce & UX | Nasua</title>
+        <meta name="description" content="Lleva tu negocio al siguiente nivel con una tienda online optimizada. Desarrollo eCommerce en Lovable con foco en UX/UI, SEO y conversión. ¡Vende más hoy!" />
+        <meta property="og:title" content="Diseño de Tiendas Online Lovable | eCommerce & UX | Nasua" />
+        <meta property="og:description" content="Lleva tu negocio al siguiente nivel con una tienda online optimizada. Desarrollo eCommerce en Lovable con foco en UX/UI, SEO y conversión. ¡Vende más hoy!" />
         <meta property="og:image" content="https://nasua.marketing/EmpezarProyectoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
