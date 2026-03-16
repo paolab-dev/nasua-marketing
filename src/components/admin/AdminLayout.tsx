@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { FileText, Users, FolderOpen, Briefcase, LogOut } from "lucide-react";
+import { FileText, Users, FolderOpen, Briefcase, Tag, LogOut } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { supabase } from "@/lib/supabase";
 import {
