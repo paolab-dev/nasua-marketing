@@ -16,6 +16,8 @@ import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Jobs from "./pages/Jobs";
+import JobDetail from "./pages/JobDetail";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLayout from "./components/admin/AdminLayout";
@@ -24,6 +26,9 @@ import AdminPostNew from "./pages/admin/AdminPostNew";
 import AdminPostEdit from "./pages/admin/AdminPostEdit";
 import AdminCategories from "./pages/admin/AdminCategories";
 import AdminAuthors from "./pages/admin/AdminAuthors";
+import AdminJobs from "./pages/admin/AdminJobs";
+import AdminJobNew from "./pages/admin/AdminJobNew";
+import AdminJobEdit from "./pages/admin/AdminJobEdit";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
