@@ -103,3 +103,20 @@
     background-image: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
   }
 }
+
+/* WYSIWYG Editor */
+.rich-editor .ql-toolbar {
+  border-color: hsl(var(--border)) !important;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: hsl(var(--muted));
+}
+.rich-editor .ql-container {
+  border-color: hsl(var(--border)) !important;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  min-height: 200px;
+}
+.rich-editor .ql-editor {
+  min-height: 200px;
+}
