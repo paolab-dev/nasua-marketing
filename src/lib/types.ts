@@ -26,3 +26,20 @@ export interface Post {
   authors?: Author;
   categories?: Category;
 }
+
+export interface Job {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  description: string;
+  skills: string[];
+  deadline: string;
+  duration: string;
+  budget: string;
+  status: "open" | "closed";
+  meta_description: string;
+  canonical_url: string;
+  created_at?: string;
+  updated_at?: string;
+}
