@@ -13,7 +13,7 @@ import { Calendar, Clock, DollarSign, ArrowLeft, Paperclip, CheckCircle2 } from 
 import { useToast } from "@/hooks/use-toast";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
-const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
+const ALLOWED_TYPES = ["application/pdf"];
 
 function fileToBase64(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
