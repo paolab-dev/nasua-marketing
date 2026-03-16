@@ -253,7 +253,7 @@ const JobDetail = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="font-body font-medium">Adjuntar archivo * (PDF, JPG, PNG — máx 10 MB)</Label>
+                  <Label className="font-body font-medium">Adjuntar archivo * (Solo PDF — máx 10 MB)</Label>
                   <div
                     onClick={() => fileRef.current?.click()}
                     className="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-secondary/50 transition-colors"
