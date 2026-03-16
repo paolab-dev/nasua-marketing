@@ -73,16 +73,10 @@ const JobDetail = () => {
       return;
     }
     if (!ALLOWED_TYPES.includes(f.type)) {
-      toast({ title: "Tipo no permitido", description: "Solo PDF, JPG, PNG", variant: "destructive" });
+      toast({ title: "Tipo no permitido", description: "Solo archivos PDF", variant: "destructive" });
       return;
     }
-    // Convert images to webp
-    if (f.type.startsWith("image/") && f.type !== "image/webp") {
-      const webp = await convertToWebP(f);
-      setFile(webp);
-    } else {
-      setFile(f);
-    }
+    setFile(f);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
