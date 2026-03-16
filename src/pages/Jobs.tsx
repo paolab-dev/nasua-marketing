@@ -66,7 +66,7 @@ const Jobs = () => {
 
           {/* Filters */}
           <div className="flex flex-wrap gap-2 mb-10">
-            {FILTERS.map((f) => (
+            {["Todos", ...categories].map((f) => (
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}

@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import RichTextEditor from "./RichTextEditor";
 
 interface PostFormProps {
   post?: Post | null;
@@ -56,7 +57,6 @@ const PostForm = ({ post }: PostFormProps) => {
     load();
   }, []);
 
-  // Auto-generate slug from title
   const handleTitleChange = (title: string) => {
     setForm((f) => ({
       ...f,
@@ -83,8 +83,6 @@ const PostForm = ({ post }: PostFormProps) => {
 
     try {
       let featuredImage = form.featured_image;
-
-      // Upload image if a new one was selected
       if (imageFile) {
         featuredImage = await uploadImage(imageFile);
       }
@@ -115,11 +113,7 @@ const PostForm = ({ post }: PostFormProps) => {
       toast({ title: post?.id ? "Post actualizado" : "Post creado" });
       navigate("/admin-NM");
     } catch (err: any) {
-      toast({
-        title: "Error",
-        description: err.message,
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: err.message, variant: "destructive" });
     } finally {
       setSaving(false);
     }
@@ -137,7 +131,6 @@ const PostForm = ({ post }: PostFormProps) => {
           value={form.title}
           onChange={(e) => handleTitleChange(e.target.value)}
           required
-          maxLength={200}
         />
       </div>
 
@@ -149,20 +142,17 @@ const PostForm = ({ post }: PostFormProps) => {
           value={form.slug}
           onChange={(e) => set("slug", e.target.value)}
           required
-          maxLength={200}
           className="font-mono text-sm"
         />
       </div>
 
-      {/* Content */}
+      {/* Content - WYSIWYG */}
       <div className="space-y-2">
-        <Label htmlFor="content">Contenido</Label>
-        <Textarea
-          id="content"
+        <Label>Contenido</Label>
+        <RichTextEditor
           value={form.content}
-          onChange={(e) => set("content", e.target.value)}
-          rows={12}
-          className="font-mono text-sm"
+          onChange={(v) => set("content", v)}
+          placeholder="Escribe el contenido del artículo..."
         />
       </div>
 
@@ -179,9 +169,7 @@ const PostForm = ({ post }: PostFormProps) => {
             value={form.summary_tldr}
             onChange={(e) => set("summary_tldr", e.target.value)}
             rows={3}
-            maxLength={500}
           />
-          <p className="text-xs text-muted-foreground">{form.summary_tldr.length}/500</p>
         </div>
 
         <div className="space-y-2">
@@ -191,9 +179,7 @@ const PostForm = ({ post }: PostFormProps) => {
             value={form.meta_description}
             onChange={(e) => set("meta_description", e.target.value)}
             rows={2}
-            maxLength={160}
           />
-          <p className="text-xs text-muted-foreground">{form.meta_description.length}/160</p>
         </div>
 
         <div className="space-y-2">
@@ -234,9 +220,7 @@ const PostForm = ({ post }: PostFormProps) => {
             </SelectTrigger>
             <SelectContent>
               {authors.map((a) => (
-                <SelectItem key={a.id} value={a.id}>
-                  {a.name}
-                </SelectItem>
+                <SelectItem key={a.id} value={a.id}>{a.name}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -250,9 +234,7 @@ const PostForm = ({ post }: PostFormProps) => {
             </SelectTrigger>
             <SelectContent>
               {categories.map((c) => (
-                <SelectItem key={c.id} value={c.id}>
-                  {c.name}
-                </SelectItem>
+                <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -264,9 +246,7 @@ const PostForm = ({ post }: PostFormProps) => {
         <div className="space-y-2">
           <Label>Estado</Label>
           <Select value={form.status} onValueChange={(v) => set("status", v)}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
+            <SelectTrigger><SelectValue /></SelectTrigger>
             <SelectContent>
               <SelectItem value="draft">Borrador</SelectItem>
               <SelectItem value="published">Publicado</SelectItem>

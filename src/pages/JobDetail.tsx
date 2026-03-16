@@ -147,8 +147,7 @@ const JobDetail = () => {
     <main>
       <Helmet>
         <title>{job.title} | Proyectos Nasua</title>
-        <meta name="description" content={job.meta_description || job.description} />
-        {job.canonical_url && <link rel="canonical" href={job.canonical_url} />}
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Navbar />
 
