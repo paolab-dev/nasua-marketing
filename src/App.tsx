@@ -17,10 +17,13 @@ import TerminosCondiciones from "./pages/TerminosCondiciones";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminPostNew from "./pages/AdminPostNew";
-import AdminPostEdit from "./pages/AdminPostEdit";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminPosts from "./pages/admin/AdminPosts";
+import AdminPostNew from "./pages/admin/AdminPostNew";
+import AdminPostEdit from "./pages/admin/AdminPostEdit";
+import AdminCategories from "./pages/admin/AdminCategories";
+import AdminAuthors from "./pages/admin/AdminAuthors";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -45,11 +48,18 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/login" element={<Login />} />
+
+          {/* Admin protegido */}
           <Route path="/admin-NM" element={<ProtectedRoute />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="nuevo" element={<AdminPostNew />} />
-            <Route path="editar/:id" element={<AdminPostEdit />} />
+            <Route element={<AdminLayout />}>
+              <Route index element={<AdminPosts />} />
+              <Route path="posts/nuevo" element={<AdminPostNew />} />
+              <Route path="posts/editar/:id" element={<AdminPostEdit />} />
+              <Route path="categorias" element={<AdminCategories />} />
+              <Route path="autores" element={<AdminAuthors />} />
+            </Route>
           </Route>
+
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
           <Route path="*" element={<NotFound />} />
