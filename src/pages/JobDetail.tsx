@@ -283,7 +283,7 @@ const JobDetail = () => {
                       Enviando...
                     </>
                   ) : (
-                    "Enviar Propuesta"
+                    "Enviar Propuesta Definitiva"
                   )}
                 </button>
               </form>
