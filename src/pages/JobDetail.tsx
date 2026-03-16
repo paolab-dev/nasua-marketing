@@ -265,7 +265,7 @@ const JobDetail = () => {
                     <input
                       ref={fileRef}
                       type="file"
-                      accept=".pdf,.jpg,.jpeg,.png"
+                      accept=".pdf"
                       className="hidden"
                       onChange={handleFile}
                     />
