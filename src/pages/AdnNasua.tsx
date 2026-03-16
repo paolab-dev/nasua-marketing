@@ -15,10 +15,10 @@ const AdnNasua = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>ADN Nasua | Filosofía de Trabajo – Infraestructura de Crecimiento</title>
-        <meta name="description" content="Conoce la filosofía Nasua: velocidad radical, alta calidad a bajo costo y contenido que Google entiende. Tu infraestructura de crecimiento gestionada." />
-        <meta property="og:title" content="ADN Nasua | Filosofía de Trabajo" />
-        <meta property="og:description" content="Velocidad radical, alta calidad a bajo costo y contenido que Google entiende. Tu infraestructura de crecimiento gestionada." />
+        <title>ADN Nasua | Metodología Estratégica en SEO, UX/UI y Negocios</title>
+        <meta name="description" content="Conoce el ADN Nasua: una fusión entre diseño UX/UI, desarrollo web y SEO estratégico para crear negocios rentables y sostenibles." />
+        <meta property="og:title" content="ADN Nasua | Metodología Estratégica en SEO, UX/UI y Negocios" />
+        <meta property="og:description" content="Conoce el ADN Nasua: una fusión entre diseño UX/UI, desarrollo web y SEO estratégico para crear negocios rentables y sostenibles." />
         <meta property="og:image" content="https://nasua.marketing/ADNNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
