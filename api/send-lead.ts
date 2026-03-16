@@ -1,7 +1,11 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
 
 const RECIPIENTS = ["hello@nasua.marketing"];
 const PRIMARY_FROM = "Nasua Leads <leads@nasua.marketing>";
