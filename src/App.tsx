@@ -68,6 +68,7 @@ const App = () => (
               <Route path="vacantes" element={<AdminJobs />} />
               <Route path="vacantes/nueva" element={<AdminJobNew />} />
               <Route path="vacantes/editar/:id" element={<AdminJobEdit />} />
+              <Route path="vacantes/categorias" element={<AdminJobCategories />} />
             </Route>
           </Route>
 

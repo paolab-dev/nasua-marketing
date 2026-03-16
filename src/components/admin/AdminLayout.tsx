@@ -23,6 +23,7 @@ const navItems = [
   { title: "Categorías", url: "/admin-NM/categorias", icon: FolderOpen },
   { title: "Autores", url: "/admin-NM/autores", icon: Users },
   { title: "Vacantes", url: "/admin-NM/vacantes", icon: Briefcase },
+  { title: "Cat. Vacantes", url: "/admin-NM/vacantes/categorias", icon: Tag },
 ];
 
 function AdminSidebar() {
