@@ -47,6 +47,8 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/admin-NM" element={<ProtectedRoute />}>
             <Route index element={<AdminDashboard />} />
+            <Route path="nuevo" element={<AdminPostNew />} />
+            <Route path="editar/:id" element={<AdminPostEdit />} />
           </Route>
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
