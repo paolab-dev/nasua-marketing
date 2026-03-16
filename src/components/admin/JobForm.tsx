@@ -1,20 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
-import type { Job } from "@/lib/types";
+import type { Job, JobCategory } from "@/lib/types";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-
-const CATEGORIES = [
-  "Desarrollo & Diseño",
-  "Diseño UI/UX",
-  "Vibe Coding",
-  "Desarrollo Móvil",
-];
+import RichTextEditor from "./RichTextEditor";
 
 interface Props {
   initialData?: Job;
@@ -35,19 +28,24 @@ const JobForm = ({ initialData }: Props) => {
   const isEditing = !!initialData;
 
   const [saving, setSaving] = useState(false);
+  const [categories, setCategories] = useState<JobCategory[]>([]);
   const [form, setForm] = useState({
     title: initialData?.title || "",
     slug: initialData?.slug || "",
-    category: initialData?.category || CATEGORIES[0],
+    category: initialData?.category || "",
     description: initialData?.description || "",
     skills: initialData?.skills?.join(", ") || "",
     deadline: initialData?.deadline || "",
     duration: initialData?.duration || "",
     budget: initialData?.budget || "",
     status: initialData?.status || "open" as "open" | "closed",
-    meta_description: initialData?.meta_description || "",
-    canonical_url: initialData?.canonical_url || "",
   });
+
+  useEffect(() => {
+    supabase.from("job_categories").select("id, name").order("name").then(({ data }) => {
+      if (data) setCategories(data);
+    });
+  }, []);
 
   useEffect(() => {
     if (!isEditing) {
@@ -55,7 +53,7 @@ const JobForm = ({ initialData }: Props) => {
     }
   }, [form.title, isEditing]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
@@ -73,8 +71,6 @@ const JobForm = ({ initialData }: Props) => {
       duration: form.duration,
       budget: form.budget,
       status: form.status,
-      meta_description: form.meta_description,
-      canonical_url: form.canonical_url,
     };
 
     let error;
@@ -111,10 +107,10 @@ const JobForm = ({ initialData }: Props) => {
         <div className="space-y-2">
           <Label className="font-body font-medium">Categoría *</Label>
           <Select value={form.category} onValueChange={(v) => setForm((p) => ({ ...p, category: v }))}>
-            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectTrigger><SelectValue placeholder="Seleccionar categoría" /></SelectTrigger>
             <SelectContent>
-              {CATEGORIES.map((c) => (
-                <SelectItem key={c} value={c}>{c}</SelectItem>
+              {categories.map((c) => (
+                <SelectItem key={c.id} value={c.name}>{c.name}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -133,7 +129,11 @@ const JobForm = ({ initialData }: Props) => {
 
       <div className="space-y-2">
         <Label className="font-body font-medium">Descripción *</Label>
-        <Textarea name="description" value={form.description} onChange={handleChange} required rows={4} />
+        <RichTextEditor
+          value={form.description}
+          onChange={(v) => setForm((p) => ({ ...p, description: v }))}
+          placeholder="Describe el proyecto..."
+        />
       </div>
 
       <div className="space-y-2">
@@ -154,17 +154,6 @@ const JobForm = ({ initialData }: Props) => {
           <Label className="font-body font-medium">Presupuesto</Label>
           <Input name="budget" value={form.budget} onChange={handleChange} placeholder="$2,000 – $3,500" />
         </div>
-      </div>
-
-      <hr className="border-border" />
-
-      <div className="space-y-2">
-        <Label className="font-body font-medium">Meta Description (SEO)</Label>
-        <Textarea name="meta_description" value={form.meta_description} onChange={handleChange} rows={2} />
-      </div>
-      <div className="space-y-2">
-        <Label className="font-body font-medium">Canonical URL</Label>
-        <Input name="canonical_url" value={form.canonical_url} onChange={handleChange} placeholder="https://" />
       </div>
 
       <div className="flex gap-3 pt-2">

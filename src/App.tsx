@@ -29,6 +29,7 @@ import AdminAuthors from "./pages/admin/AdminAuthors";
 import AdminJobs from "./pages/admin/AdminJobs";
 import AdminJobNew from "./pages/admin/AdminJobNew";
 import AdminJobEdit from "./pages/admin/AdminJobEdit";
+import AdminJobCategories from "./pages/admin/AdminJobCategories";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -67,6 +68,7 @@ const App = () => (
               <Route path="vacantes" element={<AdminJobs />} />
               <Route path="vacantes/nueva" element={<AdminJobNew />} />
               <Route path="vacantes/editar/:id" element={<AdminJobEdit />} />
+              <Route path="vacantes/categorias" element={<AdminJobCategories />} />
             </Route>
           </Route>
 

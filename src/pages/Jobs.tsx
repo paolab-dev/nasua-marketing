@@ -7,30 +7,23 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, DollarSign } from "lucide-react";
 
-const FILTERS = [
-  "Todos",
-  "Desarrollo & Diseño",
-  "Diseño UI/UX",
-  "Vibe Coding",
-  "Desarrollo Móvil",
-];
-
 const Jobs = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("Todos");
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      const { data } = await supabase
-        .from("jobs")
-        .select("*")
-        .eq("status", "open")
-        .order("created_at", { ascending: false });
-      setJobs(data || []);
+    const fetchData = async () => {
+      const [jobsRes, catsRes] = await Promise.all([
+        supabase.from("jobs").select("*").eq("status", "open").order("created_at", { ascending: false }),
+        supabase.from("job_categories").select("name").order("name"),
+      ]);
+      setJobs(jobsRes.data || []);
+      setCategories((catsRes.data || []).map((c: { name: string }) => c.name));
       setLoading(false);
     };
-    fetchJobs();
+    fetchData();
   }, []);
 
   const filtered =
@@ -66,7 +59,7 @@ const Jobs = () => {
 
           {/* Filters */}
           <div className="flex flex-wrap gap-2 mb-10">
-            {FILTERS.map((f) => (
+            {["Todos", ...categories].map((f) => (
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}

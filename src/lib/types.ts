@@ -38,8 +38,11 @@ export interface Job {
   duration: string;
   budget: string;
   status: "open" | "closed";
-  meta_description: string;
-  canonical_url: string;
   created_at?: string;
   updated_at?: string;
+}
+
+export interface JobCategory {
+  id: string;
+  name: string;
 }
