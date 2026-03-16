@@ -18,6 +18,8 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminPostNew from "./pages/AdminPostNew";
+import AdminPostEdit from "./pages/AdminPostEdit";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -45,6 +47,8 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/admin-NM" element={<ProtectedRoute />}>
             <Route index element={<AdminDashboard />} />
+            <Route path="nuevo" element={<AdminPostNew />} />
+            <Route path="editar/:id" element={<AdminPostEdit />} />
           </Route>
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
