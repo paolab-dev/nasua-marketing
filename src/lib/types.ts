@@ -32,6 +32,7 @@ export interface Job {
   title: string;
   slug: string;
   category: string;
+  short_description: string;
   description: string;
   skills: string[];
   deadline: string;

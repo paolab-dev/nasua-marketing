@@ -130,11 +130,16 @@ const JobForm = ({ initialData }: Props) => {
       </div>
 
       <div className="space-y-2">
-        <Label className="font-body font-medium">Descripción *</Label>
+        <Label className="font-body font-medium">Descripción corta (para cards) *</Label>
+        <Input name="short_description" value={form.short_description} onChange={handleChange} required placeholder="Resumen de 1-2 líneas para la tarjeta pública" />
+      </div>
+
+      <div className="space-y-2">
+        <Label className="font-body font-medium">Descripción completa *</Label>
         <RichTextEditor
           value={form.description}
           onChange={(v) => setForm((p) => ({ ...p, description: v }))}
-          placeholder="Describe el proyecto..."
+          placeholder="Describe el proyecto en detalle..."
         />
       </div>
 
