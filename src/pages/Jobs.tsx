@@ -102,7 +102,7 @@ const Jobs = () => {
                     {job.title}
                   </h3>
                   <p className="text-muted-foreground font-body text-sm mb-4 flex-1 line-clamp-3">
-                    {job.description}
+                    {stripHtml(job.description)}
                   </p>
 
                   {/* Skills */}
