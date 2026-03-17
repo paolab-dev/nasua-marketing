@@ -66,6 +66,7 @@ const JobForm = ({ initialData }: Props) => {
       title: form.title,
       slug: form.slug,
       category: form.category,
+      short_description: form.short_description,
       description: form.description,
       skills: form.skills.split(",").map((s) => s.trim()).filter(Boolean),
       deadline: form.deadline || null,
