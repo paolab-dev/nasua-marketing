@@ -36,8 +36,8 @@ const JobForm = ({ initialData }: Props) => {
     description: initialData?.description || "",
     skills: initialData?.skills?.join(", ") || "",
     deadline: initialData?.deadline || "",
-    duration: initialData?.duration || "",
-    budget: initialData?.budget || "",
+    development_time: initialData?.development_time || "",
+    budget_range: initialData?.budget_range || "",
     status: initialData?.status || "open" as "open" | "closed",
   });
 
