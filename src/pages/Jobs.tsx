@@ -89,53 +89,69 @@ const Jobs = () => {
               No hay proyectos disponibles en esta categoría.
             </p>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-5">
               {filtered.map((job) => (
                 <div
                   key={job.id}
-                  className="bg-card border-2 border-border rounded-xl p-6 flex flex-col hover:border-secondary/50 transition-colors group"
+                  className="bg-card border border-border rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 hover:border-secondary/50 transition-colors group"
                 >
-                  <span className="inline-block self-start px-3 py-1 rounded-full bg-accent/15 text-accent font-body text-xs font-semibold mb-3">
-                    {job.category}
-                  </span>
-                  <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
-                    {job.title}
-                  </h3>
-                  <p className="text-muted-foreground font-body text-sm mb-4 flex-1 line-clamp-3">
-                    {stripHtml(job.description)}
-                  </p>
+                  {/* Left: Content */}
+                  <div className="flex-1 min-w-0">
+                    <span className="inline-block px-3 py-1 rounded-full bg-accent/15 text-accent font-body text-xs font-semibold mb-3">
+                      {job.category}
+                    </span>
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
+                      {job.title}
+                    </h3>
+                    <p className="text-muted-foreground font-body text-sm mb-4 line-clamp-2">
+                      {job.short_description || stripHtml(job.description)}
+                    </p>
 
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {job.skills.map((s) => (
-                      <span
-                        key={s}
-                        className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-body font-medium"
-                      >
-                        {s}
-                      </span>
-                    ))}
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {job.skills.map((s) => (
+                        <span
+                          key={s}
+                          className="px-3 py-1 rounded-full border border-border text-foreground text-xs font-body font-medium"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Meta row */}
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground font-body border-t border-border pt-4 mb-5">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={13} /> {job.deadline ? new Date(job.deadline).toLocaleDateString("es-CO", { day: "numeric", month: "short", year: "numeric" }) : "—"}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={13} /> {job.development_time}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <DollarSign size={13} /> {job.budget_range}
-                    </span>
-                  </div>
+                  {/* Right: Meta + CTA */}
+                  <div className="md:w-64 flex-shrink-0 flex flex-col justify-between gap-4 md:border-l md:border-border md:pl-6">
+                    <div className="space-y-3 text-sm font-body">
+                      <div>
+                        <span className="flex items-center gap-1.5 text-muted-foreground text-xs uppercase tracking-wider mb-0.5">
+                          <Calendar size={13} /> Cierre de propuestas
+                        </span>
+                        <span className="text-foreground font-semibold">
+                          {job.deadline ? new Date(job.deadline).toLocaleDateString("es-CO", { day: "numeric", month: "short", year: "numeric" }) : "—"}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="flex items-center gap-1.5 text-muted-foreground text-xs uppercase tracking-wider mb-0.5">
+                          <Clock size={13} /> Tiempo de desarrollo
+                        </span>
+                        <span className="text-foreground font-semibold">{job.development_time}</span>
+                      </div>
+                      <div>
+                        <span className="flex items-center gap-1.5 text-muted-foreground text-xs uppercase tracking-wider mb-0.5">
+                          <DollarSign size={13} /> Presupuesto estimado
+                        </span>
+                        <span className="text-secondary font-bold">{job.budget_range}</span>
+                      </div>
+                    </div>
 
-                  <Link
-                    to={`/proyectos/${job.slug}`}
-                    className="block text-center bg-primary text-primary-foreground font-body font-semibold text-sm py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
-                  >
-                    Enviar Propuesta
-                  </Link>
+                    <Link
+                      to={`/proyectos/${job.slug}`}
+                      className="flex items-center justify-center gap-2 bg-primary text-primary-foreground font-body font-semibold text-sm py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                    >
+                      Enviar Propuesta <ArrowRight size={16} />
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
