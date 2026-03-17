@@ -7,6 +7,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, DollarSign } from "lucide-react";
 
+function stripHtml(html: string): string {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  return doc.body.textContent || "";
+}
+
 const Jobs = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
@@ -97,7 +102,7 @@ const Jobs = () => {
                     {job.title}
                   </h3>
                   <p className="text-muted-foreground font-body text-sm mb-4 flex-1 line-clamp-3">
-                    {job.description}
+                    {stripHtml(job.description)}
                   </p>
 
                   {/* Skills */}
