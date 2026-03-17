@@ -33,6 +33,7 @@ const JobForm = ({ initialData }: Props) => {
     title: initialData?.title || "",
     slug: initialData?.slug || "",
     category: initialData?.category || "",
+    short_description: initialData?.short_description || "",
     description: initialData?.description || "",
     skills: initialData?.skills?.join(", ") || "",
     deadline: initialData?.deadline || "",
