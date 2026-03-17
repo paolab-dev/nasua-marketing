@@ -36,8 +36,8 @@ const JobForm = ({ initialData }: Props) => {
     description: initialData?.description || "",
     skills: initialData?.skills?.join(", ") || "",
     deadline: initialData?.deadline || "",
-    duration: initialData?.duration || "",
-    budget: initialData?.budget || "",
+    development_time: initialData?.development_time || "",
+    budget_range: initialData?.budget_range || "",
     status: initialData?.status || "open" as "open" | "closed",
   });
 
@@ -67,9 +67,9 @@ const JobForm = ({ initialData }: Props) => {
       category: form.category,
       description: form.description,
       skills: form.skills.split(",").map((s) => s.trim()).filter(Boolean),
-      deadline: form.deadline,
-      duration: form.duration,
-      budget: form.budget,
+      deadline: form.deadline || null,
+      development_time: form.development_time,
+      budget_range: form.budget_range,
       status: form.status,
     };
 
@@ -144,15 +144,15 @@ const JobForm = ({ initialData }: Props) => {
       <div className="grid md:grid-cols-3 gap-5">
         <div className="space-y-2">
           <Label className="font-body font-medium">Cierre propuestas</Label>
-          <Input name="deadline" value={form.deadline} onChange={handleChange} placeholder="15 Abr 2026" />
+          <Input name="deadline" type="date" value={form.deadline} onChange={handleChange} />
         </div>
         <div className="space-y-2">
-          <Label className="font-body font-medium">Duración</Label>
-          <Input name="duration" value={form.duration} onChange={handleChange} placeholder="4–6 semanas" />
+          <Label className="font-body font-medium">Tiempo de desarrollo</Label>
+          <Input name="development_time" value={form.development_time} onChange={handleChange} placeholder="4–6 semanas" />
         </div>
         <div className="space-y-2">
-          <Label className="font-body font-medium">Presupuesto</Label>
-          <Input name="budget" value={form.budget} onChange={handleChange} placeholder="$2,000 – $3,500" />
+          <Label className="font-body font-medium">Rango de presupuesto</Label>
+          <Input name="budget_range" value={form.budget_range} onChange={handleChange} placeholder="$2,000 – $3,500" />
         </div>
       </div>
 

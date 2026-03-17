@@ -183,13 +183,13 @@ const JobDetail = () => {
 
             <div className="flex flex-wrap gap-6 text-sm text-muted-foreground font-body border-t border-border pt-5">
               <span className="flex items-center gap-1.5">
-                <Calendar size={15} className="text-secondary" /> Cierre: {job.deadline}
+                <Calendar size={15} className="text-secondary" /> Cierre: {job.deadline ? new Date(job.deadline).toLocaleDateString("es-CO", { day: "numeric", month: "short", year: "numeric" }) : "—"}
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock size={15} className="text-secondary" /> {job.duration}
+                <Clock size={15} className="text-secondary" /> {job.development_time}
               </span>
               <span className="flex items-center gap-1.5">
-                <DollarSign size={15} className="text-secondary" /> {job.budget}
+                <DollarSign size={15} className="text-secondary" /> {job.budget_range}
               </span>
             </div>
           </div>

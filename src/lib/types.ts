@@ -35,11 +35,10 @@ export interface Job {
   description: string;
   skills: string[];
   deadline: string;
-  duration: string;
-  budget: string;
+  development_time: string;
+  budget_range: string;
   status: "open" | "closed";
   created_at?: string;
-  updated_at?: string;
 }
 
 export interface JobCategory {
