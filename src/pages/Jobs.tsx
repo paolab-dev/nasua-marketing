@@ -115,13 +115,13 @@ const Jobs = () => {
                   {/* Meta row */}
                   <div className="flex items-center gap-4 text-xs text-muted-foreground font-body border-t border-border pt-4 mb-5">
                     <span className="flex items-center gap-1">
-                      <Calendar size={13} /> {job.deadline}
+                      <Calendar size={13} /> {job.deadline ? new Date(job.deadline).toLocaleDateString("es-CO", { day: "numeric", month: "short", year: "numeric" }) : "—"}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock size={13} /> {job.duration}
+                      <Clock size={13} /> {job.development_time}
                     </span>
                     <span className="flex items-center gap-1">
-                      <DollarSign size={13} /> {job.budget}
+                      <DollarSign size={13} /> {job.budget_range}
                     </span>
                   </div>
 
