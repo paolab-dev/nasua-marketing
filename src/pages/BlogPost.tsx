@@ -118,14 +118,6 @@ const BlogPostPage = () => {
             />
           )}
 
-          {post.summary_tldr && (
-            <div className="bg-card border border-border rounded-xl p-6 mb-8">
-              <h2 className="text-sm font-bold uppercase tracking-wider text-secondary mb-2">
-                TL;DR
-              </h2>
-              <p className="text-foreground font-body">{post.summary_tldr}</p>
-            </div>
-          )}
 
           {/* Rich HTML content */}
           <div
