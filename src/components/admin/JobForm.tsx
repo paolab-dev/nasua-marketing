@@ -33,6 +33,7 @@ const JobForm = ({ initialData }: Props) => {
     title: initialData?.title || "",
     slug: initialData?.slug || "",
     category: initialData?.category || "",
+    short_description: initialData?.short_description || "",
     description: initialData?.description || "",
     skills: initialData?.skills?.join(", ") || "",
     deadline: initialData?.deadline || "",
@@ -65,6 +66,7 @@ const JobForm = ({ initialData }: Props) => {
       title: form.title,
       slug: form.slug,
       category: form.category,
+      short_description: form.short_description,
       description: form.description,
       skills: form.skills.split(",").map((s) => s.trim()).filter(Boolean),
       deadline: form.deadline || null,
@@ -128,11 +130,16 @@ const JobForm = ({ initialData }: Props) => {
       </div>
 
       <div className="space-y-2">
-        <Label className="font-body font-medium">Descripción *</Label>
+        <Label className="font-body font-medium">Descripción corta (para cards) *</Label>
+        <Input name="short_description" value={form.short_description} onChange={handleChange} required placeholder="Resumen de 1-2 líneas para la tarjeta pública" />
+      </div>
+
+      <div className="space-y-2">
+        <Label className="font-body font-medium">Descripción completa *</Label>
         <RichTextEditor
           value={form.description}
           onChange={(v) => setForm((p) => ({ ...p, description: v }))}
-          placeholder="Describe el proyecto..."
+          placeholder="Describe el proyecto en detalle..."
         />
       </div>
 
