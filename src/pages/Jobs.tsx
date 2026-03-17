@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabase";
 import type { Job } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, Clock, DollarSign } from "lucide-react";
+import { Calendar, Clock, DollarSign, ArrowRight } from "lucide-react";
 
 function stripHtml(html: string): string {
   const doc = new DOMParser().parseFromString(html, "text/html");
