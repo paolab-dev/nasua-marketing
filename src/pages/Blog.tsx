@@ -1,32 +1,40 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
+import type { Post } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BlogPost, fetchPosts } from "@/lib/blog";
 
 const Blog = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchPosts()
-      .then(setPosts)
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
+    supabase
+      .from("posts")
+      .select("*, authors(name), categories(name)")
+      .eq("status", "published")
+      .order("published_at", { ascending: false })
+      .then(({ data }) => {
+        setPosts(data || []);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <main>
       <Helmet>
         <title>Blog de Marketing, Publicidad y Tecnología Digital | Nasua</title>
-        <meta name="description" content="Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad. Aprende a escalar tu negocio con el equipo de expertos de Nasua Marketing." />
+        <meta
+          name="description"
+          content="Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad. Aprende a escalar tu negocio con el equipo de expertos de Nasua Marketing."
+        />
         <meta property="og:title" content="Blog de Marketing, Publicidad y Tecnología Digital | Nasua" />
-        <meta property="og:description" content="Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad. Aprende a escalar tu negocio con el equipo de expertos de Nasua Marketing." />
+        <meta property="og:description" content="Tendencias de marketing, guías de SEO, consejos de UX/UI y noticias de publicidad." />
         <meta property="og:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
       </Helmet>
       <Navbar />
 
@@ -47,52 +55,48 @@ const Blog = () => {
             </div>
           )}
 
-          {error && (
-            <p className="text-center text-destructive">{error}</p>
-          )}
-
-          {!loading && !error && posts.length === 0 && (
+          {!loading && posts.length === 0 && (
             <p className="text-center text-muted-foreground">No hay artículos publicados aún.</p>
           )}
 
-          {!loading && !error && posts.length > 0 && (
+          {!loading && posts.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (
-                <a
+                <Link
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
+                  to={`/blog/${post.slug}`}
                   className="group rounded-xl overflow-hidden bg-card border border-border hover:shadow-lg transition-shadow"
                 >
-                  {post.imagenDestacada && (
+                  {post.featured_image && (
                     <div className="aspect-video overflow-hidden">
                       <img
-                        src={post.imagenDestacada}
-                        alt={post.nombre}
+                        src={post.featured_image}
+                        alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                       />
                     </div>
                   )}
                   <div className="p-5 flex flex-col gap-2">
-                    {post.categoria && (
+                    {post.categories?.name && (
                       <span className="text-xs font-semibold uppercase tracking-wider text-secondary">
-                        {post.categoria}
+                        {post.categories.name}
                       </span>
                     )}
                     <h2 className="text-lg font-display font-bold text-foreground group-hover:text-secondary transition-colors line-clamp-2">
-                      {post.nombre}
+                      {post.title}
                     </h2>
-                    {post.metaDescription && (
+                    {post.meta_description && (
                       <p className="text-sm text-muted-foreground line-clamp-3">
-                        {post.metaDescription}
+                        {post.meta_description}
                       </p>
                     )}
                     <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-                      {post.autor && <span>{post.autor}</span>}
-                      {post.autor && post.fechaPublicacion && <span>·</span>}
-                      {post.fechaPublicacion && (
-                        <time dateTime={post.fechaPublicacion}>
-                          {new Date(post.fechaPublicacion).toLocaleDateString("es-CO", {
+                      {post.authors?.name && <span>{post.authors.name}</span>}
+                      {post.authors?.name && post.published_at && <span>·</span>}
+                      {post.published_at && (
+                        <time dateTime={post.published_at}>
+                          {new Date(post.published_at).toLocaleDateString("es-CO", {
                             year: "numeric",
                             month: "long",
                             day: "numeric",
@@ -101,7 +105,7 @@ const Blog = () => {
                       )}
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           )}

@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { supabase } from "@/lib/supabase";
+import type { Post } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import type { BlogPost } from "@/lib/blog";
-import { fetchPosts } from "@/lib/blog";
+import { ArrowLeft } from "lucide-react";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [post, setPost] = useState<BlogPost | null>(null);
+  const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchPosts()
-      .then((posts) => {
-        const found = posts.find((p) => p.slug === slug) ?? null;
-        setPost(found);
-      })
-      .finally(() => setLoading(false));
+    supabase
+      .from("posts")
+      .select("*, authors(name), categories(name)")
+      .eq("slug", slug)
+      .eq("status", "published")
+      .single()
+      .then(({ data }) => {
+        setPost(data);
+        setLoading(false);
+      });
   }, [slug]);
 
   if (loading) {
@@ -42,8 +47,12 @@ const BlogPostPage = () => {
         <Navbar />
         <div className="pt-28 pb-16 bg-background section-padding min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-3xl font-display font-bold text-foreground mb-4">Artículo no encontrado</h1>
-            <a href="/blog" className="text-secondary hover:underline">Volver al blog</a>
+            <h1 className="text-3xl font-display font-bold text-foreground mb-4">
+              Artículo no encontrado
+            </h1>
+            <Link to="/blog" className="text-secondary hover:underline">
+              Volver al blog
+            </Link>
           </div>
         </div>
         <Footer />
@@ -54,33 +63,45 @@ const BlogPostPage = () => {
   return (
     <main>
       <Helmet>
-        <title>{post.nombre} | Nasua Blog</title>
-        <meta name="description" content={post.metaDescription} />
-        <meta property="og:title" content={`${post.nombre} | Nasua Blog`} />
-        <meta property="og:description" content={post.metaDescription} />
-        <meta property="og:image" content={post.imagenDestacada || "https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg"} />
+        <title>{post.title} | Nasua Blog</title>
+        <meta name="description" content={post.meta_description} />
+        {post.canonical_url && <link rel="canonical" href={post.canonical_url} />}
+        <meta property="og:title" content={`${post.title} | Nasua Blog`} />
+        <meta property="og:description" content={post.meta_description} />
+        <meta
+          property="og:image"
+          content={post.featured_image || "https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg"}
+        />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={post.imagenDestacada || "https://nasua.co/Nasua-PaginasWebProfesionalesEnColombia.jpg"} />
       </Helmet>
       <Navbar />
 
       <article className="pt-28 pb-16 bg-background section-padding">
         <div className="container mx-auto max-w-3xl">
-          {post.categoria && (
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-body text-sm mb-8 transition-colors"
+          >
+            <ArrowLeft size={16} /> Volver al blog
+          </Link>
+
+          {post.categories?.name && (
             <span className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2 block">
-              {post.categoria}
+              {post.categories.name}
             </span>
           )}
+
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            {post.nombre}
+            {post.title}
           </h1>
+
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-            {post.autor && <span>{post.autor}</span>}
-            {post.autor && post.fechaPublicacion && <span>·</span>}
-            {post.fechaPublicacion && (
-              <time dateTime={post.fechaPublicacion}>
-                {new Date(post.fechaPublicacion).toLocaleDateString("es-CO", {
+            {post.authors?.name && <span>{post.authors.name}</span>}
+            {post.authors?.name && post.published_at && <span>·</span>}
+            {post.published_at && (
+              <time dateTime={post.published_at}>
+                {new Date(post.published_at).toLocaleDateString("es-CO", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -89,24 +110,42 @@ const BlogPostPage = () => {
             )}
           </div>
 
-          {post.imagenDestacada && (
+          {post.featured_image && (
             <img
-              src={post.imagenDestacada}
-              alt={post.nombre}
+              src={post.featured_image}
+              alt={post.title}
               className="w-full rounded-xl mb-8 object-cover max-h-[400px]"
             />
           )}
 
-          {post.tldr && (
+          {post.summary_tldr && (
             <div className="bg-card border border-border rounded-xl p-6 mb-8">
-              <h2 className="text-sm font-bold uppercase tracking-wider text-secondary mb-2">TL;DR</h2>
-              <p className="text-foreground">{post.tldr}</p>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-secondary mb-2">
+                TL;DR
+              </h2>
+              <p className="text-foreground font-body">{post.summary_tldr}</p>
             </div>
           )}
 
-          <a href="/blog" className="inline-block mt-8 text-secondary hover:underline font-semibold">
-            ← Volver al blog
-          </a>
+          {/* Rich HTML content */}
+          <div
+            className="prose prose-lg max-w-none
+              prose-headings:font-display prose-headings:text-foreground
+              prose-p:text-muted-foreground prose-p:font-body prose-p:leading-relaxed
+              prose-a:text-secondary prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-foreground
+              prose-blockquote:border-l-secondary prose-blockquote:text-muted-foreground prose-blockquote:italic
+              prose-li:text-muted-foreground prose-li:font-body
+              prose-img:rounded-xl"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-1.5 mt-12 text-secondary hover:underline font-body font-semibold"
+          >
+            <ArrowLeft size={16} /> Volver al blog
+          </Link>
         </div>
       </article>
 

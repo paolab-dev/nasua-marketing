@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/lib/supabase";
-
 import type { Job } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Calendar, Clock, DollarSign, ArrowLeft, Paperclip, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = ["application/pdf"];
 
 function fileToBase64(file: File): Promise<string> {
@@ -20,7 +19,7 @@ function fileToBase64(file: File): Promise<string> {
     const reader = new FileReader();
     reader.onload = () => {
       const result = reader.result as string;
-      resolve(result.split(",")[1]); // strip data:...;base64,
+      resolve(result.split(",")[1]);
     };
     reader.onerror = reject;
     reader.readAsDataURL(file);
@@ -49,23 +48,22 @@ const JobDetail = () => {
   });
 
   useEffect(() => {
-    const fetch = async () => {
-      const { data } = await supabase
-        .from("jobs")
-        .select("*")
-        .eq("slug", slug)
-        .single();
-      setJob(data);
-      setLoading(false);
-    };
-    fetch();
+    supabase
+      .from("jobs")
+      .select("*")
+      .eq("slug", slug)
+      .single()
+      .then(({ data }) => {
+        setJob(data);
+        setLoading(false);
+      });
   }, [slug]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
-  const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
     if (f.size > MAX_FILE_SIZE) {
@@ -82,32 +80,23 @@ const JobDetail = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!job) return;
-
-    // Validate all required
     const missing = Object.entries(form).some(([, v]) => !v.trim());
     if (missing || !file) {
       toast({ title: "Campos incompletos", description: "Todos los campos son obligatorios, incluyendo el archivo adjunto.", variant: "destructive" });
       return;
     }
-
     setSending(true);
     try {
       const base64 = await fileToBase64(file);
-
       const res = await window.fetch("/api/send-proposal", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           jobTitle: job.title,
           data: form,
-          attachment: {
-            filename: file.name,
-            content: base64,
-            type: file.type,
-          },
+          attachment: { filename: file.name, content: base64, type: file.type },
         }),
       });
-
       if (!res.ok) throw new Error("Error al enviar");
       setSent(true);
     } catch {
@@ -165,10 +154,21 @@ const JobDetail = () => {
             <span className="inline-block px-3 py-1 rounded-full bg-accent/15 text-accent font-body text-xs font-semibold mb-4">
               {job.category}
             </span>
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
               {job.title}
             </h1>
-            <p className="text-muted-foreground font-body mb-6">{job.description}</p>
+
+            {/* Rich HTML description */}
+            <div
+              className="prose prose-lg max-w-none mb-6
+                prose-headings:font-display prose-headings:text-foreground
+                prose-p:text-muted-foreground prose-p:font-body prose-p:leading-relaxed
+                prose-strong:text-foreground
+                prose-blockquote:border-l-secondary prose-blockquote:text-muted-foreground prose-blockquote:italic
+                prose-li:text-muted-foreground prose-li:font-body
+                prose-ul:text-muted-foreground prose-ol:text-muted-foreground"
+              dangerouslySetInnerHTML={{ __html: job.description }}
+            />
 
             <div className="flex flex-wrap gap-2 mb-6">
               {job.skills.map((s) => (
@@ -210,7 +210,6 @@ const JobDetail = () => {
               <h2 className="font-display text-2xl font-bold text-foreground mb-6">
                 Enviar Propuesta
               </h2>
-
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-2">
@@ -261,13 +260,7 @@ const JobDetail = () => {
                     <p className="text-sm text-muted-foreground font-body">
                       {file ? file.name : "Haz clic para seleccionar un archivo"}
                     </p>
-                    <input
-                      ref={fileRef}
-                      type="file"
-                      accept=".pdf"
-                      className="hidden"
-                      onChange={handleFile}
-                    />
+                    <input ref={fileRef} type="file" accept=".pdf" className="hidden" onChange={handleFile} />
                   </div>
                 </div>
 
