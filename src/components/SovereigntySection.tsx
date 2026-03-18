@@ -1,69 +1,60 @@
 import { motion } from "framer-motion";
-import { MessageSquare, CreditCard, Wrench, Search, Rocket } from "lucide-react";
+import { Shield, Clock, Wrench } from "lucide-react";
 
-const steps = [
+const values = [
   {
-    icon: MessageSquare,
-    title: "Diagnóstico Flash",
-    text: "Entendemos tu necesidad y te enviamos el link de pago.",
+    icon: Shield,
+    title: "Soberanía Total",
+    text: "Dominios, códigos y datos son tuyos. Trabajamos para que te quedes por resultados, no por dependencia.",
   },
   {
-    icon: CreditCard,
-    title: "Activación",
-    text: "Realizas el pago (puedes usar Wompi hasta en 4 cuotas) y nos envías tus fotos y textos.",
+    icon: Clock,
+    title: "Cumplimiento Radical",
+    text: "Respetamos los tiempos. Pactamos fechas y entregamos resultados sin excusas técnicas.",
   },
   {
     icon: Wrench,
-    title: "Manos a la obra",
-    text: "Aquí arranca nuestro reloj (de 2 a 10 días según tu plan).",
-  },
-  {
-    icon: Search,
-    title: "Pulida de textos",
-    text: "Organizamos tu información para que Google te quiera.",
-  },
-  {
-    icon: Rocket,
-    title: "Lanzamiento",
-    text: "Tu negocio estrena casa digital de lujo y bajo tu propiedad legal.",
+    title: "Tecnología de Resultados",
+    text: "Usamos la herramienta que mejor sirva a tu retorno de inversión, no la que nos parezca más fácil.",
   },
 ];
+
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.7 },
+};
 
 const SovereigntySection = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
+        <motion.div {...fadeUp} className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display">
-            Cómo activamos tu negocio en{" "}
-            <span className="text-gradient">5 pasos simples</span>.
+            Tecnología con criterio y{" "}
+            <span className="text-gradient">honestidad</span>.
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-6">
-          {steps.map((step, i) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {values.map((v, i) => (
             <motion.div
-              key={step.title}
+              key={v.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center"
+              transition={{ delay: i * 0.15 }}
+              className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
             >
-              <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
-                <step.icon className="w-7 h-7 text-secondary" />
+              <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                <v.icon className="w-7 h-7 text-secondary" />
               </div>
-              <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-              <h3 className="font-display font-medium text-foreground mb-2">
-                {step.title}
+              <h3 className="font-display font-medium text-xl text-foreground mb-3">
+                {v.title}
               </h3>
-              <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                {step.text}
+              <p className="text-muted-foreground font-body leading-relaxed">
+                {v.text}
               </p>
             </motion.div>
           ))}
