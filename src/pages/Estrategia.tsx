@@ -4,7 +4,13 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StrategyLeadForm from "@/components/StrategyLeadForm";
-import { Search, Zap, BarChart3, Target, Megaphone, ClipboardCheck, Rocket, TrendingUp } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { ClipboardCheck, Map, Target, TrendingUp, RefreshCw, Brain, Shield } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -13,98 +19,80 @@ const fadeUp = {
   transition: { duration: 0.7 },
 };
 
-const motores = [
+const planFeatures = [
   {
-    icon: Search,
-    title: "Investigación de Mercado e Innovación",
-    text: "Nuestro equipo analiza las dinámicas del consumidor y las tendencias de tu sector. No trabajamos con suposiciones; aplicamos modelos de investigación de negocios para encontrar oportunidades de innovación que te pongan un paso por delante de tu competencia.",
+    icon: ClipboardCheck,
+    title: "Diagnóstico de Infraestructura y Conversión",
+    text: "Antes de proponer una solución, el equipo realiza una auditoría profunda de tu ecosistema actual. Identificamos dónde se rompe tu proceso de ventas, por qué tu tráfico no convierte y qué cuellos de botella técnicos están frenando tu crecimiento. No basamos nuestras decisiones en suposiciones, sino en la evidencia que arrojan tus métricas y el comportamiento de tu mercado.",
   },
   {
-    icon: Zap,
-    title: "Automatizaciones (Marketing & Procesos)",
-    text: "Diseñamos e implementamos sistemas que eliminan el trabajo manual. Desde flujos de captura de clientes hasta integraciones complejas de CRM. Hacemos que la tecnología trabaje 24/7 para que tu equipo se concentre solo en lo que genera valor: cerrar negocios.",
-  },
-  {
-    icon: BarChart3,
-    title: "SEO (Posicionamiento Orgánico de Autoridad)",
-    text: "Como equipo, hemos tenido la responsabilidad de posicionar marcas internacionales de la talla de Samsung. Aplicamos esa misma metodología en tu negocio, organizando semánticamente tu contenido para que los buscadores te reconozcan como la autoridad número uno en tu sector.",
-  },
-  {
-    icon: Megaphone,
-    title: "SEM (Google Partner, Meta & TikTok Ads)",
-    text: "Contamos con el mejor equipo certificado como Google Partner, lo que garantiza que tu inversión está en manos de expertos validados. Maximizamos tu retorno en Google Ads, Meta Ads y TikTok Ads. Tenemos la experiencia de haber gestionado presupuestos superiores a los $5.000 millones COP anuales, optimizando cada peso para atraer clientes reales.",
+    icon: Map,
+    title: "Definición del Roadmap de Crecimiento",
+    text: "El resultado de nuestro análisis es un Roadmap estratégico: un paso a paso detallado de las acciones que tu empresa necesita realizar. Este plan define qué tecnología implementar, cómo estructurar tu mensaje de ventas y qué canales de pauta activar. Es una hoja de ruta honesta diseñada para maximizar el retorno de tu inversión (ROI) y reducir el costo de adquisición de tus clientes (CAC).",
   },
 ];
 
-const steps = [
-  { icon: ClipboardCheck, title: "Auditoría y Diagnóstico", text: "El equipo analiza tu situación actual y el potencial de tu mercado." },
-  { icon: Target, title: "Hoja de Ruta Estratégica", text: "Diseñamos el plan de acción (SEO, SEM o Automatización) según tus metas." },
-  { icon: Rocket, title: "Ejecución de Élite", text: "Activamos nuestra maquinaria técnica y creativa para cumplir objetivos." },
-  { icon: TrendingUp, title: "Optimización y Escala", text: "Medimos resultados en tiempo real y ajustamos para maximizar tu crecimiento." },
+const pillars = [
+  {
+    icon: Target,
+    title: "Atracción de Calidad",
+    text: "Usamos SEO y Pauta Digital para traer al usuario que ya tiene la intención de compra, evitando el desperdicio de presupuesto en audiencias irrelevantes.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Conversión de Alto Rendimiento",
+    text: "Optimizamos tu infraestructura web para que el camino hacia la compra sea fluido y rápido. Si la tecnología es lenta o el mensaje es confuso, la estrategia falla.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Retención y Escala",
+    text: "Implementamos sistemas de automatización para que la relación con el cliente no termine en la primera compra, aumentando el valor de vida de cada usuario (LTV) y haciendo tu negocio más rentable.",
+  },
 ];
 
 const faqItems = [
   {
-    q: "¿Por qué es importante que Nasua sea Google Partner?",
-    a: "Porque certifica que nuestro equipo sigue las mejores prácticas y tiene un conocimiento profundo de la plataforma. Esto se traduce en campañas más baratas y mucho más efectivas para tu bolsillo.",
+    q: "¿Por qué debería pagar por una estrategia antes de empezar a vender?",
+    a: "Porque ejecutar sin estrategia es la forma más rápida de quemar presupuesto. Un plan de vuelo diseñado por el equipo de Nasua te ahorra meses de pruebas y errores técnicos. Invertir en estrategia es asegurar que el desarrollo web y la pauta que realices después tengan cimientos sólidos para generar rentabilidad desde el primer día.",
   },
   {
-    q: "¿Qué experiencia tiene el equipo con grandes marcas?",
-    a: "Hemos trabajado en estrategias para empresas multinacionales, lo que nos permite aplicar metodologías de gran escala a la realidad y presupuesto de tu negocio.",
+    q: "¿Qué recibo exactamente al finalizar la fase de estrategia?",
+    a: "Recibes un Roadmap de Crecimiento Digital. Es un plan de acción técnica y comercial que incluye: diagnóstico de tu situación actual, definición de tus canales de venta más rentables, estructura de tu embudo de conversión y la selección de la tecnología (Shopify, WordPress o Vibe Coding) que mejor servirá a tus metas de escala.",
   },
   {
-    q: "¿Cómo ayuda la investigación de mercado a una Pyme?",
-    a: "Evita que malgastes dinero en publicidad que no funciona. Entender la psicología de tu consumidor permite que nuestro equipo cree mensajes que realmente conecten y vendan.",
+    q: "¿Cómo mide el equipo el éxito de la estrategia?",
+    a: "Nos basamos en indicadores de negocio reales: Retorno de Inversión Publicitaria (ROAS), Costo de Adquisición de Cliente (CAC) y Tasa de Conversión. No nos interesan las métricas de vanidad. El éxito para el equipo de Nasua se mide en la capacidad de tu infraestructura para generar una renta predecible y escalable mes tras mes.",
   },
   {
-    q: "¿Hacen publicidad en TikTok e Instagram?",
-    a: "Sí. Somos expertos en TikTok Ads y Meta Ads, diseñando campañas que no solo se ven bien, sino que están optimizadas para el comportamiento específico de cada red social.",
+    q: "¿La estrategia se adapta a mercados internacionales?",
+    a: "Sí. De hecho, es uno de nuestros puntos fuertes. El equipo analiza los retos de competir en Latinoamérica y el mercado hispano de Estados Unidos, ajustando el tono de comunicación, los canales de pauta y la infraestructura técnica para que tu marca sea competitiva en entornos de alta exigencia profesional.",
   },
   {
-    q: "¿Qué significa 'hablarle clarito' a Google?",
-    a: "Es nuestra forma de decir que organizamos tu web de forma semántica. El equipo de Nasua estructura tus textos para que la IA de Google entienda exactamente quién eres y te ponga frente a quien te está buscando.",
-  },
-  {
-    q: "¿Puedo automatizar mi proceso de ventas si es muy artesanal?",
-    a: "Totalmente. El equipo de Nasua encuentra los puntos donde la tecnología puede ahorrarte tiempo, sin perder el toque humano que valoran tus clientes.",
-  },
-  {
-    q: "¿El SEO de Nasua sirve para aparecer en otros países?",
-    a: "Sí. Nuestra experiencia internacional nos permite configurar tu estrategia orgánica para dominar mercados locales o expandirte globalmente según tu visión.",
-  },
-  {
-    q: "¿Cómo miden el éxito de una campaña de SEM?",
-    a: "Nos enfocamos en el ROI (Retorno de Inversión). No nos importan solo los 'likes', nos importa cuántas ventas o contactos reales genera cada peso que inviertes.",
-  },
-  {
-    q: "¿Qué diferencia hay entre Nasua y una agencia de publicidad común?",
-    a: "La mayoría de las agencias solo 'hacen anuncios'. El equipo Nasua diseña la infraestructura técnica y la estrategia de mercadeo completa para que tu negocio sea escalable.",
-  },
-  {
-    q: "¿Cómo puedo empezar a trabajar con el equipo de estrategia?",
-    a: "Iniciamos con una sesión de diagnóstico. Analizamos tu modelo de negocio y te proponemos la combinación de SEO, SEM o Automatización que te dé resultados más rápido.",
+    q: "¿Cuál es el siguiente paso después de tener la estrategia?",
+    a: "Una vez definido el Roadmap, pasamos a la Fase de Activación. El equipo de Nasua se encarga de construir los activos (Web, Landing Pages, Pauta) que el plan requiere. Al ser un proceso modular, puedes elegir ejecutar el plan completo con nosotros o ir activando las piezas de forma progresiva según tu flujo de caja.",
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 const Estrategia = () => {
   const [formOpen, setFormOpen] = useState(false);
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
 
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Ads, SEO e Investigación de Mercados | Crecimiento Nasua</title>
-        <meta name="description" content="Escala tu negocio con pauta digital (Ads), SEO técnico e investigación de mercados profunda. Estrategias de crecimiento basadas en datos y rentabilidad." />
-        <meta property="og:title" content="Ads, SEO e Investigación de Mercados | Crecimiento Nasua" />
-        <meta property="og:description" content="Escala tu negocio con pauta digital (Ads), SEO técnico e investigación de mercados profunda. Estrategias de crecimiento basadas en datos y rentabilidad." />
+        <title>Estrategia de Crecimiento Digital | Roadmap y Metodología Nasua</title>
+        <meta name="description" content="No ejecutes sin un plan. El equipo de Nasua diseña tu Roadmap de crecimiento basado en datos para asegurar rentabilidad y escalabilidad internacional." />
+        <meta property="og:title" content="Estrategia de Crecimiento Digital | Roadmap y Metodología Nasua" />
+        <meta property="og:description" content="No ejecutes sin un plan. El equipo de Nasua diseña tu Roadmap de crecimiento basado en datos para asegurar rentabilidad y escalabilidad internacional." />
         <meta property="og:image" content="https://nasua.marketing/EstrategiaNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -123,8 +111,8 @@ const Estrategia = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Estrategia y Crecimiento Digital:{" "}
-            <span className="text-gradient">El Motor de las Marcas de Alto Impacto.</span>
+            Estrategia de Crecimiento:{" "}
+            <span className="text-gradient">Tu Roadmap hacia la Rentabilidad.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -132,7 +120,7 @@ const Estrategia = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
-            En Nasua no solo construimos webs; diseñamos el ecosistema que hace que tu negocio domine el mercado. Investigación, visibilidad y automatización ejecutada por un equipo de expertos con estándares globales.
+            La mayoría de las empresas pierden dinero en digital porque ejecutan tácticas aisladas sin un hilo conductor. El equipo de Nasua diseña Estrategias de Crecimiento basadas en datos, lógica de negocio y una metodología Inbound que asegura que cada peso invertido tenga un propósito claro: escalar tu facturación de forma predecible.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -142,115 +130,169 @@ const Estrategia = () => {
           >
             <button
               onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
             >
-              ¡Escalar mi negocio ahora!
+              Agendar Consultoría Estratégica
             </button>
           </motion.div>
         </div>
       </section>
 
-      {/* Motores de Crecimiento */}
+      {/* El valor de un plan de vuelo real */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
-              Nuestros Motores de <span className="text-gradient">Crecimiento</span>
+          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+              Ingeniería de negocio antes que ejecución{" "}
+              <span className="text-gradient">técnica</span>.
             </h2>
           </motion.div>
+          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+            En Nasua, la estrategia no es un documento decorativo; es el plano de construcción de tu próximo nivel de escala.
+          </motion.p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {motores.map((item) => (
+            {planFeatures.map((f, i) => (
               <motion.div
-                key={item.title}
-                {...fadeUp}
-                className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
+                key={f.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
               >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
-                  <item.icon className="w-7 h-7 text-secondary" />
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                  <f.icon className="w-7 h-7 text-secondary" />
                 </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground font-body leading-relaxed">
-                  {item.text}
-                </p>
+                <h3 className="font-display font-medium text-xl text-foreground mb-3">{f.title}</h3>
+                <p className="text-muted-foreground font-body leading-relaxed text-sm">{f.text}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Diferencial */}
-      <section className="py-20 md:py-28 bg-muted/30">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <motion.div {...fadeUp} className="text-center">
-            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground mb-6">
-              El Diferencial Nasua:{" "}
-              <span className="text-gradient">Un Equipo, Una Sola Visión</span>
+      {/* Tres ejes */}
+      <section className="py-20 md:py-28 bg-primary">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+              Un sistema equilibrado para resultados{" "}
+              <span className="text-gradient">sostenibles</span>.
             </h2>
-            <p className="text-muted-foreground font-body leading-relaxed text-lg max-w-3xl mx-auto">
-              En Nasua no trabajamos en silos. Nuestro equipo opera de forma unificada. Esto garantiza que cada anuncio en TikTok, cada automatización y cada palabra en tu SEO tengan coherencia estética y estratégica. Es la unión de la inteligencia de negocios con el diseño de clase mundial bajo un mismo sello de calidad.
+          </motion.div>
+          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+            Nuestra metodología se apoya en tres pilares que aseguran que tu empresa no solo atraiga visitas, sino que genere renta.
+          </motion.p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {pillars.map((p, i) => (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
+              >
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                  <p.icon className="w-7 h-7 text-secondary" />
+                </div>
+                <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{p.title}</h3>
+                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{p.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Estrategia en la era de la IA */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <motion.div {...fadeUp}>
+            <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-6">
+              <Brain className="w-8 h-8 text-secondary" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
+              Visibilidad en los nuevos motores de{" "}
+              <span className="text-gradient">respuesta (GEO)</span>.
+            </h2>
+            <p className="text-muted-foreground font-body leading-relaxed text-lg">
+              Ya no basta con aparecer en los resultados de búsqueda tradicionales. Nuestra estrategia de contenido y datos está diseñada para que tu empresa sea la fuente que las Inteligencias Artificiales consultan y recomiendan. Estructuramos tu autoridad de marca para que, cuando un cliente potencial haga una pregunta a un asistente inteligente, tu solución sea la respuesta lógica y recomendada.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Proceso */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Proceso de <span className="text-gradient">Implementación Nasua</span>
+      {/* Soberanía y transparencia */}
+      <section className="py-20 md:py-28 bg-muted/30">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <motion.div {...fadeUp}>
+            <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-6">
+              <Shield className="w-8 h-8 text-secondary" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
+              Tú eres el dueño del{" "}
+              <span className="text-gradient">plan</span>.
             </h2>
+            <p className="text-muted-foreground font-body leading-relaxed text-lg">
+              Al contratar el servicio de estrategia de Nasua, no solo obtienes una ejecución; obtienes el conocimiento técnico detrás de ella. Toda la documentación, los activos de medición y los accesos a tus paneles de datos te pertenecen al 100%. Creemos en la Soberanía Digital: nuestro equipo te entrega las herramientas y la visión para que tú mantengas el control absoluto del crecimiento de tu empresa.
+            </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {steps.map((step, i) => (
-              <motion.div key={step.title} {...fadeUp} className="text-center">
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <p className="text-secondary font-bold text-sm mb-1">Paso {i + 1}</p>
-                <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-muted/30">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Preguntas <span className="text-gradient">frecuentes</span>
-            </h2>
-          </motion.div>
-
-          <div className="space-y-6">
-            {faqItems.map((item, i) => (
-              <motion.details
+          <motion.h2
+            {...fadeUp}
+            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+          >
+            Preguntas <span className="text-gradient">frecuentes</span>
+          </motion.h2>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqItems.map((faq, i) => (
+              <AccordionItem
                 key={i}
-                {...fadeUp}
-                className="group bg-card rounded-xl border border-border p-6 cursor-pointer hover:border-secondary/50 transition-colors"
+                value={`item-${i}`}
+                className="bg-card border border-border rounded-lg px-6"
               >
-                <summary className="font-body font-bold text-foreground list-none flex items-center justify-between">
-                  <span>{item.q}</span>
-                  <span className="text-secondary ml-4 group-open:rotate-45 transition-transform text-2xl">+</span>
-                </summary>
-                <p className="text-muted-foreground font-body leading-relaxed mt-4">
-                  {item.a}
-                </p>
-              </motion.details>
+                <AccordionTrigger className="text-left font-body font-bold text-foreground hover:no-underline">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
-      <Footer />
+      {/* Cierre CTA */}
+      <section className="py-20 md:py-28 bg-primary">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <motion.div {...fadeUp} className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+              ¿Listo para dejar de improvisar y empezar a{" "}
+              <span className="text-gradient">escalar</span>?
+            </h2>
+            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+              El equipo de Nasua está listo para auditar tu modelo de negocio y diseñar el Roadmap que tu empresa necesita. Sin rodeos, solo estrategia sólida orientada a resultados.
+            </p>
+            <button
+              onClick={() => setFormOpen(true)}
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+            >
+              Agendar Consultoría Estratégica
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
       <StrategyLeadForm open={formOpen} onOpenChange={setFormOpen} />
+      <Footer />
     </div>
   );
 };
