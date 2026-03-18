@@ -9,44 +9,44 @@ import { Helmet } from "react-helmet-async";
 
 const faqs = [
   {
-    q: "¿De verdad entregan mi página en solo 2 días?",
-    a: "Sí, para las Landing Pages nuestra promesa es de 48 horas hábiles. El cronómetro empieza a correr en el momento en que confirmamos tu pago y nos entregas el \"Kit de Insumos\" (tu logo, fotos y los textos básicos). Para proyectos más grandes como E-commerce, nos tomamos hasta 10 días para asegurar que toda la maquinaria de ventas quede a punto.",
+    q: "¿Qué diferencia a Nasua de una agencia de marketing tradicional?",
+    a: "Una agencia tradicional suele ejecutar tareas aisladas: un diseño o una campaña de anuncios. En Nasua trabajamos como tu Socio de Crecimiento. Nuestro equipo se involucra en tu modelo de negocio para construir una infraestructura técnica que tiene un solo objetivo: rentabilidad. No entregamos piezas sueltas; entregamos un sistema que escala tu facturación de forma lógica.",
   },
   {
-    q: "¿Qué hacen exactamente con mis textos para que Google me encuentre?",
-    a: "No somos una agencia que solo \"pega\" información. Nuestro Director de Mercadeo y el equipo de contenido revisan tus textos y los organizan bajo una estructura lógica que Google ama. Usamos títulos, palabras clave y jerarquías que le explican claramente a los buscadores qué haces y por qué eres la mejor opción. Es SEO real incluido desde el día uno.",
+    q: "¿Por qué el enfoque en \"Soberanía Digital\"?",
+    a: "En el sector digital abundan las malas prácticas donde las agencias retienen los accesos de sus clientes. En Nasua, tú eres el dueño total de tus activos. Dominios, cuentas de pauta, códigos y bases de datos quedan a tu nombre desde el primer día. El equipo trabaja para que elijas seguir con nosotros por los resultados que generamos, no por una dependencia técnica forzada.",
   },
   {
-    q: "¿Cómo funciona la financiación con Wompi?",
-    a: "Queremos que tu negocio crezca sin asfixiar tu bolsillo. Al momento de pagar, eliges la opción de Wompi y puedes diferir el valor de tu infraestructura digital hasta en 4 cuotas. Es una forma flexible de estrenar casa digital mientras los nuevos clientes empiezan a llegar.",
+    q: "¿Cómo seleccionan la tecnología para cada proyecto?",
+    a: "No usamos una sola herramienta para todo. Seleccionamos la tecnología según tus objetivos de negocio. Si buscas un posicionamiento orgánico (SEO) robusto, el equipo implementa WordPress con arquitecturas modernas. Si tu prioridad es la velocidad de carga y una experiencia de usuario única, empleamos Vibe Coding para reducir tiempos de desarrollo. Usamos el motor que asegure el retorno de tu inversión.",
   },
   {
-    q: "¿Por qué el costo es bajo si dicen que la calidad es de élite?",
-    a: "La respuesta es tecnología. Gracias al Vibe Coding y al uso de Inteligencia Artificial avanzada, eliminamos cientos de horas de trabajo manual que las agencias tradicionales te cobran carísimo. No ahorramos en calidad, ahorramos en tiempo de ejecución y te transferimos ese beneficio a ti.",
+    q: "¿En cuánto tiempo se ven los resultados?",
+    a: "La velocidad operativa es una de nuestras prioridades. Gracias a nuestra metodología de trabajo ágil, el equipo entrega activos funcionales (como Landings o webs de alto rendimiento) en pocos días o semanas. La pauta digital genera tráfico de forma inmediata, mientras que el SEO y la autoridad de marca son motores que se fortalecen con el análisis y ajuste mensual constante.",
   },
   {
-    q: "¿Yo soy el dueño legal de mi página web?",
-    a: "100% sí. A diferencia de otros que te \"alquilan\" la web o te tienen de rehén, en Nasua tú eres el dueño absoluto de tu dominio, tus archivos y tu base de datos. Nosotros operamos y gestionamos la tecnología para que tú no sufras, pero el activo es tuyo y tienes el título de propiedad legal por contrato.",
+    q: "¿El equipo se encarga de la pauta en Google y Meta?",
+    a: "Sí. Como socios de tu crecimiento, gestionamos tu inversión publicitaria con un enfoque total en el retorno (ROI). No buscamos métricas de vanidad como \"likes\"; buscamos clientes potenciales calificados. Alineamos el mensaje de tus anuncios con la arquitectura de tu sitio web para que cada peso invertido tenga la mayor probabilidad de conversión.",
   },
   {
-    q: "¿Necesito saber de programación o tecnología para manejar mi web?",
-    a: "Para nada. Ese es precisamente el \"ADN Nasua\". Nosotros somos tu departamento de tecnología delegado. Si necesitas cambiar un precio, subir una foto o actualizar un servicio, simplemente nos lo pides y nuestro equipo lo hace por ti. Tú dedícate a vender, que nosotros nos encargamos de que los cables funcionen.",
+    q: "¿Cómo es la comunicación con el equipo de trabajo?",
+    a: "Creemos en la comunicación directa y sin filtros. Al contratarnos, trabajas con los estrategas que diseñaron el método y ejecutan tu Roadmap, no con intermediarios o pasantes. Nuestro equipo técnico y estratégico mantiene contacto constante para asegurar que las decisiones se tomen con criterio de negocio y rapidez.",
   },
   {
-    q: "¿Qué pasa si después quiero convertir mi página informativa en una tienda?",
-    a: "Nuestra arquitectura es escalable. No tienes que botar lo que ya hiciste. Si empiezas con una web empresarial y luego decides vender productos en automático, podemos evolucionar tu plataforma sin traumas técnicos. Tu inversión inicial siempre está protegida.",
+    q: "¿Qué sucede después de lanzar el sitio web o las campañas?",
+    a: "Un sistema digital que no se mide, pierde valor rápidamente. Tras el lanzamiento, el equipo entra en una fase de Optimización y Renta. Analizamos el comportamiento de tus usuarios, ajustamos los embudos de venta y escalamos los presupuestos que generan ganancias. Nuestro compromiso es mantener tu motor de ventas actualizado y competitivo mes a mes.",
   },
   {
-    q: "¿Qué incluye el mantenimiento y la gestión de Nasua?",
-    a: "Incluye que tu página esté siempre al aire, sea rápida y segura. Vigilamos los servidores, actualizamos la tecnología para que no se quede obsoleta y estamos pendientes de cualquier ajuste que necesites. Es como tener un mecánico de confianza para tu local digital 24/7.",
+    q: "¿Trabajan con empresas fuera de Colombia?",
+    a: "Sí. Nuestra estructura está diseñada para atender mercados internacionales, especialmente en Latinoamérica y el mercado hispano de Estados Unidos. El equipo entiende los retos de escala global y adaptamos la estrategia de pauta y SEO para que tu marca compita con éxito en entornos de alta exigencia profesional.",
   },
   {
-    q: "¿Qué necesito entregarles para que empiecen a trabajar?",
-    a: "Necesitamos tres cosas básicas: tu logo (en buena calidad), las fotos que quieras mostrar y los textos con la información de tu negocio. Una vez recibamos esto y el pago, activamos nuestro equipo de diseño y mercadeo para cumplir con los tiempos de entrega.",
+    q: "¿Ofrecen opciones de financiación para el desarrollo?",
+    a: "Sabemos que la liquidez es clave para tu operación. A través de nuestra alianza con Wompi (Bancolombia), puedes pagar el desarrollo de tus activos digitales a cuotas o usar tarjeta de crédito. El objetivo es que la tecnología empiece a generar ventas para tu empresa mientras gestionas tu flujo de caja de forma responsable.",
   },
   {
-    q: "¿Por qué elegir a Nasua y no a un diseñador independiente?",
-    a: "Porque en Nasua no solo compras diseño. Compras la experiencia de una Directora UX/UI que ha trabajado para mercados globales y un Director de Mercadeo que ha gestionado marcas como Samsung. Te llevas una estrategia de crecimiento y una infraestructura técnica de nivel multinacional a un precio de mercado local.",
+    q: "¿Cuál es el primer paso para empezar?",
+    a: "Todo inicia con una Consultoría de Diagnóstico. En esta sesión, nuestro equipo analiza tu situación actual, identifica los cuellos de botella en tu proceso de ventas y define un Roadmap claro. No es una llamada comercial común; es el inicio de un plan estratégico diseñado para que dejes de gastar en marketing y empieces a invertir en crecimiento.",
   },
 ];
 
