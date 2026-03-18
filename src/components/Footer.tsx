@@ -16,7 +16,7 @@ const agenciaLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary section-padding py-12">
+    <footer className="bg-primary section-padding py-12 border-t-4 border-secondary">
       <div className="container mx-auto max-w-5xl flex flex-col gap-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
           {/* Logo y tagline */}
