@@ -11,6 +11,8 @@ import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import TurnstileCaptcha from "@/components/TurnstileCaptcha";
+import { useCaptcha } from "@/hooks/use-captcha";
 
 interface StrategyLeadFormProps {
   open: boolean;
@@ -56,6 +58,7 @@ const StrategyLeadForm = ({ open, onOpenChange }: StrategyLeadFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
+  const { isVerified, onVerify, onError, onExpire, resetCaptcha, resetRef } = useCaptcha();
 
   const [form, setForm] = useState({
     name: "",
@@ -112,6 +115,7 @@ const StrategyLeadForm = ({ open, onOpenChange }: StrategyLeadFormProps) => {
           setStep(1);
           setIsSuccess(false);
           setForm({ name: "", email: "", phone: "", company: "", objective: "", website: "", industry: "", budget: "", channels: [], challenge: "" });
+          resetCaptcha();
         }, 300);
       }, 4000);
     } else {
@@ -224,9 +228,12 @@ const StrategyLeadForm = ({ open, onOpenChange }: StrategyLeadFormProps) => {
                     <Label className="text-foreground font-body">¿Qué desafío principal quieres resolver?</Label>
                     <Textarea value={form.challenge} onChange={(e) => updateField("challenge", e.target.value)} placeholder="Ej: conseguir más clientes, mejorar conversiones, posicionamiento en Google, automatizar procesos, etc." className="mt-1" rows={3} />
                   </div>
+
+                  <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
+
                   <div className="flex gap-3">
                     <Button variant="outline" onClick={() => setStep(1)} className="flex-1">← Atrás</Button>
-                    <Button onClick={handleSubmit} disabled={isSubmitting} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold">
+                    <Button onClick={handleSubmit} disabled={isSubmitting || !isVerified} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold">
                       {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin mr-2" /> Enviando...</> : "Solicitar diagnóstico estratégico"}
                     </Button>
                   </div>

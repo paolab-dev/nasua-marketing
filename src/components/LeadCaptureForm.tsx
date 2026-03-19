@@ -17,6 +17,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CheckCircle } from "lucide-react";
+import TurnstileCaptcha from "@/components/TurnstileCaptcha";
+import { useCaptcha } from "@/hooks/use-captcha";
 
 interface LeadCaptureFormProps {
   open: boolean;
@@ -35,6 +37,7 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { isVerified, onVerify, onError, onExpire, resetCaptcha, resetRef } = useCaptcha();
 
   // Step 1
   const [nombre, setNombre] = useState("");
@@ -97,13 +100,13 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
 
   const handleClose = () => {
     onOpenChange(false);
-    // Reset after close animation
     setTimeout(() => {
       setStep(1);
       setSubmitted(false);
       setNombre(""); setEmail(""); setWhatsapp(""); setNegocio(""); setSitioWeb("");
       setProducto(""); setPrecio(""); setObjetivo(""); setMateriales([]); setLanzamiento("");
       setErrors({});
+      resetCaptcha();
     }, 300);
   };
 
@@ -347,8 +350,10 @@ const LeadCaptureForm = ({ open, onOpenChange }: LeadCaptureFormProps) => {
                     </div>
                   </div>
 
+                  <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
+
                   <div className="space-y-3">
-                    <Button onClick={handleSubmit} disabled={isSubmitting} className="w-full" variant="secondary" size="lg">
+                    <Button onClick={handleSubmit} disabled={isSubmitting || !isVerified} className="w-full" variant="secondary" size="lg">
                       {isSubmitting ? "Enviando..." : "Solicitar diagnóstico de mi Landing"}
                     </Button>
                     <p className="text-xs text-muted-foreground font-body text-center leading-relaxed">

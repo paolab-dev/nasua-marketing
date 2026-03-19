@@ -15,6 +15,8 @@ import { sendLead } from "@/lib/send-lead";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import TurnstileCaptcha from "@/components/TurnstileCaptcha";
+import { useCaptcha } from "@/hooks/use-captcha";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Mínimo 2 caracteres").max(100, "Máximo 100 caracteres"),
@@ -43,6 +45,7 @@ const differentiators = [
 const Contacto = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isVerified, onVerify, onError, onExpire, resetCaptcha, resetRef } = useCaptcha();
 
   const form = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
@@ -66,6 +69,7 @@ const Contacto = () => {
         description: "Un estratega de Nasua te contactará en menos de 24 horas.",
       });
       form.reset();
+      resetCaptcha();
     } else {
       toast({ title: "Error", description: "No pudimos enviar tu solicitud. Intenta de nuevo.", variant: "destructive" });
     }
@@ -204,7 +208,9 @@ const Contacto = () => {
                   )}
                 />
 
-                <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
+                <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
+
+                <Button type="submit" size="lg" disabled={isSubmitting || !isVerified} className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
                   {isSubmitting ? "Enviando..." : "Enviar mi solicitud"}
                 </Button>
 
