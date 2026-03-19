@@ -17,6 +17,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CheckCircle } from "lucide-react";
+import TurnstileCaptcha from "@/components/TurnstileCaptcha";
+import { useCaptcha } from "@/hooks/use-captcha";
 
 interface EcommerceLeadFormProps {
   open: boolean;
@@ -46,6 +48,7 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { isVerified, onVerify, onError, onExpire, resetCaptcha, resetRef } = useCaptcha();
 
   // Step 1
   const [nombre, setNombre] = useState("");
@@ -131,6 +134,7 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
       setTipoTienda(""); setProductos(""); setCantidadProductos(""); setVentaActual("");
       setMateriales([]); setMetodosPago([]); setLanzamiento(""); setPublicidad("");
       setErrors({});
+      resetCaptcha();
     }, 300);
   };
 
@@ -306,9 +310,11 @@ const EcommerceLeadForm = ({ open, onOpenChange, preselectedModel }: EcommerceLe
                     </div>
                   </div>
 
+                  <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
+
                   <div className="flex gap-3 mt-6">
                     <Button variant="outline" onClick={handleBack} className="flex-1 py-6">← Atrás</Button>
-                    <Button onClick={handleSubmit} disabled={isSubmitting} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
+                    <Button onClick={handleSubmit} disabled={isSubmitting || !isVerified} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold text-base py-6">
                       {isSubmitting ? "Enviando..." : "Solicitar mi tienda virtual"}
                     </Button>
                   </div>
