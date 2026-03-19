@@ -1,5 +1,5 @@
-import { useEffect, useRef, MutableRefObject } from "react";
-import Turnstile from "react-turnstile";
+import { useRef, useEffect, MutableRefObject } from "react";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 interface TurnstileCaptchaProps {
   onVerify: (token: string) => void;
@@ -11,35 +11,30 @@ interface TurnstileCaptchaProps {
 const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || "";
 
 const TurnstileCaptcha = ({ onVerify, onError, onExpire, resetRef }: TurnstileCaptchaProps) => {
-  const widgetIdRef = useRef<string | null>(null);
+  const ref = useRef<TurnstileInstance>(null);
 
   useEffect(() => {
     if (resetRef) {
       resetRef.current = () => {
-        if (widgetIdRef.current && (window as any).turnstile) {
-          (window as any).turnstile.reset(widgetIdRef.current);
-        }
+        ref.current?.reset();
       };
     }
   }, [resetRef]);
 
   if (!SITE_KEY) {
-    console.warn("VITE_TURNSTILE_SITE_KEY is not set. Captcha widget will not render.");
+    console.warn("VITE_TURNSTILE_SITE_KEY is not set.");
     return null;
   }
 
   return (
     <div className="flex justify-center my-2">
       <Turnstile
-        sitekey={SITE_KEY}
-        onVerify={onVerify}
+        ref={ref}
+        siteKey={SITE_KEY}
+        onSuccess={onVerify}
         onError={onError}
         onExpire={onExpire}
-        theme="auto"
-        refreshExpired="auto"
-        onWidgetLoad={(widgetId) => {
-          widgetIdRef.current = widgetId;
-        }}
+        options={{ theme: "auto", refreshExpired: "auto" }}
       />
     </div>
   );
