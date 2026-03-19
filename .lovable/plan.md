@@ -1,43 +1,42 @@
 
 
-## Página de Contacto — Estructura Propuesta
+## Plan: Google Analytics + Sitemap Dinámico (sin vacantes)
 
-Basándome en el ADN de Nasua (soberanía digital, financiación Wompi, entrega en 7 días, tres servicios), propongo esta estructura:
+### 1. Google Analytics — Inserción directa en `index.html`
 
----
+Ya tienes el script de GA4, así que lo insertamos directamente en el `<head>` de `index.html`. Sin tabla de Supabase ni panel admin — simplemente pegas tu código de gtag ahí.
 
-### A. Hero compacto
-- **H1**: "Hablemos de tu proyecto digital"
-- **Subtítulo**: "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
+### 2. Sitemap Dinámico — Vercel Serverless Function
 
-### B. Formulario de contacto (columna principal)
-Campos:
-1. **Nombre completo** (texto)
-2. **WhatsApp o teléfono** (texto, con código +57 prefijado)
-3. **Correo electrónico** (email)
-4. **¿Qué servicio te interesa?** (select: Landing Page / Sitio Corporativo / Tienda Virtual / No estoy seguro)
-5. **Cuéntanos brevemente tu proyecto** (textarea)
-6. **¿Te interesa financiar con Wompi?** (checkbox: Sí, quiero conocer mis opciones de crédito)
-7. **Botón CTA**: "Enviar mi solicitud" (naranja, estilo primario)
-8. **Disclaimer**: "Nasua protege tus datos. No compartimos tu información con terceros."
+Crear `api/sitemap.ts` que genere el XML al vuelo con:
 
-### C. Columna lateral — Info de contacto rápido
-- Ícono WhatsApp + número directo (link wa.me)
-- Ícono correo + email de contacto
-- Ícono ubicación + "Colombia 🇨🇴"
-- Horario de atención
+**Rutas estáticas** (prioridad fija):
+- `/` (1.0), `/adn-nasua`, `/ecommerce`, `/landing-page`, `/sitio-corporativo`, `/estrategia`, `/quienes-somos`, `/contacto`, `/blog` (0.8 cada una)
 
-### D. Sección inferior — "¿Por qué elegirnos?"
-Tres mini-cards reutilizando los diferenciadores:
-1. **Entrega en 7 días** — Vibe Coding con IA
-2. **Financiación Wompi** — Empieza sin descapitalizarte
-3. **100% tuyo** — Código y dominio bajo tu propiedad
+**Entradas del blog** (dinámicas desde Supabase):
+- Consulta posts publicados → genera `/blog/{slug}` con prioridad 0.6
 
-### Detalles técnicos
-- **Ruta**: `/contacto`, con `id="contacto"` en la sección para que los CTAs existentes (`href="#contacto"`) funcionen desde el home.
-- **Validación**: Zod schema para todos los campos del formulario con react-hook-form.
-- **Envío**: Por ahora sin backend — mostrar toast de confirmación y loguear datos. Se puede conectar a Supabase o un webhook después.
-- **Navegación**: Agregar "Contacto" al menú del Navbar (desktop y mobile).
-- **Animaciones**: `framer-motion` fade-up consistente con las demás páginas.
-- **Layout**: Grid de 2 columnas en desktop (formulario 2/3 + info 1/3), una columna en móvil.
+**Excluidas**: `/proyectos`, `/proyectos/:slug`, `/login`, `/admin-NM/*`, `/politica-privacidad`, `/terminos-condiciones`
+
+### 3. robots.txt
+
+Agregar `Sitemap: https://nasua.marketing/sitemap.xml` y bloquear `/proyectos/`, `/admin-NM/`, `/login`.
+
+### 4. vercel.json
+
+Agregar rewrite: `/sitemap.xml` → `/api/sitemap`
+
+### 5. Eliminar `sitemap.xml` estático
+
+Se reemplaza por la función serverless.
+
+### Resumen de archivos
+
+| Acción | Archivo |
+|--------|---------|
+| Editar | `index.html` (agregar script GA4) |
+| Crear | `api/sitemap.ts` |
+| Editar | `vercel.json` (rewrite sitemap) |
+| Editar | `public/robots.txt` (Sitemap + Disallow) |
+| Eliminar | `sitemap.xml` |
 
