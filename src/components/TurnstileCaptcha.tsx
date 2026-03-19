@@ -1,5 +1,5 @@
 import { useEffect, useRef, MutableRefObject } from "react";
-import { Turnstile, TurnstileInstance } from "react-turnstile";
+import Turnstile from "react-turnstile";
 
 interface TurnstileCaptchaProps {
   onVerify: (token: string) => void;
@@ -11,12 +11,14 @@ interface TurnstileCaptchaProps {
 const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || "";
 
 const TurnstileCaptcha = ({ onVerify, onError, onExpire, resetRef }: TurnstileCaptchaProps) => {
-  const turnstileRef = useRef<TurnstileInstance | null>(null);
+  const widgetIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (resetRef) {
       resetRef.current = () => {
-        turnstileRef.current?.reset();
+        if (widgetIdRef.current && (window as any).turnstile) {
+          (window as any).turnstile.reset(widgetIdRef.current);
+        }
       };
     }
   }, [resetRef]);
@@ -29,13 +31,15 @@ const TurnstileCaptcha = ({ onVerify, onError, onExpire, resetRef }: TurnstileCa
   return (
     <div className="flex justify-center my-2">
       <Turnstile
-        ref={turnstileRef}
         sitekey={SITE_KEY}
         onVerify={onVerify}
         onError={onError}
         onExpire={onExpire}
         theme="auto"
         refreshExpired="auto"
+        onWidgetLoad={(widgetId) => {
+          widgetIdRef.current = widgetId;
+        }}
       />
     </div>
   );
