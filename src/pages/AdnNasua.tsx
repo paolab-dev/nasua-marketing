@@ -116,7 +116,7 @@ const AdnNasua = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            ADN y Metodología Nasua{" "}
+            ADN y Metodología Nasua{"\u00A0"}
             <span className="text-gradient">Ingeniería de Crecimiento Digital</span>
           </motion.h1>
           <motion.p
