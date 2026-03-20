@@ -94,9 +94,9 @@ const AdnNasua = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>ADN y Metodología Nasua | Ingeniería de Crecimiento Digital</title>
+        <title>ADN y Metodología Nasua  Ingeniería de Crecimiento Digital</title>
         <meta name="description" content="Conoce el ADN de Nasua. Unimos ingeniería de software y lógica de negocio para crear activos soberanos y rentables. Sin humo, solo resultados técnicos." />
-        <meta property="og:title" content="ADN y Metodología Nasua | Ingeniería de Crecimiento Digital" />
+        <meta property="og:title" content="ADN y Metodología Nasua  Ingeniería de Crecimiento Digital" />
         <meta property="og:description" content="Conoce el ADN de Nasua. Unimos ingeniería de software y lógica de negocio para crear activos soberanos y rentables. Sin humo, solo resultados técnicos." />
         <meta property="og:image" content="https://nasua.marketing/ADNNasua.jpg" />
         <meta property="og:type" content="website" />
