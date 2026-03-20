@@ -17,8 +17,8 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+            transition={{ duration: 0.8 }}>
+            
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display text-left">
               Socio de Crecimiento Digital:{" "}
               <span className="text-gradient">
@@ -31,13 +31,13 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center"
-          >
+            className="flex justify-center">
+            
             <img
               src={phoneMockup}
               alt="Mockup de un sitio web profesional en un dispositivo móvil"
-              className="w-56 md:w-72 lg:w-80 animate-float drop-shadow-2xl"
-            />
+              className="w-56 md:w-72 lg:w-80 animate-float drop-shadow-2xl" />
+            
           </motion.div>
         </div>
 
@@ -46,23 +46,23 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-2xl space-y-6"
-        >
-          <p className="text-lg md:text-xl text-primary-foreground/80 font-body">
-            No somos una agencia tradicional; somos tu Socio de Crecimiento. Si tu inversión digital no se traduce en rentabilidad, no está cumpliendo su trabajo. Diseñamos sistemas para empresas que buscan escala, velocidad y control total de su tecnología.
+          className="max-w-2xl space-y-6">
+          
+          <p className="text-lg md:text-xl text-primary-foreground/80 font-body">No somos una agencia tradicional; somos tu Socio de Crecimiento. Si tu inversión digital no se traduce en rentabilidad, no está cumpliendo su trabajo. Diseñamos sistemas para empresas que buscan escalar, con velocidad y control total de su tecnología.
+
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
-            >
+              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg">
+              
               Agendar Consultoría Estratégica
             </a>
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
