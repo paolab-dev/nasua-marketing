@@ -48,9 +48,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="max-w-2xl space-y-6">
           
-          <p className="text-lg md:text-xl text-primary-foreground/80 font-body">No somos una agencia tradicional; somos tu Socio de Crecimiento. Si tu inversión digital no se traduce en rentabilidad, no está cumpliendo su trabajo. Diseñamos sistemas para empresas que buscan escalar, con velocidad y control total de su tecnología.
-
-          </p>
+          <p className="text-lg md:text-xl text-primary-foreground/80 font-body">No somos una agencia tradicional; somos tu Socio de Crecimiento. Si tu inversión digital no se traduce en rentabilidad, no está cumpliendo su trabajo. Diseñamos sistemas para empresas que buscan escala, velocidad y control total de su tecnología.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/contacto"

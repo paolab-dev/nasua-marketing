@@ -1,36 +1,49 @@
 import { motion } from "framer-motion";
-import { Palette, Globe, Target, Search, PenTool, Cog } from "lucide-react";
+import { Palette, Layout, Globe, Target, Search, PenTool, Cog } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const pillars = [
   {
     icon: Palette,
     title: "Branding & Autoridad",
-    text: "Construimos la identidad visual necesaria para cerrar contratos de alto nivel.",
+    text: "Construimos la identidad visual necesaria para cerrar contratos de alto nivel y proyectar solidez.",
+    href: "/branding",
+  },
+  {
+    icon: Layout,
+    title: "UX/UI Estratégico",
+    text: "Diseñamos interfaces que eliminan la fricción y guían al usuario hacia la conversión final.",
+    href: "/infraestructura-digital",
   },
   {
     icon: Globe,
     title: "Web de Alto Rendimiento",
-    text: "Activos rápidos (Vibe Coding) y soberanos. Tú eres el dueño de cada línea de código.",
+    text: "Activos rápidos (Vibe Coding) y soberanos. Tú eres el dueño absoluto de cada línea de código.",
+    href: "/infraestructura-digital",
   },
   {
     icon: Target,
     title: "Pauta Digital",
-    text: "Inyectamos tráfico calificado en Google y Meta para generar retornos medibles.",
+    text: "Inyectamos tráfico calificado en Google y Meta para generar retornos de inversión medibles.",
+    href: "/pauta-digital",
   },
   {
     icon: Search,
     title: "SEO & Visibilidad IA",
     text: "Posicionamos tu marca donde tus clientes buscan hoy y donde las IAs responderán mañana.",
+    href: "/seo-geo",
   },
   {
     icon: PenTool,
     title: "Copywriting Estratégico",
-    text: "Redactamos mensajes que guían al usuario desde el interés hasta la decisión de compra.",
+    text: "Redactamos mensajes persuasivos que transforman el interés del usuario en una decisión de compra.",
+    href: "/copywriting",
   },
   {
     icon: Cog,
     title: "Automatización Operativa",
-    text: "Implementamos CRMs y sistemas que atienden prospectos sin que tú pierdas tiempo.",
+    text: "Implementamos CRMs y sistemas que atienden prospectos en tiempo real para que no pierdas ventas.",
+    href: "/automatizacion",
   },
 ];
 
@@ -55,7 +68,7 @@ const ValueSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
@@ -63,17 +76,21 @@ const ValueSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
             >
-              <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                <p.icon className="w-7 h-7 text-secondary" />
-              </div>
-              <h3 className="font-display font-medium text-xl text-foreground mb-3">
-                {p.title}
-              </h3>
-              <p className="text-muted-foreground font-body leading-relaxed">
-                {p.text}
-              </p>
+              <Link
+                to={p.href}
+                className="block bg-card rounded-xl p-8 border border-border hover:border-secondary/50 hover:shadow-md transition-all text-center h-full group"
+              >
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-secondary/30 transition-colors">
+                  <p.icon className="w-7 h-7 text-secondary" />
+                </div>
+                <h3 className="font-display font-medium text-xl text-foreground mb-3 group-hover:text-secondary transition-colors">
+                  {p.title}
+                </h3>
+                <p className="text-muted-foreground font-body leading-relaxed">
+                  {p.text}
+                </p>
+              </Link>
             </motion.div>
           ))}
         </div>

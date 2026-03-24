@@ -11,6 +11,12 @@ import LandingPage from "./pages/LandingPage";
 import SitioCorporativo from "./pages/SitioCorporativo";
 import QuienesSomos from "./pages/QuienesSomos";
 import Estrategia from "./pages/Estrategia";
+import InfraestructuraDigital from "./pages/InfraestructuraDigital";
+import Branding from "./pages/Branding";
+import PautaDigital from "./pages/PautaDigital";
+import SeoGeo from "./pages/SeoGeo";
+import Copywriting from "./pages/Copywriting";
+import Automatizacion from "./pages/Automatizacion";
 import Contacto from "./pages/Contacto";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
@@ -32,6 +38,7 @@ import AdminJobEdit from "./pages/admin/AdminJobEdit";
 import AdminJobCategories from "./pages/admin/AdminJobCategories";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +49,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/adn-nasua" element={<AdnNasua />} />
@@ -49,6 +57,12 @@ const App = () => (
           <Route path="/landing-page" element={<LandingPage />} />
           <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
           <Route path="/estrategia" element={<Estrategia />} />
+          <Route path="/infraestructura-digital" element={<InfraestructuraDigital />} />
+          <Route path="/branding" element={<Branding />} />
+          <Route path="/pauta-digital" element={<PautaDigital />} />
+          <Route path="/seo-geo" element={<SeoGeo />} />
+          <Route path="/copywriting" element={<Copywriting />} />
+          <Route path="/automatizacion" element={<Automatizacion />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog" element={<Blog />} />

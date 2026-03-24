@@ -2,12 +2,19 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import nasuaLogo from "@/assets/nasua-logo.jpg";
 
-const servicios = [
-{ href: "/landing-page", label: "Landing Page" },
-{ href: "/sitio-corporativo", label: "Sitio Corporativo" },
-{ href: "/ecommerce", label: "eCommerce" },
-{ href: "/estrategia", label: "Estrategia" }];
+const serviciosWeb = [
+  { href: "/landing-page", label: "Landing Pages" },
+  { href: "/sitio-corporativo", label: "Sitios Corporativos" },
+  { href: "/ecommerce", label: "E-commerce" },
+];
 
+const otrosServicios = [
+  { href: "/branding", label: "Branding & Autoridad" },
+  { href: "/pauta-digital", label: "Pauta Digital & Performance" },
+  { href: "/seo-geo", label: "SEO & Visibilidad IA (GEO)" },
+  { href: "/copywriting", label: "Copywriting Estratégico" },
+  { href: "/automatizacion", label: "Automatización Operativa" },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -48,33 +55,56 @@ const Navbar = () => {
             ref={dropdownRef}
             className="relative"
             onMouseEnter={() => setServiciosOpen(true)}
-            onMouseLeave={() => setServiciosOpen(false)}>
-            
-            <button
-              className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
-              
+            onMouseLeave={() => setServiciosOpen(false)}
+          >
+            <button className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
               Servicios
               <ChevronDown
                 size={14}
-                className={`transition-transform duration-200 ${serviciosOpen ? "rotate-180" : ""}`} />
-              
+                className={`transition-transform duration-200 ${serviciosOpen ? "rotate-180" : ""}`}
+              />
             </button>
 
-            {serviciosOpen &&
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-52">
+            {serviciosOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64">
                 <div className="bg-primary border border-primary-foreground/15 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {servicios.map((s) =>
-                <a
-                  key={s.href}
-                  href={s.href}
-                  className="block px-4 py-2.5 text-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/5 transition-colors">
-                  
-                      {s.label}
+
+                  {/* Grupo: Diseño y Desarrollo Web */}
+                  <div className="px-4 pt-2 pb-1">
+                    <a
+                      href="/infraestructura-digital"
+                      className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2 hover:text-secondary/80 transition-colors"
+                    >
+                      Diseño y Desarrollo Web
                     </a>
-                )}
+                    {serviciosWeb.map((s) => (
+                      <a
+                        key={s.href}
+                        href={s.href}
+                        className="block pl-3 py-1.5 text-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/5 rounded transition-colors"
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="border-t border-primary-foreground/10 my-1.5" />
+
+                  {/* Otros servicios */}
+                  <div className="px-4 pb-2">
+                    {otrosServicios.map((s) => (
+                      <a
+                        key={s.href}
+                        href={s.href}
+                        className="block px-2 py-2 text-sm text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/5 rounded transition-colors"
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            }
+            )}
           </div>
 
           <a href="/blog" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
@@ -85,9 +115,9 @@ const Navbar = () => {
           </a>
           <a
             href="/contacto"
-            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm transition-all">
-            
-            Agendar consultoría 
+            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm transition-all"
+          >
+            Agendar consultoría
           </a>
         </div>
 
@@ -97,8 +127,8 @@ const Navbar = () => {
         </button>
       </div>
 
-      {open &&
-      <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 py-4 space-y-4">
+      {open && (
+        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 py-4 space-y-4">
           <a href="/adn-nasua" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             ADN Nasua
           </a>
@@ -106,29 +136,52 @@ const Navbar = () => {
           {/* Mobile servicios accordion */}
           <div>
             <button
-            onClick={() => setMobileServiciosOpen(!mobileServiciosOpen)}
-            className="flex items-center gap-1 text-primary-foreground/70 text-sm w-full">
-            
+              onClick={() => setMobileServiciosOpen(!mobileServiciosOpen)}
+              className="flex items-center gap-1 text-primary-foreground/70 text-sm w-full"
+            >
               Servicios
               <ChevronDown
-              size={14}
-              className={`transition-transform duration-200 ${mobileServiciosOpen ? "rotate-180" : ""}`} />
-            
+                size={14}
+                className={`transition-transform duration-200 ${mobileServiciosOpen ? "rotate-180" : ""}`}
+              />
             </button>
-            {mobileServiciosOpen &&
-          <div className="pl-4 mt-2 space-y-3">
-                {servicios.map((s) =>
-            <a
-              key={s.href}
-              href={s.href}
-              className="block text-primary-foreground/60 text-sm"
-              onClick={() => setOpen(false)}>
-              
+
+            {mobileServiciosOpen && (
+              <div className="pl-3 mt-3 space-y-1">
+                {/* Diseño y Desarrollo Web */}
+                <a
+                  href="/infraestructura-digital"
+                  className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2"
+                  onClick={() => setOpen(false)}
+                >
+                  Diseño y Desarrollo Web
+                </a>
+                {serviciosWeb.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    className="block pl-3 py-1.5 text-sm text-primary-foreground/60"
+                    onClick={() => setOpen(false)}
+                  >
                     {s.label}
                   </a>
-            )}
+                ))}
+
+                <div className="border-t border-primary-foreground/10 my-2" />
+
+                {/* Otros servicios */}
+                {otrosServicios.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    className="block py-1.5 text-sm text-primary-foreground/60"
+                    onClick={() => setOpen(false)}
+                  >
+                    {s.label}
+                  </a>
+                ))}
               </div>
-          }
+            )}
           </div>
 
           <a href="/blog" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
@@ -138,16 +191,16 @@ const Navbar = () => {
             Quiénes Somos
           </a>
           <a
-          href="/contacto"
-          className="block bg-secondary text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm text-center"
-          onClick={() => setOpen(false)}>
-          
-            Quiero mi Sitio
+            href="/contacto"
+            className="block bg-secondary text-secondary-foreground font-semibold px-5 py-2 rounded-lg text-sm text-center"
+            onClick={() => setOpen(false)}
+          >
+            Agendar consultoría
           </a>
         </div>
-      }
-    </nav>);
-
+      )}
+    </nav>
+  );
 };
 
 export default Navbar;
