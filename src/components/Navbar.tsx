@@ -49,6 +49,9 @@ const Navbar = () => {
           <a href="/adn-nasua" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             ADN Nasua
           </a>
+          <a href="/servicios" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
+            Servicios
+          </a>
 
           {/* Servicios dropdown */}
           <div
@@ -131,6 +134,9 @@ const Navbar = () => {
         <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 py-4 space-y-4">
           <a href="/adn-nasua" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             ADN Nasua
+          </a>
+          <a href="/servicios" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
+            Servicios
           </a>
 
           {/* Mobile servicios accordion */}

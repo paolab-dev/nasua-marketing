@@ -17,6 +17,7 @@ import PautaDigital from "./pages/PautaDigital";
 import SeoGeo from "./pages/SeoGeo";
 import Copywriting from "./pages/Copywriting";
 import Automatizacion from "./pages/Automatizacion";
+import Servicios from "./pages/Servicios";
 import Contacto from "./pages/Contacto";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosCondiciones from "./pages/TerminosCondiciones";
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/seo-geo" element={<SeoGeo />} />
           <Route path="/copywriting" element={<Copywriting />} />
           <Route path="/automatizacion" element={<Automatizacion />} />
+          <Route path="/servicios" element={<Servicios />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/blog" element={<Blog />} />
