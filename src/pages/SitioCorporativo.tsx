@@ -22,18 +22,18 @@ const fadeUp = {
 const differentials = [
   {
     icon: Shield,
-    title: "Soberanía y Control Total",
-    text: "La base de nuestra ética de trabajo es que tú seas el único dueño de tu tecnología. El equipo de Nasua configura tu infraestructura (dominios, hosting, código) a tu nombre desde el primer día. No generamos dependencias técnicas forzadas; construimos activos donde tú tienes las llaves y el control absoluto de tu información y la de tus clientes.",
+    title: "Autoridad Instantánea",
+    text: "Proyecta la solidez de una empresa líder desde el primer segundo.",
   },
   {
     icon: Brain,
-    title: "Preparación para la Era de la IA (GEO)",
-    text: "No solo optimizamos para los buscadores tradicionales. Estructuramos tus datos y contenidos para que las nuevas Inteligencias Artificiales de búsqueda (como ChatGPT o Perplexity) identifiquen y recomienden tu empresa como la respuesta oficial en tu sector. Tu web empresarial debe ser legible tanto para humanos como para los algoritmos del 2026.",
+    title: "Centro de Operaciones",
+    text: "Conecta tus redes sociales, campañas de pauta y sistemas internos en un solo lugar.",
   },
   {
     icon: TrendingUp,
-    title: "Escalabilidad Operativa",
-    text: "Diseñamos sitios que crecen al ritmo de tu empresa. Si hoy necesitas una web informativa y mañana requieres un portal de clientes, un blog de autoridad o una integración compleja con herramientas internas, la base técnica que nuestro equipo construye está lista para evolucionar sin necesidad de empezar desde cero.",
+    title: "Propiedad Total",
+    text: "El control de tu presencia digital, tus datos y tu tecnología siempre está en tus manos.",
   },
 ];
 
@@ -58,18 +58,23 @@ const platforms = [
 const features = [
   {
     icon: Zap,
-    title: "Velocidad de Carga Superior",
-    text: "Optimizamos cada recurso para cumplir con los estándares de Google, reduciendo la tasa de rebote y mejorando la retención de usuarios.",
+    title: "Velocidad de Carga Extrema",
+    text: "En 2026, cada segundo cuenta. Optimizamos tu sitio para que la experiencia del usuario sea instantánea en cualquier dispositivo.",
   },
   {
     icon: Smartphone,
-    title: "Diseño Mobile-First",
-    text: "Aseguramos que la experiencia sea impecable en dispositivos móviles, donde ocurre la mayor parte de la interacción profesional hoy.",
+    title: "Diseño Orientado a la Conversión",
+    text: "Aplicamos psicología de navegación para guiar al visitante hacia la acción (compra, registro o contacto).",
   },
   {
     icon: Link,
-    title: "Conexión con tu CRM",
-    text: "Vinculamos tu sitio web con tus herramientas de ventas y bases de datos para que cada lead sea gestionado de forma automática y eficiente.",
+    title: "Arquitectura Escalable",
+    text: "Tu sitio crece contigo. Añade nuevas funcionalidades, secciones o integraciones a medida que tu empresa se expande.",
+  },
+  {
+    icon: Shield,
+    title: "Seguridad y Soporte Continuo",
+    text: "Protegemos tu activo más valioso con protocolos de seguridad avanzados y mantenimiento preventivo constante.",
   },
 ];
 
@@ -82,24 +87,44 @@ const processSteps = [
 
 const faqItems = [
   {
-    q: "¿Por qué el equipo enfatiza que el sitio es \"Soberano\"?",
-    a: "Porque muchos proveedores retienen el control de los accesos técnicos para forzar la permanencia del cliente. En Nasua, todo lo que pagas es propiedad de tu empresa. Si en el futuro decides cambiar de aliado, te llevas tu sitio completo sin trabas. Trabajamos para que elijas quedarte con nuestro equipo por los resultados, no por una obligación técnica.",
+    q: "¿Realmente pueden entregar un sitio corporativo en 48 horas?",
+    a: "Sí. Gracias a nuestra metodología de desarrollo ágil, eliminamos los procesos lentos y nos enfocamos en lo que tu negocio necesita para salir al mercado. Esto te permite tener un entorno digital funcional y profesional en tiempo récord, permitiéndote captar oportunidades de venta sin esperas de meses.",
   },
   {
-    q: "¿Qué sucede si ya tengo un sitio web antiguo?",
-    a: "Realizamos una migración inteligente. El equipo rescata tu autoridad de SEO previa, optimiza tus contenidos y los traslada a una infraestructura moderna. El objetivo es renovar tu imagen y rendimiento técnico sin perder el posicionamiento que ya has ganado en el mercado.",
+    q: "¿Qué diferencia hay entre un sitio de Nasua y una página web convencional?",
+    a: "La mayoría de las agencias diseñan páginas 'bonitas'; nosotros diseñamos arquitecturas de conversión. Cada sección, botón y texto de tu sitio corporativo tiene un objetivo estratégico: proyectar autoridad, resolver dudas de tus clientes y facilitar el cierre de ventas.",
   },
   {
-    q: "¿Cómo se garantiza la seguridad de la información?",
-    a: "Implementamos protocolos de seguridad estándar, certificados SSL y configuraciones de servidor que protegen tu sitio contra ataques comunes. Un sitio empresarial es un activo crítico; por eso, el equipo se asegura de que la base técnica sea estable y segura para ti y para tus visitantes.",
+    q: "¿Mi sitio estará preparado para aparecer en ChatGPT y buscadores de IA?",
+    a: "Absolutamente. No solo hacemos SEO tradicional para Google; optimizamos tu sitio para el GEO (Generative Engine Optimization). Esto asegura que cuando un usuario consulte a una Inteligencia Artificial por soluciones como las tuyas, tu empresa sea una de las fuentes recomendadas.",
   },
   {
-    q: "¿El equipo se encarga del mantenimiento mensual?",
-    a: "Sí. Como tu Socio de Crecimiento, ofrecemos planes de mantenimiento proactivo. Un sitio web empresarial requiere actualizaciones constantes de seguridad y optimización de rendimiento para no quedar obsoleto. El equipo se encarga de que tu motor digital funcione siempre al 100%.",
+    q: "¿Podré actualizar el contenido yo mismo o dependeré de la agencia?",
+    a: "Depende de la tecnología que elijamos según tus objetivos. Si necesitas total autonomía para cambios diarios, desarrollamos sobre sistemas autogestionables como WordPress. Si priorizas la máxima velocidad de carga y un diseño de vanguardia, utilizamos herramientas de desarrollo dinámico (como Lovable); en este caso, nosotros nos encargamos de los ajustes para asegurar que el sitio siempre rinda al 100%.",
   },
   {
-    q: "¿Cuánto tiempo toma el desarrollo de una web empresarial?",
-    a: "Un proyecto robusto suele tomar entre 15 y 30 días, dependiendo de la complejidad de las integraciones requeridas. El equipo trabaja con cronogramas de cumplimiento estricto, asegurando que el lanzamiento ocurra en la fecha pactada en el Roadmap inicial.",
+    q: "¿Qué pasa si mi empresa crece y necesito más funciones después?",
+    a: "Nuestros sitios son modulares y escalables. Puedes empezar con una estructura corporativa sólida y, a medida que tu facturación aumente, integrar un CRM, sistemas de automatización, blogs especializados o herramientas de venta sin tener que reconstruir todo desde cero.",
+  },
+  {
+    q: "¿Ustedes se encargan de las fotos y videos del sitio?",
+    a: "Nuestra sede principal está en Medellín, donde realizamos producciones presenciales de alta calidad. Sin embargo, contamos con una red de aliados estratégicos que nos permite coordinar la captura de material visual profesional en cualquier ubicación que requieras, asegurando que tu sitio tenga una imagen auténtica.",
+  },
+  {
+    q: "¿Por qué es tan importante la velocidad de carga para mi facturación?",
+    a: "Un sitio lento es un sitio que pierde dinero. Si tu página tarda en cargar, los usuarios se irán con la competencia. Optimizamos cada activo para que la experiencia sea casi instantánea, lo que mejora tu posicionamiento y, sobre todo, tu tasa de cierre de ventas.",
+  },
+  {
+    q: "¿Qué seguridad tendré contra ataques o caídas del sistema?",
+    a: "Tu sitio corporativo incluye protocolos de seguridad para proteger tu información y la de tus clientes. Además, con nuestro servicio de Webmaster, monitoreamos constantemente tu entorno digital para prevenir errores y asegurar que tu negocio esté siempre disponible para tus clientes.",
+  },
+  {
+    q: "¿Quién es el dueño legal del sitio web y del dominio?",
+    a: "En Nasua creemos en la transparencia. El dominio, las licencias y las bases de datos se configuran a nombre de tu empresa. Nosotros somos los arquitectos que diseñan y mantienen el sitio, pero la propiedad del activo es 100% tuya.",
+  },
+  {
+    q: "¿Cómo ayuda el sitio web a mi equipo de ventas?",
+    a: "Tu sitio corporativo actúa como tu Centro de Mando Digital. Al centralizar la información, responder preguntas de forma automática y proyectar una imagen de autoridad, tu equipo comercial recibirá prospectos mucho más informados y listos para concretar el negocio.",
   },
 ];
 
@@ -119,10 +144,10 @@ const SitioCorporativo = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Web Empresarial | Infraestructura Digital de Autoridad | Nasua</title>
-        <meta name="description" content="Tu reputación merece un sitio robusto y rápido. Creamos centros de mando digitales soberanos que respaldan tu crecimiento en mercados internacionales." />
-        <meta property="og:title" content="Web Empresarial | Infraestructura Digital de Autoridad | Nasua" />
-        <meta property="og:description" content="Tu reputación merece un sitio robusto y rápido. Creamos centros de mando digitales soberanos que respaldan tu crecimiento en mercados internacionales." />
+        <title>Sitio Web Corporativo: Tu Centro de Mando Digital | Nasua</title>
+        <meta name="description" content="Transforma tu presencia web en un activo de autoridad. Diseñamos sitios corporativos rápidos y efectivos para centralizar tu operación y escalar tus ventas." />
+        <meta property="og:title" content="Sitio Web Corporativo: Tu Centro de Mando Digital | Nasua" />
+        <meta property="og:description" content="Transforma tu presencia web en un activo de autoridad. Diseñamos sitios corporativos rápidos y efectivos para centralizar tu operación y escalar tus ventas." />
         <meta property="og:image" content="https://nasua.marketing/SitioCorporativoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -141,8 +166,8 @@ const SitioCorporativo = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Web Empresarial:{" "}
-            <span className="text-gradient">Construimos tu centro de mando digital.</span>
+            Sitio Web Corporativo:{" "}
+            <span className="text-gradient">Tu Centro de Mando Digital.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -150,7 +175,7 @@ const SitioCorporativo = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
           >
-            Un sitio empresarial de Nasua no es un folleto digital; es el activo técnico que centraliza tu estrategia de negocio. Nuestro equipo desarrolla soluciones robustas, rápidas y soberanas que transforman tu presencia en línea en una herramienta de ventas y confianza para el mercado internacional.
+            No diseñamos simples páginas web; construimos el activo estratégico que centraliza tu operación, proyecta autoridad y facilita el cierre de ventas. En Nasua, pasamos de la idea al despliegue en tiempo récord para que tu negocio nunca se detenga.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -162,7 +187,7 @@ const SitioCorporativo = () => {
               onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
             >
-              Agendar Consultoría Empresarial
+              Agendar Consultoría de Crecimiento
             </button>
           </motion.div>
         </div>
@@ -173,12 +198,12 @@ const SitioCorporativo = () => {
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Ingeniería web para empresas con visión de{" "}
-              <span className="text-gradient">futuro</span>.
+              Un activo diseñado para generar{" "}
+              <span className="text-gradient">confianza y conversiones</span>.
             </h2>
           </motion.div>
           <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            En el entorno actual, un sitio que solo informa es un activo que pierde dinero. En Nasua, transformamos tu web en un motor operativo.
+            En el mercado actual, tu sitio web es el lugar donde se cierran los tratos. Un sitio corporativo con el sello Nasua no solo se ve bien; está diseñado bajo una arquitectura de ventas que elimina las fricciones entre tu cliente y tu producto.
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -241,8 +266,8 @@ const SitioCorporativo = () => {
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Rendimiento medible y seguridad{" "}
-              <span className="text-gradient">técnica</span>.
+              Tecnología de alto nivel al servicio de{" "}
+              <span className="text-gradient">tu rentabilidad</span>.
             </h2>
           </motion.div>
 
@@ -272,9 +297,12 @@ const SitioCorporativo = () => {
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Rigor y{" "}
-              <span className="text-gradient">cumplimiento</span>.
+              De la estrategia al lanzamiento en días,{" "}
+              <span className="text-gradient">no en meses</span>.
             </h2>
+            <p className="text-muted-foreground text-lg font-body max-w-3xl mx-auto mt-4 leading-relaxed">
+              Gracias a nuestras herramientas de desarrollo ágil, hemos eliminado los procesos que tardaban a veces días y las esperas interminables. Menos reuniones innecesarias y más entregas de valor que puedes ver y probar en tiempo real.
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-6">
@@ -342,7 +370,7 @@ const SitioCorporativo = () => {
               onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
             >
-              Agendar Consultoría Empresarial
+              Agendar Consultoría de Crecimiento
             </button>
           </motion.div>
         </div>
