@@ -107,9 +107,9 @@ const Automatizacion = () => {
     <div className="bg-background text-foreground">
       <Helmet>
         <title>Automatización Operativa | Eficiencia y Cierre de Ventas en Nasua</title>
-        <meta name="description" content="Implementamos CRMs y sistemas de automatización que atienden prospectos en tiempo real. Escala tu operación sin escalar tu equipo. Soberanía total garantizada." />
+        <meta name="description" content="Optimiza tu proceso comercial con automatización operativa. Implementamos sistemas de seguimiento y CRM para que tu equipo se enfoque en cerrar ventas con Nasua." />
         <meta property="og:title" content="Automatización Operativa | Eficiencia y Cierre de Ventas en Nasua" />
-        <meta property="og:description" content="Implementamos CRMs y sistemas de automatización que atienden prospectos en tiempo real. Escala tu operación sin escalar tu equipo. Soberanía total garantizada." />
+        <meta property="og:description" content="Optimiza tu proceso comercial con automatización operativa. Implementamos sistemas de seguimiento y CRM para que tu equipo se enfoque en cerrar ventas con Nasua." />
         <meta property="og:image" content="https://nasua.marketing/AutomatizacionNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
