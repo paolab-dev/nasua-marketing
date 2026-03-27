@@ -1,49 +1,55 @@
 import { motion } from "framer-motion";
-import { Palette, Layout, Globe, Target, Search, PenTool, Cog } from "lucide-react";
+import { Globe, Bot, Target, Film, PenTool, Cog, Palette, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pillars = [
   {
-    icon: Palette,
-    title: "Branding & Autoridad",
-    text: "Construimos la identidad visual necesaria para cerrar contratos de alto nivel y proyectar solidez.",
-    href: "/branding",
-  },
-  {
-    icon: Layout,
-    title: "UX/UI Estratégico",
-    text: "Diseñamos interfaces que eliminan la fricción y guían al usuario hacia la conversión final.",
-    href: "/infraestructura-digital",
-  },
-  {
     icon: Globe,
     title: "Web de Alto Rendimiento",
-    text: "Activos rápidos (Vibe Coding) y soberanos. Tú eres el dueño absoluto de cada línea de código.",
+    text: "Sitios ultra-rápidos, soberanos y listos para convertir.",
     href: "/infraestructura-digital",
   },
   {
-    icon: Target,
-    title: "Pauta Digital",
-    text: "Inyectamos tráfico calificado en Google y Meta para generar retornos de inversión medibles.",
-    href: "/pauta-digital",
-  },
-  {
-    icon: Search,
-    title: "SEO & Visibilidad IA",
-    text: "Posicionamos tu marca donde tus clientes buscan hoy y donde las IAs responderán mañana.",
+    icon: Bot,
+    title: "Visibilidad IA (SEO & GEO)",
+    text: "Sé la respuesta que Google y ChatGPT recomiendan.",
     href: "/seo-geo",
   },
   {
+    icon: Target,
+    title: "Pauta Digital (Performance)",
+    text: "Inversión estratégica en anuncios con retorno medible.",
+    href: "/pauta-digital",
+  },
+  {
+    icon: Film,
+    title: "Estrategia & Contenido Social",
+    text: "Autoridad visual y narrativa con producción profesional.",
+    href: "/estrategia",
+  },
+  {
     icon: PenTool,
-    title: "Copywriting Estratégico",
-    text: "Redactamos mensajes persuasivos que transforman el interés del usuario en una decisión de compra.",
+    title: "Copywriting",
+    text: "Persuasión para convertir clics en ventas.",
     href: "/copywriting",
   },
   {
     icon: Cog,
-    title: "Automatización Operativa",
-    text: "Implementamos CRMs y sistemas que atienden prospectos en tiempo real para que no pierdas ventas.",
+    title: "Automatización",
+    text: "Sistemas y CRMs que trabajan para ti.",
     href: "/automatizacion",
+  },
+  {
+    icon: Palette,
+    title: "Branding",
+    text: "Identidad sólida para destacar en mercados internacionales.",
+    href: "/branding",
+  },
+  {
+    icon: Wrench,
+    title: "Webmaster & Soporte Técnico",
+    text: "Tu sitio web siempre al 100%, seguro y actualizado.",
+    href: "/infraestructura-digital",
   },
 ];
 
@@ -57,14 +63,14 @@ const fadeUp = {
 const ValueSection = () => {
   return (
     <section className="section-padding bg-background">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-6xl">
         <motion.div {...fadeUp} className="text-center mb-14 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display mb-6">
-            Activamos tu ecosistema de{" "}
-            <span className="text-gradient">crecimiento</span>.
+            Soluciones estratégicas para{" "}
+            <span className="text-gradient">escalar tu facturación</span>.
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Entendemos que la web es solo el inicio. Operamos bajo la superficie para asegurar que tu negocio sea sostenible y rentable.
+            Ocho pilares estratégicos diseñados para que tu empresa sea la autoridad de su industria.
           </p>
         </motion.div>
 
@@ -75,7 +81,7 @@ const ValueSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.08 }}
             >
               <Link
                 to={p.href}
