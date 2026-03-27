@@ -49,9 +49,6 @@ const Navbar = () => {
           <a href="/adn-nasua" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
             ADN Nasua
           </a>
-          <a href="/servicios" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
-            Servicios
-          </a>
 
           {/* Servicios dropdown */}
           <div
@@ -60,13 +57,16 @@ const Navbar = () => {
             onMouseEnter={() => setServiciosOpen(true)}
             onMouseLeave={() => setServiciosOpen(false)}
           >
-            <button className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors">
+            <a
+              href="/servicios"
+              className="flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
+            >
               Servicios
               <ChevronDown
                 size={14}
                 className={`transition-transform duration-200 ${serviciosOpen ? "rotate-180" : ""}`}
               />
-            </button>
+            </a>
 
             {serviciosOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64">
@@ -135,9 +135,6 @@ const Navbar = () => {
           <a href="/adn-nasua" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
             ADN Nasua
           </a>
-          <a href="/servicios" className="block text-primary-foreground/70 text-sm" onClick={() => setOpen(false)}>
-            Servicios
-          </a>
 
           {/* Mobile servicios accordion */}
           <div>
@@ -145,7 +142,7 @@ const Navbar = () => {
               onClick={() => setMobileServiciosOpen(!mobileServiciosOpen)}
               className="flex items-center gap-1 text-primary-foreground/70 text-sm w-full"
             >
-              Servicios
+              <a href="/servicios" className="flex-1 text-left" onClick={(e) => e.stopPropagation()}>Servicios</a>
               <ChevronDown
                 size={14}
                 className={`transition-transform duration-200 ${mobileServiciosOpen ? "rotate-180" : ""}`}
