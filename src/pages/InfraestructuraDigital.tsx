@@ -98,10 +98,10 @@ const InfraestructuraDigital = () => {
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Infraestructura Digital de Alto Rendimiento | Ingeniería Nasua</title>
-        <meta name="description" content="Construimos activos digitales soberanos con velocidad extrema y arquitectura lista para escalar. Vibe Coding, GEO y control total de tu tecnología." />
-        <meta property="og:title" content="Infraestructura Digital de Alto Rendimiento | Ingeniería Nasua" />
-        <meta property="og:description" content="Construimos activos digitales soberanos con velocidad extrema y arquitectura lista para escalar. Vibe Coding, GEO y control total de tu tecnología." />
+        <title>Desarrollo Web Estratégico | La Base de tu Presencia Digital</title>
+        <meta name="description" content="Construimos la base sólida de tu presencia digital. Transforma tu web en un activo propio que nadie te puede quitar. Ingeniería y estrategia con Nasua." />
+        <meta property="og:title" content="Desarrollo Web Estratégico | La Base de tu Presencia Digital" />
+        <meta property="og:description" content="Construimos la base sólida de tu presencia digital. Transforma tu web en un activo propio que nadie te puede quitar. Ingeniería y estrategia con Nasua." />
         <meta property="og:image" content="https://nasua.marketing/InfraestructuraNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -120,8 +120,8 @@ const InfraestructuraDigital = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
           >
-            Infraestructura Digital de Alto Rendimiento:{" "}
-            <span className="text-gradient">Ingeniería Nasua.</span>
+            Desarrollo Web Estratégico:{" "}
+            <span className="text-gradient">Construimos la Base de tu Presencia Digital.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -139,12 +139,12 @@ const InfraestructuraDigital = () => {
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div {...fadeUp} className="text-center mb-6">
             <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Tu infraestructura debe ser tu mayor{" "}
-              <span className="text-gradient">patrimonio digital</span>.
+              Tu sitio web: El único activo digital que{" "}
+              <span className="text-gradient">realmente te pertenece</span>.
             </h2>
           </motion.div>
           <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-6 leading-relaxed">
-            La mayoría de las empresas no son dueñas de su tecnología. Con el equipo de Nasua, eso cambia hoy.
+            Las redes sociales son canales de visibilidad, pero no te pertenecen. Depender exclusivamente de ellas es como construir en terreno alquilado: un cambio de algoritmo o un bloqueo o hackeo de cuenta inesperado pueden apagar tu negocio de un día para otro.
           </motion.p>
           <motion.div
             {...fadeUp}
@@ -155,7 +155,7 @@ const InfraestructuraDigital = () => {
                 <Shield className="w-7 h-7 text-secondary" />
               </div>
               <p className="text-muted-foreground font-body leading-relaxed text-lg">
-                En Nasua operamos bajo el principio de <strong className="text-foreground">Soberanía Digital</strong>. Cada línea de código, cada servidor y cada dato recolectado le pertenece al 100% a tu empresa. No creamos dependencias; entregamos herramientas potentes para que tú mantengas el control absoluto de tu futuro digital.
+                En Nasua, transformamos tu presencia web en un <strong className="text-foreground">activo propio que nadie te puede quitar</strong>. Diseñamos sitios web donde los datos, la tecnología y el éxito de tu marca están bajo tu control total. No creamos dependencias; entregamos herramientas que garantizan que tu empresa sea la única dueña de su destino digital.
               </p>
             </div>
           </motion.div>
