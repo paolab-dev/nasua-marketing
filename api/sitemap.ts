@@ -7,13 +7,22 @@ const NOTION_DATABASE_ID = "efcc75edcc654b889809312f004ce467";
 const STATIC_ROUTES: { path: string; priority: string }[] = [
   { path: "/", priority: "1.0" },
   { path: "/adn-nasua", priority: "0.8" },
-  { path: "/ecommerce", priority: "0.8" },
+  { path: "/servicios", priority: "0.9" },
+  { path: "/infraestructura-digital", priority: "0.8" },
   { path: "/landing-page", priority: "0.8" },
   { path: "/sitio-corporativo", priority: "0.8" },
-  { path: "/estrategia", priority: "0.8" },
-  { path: "/quienes-somos", priority: "0.8" },
-  { path: "/contacto", priority: "0.8" },
+  { path: "/ecommerce", priority: "0.8" },
+  { path: "/estrategia-social-media", priority: "0.8" },
+  { path: "/branding", priority: "0.8" },
+  { path: "/pauta-digital", priority: "0.8" },
+  { path: "/seo-geo", priority: "0.8" },
+  { path: "/copywriting", priority: "0.8" },
+  { path: "/automatizacion", priority: "0.8" },
+  { path: "/quienes-somos", priority: "0.7" },
+  { path: "/contacto", priority: "0.7" },
   { path: "/blog", priority: "0.8" },
+  { path: "/politica-privacidad", priority: "0.3" },
+  { path: "/terminos-condiciones", priority: "0.3" },
 ];
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
