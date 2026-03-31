@@ -1,0 +1,990 @@
+{
+  "common": {
+    "navbar": {
+      "brand": "nasua",
+      "links": [
+        { "href": "/adn-nasua", "label": "ADN Nasua" },
+        { "href": "/blog", "label": "Blog" },
+        { "href": "/quienes-somos", "label": "Quiénes Somos" }
+      ],
+      "cta": { "href": "/contacto", "label": "Agendar consultoría" }
+    },
+    "footer": {
+      "tagline": "Socio de Crecimiento Digital para empresas que buscan escala, velocidad y soberanía tecnológica.",
+      "sections": [
+        {
+          "title": "Nuestra Tecnología",
+          "links": [
+            { "href": "/infraestructura-digital", "label": "Web de Alto Rendimiento" },
+            { "href": "/landing-page", "label": "Landing Pages de Conversión" },
+            { "href": "/ecommerce", "label": "E-commerce Estratégico" },
+            { "href": "/digital-infra", "label": "Webmaster & Soporte" }
+          ]
+        },
+        {
+          "title": "Crecimiento",
+          "links": [
+            { "href": "/seo-geo", "label": "Visibilidad IA (SEO & GEO)" },
+            { "href": "/pauta-digital", "label": "Pauta & Performance" },
+            { "href": "/copywriting", "label": "Copywriting Estratégico" },
+            { "href": "/estrategia", "label": "Estrategia Social Media" },
+            { "href": "/automatizacion", "label": "Automatización CRM" }
+          ]
+        },
+        {
+          "title": "Compañía",
+          "links": [
+            { "href": "/adn-nasua", "label": "ADN Nasua" },
+            { "href": "/quienes-somos", "label": "Quiénes Somos" },
+            { "href": "/proyectos", "label": "Proyectos Abiertos" },
+            { "href": "/contacto", "label": "Contacto" }
+          ]
+        }
+      ],
+      "legal": [
+        { "href": "/politica-privacidad", "label": "Política de Privacidad" },
+        { "href": "/terminos-condiciones", "label": "Términos y Condiciones" }
+      ]
+    },
+    "faq": [
+      {
+        "q": "¿Qué diferencia a Nasua de una agencia de marketing tradicional?",
+        "a": "Una agencia tradicional suele ejecutar tareas aisladas: un diseño o una campaña de anuncios. En Nasua trabajamos como tu Socio de Crecimiento. Nuestro equipo se involucra en tu modelo de negocio para construir una infraestructura técnica que tiene un solo objetivo: rentabilidad. No entregamos piezas sueltas; entregamos un sistema que escala tu facturación de forma lógica."
+      },
+      {
+        "q": "¿Por qué el enfoque en \"Soberanía Digital\"?",
+        "a": "En el sector digital abundan las malas prácticas donde las agencias retienen los accesos de sus clientes. En Nasua, tú eres el dueño total de tus activos. Dominios, cuentas de pauta, códigos y bases de datos quedan a tu nombre desde el primer día. El equipo trabaja para que elijas seguir con nosotros por los resultados que generamos, no por una dependencia técnica forzada."
+      },
+      {
+        "q": "¿Cómo seleccionan la tecnología para cada proyecto?",
+        "a": "No usamos una sola herramienta para todo. Seleccionamos la tecnología según tus objetivos de negocio. Si buscas un posicionamiento orgánico (SEO) robusto, el equipo implementa WordPress con arquitecturas modernas. Si tu prioridad es la velocidad de carga y una experiencia de usuario única, empleamos Vibe Coding para reducir tiempos de desarrollo. Usamos el motor que asegure el retorno de tu inversión."
+      },
+      {
+        "q": "¿En cuánto tiempo se ven los resultados?",
+        "a": "La velocidad operativa es una de nuestras prioridades. Gracias a nuestra metodología de trabajo ágil, el equipo entrega activos funcionales (como Landings o webs de alto rendimiento) en pocos días o semanas. La pauta digital genera tráfico de forma inmediata, mientras que el SEO y la autoridad de marca son motores que se fortalecen con el análisis y ajuste mensual constante."
+      },
+      {
+        "q": "¿El equipo se encarga de la pauta en Google y Meta?",
+        "a": "Sí. Como socios de tu crecimiento, gestionamos tu inversión publicitaria con un enfoque total en el retorno (ROI). No buscamos métricas de vanidad como \"likes\"; buscamos clientes potenciales calificados. Alineamos el mensaje de tus anuncios con la arquitectura de tu sitio web para que cada peso invertido tenga la mayor probabilidad de conversión."
+      },
+      {
+        "q": "¿Cómo es la comunicación con el equipo de trabajo?",
+        "a": "Creemos en la comunicación directa y sin filtros. Al contratarnos, trabajas con los estrategas que diseñaron el método y ejecutan tu Roadmap, no con intermediarios o pasantes. Nuestro equipo técnico y estratégico mantiene contacto constante para asegurar que las decisiones se tomen con criterio de negocio y rapidez."
+      },
+      {
+        "q": "¿Qué sucede después de lanzar el sitio web o las campañas?",
+        "a": "Un sistema digital que no se mide, pierde valor rápidamente. Tras el lanzamiento, el equipo entra en una fase de Optimización y Renta. Analizamos el comportamiento de tus usuarios, ajustamos los embudos de venta y escalamos los presupuestos que generan ganancias. Nuestro compromiso es mantener tu motor de ventas actualizado y competitivo mes a mes."
+      },
+      {
+        "q": "¿Trabajan con empresas fuera de Colombia?",
+        "a": "Sí. Nuestra estructura está diseñada para atender mercados internacionales, especialmente en Latinoamérica y el mercado hispano de Estados Unidos. El equipo entiende los retos de escala global y adaptamos la estrategia de pauta y SEO para que tu marca compita con éxito en entornos de alta exigencia profesional."
+      },
+      {
+        "q": "¿Ofrecen opciones de financiación para el desarrollo?",
+        "a": "Sabemos que la liquidez es clave para tu operación. A través de nuestra alianza con Wompi (Bancolombia), puedes pagar el desarrollo de tus activos digitales a cuotas o usar tarjeta de crédito. El objetivo es que la tecnología empiece a generar ventas para tu empresa mientras gestionas tu flujo de caja de forma responsable."
+      },
+      {
+        "q": "¿Cuál es el primer paso para empezar?",
+        "a": "Todo inicia con una Consultoría de Diagnóstico. En esta sesión, nuestro equipo analiza tu situación actual, identifica los cuellos de botella en tu proceso de ventas y define un Roadmap claro. No es una llamada comercial común; es el inicio de un plan estratégico diseñado para que dejes de gastar en marketing y empieces a invertir en crecimiento."
+      }
+    ]
+  },
+  "home": {
+    "seo": {
+      "title": "Nasua | Socio de Crecimiento Digital para Escalar tu Facturación",
+      "description": "Deja de comprar páginas y construye activos rentables. Nasua es el equipo de expertos que diseña tu sistema de ventas con soberanía digital y resultados."
+    },
+    "hero": {
+      "title": "Socio de Crecimiento Digital:",
+      "highlight": "Construimos activos que facturan.",
+      "text": "No somos una agencia tradicional; somos tu Socio de Crecimiento. Si tu inversión digital no se traduce en rentabilidad, no está cumpliendo su trabajo. Diseñamos sistemas para empresas que buscan escala, velocidad y control total de su tecnología."
+    },
+    "pillars": {
+      "title": "Soluciones estratégicas para",
+      "highlight": "escalar tu facturación",
+      "text": "Ocho pilares estratégicos diseñados para que tu empresa sea la autoridad de su industria.",
+      "items": [
+        { "title": "Web de Alto Rendimiento", "text": "Sitios ultra-rápidos, soberanos y listos para convertir.", "href": "/infraestructura-digital", "icon": "Globe" },
+        { "title": "Visibilidad IA (SEO & GEO)", "text": "Sé la respuesta que Google y ChatGPT recomiendan.", "href": "/seo-geo", "icon": "Bot" },
+        { "title": "Pauta Digital (Performance)", "text": "Inversión estratégica en anuncios con retorno medible.", "href": "/pauta-digital", "icon": "Target" },
+        { "title": "Estrategia & Contenido Social", "text": "Autoridad visual y narrativa con producción profesional.", "href": "/estrategia", "icon": "Film" },
+        { "title": "Copywriting", "text": "Persuasión para convertir clics en ventas.", "href": "/copywriting", "icon": "PenTool" },
+        { "title": "Automatización", "text": "Sistemas y CRMs que trabajan para ti.", "href": "/automatizacion", "icon": "Cog" },
+        { "title": "Branding", "text": "Identidad sólida para destacar en mercados internacionales.", "href": "/branding", "icon": "Palette" },
+        { "title": "Webmaster & Soporte Técnico", "text": "Tu sitio web siempre al 100%, seguro y actualizado.", "href": "/infraestructura-digital", "icon": "Wrench" }
+      ]
+    },
+    "roadmap": {
+      "title": "Un Roadmap diseñado para",
+      "highlight": "no perder tiempo",
+      "steps": [
+        { "title": "Diagnóstico", "text": "Auditamos tu embudo actual y trazamos un plan de vuelo basado en tus números." },
+        { "title": "Activación", "text": "Ejecutamos con agilidad técnica para salir al mercado en días, no en meses." },
+        { "title": "Optimización", "text": "Medimos y ajustamos mensualmente para asegurar que tu inversión sea predecible." }
+      ]
+    },
+    "sovereignty": {
+      "title": "Tecnología con criterio y",
+      "highlight": "honestidad",
+      "values": [
+        { "title": "Soberanía Total", "text": "Dominios, códigos y datos son tuyos. Trabajamos para que te quedes por resultados, no por dependencia.", "icon": "Shield" },
+        { "title": "Cumplimiento Radical", "text": "Respetamos los tiempos. Pactamos fechas y entregamos resultados sin excusas técnicas.", "icon": "Clock" },
+        { "title": "Tecnología de Resultados", "text": "Usamos la herramienta que mejor sirva a tu retorno de inversión, no la que nos parezca más fácil.", "icon": "Wrench" }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para dejar de buscar proveedores y empezar a",
+      "highlight": "crecer con un socio",
+      "text": "Hablemos de tus retos y de cómo podemos poner nuestra infraestructura a trabajar para ti. Estamos listos para el diagnóstico inicial.",
+      "button": "Agendar Consultoría"
+    }
+  },
+  "landingPage": {
+    "seo": {
+      "title": "Landing Pages de Alta Conversión | Maximiza tu ROI con el equipo Nasua",
+      "description": "No pierdas dinero en anuncios. Diseñamos páginas de aterrizaje rápidas con Vibe Coding para convertir clics en facturación. Toma el control de tu pauta."
+    },
+    "hero": {
+      "title": "Landing Pages de Alta Conversión:",
+      "highlight": "Optimiza tu pauta con el equipo Nasua.",
+      "text": "Si estás invirtiendo en Google o Meta Ads pero no recibes leads calificados, el problema suele estar en el destino. El equipo de Nasua diseña páginas de aterrizaje de alto rendimiento, optimizadas técnicamente para maximizar cada peso de tu inversión publicitaria y reducir tu costo de adquisición."
+    },
+    "features": [
+      {
+        "title": "Copywriting de Respuesta Directa",
+        "text": "No llenamos espacios con texto genérico. Nuestro equipo redacta guiones de venta diseñados para resolver los dolores de tu cliente ideal y presentar tu solución como la opción lógica. Usamos estructuras de persuasión que guían al usuario hacia la acción, eliminando distracciones y centrando toda la atención en tu objetivo de conversión.",
+        "icon": "PenTool"
+      },
+      {
+        "title": "Velocidad de Carga en Milisegundos",
+        "text": "En el mundo de los anuncios, cada segundo de carga es dinero perdido. Implementamos tecnologías de alto rendimiento (como Vibe Coding) para asegurar que tu landing page sea instantánea, especialmente en dispositivos móviles. Una página rápida no solo mejora la experiencia del usuario, sino que reduce la tasa de rebote y mejora la calificación de tus anuncios en las plataformas de pauta.",
+        "icon": "Zap"
+      }
+    ],
+    "integrations": {
+      "title": "Integración técnica con tu operación",
+      "highlight": "comercial",
+      "text": "Para que una landing page sea rentable, debe estar vinculada con el resto de tu negocio. El equipo se encarga de que la tecnología trabaje para ti.",
+      "items": [
+        { "title": "Conexión con tu CRM", "text": "Los datos de tus clientes potenciales llegan automáticamente a tu base de datos (HubSpot, Salesforce o Google Sheets), permitiendo que tu equipo comercial actúe de inmediato.", "icon": "Link" },
+        { "title": "Automatización de Respuesta", "text": "Configuramos disparadores para que el lead reciba un correo o mensaje de WhatsApp apenas se registre. La rapidez en el primer contacto es vital para no enfriar la venta.", "icon": "Bot" },
+        { "title": "Tracking de Precisión", "text": "Instalamos APIs de Conversión y Píxeles de seguimiento para que sepas exactamente cuánto te cuesta cada cliente y qué anuncios están generando rentabilidad real.", "icon": "Target" }
+      ]
+    },
+    "faq": [
+      { "q": "¿Por qué no es recomendable enviar el tráfico de mis anuncios a mi sitio web principal?", "a": "Un sitio web corporativo está diseñado para informar sobre la empresa, mostrar servicios y generar confianza general..." },
+      { "q": "¿Qué tecnología utiliza el equipo para desarrollar las Landing Pages?", "a": "La selección técnica se basa en tus metas de escala y velocidad..." }
+    ]
+  },
+  "ecommerce": {
+    "seo": {
+      "title": "E-commerce Escalable | Ecosistemas de Venta de Alto Rendimiento",
+      "description": "Construimos infraestructuras de venta integradas con tu logística. Toma el control de tus datos y escala tu e-commerce sin comisiones por cada venta."
+    },
+    "hero": {
+      "title": "E-commerce Escalable:",
+      "highlight": "Construimos ecosistemas de venta de alto rendimiento.",
+      "text": "Deja de depender de algoritmos externos y toma el control de tu facturación. El equipo de Nasua diseña ecosistemas de venta de alto rendimiento, integrados con tu operación y optimizados para maximizar el retorno de tu inversión publicitaria."
+    },
+    "features": [
+      {
+        "icon": "BarChart3",
+        "title": "Conversión basada en datos",
+        "text": "No diseñamos interfaces por estética; las creamos para eliminar la fricción en la compra. Cada elemento de tu tienda tiene el objetivo de guiar al usuario hacia el pago de forma fluida. Analizamos el comportamiento del consumidor para asegurar que el diseño trabaje a favor de tu tasa de conversión y no en contra de ella."
+      },
+      {
+        "icon": "Zap",
+        "title": "Velocidad que retiene clientes",
+        "text": "En el comercio electrónico, la lentitud es la principal causa de abandono. Nuestro equipo técnico utiliza arquitecturas de alto rendimiento para asegurar que tu catálogo cargue en milisegundos, incluso en dispositivos móviles con conexiones inestables. Una tienda rápida no solo mejora la experiencia del usuario, sino que es favorecida por los buscadores y reduce tus costos de adquisición de clientes."
+      },
+      {
+        "icon": "Shield",
+        "title": "Soberanía y Control de Datos",
+        "text": "En Nasua defendemos que tu base de datos de clientes es el activo más valioso de tu empresa. A diferencia de las plataformas cerradas que cobran comisiones por venta o limitan tu acceso a la información, nosotros construimos sobre infraestructuras donde tú tienes el control total. Eres dueño de tu tecnología, de tus datos y de la relación directa con tus compradores."
+      }
+    ],
+    "roadmaps": [
+      {
+        "icon": "ShoppingBag",
+        "title": "Shopify",
+        "subtitle": "Escalabilidad y Agilidad",
+        "text": "La opción predilecta para marcas que buscan una infraestructura robusta, segura y lista para operar en mercados internacionales. Es ideal cuando la prioridad es la rapidez de ejecución, la estabilidad del servidor y un ecosistema de aplicaciones que facilita la gestión diaria sin complicaciones técnicas."
+      },
+      {
+        "icon": "Globe",
+        "title": "WordPress + WooCommerce",
+        "subtitle": "Control y Flexibilidad",
+        "text": "Recomendada para negocios que buscan un SEO de productos muy profundo y el control total de sus costos operativos a largo plazo, sin depender de suscripciones mensuales o comisiones por transacción."
+      },
+      {
+        "icon": "Code",
+        "title": "Desarrollo Custom",
+        "subtitle": "Vibe Coding",
+        "text": "Para proyectos con necesidades únicas o integraciones complejas con sistemas de inventario y ERPs. Esta metodología permite crear experiencias de usuario que las plataformas tradicionales no pueden alcanzar."
+      }
+    ],
+    "operations": [
+      {
+        "icon": "RefreshCw",
+        "title": "Automatización y Retención",
+        "text": "Implementamos sistemas de recuperación de carritos abandonados y flujos de correo automatizados para fomentar la recompra. El objetivo del equipo es que tu tienda trabaje sola, atendiendo a los clientes y cerrando ventas de forma constante mientras tú te enfocas en la dirección de la empresa."
+      },
+      {
+        "icon": "Target",
+        "title": "Medición y Tracking de Precisión",
+        "text": "Instalamos toda la infraestructura de seguimiento necesaria: APIs de conversión, píxeles de seguimiento y paneles de métricas en tiempo real. Esto permite que sepas exactamente cuánto te cuesta captar un cliente y cuál es el retorno real de cada campaña de pauta que el equipo ejecuta para tu marca."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué plataforma es la mejor para mi tienda en línea?",
+        "a": "No existe una solución única. El equipo de Nasua selecciona la tecnología basada exclusivamente en tus objetivos. Si tu prioridad es la facilidad de uso y una infraestructura que \"no se rompa\" ante grandes picos de tráfico, Shopify suele ser el camino. Si buscas una personalización total y propiedad absoluta del código, WordPress o un Desarrollo Custom son mejores opciones. El equipo elige la herramienta que maximice tu rentabilidad operativa."
+      },
+      {
+        "q": "¿Tendré que pagar comisiones por cada venta realizada?",
+        "a": "Depende de la tecnología elegida. En soluciones como WordPress o Desarrollo Custom, el 100% de la venta es tuya. En plataformas como Shopify, existen costos por transacción y suscripción que el equipo te ayudará a proyectar en el Diagnóstico Inicial. Nuestro trabajo es que, elijas lo que elijas, el margen de tu negocio sea siempre saludable y sostenible."
+      },
+      {
+        "q": "¿Realmente seré el dueño de mi tienda si elijo una plataforma como Shopify?",
+        "a": "La soberanía digital se adapta según la herramienta. En desarrollos propios, eres dueño del código. En plataformas como Shopify, eres dueño de tu base de datos, tu dominio y tu relación con el cliente. El equipo de Nasua se asegura de que, independientemente de la infraestructura, tú mantengas el control estratégico de tu activo y puedas migrar o escalar cuando lo necesites."
+      }
+    ]
+  },
+  "infraestructuraDigital": {
+    "seo": {
+      "title": "Desarrollo Web Estratégico | La Base de tu Presencia Digital",
+      "description": "Construimos la base sólida de tu presencia digital. Transforma tu web en un activo propio que nadie te puede quitar. Ingeniería y estrategia con Nasua."
+    },
+    "hero": {
+      "title": "Desarrollo Web Estratégico:",
+      "highlight": "Construimos la Base de tu Presencia Digital.",
+      "text": "En Nasua, la web no es el destino final, es la infraestructura base de tu crecimiento. Construimos activos digitales bajo estándares de ingeniería de software que garantizan velocidad extrema, soberanía total y una base técnica lista para escalar."
+    },
+    "vibeCodingFeatures": [
+      {
+        "icon": "Gauge",
+        "title": "Carga Instantánea",
+        "text": "Optimizamos cada activo para que tu sitio sea el más rápido de tu industria."
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Adaptabilidad Real",
+        "text": "Infraestructuras que se ven y funcionan perfecto en cualquier dispositivo."
+      },
+      {
+        "icon": "Bot",
+        "title": "Optimización GEO",
+        "text": "Preparamos tu arquitectura para que los motores de respuesta de IA (SearchGPT, Perplexity) encuentren y recomienden tu contenido fácilmente."
+      }
+    ],
+    "modules": [
+      {
+        "label": "Módulo A",
+        "title": "Landing Pages & Conversión",
+        "text": "Diseñadas para maximizar el retorno de tu pauta publicitaria. Si estás invirtiendo en Google o Meta, necesitas una infraestructura que transforme clics en facturación.",
+        "cta": "Ver Landing Pages",
+        "href": "/landing-page"
+      },
+      {
+        "label": "Módulo B",
+        "title": "Web Empresarial & Autoridad",
+        "text": "Centros de mando digitales para empresas que buscan proyectar solidez internacional y centralizar su autoridad de marca.",
+        "cta": "Ver Web Empresarial",
+        "href": "/sitio-corporativo"
+      },
+      {
+        "label": "Módulo C",
+        "title": "E-commerce & Ecosistemas de Venta",
+        "text": "Tiendas online de alto rendimiento integradas con tu operación logística, sin comisiones externas y con control total de tus ventas.",
+        "cta": "Ver E-commerce",
+        "href": "/ecommerce"
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué Nasua habla de \"Infraestructura\" y no de \"Diseño Web\"?",
+        "a": "Porque una web bonita que se cae o es lenta no sirve para el negocio. Nosotros nos enfocamos en la parte técnica y estratégica (la ingeniería) que asegura que el sitio sea una herramienta de venta y no solo un folleto digital."
+      },
+      {
+        "q": "¿Qué es la Soberanía Digital en la práctica?",
+        "a": "Significa que las cuentas de hosting, los dominios y el código fuente están a tu nombre. El equipo de Nasua tiene acceso para trabajar, pero tú tienes la llave maestra. Si decides cambiar de socio, tu negocio no se detiene."
+      },
+      {
+        "q": "¿Cómo beneficia el Vibe Coding a mi empresa?",
+        "a": "Reduce el tiempo de salida al mercado (Time-to-Market). Podemos lanzar activos funcionales y estéticamente impecables en una fracción del tiempo del desarrollo tradicional, permitiéndote empezar a captar leads mucho antes."
+      },
+      {
+        "q": "¿Ustedes se encargan del mantenimiento técnico?",
+        "a": "Sí. Al ser tu Socio de Crecimiento, el equipo monitorea que tu infraestructura esté siempre actualizada, segura y volando en términos de velocidad."
+      },
+      {
+        "q": "¿Mi web estará lista para las búsquedas de Inteligencia Artificial?",
+        "a": "Totalmente. Estructuramos los datos (Schema Markup) para que las IAs entiendan quién eres y qué haces, asegurando que Nasua te posicione en el nuevo estándar de búsqueda (GEO)."
+      }
+    ]
+  },
+  "branding": {
+    "seo": {
+      "title": "Branding & Autoridad | Identidad Visual Estratégica para Negocios",
+      "description": "No diseñamos logos, construimos la autoridad que tu empresa necesita para cerrar contratos internacionales. Identidad visual estratégica con el sello Nasua."
+    },
+    "hero": {
+      "title": "Branding & Autoridad:",
+      "highlight": "Identidad visual estratégica para negocios.",
+      "text": "La estética sin estrategia es solo decoración. En Nasua creamos identidades visuales diseñadas para proyectar solidez, generar confianza inmediata y elevar el valor percibido de tu empresa en el mercado global."
+    },
+    "pillars": [
+      {
+        "icon": "Award",
+        "title": "Autoridad Visual de Alto Nivel",
+        "text": "Desarrollamos sistemas visuales que posicionan a tu marca como el líder de su industria. Analizamos tu competencia y tu mercado objetivo para crear una identidad que no solo destaque, sino que comunique profesionalismo y solvencia desde el primer contacto."
+      },
+      {
+        "icon": "Layers",
+        "title": "Coherencia en cada Punto de Contacto",
+        "text": "Una marca sólida es una marca coherente. El equipo de Nasua entrega un ecosistema visual completo: desde el logotipo y la paleta cromática hasta la tipografía y los elementos gráficos que vivirán en tu web, redes sociales y presentaciones comerciales."
+      }
+    ],
+    "integrations": [
+      {
+        "icon": "Target",
+        "title": "Optimización para Web",
+        "text": "Creamos activos gráficos ligeros y vectoriales que no comprometen la velocidad de carga de tu sitio. Tu identidad se verá impecable sin sacrificar los milisegundos de carga que el SEO exige."
+      },
+      {
+        "icon": "CheckCircle",
+        "title": "Soberanía de Marca",
+        "text": "Al finalizar el proceso, te entregamos los archivos originales en formatos editables. Eres el dueño total de tu identidad, sin letras chiquitas ni dependencias con el equipo de diseño."
+      }
+    ],
+    "processSteps": [
+      {
+        "icon": "Lightbulb",
+        "title": "Inmersión de Marca",
+        "text": "Entendemos tus valores y tus metas de negocio."
+      },
+      {
+        "icon": "Palette",
+        "title": "Concepto Estratégico",
+        "text": "Definimos el tono y la dirección visual que te diferenciará."
+      },
+      {
+        "icon": "Layers",
+        "title": "Desarrollo de Identidad",
+        "text": "Creamos el sistema visual (Logo, Colores, Tipografía)."
+      },
+      {
+        "icon": "FileText",
+        "title": "Manual de Estilo",
+        "text": "Entregamos las reglas de juego para que tu marca nunca pierda su esencia."
+      }
+    ],
+    "tools": [
+      { "name": "Figma", "icon": "🎨" },
+      { "name": "Adobe Illustrator", "icon": "✏️" },
+      { "name": "Adobe Photoshop", "icon": "🖼️" },
+      { "name": "After Effects", "icon": "🎬" },
+      { "name": "Vibe Coding", "icon": "⚡" },
+      { "name": "Soberanía Digital", "icon": "🛡️" }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué es importante invertir en branding si ya tengo una infraestructura web?",
+        "a": "La web es el vehículo técnico, pero el branding es el factor de confianza que cierra la venta. Una infraestructura impecable con una marca débil genera dudas. El branding estratégico justifica tus precios, construye autoridad y asegura que tu empresa sea percibida como la opción premium en su mercado."
+      },
+      {
+        "q": "¿Qué recibo exactamente al contratar el servicio de Branding & Autoridad?",
+        "a": "Recibes un sistema de identidad completo: Logotipo (versiones principal, secundaria y reducida), paleta de colores con psicología de mercado, tipografías institucionales, elementos gráficos de apoyo y el Manual de Identidad Visual que rige toda tu comunicación futura."
+      },
+      {
+        "q": "¿El equipo de Nasua realiza rediseños de marcas existentes?",
+        "a": "Sí. Realizamos procesos de Rebranding para empresas que han escalado y cuya imagen actual ya no representa su magnitud técnica o sus metas internacionales. Evolucionamos tu marca para que esté a la altura de tu facturación actual."
+      },
+      {
+        "q": "¿Soy el dueño legal de los archivos originales de mi marca?",
+        "a": "Absolutamente. Bajo nuestro principio de Soberanía Digital, al finalizar el proyecto te entregamos todos los archivos fuente (AI, SVG, PDF) y derechos de uso. En Nasua no retenemos activos; tú eres el dueño total de tu identidad."
+      },
+      {
+        "q": "¿Cuánto tiempo toma desarrollar una identidad de marca completa?",
+        "a": "Un proceso de branding estratégico suele tomar entre 2 y 4 semanas. Esto incluye las fases de diagnóstico, concepto creativo, desarrollo de activos y la entrega del manual final, asegurando que cada paso sea validado por tu equipo."
+      }
+    ]
+  },
+  "pautaDigital": {
+    "seo": {
+      "title": "Pauta Digital & Performance | Maximiza tu ROI con el Equipo Nasua",
+      "description": "Optimizamos tu inversión en Google, Meta, TikTok y Pinterest Ads. Google Partners con 15 años de experiencia cuidando tu presupuesto y escalando tu ROI."
+    },
+    "hero": {
+      "title": "Pauta Digital & Performance:",
+      "highlight": "Maximiza tu ROI con el Equipo Nasua.",
+      "text": "Deja de gastar en publicidad para empezar a invertir en resultados. En Nasua diseñamos campañas multiplataforma respaldadas por Google Partners y una metodología técnica que prioriza la rentabilidad de tu negocio sobre el volumen de clics."
+    },
+    "platforms": [
+      {
+        "icon": "Search",
+        "title": "Google Ads",
+        "badge": "Google Partners",
+        "text": "Al ser aliados de Google Partners, garantizamos una gestión profesional en Búsqueda, Display, YouTube y Shopping, con acceso a soporte y betas exclusivas."
+      },
+      {
+        "icon": "MessageCircle",
+        "title": "Meta Ads",
+        "badge": "Instagram, Facebook & WhatsApp",
+        "text": "Creamos embudos de venta directos que conectan con tu audiencia y cierran el ciclo de compra, integrando WhatsApp como canal de cierre de alta conversión."
+      },
+      {
+        "icon": "Video",
+        "title": "TikTok Ads",
+        "badge": "Mayor Alcance Actual",
+        "text": "Aprovechamos el algoritmo de mayor alcance actual para generar demanda masiva y conversiones en formatos de video ágiles."
+      },
+      {
+        "icon": "Image",
+        "title": "Pinterest Ads",
+        "badge": "Intención Visual de Compra",
+        "text": "Capturamos la intención de compra visual en nichos de diseño, moda y estilo de vida, donde la inspiración se transforma en transacción."
+      }
+    ],
+    "sovereignty": [
+      {
+        "icon": "Users",
+        "title": "Cuentas Propias",
+        "text": "Las campañas se ejecutan en tus cuentas de anuncios."
+      },
+      {
+        "icon": "Shield",
+        "title": "Historial Protegido",
+        "text": "La data y el aprendizaje de los algoritmos te pertenecen al 100%."
+      },
+      {
+        "icon": "CreditCard",
+        "title": "Pagos Directos",
+        "text": "Tú pagas a las plataformas; nosotros cobramos por nuestra gestión estratégica y técnica."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué es importante el respaldo de Google Partners?",
+        "a": "Significa que nuestro trabajo está validado bajo los estándares de excelencia de Google. Tenemos acceso a soporte prioritario y la garantía de que tus campañas están siendo gestionadas bajo las mejores prácticas globales para maximizar el rendimiento de tu inversión."
+      },
+      {
+        "q": "¿Cómo cuidan mi presupuesto en el día a día?",
+        "a": "Mediante la Optimización Activa. El equipo de Nasua analiza el rendimiento de cada anuncio y palabra clave, pausando lo que no rinde y escalando lo que factura. Nuestros 15 años de experiencia nos permiten identificar patrones de desperdicio que otros pasan por alto."
+      },
+      {
+        "q": "¿Qué plataformas recomiendan para mi negocio?",
+        "a": "No usamos una receta única. Analizamos dónde está tu audiencia ideal: si es por intención de búsqueda (Google), por deseo visual (Instagram/Pinterest) o por impacto viral (TikTok). Diseñamos un mix de medios que optimice tu presupuesto según tu nicho."
+      },
+      {
+        "q": "¿Pueden llevar tráfico directamente a mi WhatsApp?",
+        "a": "Sí. Diseñamos campañas de \"Click-to-WhatsApp\" optimizadas en Meta. No solo enviamos gente al chat; preparamos el camino para que el usuario llegue con una intención clara de compra, facilitando el cierre para tu equipo comercial."
+      },
+      {
+        "q": "¿Qué es la \"Soberanía de Cuentas\" en pauta?",
+        "a": "En Nasua, tú eres el dueño de tus activos. Todo se configura a nombre de tu empresa. Tú mantienes el acceso de administrador. Si el día de mañana decides cambiar de rumbo, te llevas todo el historial y el aprendizaje del algoritmo contigo."
+      }
+    ]
+  },
+  "seoGeo": {
+    "seo": {
+      "title": "SEO & Visibilidad IA (GEO) | El Activo Más Rentable de tu Negocio",
+      "description": "No solo aparezcas en Google, sé la respuesta de la IA. Descubre cómo el SEO + Pauta construye autoridad soberana y rentabilidad a largo plazo con Nasua."
+    },
+    "hero": {
+      "title": "SEO & Visibilidad IA (GEO):",
+      "highlight": "El activo más rentable de tu negocio.",
+      "text": "En un mundo digital saturado, el SEO no es una opción técnica; es la construcción de tu patrimonio. En Nasua unimos la estrategia orgánica con la llegada de los LLMs (como ChatGPT) para que tu empresa deje de \"rentar\" tráfico y empiece a ser dueña de su autoridad."
+    },
+    "consciousnessPillars": [
+      {
+        "icon": "TrendingUp",
+        "title": "Sostenibilidad",
+        "text": "El tráfico orgánico no se detiene cuando apagas la tarjeta de crédito."
+      },
+      {
+        "icon": "Star",
+        "title": "Credibilidad",
+        "text": "El usuario confía más en quien Google y las IAs posicionan de forma natural que en quien paga por aparecer."
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Valor de Empresa",
+        "text": "Un negocio con autoridad orgánica es un activo mucho más valioso y vendible que uno que depende 100% de anuncios."
+      }
+    ],
+    "multiplierEffects": [
+      {
+        "icon": "Eye",
+        "title": "Dominio Visual",
+        "text": "Ocupas más espacio en la pantalla del usuario (Anuncio + Resultado Orgánico), proyectando una autoridad imbatible."
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Reducción de Costos (CAC)",
+        "text": "El SEO nos enseña qué palabras convierten mejor, optimizando la pauta. A su vez, una web bien posicionada orgánicamente suele tener mejores puntajes de calidad en Google Ads, bajando el precio que pagas por cada clic."
+      },
+      {
+        "icon": "BarChart3",
+        "title": "Data Inteligente",
+        "text": "Usamos los datos de la pauta para acelerar los resultados de SEO, atacando directamente lo que ya sabemos que trae dinero a tu cuenta."
+      }
+    ],
+    "geoPillars": [
+      {
+        "icon": "Bot",
+        "title": "GEO (Generative Engine Optimization)",
+        "text": "Estructuramos tu infraestructura digital para que los LLMs (Large Language Models) puedan leer, procesar y recomendar tu marca."
+      },
+      {
+        "icon": "Database",
+        "title": "Autoridad Semántica",
+        "text": "Ya no basta con repetir palabras; hay que demostrar experiencia, autoridad y confianza (E-E-A-T). En Nasua preparamos tu contenido para ser el referente que la IA elige como \"la respuesta correcta\"."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué es fundamental invertir en SEO hoy mismo?",
+        "a": "Porque el SEO es un activo que se acumula con el tiempo. Cada día que pasa sin una estrategia orgánica es un día que tu competencia toma ventaja en autoridad. Es la inversión con el mayor retorno (ROI) a largo plazo en el mundo digital."
+      },
+      {
+        "q": "¿Cómo beneficia a mi negocio combinar el SEO con la Pauta Digital?",
+        "a": "La pauta te da flujo de caja hoy, mientras el SEO construye rentabilidad para mañana. Al combinarlos, dominas tu nicho, generas confianza doble en el usuario y logras que tu costo de adquisición de clientes baje progresivamente."
+      },
+      {
+        "q": "¿Qué es el GEO y por qué es vital con la llegada de ChatGPT?",
+        "a": "El GEO es la optimización para motores de respuesta de IA. Con la IA, el usuario ya no navega 10 links; lee una respuesta directa. Si tu infraestructura no está optimizada (GEO), la IA no te encontrará y quedarás fuera del nuevo ciclo de consumo de información."
+      },
+      {
+        "q": "¿El equipo de Nasua usa IA para crear contenido de SEO?",
+        "a": "Usamos la IA como herramienta de análisis y estructura, pero el contenido final siempre tiene el criterio humano y la visión estratégica de nuestros expertos. Google y los LLMs penalizan el contenido genérico; nosotros premiamos la autoridad real."
+      },
+      {
+        "q": "¿En cuánto tiempo veré resultados orgánicos?",
+        "a": "El SEO es una maratón. Los primeros cambios técnicos se notan en semanas, pero la autoridad real y el tráfico masivo suelen consolidarse entre los 4 y 8 meses. Es un compromiso con el crecimiento sólido de tu empresa."
+      }
+    ]
+  },
+  "copywriting": {
+    "seo": {
+      "title": "Copywriting Estratégico | Textos que Convierten Clics en Ventas",
+      "description": "No escribimos palabras, diseñamos argumentos de venta. Descubre el Copywriting Estratégico de Nasua: psicología aplicada para escalar tu facturación."
+    },
+    "hero": {
+      "title": "Copywriting Estratégico:",
+      "highlight": "Textos que convierten clics en ventas.",
+      "text": "Si tu web es la infraestructura, el copy es el vendedor que trabaja 24/7. En Nasua unimos la psicología del consumidor con la estrategia de negocio para redactar mensajes que no solo informan, sino que impulsan al usuario a tomar acción."
+    },
+    "persuasionPillars": [
+      {
+        "icon": "Brain",
+        "title": "Psicología de Ventas Aplicada",
+        "text": "Entendemos los puntos de dolor, los deseos y las objeciones de tu cliente ideal. No redactamos frases genéricas; construimos narrativas que resuenan con la audiencia, eliminan la fricción y posicionan tu solución como la única opción lógica en el mercado."
+      },
+      {
+        "icon": "Layout",
+        "title": "Arquitectura de Mensaje para Conversión",
+        "text": "Cada titular, cada párrafo y cada llamado a la acción (CTA) en tu ecosistema digital tiene una función específica. Estructuramos el contenido para guiar la mirada del usuario y llevarlo, paso a paso, por un proceso de decisión que termina en conversión."
+      }
+    ],
+    "seoFeatures": [
+      {
+        "icon": "Search",
+        "title": "SEO Copywriting",
+        "text": "Integramos las palabras clave de forma orgánica y fluida. Logramos que tus textos posicionen en Google e intenten ser citados por los LLMs (como ChatGPT), pero sin perder nunca el tono humano y persuasivo."
+      },
+      {
+        "icon": "Layers",
+        "title": "Consistencia de Marca",
+        "text": "Tu voz debe ser la misma en una Landing Page, en un anuncio de Meta o en un correo comercial. El equipo de Nasua asegura que tu autoridad se mantenga intacta en cada punto de contacto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuál es la diferencia entre redactar contenido y hacer Copywriting?",
+        "a": "La redacción de contenido busca informar o educar; el Copywriting busca una acción específica (comprar, registrarse, agendar). En Nasua, todo nuestro copy está orientado a resultados y a mover la aguja de tu negocio."
+      },
+      {
+        "q": "¿Cómo impacta el copywriting en mi Retorno de Inversión (ROI)?",
+        "a": "Es el multiplicador más barato. Un cambio en un titular o en un botón puede duplicar tu tasa de conversión sin que tengas que gastar un solo dólar más en publicidad. El copy optimiza lo que ya tienes."
+      },
+      {
+        "q": "¿Por qué no usar simplemente ChatGPT para mis textos?",
+        "a": "La IA es excelente para estructuras, pero carece de criterio estratégico y empatía real. El equipo de Nasua aporta el toque humano, la ironía, la sutileza y el entendimiento profundo de tu industria que la IA aún no puede replicar con la misma efectividad de cierre."
+      },
+      {
+        "q": "¿Cómo encuentran el \"tono de voz\" de mi empresa?",
+        "a": "Realizamos una fase de inmersión en tu marca. Analizamos cómo hablas hoy y cómo quieres ser percibido mañana. Creamos un lenguaje que proyecte la autoridad y solidez que tu negocio internacional exige."
+      }
+    ]
+  },
+  "automatizacion": {
+    "seo": {
+      "title": "Automatización Operativa | Eficiencia y Cierre de Ventas en Nasua",
+      "description": "Optimiza tu proceso comercial con automatización operativa. Implementamos sistemas de seguimiento y CRM para que tu equipo se enfoque en cerrar ventas con Nasua."
+    },
+    "hero": {
+      "title": "Automatización Operativa:",
+      "highlight": "Eficiencia y cierre de ventas en Nasua.",
+      "text": "La tecnología debe trabajar para ti, no al revés. En Nasua implementamos sistemas de automatización que eliminan las tareas repetitivas, centralizan tu información y aseguran que cada prospecto sea atendido en tiempo real, maximizando tu capacidad de cierre."
+    },
+    "crmPillars": [
+      {
+        "icon": "Database",
+        "title": "Implementación de CRM Estratégico",
+        "text": "No instalamos software; diseñamos procesos. Configuramos tu CRM (HubSpot, Pipedrive o soluciones a medida) para que tengas visibilidad total de tu embudo de ventas. Sabrás exactamente en qué etapa está cada cliente, quién debe contactarlo y qué falta para cerrar el negocio."
+      },
+      {
+        "icon": "Mail",
+        "title": "Nutrición de Prospectos (Lead Nurturing)",
+        "text": "Automatizamos el seguimiento. Si un cliente no compra hoy, nuestro sistema se encarga de mantener tu marca presente mediante secuencias lógicas de correos y mensajes de WhatsApp. Educamos al prospecto de forma automática hasta que esté listo para la transacción."
+      }
+    ],
+    "operationFeatures": [
+      {
+        "icon": "Link2",
+        "title": "Integración Total",
+        "text": "Conectamos tu web, tus campañas de pauta y tus redes sociales con tu sistema de gestión interna. La información fluye sin errores humanos ni duplicidades."
+      },
+      {
+        "icon": "Bell",
+        "title": "Notificaciones en Tiempo Real",
+        "text": "Alertamos a tu equipo comercial en el segundo exacto en que entra una oportunidad de alto valor, asegurando una tasa de contacto inmediata."
+      },
+      {
+        "icon": "Shield",
+        "title": "Soberanía Operativa",
+        "text": "Como en todo lo que hace Nasua, los sistemas y las bases de datos son tuyos. Configuramos las herramientas a tu nombre para que el conocimiento del negocio se quede siempre en tu empresa."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es exactamente la automatización operativa?",
+        "a": "Es el uso de tecnología para realizar tareas repetitivas (como enviar correos de bienvenida, asignar leads o mover estados en un CRM) sin intervención humana. El objetivo es ganar velocidad y reducir errores en el proceso de venta."
+      },
+      {
+        "q": "¿Por qué mi empresa necesita un CRM?",
+        "a": "Porque lo que no se mide no se puede mejorar. Un CRM te permite dejar de depender de la memoria de los vendedores y pasar a una gestión basada en datos, asegurando que ningún cliente potencial se quede sin seguimiento."
+      },
+      {
+        "q": "¿Ustedes eligen el software o puedo usar el mío?",
+        "a": "Somos agnósticos a la herramienta. Si ya tienes un CRM, lo optimizamos. Si no tienes uno, analizamos tu operación y te recomendamos la opción que mejor se adapte a tu presupuesto y metas de escala."
+      },
+      {
+        "q": "¿Cómo ayuda la automatización al ROI de mis campañas de pauta?",
+        "a": "De nada sirve invertir en anuncios si los leads llegan y nadie los atiende. La automatización asegura que el tráfico que compramos sea procesado de inmediato, aumentando drásticamente la rentabilidad de tu inversión publicitaria."
+      }
+    ]
+  },
+  "estrategia": {
+    "seo": {
+      "title": "Estrategia & Contenido Social Media | Autoridad Visual con Nasua",
+      "description": "No solo planeamos, ejecutamos. Estrategia de autoridad y producción audiovisual (foto y video) para convertir tus redes en canales de venta reales."
+    },
+    "hero": {
+      "title": "Estrategia & Contenido Social Media:",
+      "highlight": "Autoridad que Genera Negocio.",
+      "text": "Dejar de publicar por rellenar un calendario y empezar a comunicar con intención. En Nasua diseñamos tu hoja de ruta estratégica y producimos el contenido fotográfico y audiovisual de alto impacto necesario para que tu marca destaque, eduque y convierta seguidores en clientes."
+    },
+    "productionFeatures": [
+      {
+        "icon": "Camera",
+        "title": "Fotografía de Marca",
+        "text": "Sesiones programadas para capturar la esencia de tu equipo, tus procesos y tu infraestructura."
+      },
+      {
+        "icon": "Video",
+        "title": "Video Marketing & Reels",
+        "text": "Guionizamos, grabamos y editamos contenido dinámico optimizado para los algoritmos actuales."
+      },
+      {
+        "icon": "Layers",
+        "title": "Coherencia Total",
+        "text": "Al ser nosotros quienes diseñamos la estrategia y producimos el material, garantizamos que cada pieza sea fiel a tu identidad y objetivos de negocio."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué Nasua incluye producción fotográfica y de video en el servicio?",
+        "a": "Porque una estrategia sin contenido de alta calidad está incompleta. Al suministrar nosotros mismos el material audiovisual, garantizamos que la estética y el mensaje estén alineados al 100% con la autoridad que queremos proyectar para tu empresa."
+      },
+      {
+        "q": "¿Ustedes se desplazan a mi oficina o empresa para producir el contenido?",
+        "a": "Sí. Coordinamos sesiones de producción para capturar contenido real y profesional. Esto le da una veracidad a tu marca que ninguna imagen genérica de internet puede igualar."
+      },
+      {
+        "q": "¿Qué pasa si mi equipo o yo no tenemos tiempo para grabar videos?",
+        "a": "Esa es nuestra especialidad. Nos encargamos de todo: desde los guiones y la dirección de arte hasta la edición final. Minimizamos el esfuerzo operativo de tu parte para que tú solo te encargues de validar el resultado."
+      },
+      {
+        "q": "¿Soy dueño del material audiovisual que produzcan para mi marca?",
+        "a": "Absolutamente. Bajo nuestro principio de Soberanía Digital, todo el material producido (fotos y videos) es de tu propiedad legal. Puedes usarlo en tu web, presentaciones comerciales o publicidad pagada sin restricciones."
+      }
+    ]
+  },
+  "adnNasua": {
+    "seo": {
+      "title": "ADN y Metodología Nasua | Ingeniería de Crecimiento Digital",
+      "description": "Conoce el ADN de Nasua. Unimos ingeniería de software y lógica de negocio para crear activos soberanos y rentables. Sin humo, solo resultados técnicos."
+    },
+    "hero": {
+      "title": "ADN y Metodología Nasua:",
+      "highlight": "Ingeniería de Crecimiento Digital",
+      "text": "En Nasua no diseñamos páginas para portafolios; construimos sistemas que resuelven problemas de negocio. Nuestra identidad se basa en la transparencia técnica y nuestra metodología en resultados medibles que aseguran tu control total."
+    },
+    "pillars": [
+      {
+        "icon": "Shield",
+        "title": "Soberanía Digital Real",
+        "text": "Creemos que la libertad es la base de una buena relación profesional. Todo lo que el equipo construye (dominios, cuentas de pauta, códigos y bases de datos) queda a tu nombre desde el primer día. No generamos dependencias artificiales; trabajamos para que elijas quedarte con nosotros por los resultados, no porque tengamos las llaves de tu casa digital bajo nuestro poder."
+      },
+      {
+        "icon": "Wrench",
+        "title": "Tecnología de Resultados",
+        "text": "Elegimos las herramientas según tus objetivos de facturación y escala. Si necesitas posicionamiento masivo, usamos WordPress con arquitecturas modernas. Si tu prioridad es la velocidad y una experiencia de usuario única, usamos Vibe Coding para reducir tiempos de desarrollo y salir al mercado antes que tu competencia. Usamos la tecnología que sirve a tu retorno de inversión."
+      },
+      {
+        "icon": "Clock",
+        "title": "Cumplimiento y Rigor Técnico",
+        "text": "En un sector marcado por la informalidad y los retrasos, Nasua elige la precisión. Pactamos fechas de entrega reales en el Roadmap y las cumplimos. Nuestro equipo de especialistas lidera cada proyecto con comunicación directa, asegurando que cada fase se ejecute con el rigor que una operación internacional exige."
+      }
+    ],
+    "phases": [
+      {
+        "label": "Fase 1",
+        "title": "Diagnóstico y Estrategia",
+        "text": "Todo proyecto inicia con una auditoría de tu situación actual. Analizamos tus números, tu competencia y los cuellos de botella de tu embudo de ventas. El entregable es tu Roadmap de Crecimiento: un plan de vuelo honesto que define qué piezas de tecnología y marketing necesitamos activar para alcanzar tus metas de negocio."
+      },
+      {
+        "label": "Fase 2",
+        "title": "Activación del Ecosistema",
+        "text": "Ejecutamos los módulos de tu estrategia de forma ágil. Gracias a nuestra metodología de desarrollo, levantamos tu infraestructura (Web, Landings, Pauta o SEO) en tiempos récord. No buscamos el lanzamiento eterno; buscamos que tu sistema empiece a captar datos y generar leads lo antes posible para validar la inversión."
+      },
+      {
+        "label": "Fase 3",
+        "title": "Optimización y Renta Predecible",
+        "text": "Un activo digital estático pierde valor. En esta fase, nuestro equipo analiza el rendimiento mensualmente. Medimos la conversión de la web, optimizamos la pauta y escalamos lo que funciona. El objetivo es transformar tu inversión inicial en una fuente de ingresos predecible y constante."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué significa exactamente la \"Soberanía Digital\" en Nasua?",
+        "a": "Significa que tú eres el dueño legal y técnico de todo. A diferencia de agencias que retienen accesos para forzar la permanencia, en Nasua registramos todo a nombre de tu empresa. Tienes el control total de tus dominios, códigos y datos desde el inicio."
+      },
+      {
+        "q": "¿Por qué el equipo utiliza una Metodología Inbound de Crecimiento?",
+        "a": "Porque es la forma más rentable de escalar. En lugar de perseguir clientes de forma intrusiva, construimos un sistema que los atrae mediante valor y autoridad, convirtiendo el tráfico en facturación real de forma lógica y escalable."
+      },
+      {
+        "q": "¿Cómo ayuda la tecnología si no utilizan una plataforma única?",
+        "a": "La selección se basa en tus metas. Si buscas SEO masivo, usamos WordPress. Si buscas velocidad extrema y personalización, usamos Vibe Coding. Si es una tienda con logística compleja, evaluamos Shopify. La tecnología está al servicio de tu retorno de inversión (ROI), no al revés."
+      }
+    ]
+  },
+  "quienesSomos": {
+    "seo": {
+      "title": "Quiénes Somos | Nasua Marketing | Expertos en Growth y Web",
+      "description": "Conoce al equipo multidisciplinario de Nasua. Unimos marketing, diseño UX/UI y desarrollo web para impulsar negocios sostenibles y rentables. ¡Conócenos!"
+    },
+    "hero": {
+      "title": "Las mentes detrás de tu",
+      "highlight": "infraestructura de crecimiento.",
+      "text": "En Nasua no solo construimos sitios web; diseñamos la base técnica y estratégica para que tu negocio escale sin fricciones. Somos el equipo que entiende que tú debes dedicarte a vender, mientras nosotros hacemos que la tecnología trabaje para ti."
+    },
+    "duo": [
+      {
+        "name": "Paola Bohórquez Guevara",
+        "role": "Directora UX/UI",
+        "icon": "Palette",
+        "linkedin": "https://www.linkedin.com/in/paolabohorquez/",
+        "quote": "\"La arquitectura digital no es solo que se vea bien, es que funcione para el usuario.\"",
+        "bio": "Arquitecta digital con más de 20 años de experiencia en mercados globales. Como Creadora Oficial de Canva para LATAM, Paola fusiona una sensibilidad estética de élite con la eficiencia del Vibe Coding.",
+        "canva": "https://www.canva.com/p/paola-bohorquez/"
+      },
+      {
+        "name": "John Alexander Escobar Sánchez",
+        "role": "Director de Mercadeo",
+        "icon": "TrendingUp",
+        "linkedin": "https://www.linkedin.com/in/alexanderescobarsanchez-marketing",
+        "quote": "\"La tecnología sin estrategia es solo un adorno. Hablémosle clarito a Google.\"",
+        "bio": "Estratega de mercadeo con más de una década de experiencia ledereando SEO para Samsung Colombia y la gestión de presupuestos de pauta superiores a los $5.000 millones COP anuales."
+      }
+    ],
+    "benefits": [
+      {
+        "icon": "Zap",
+        "title": "Bajo Costo y Alta Calidad",
+        "text": "Gracias a la IA y procesos optimizados, eliminamos los sobrecostos de las agencias lentas."
+      },
+      {
+        "icon": "Clock",
+        "title": "Velocidad sin Excusas",
+        "text": "Entregamos desde 2 días (Landings) hasta 10 días (E-commerce)."
+      },
+      {
+        "icon": "Search",
+        "title": "Organización de Contenidos",
+        "text": "No 'pegamos' textos; los estructuramos para que Google te encuentre de una."
+      },
+      {
+        "icon": "Shield",
+        "title": "Soberanía Legal",
+        "text": "Tú tienes el título de propiedad. Si algún día decides irte, te facilitamos el camino."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Quiénes están detrás de Nasua?",
+        "a": "Nasua es liderada por Paola Bohórquez (experta en diseño UX/UI global) y John Alexander Escobar (estratega de mercadeo ex-Samsung). Juntos combinan diseño de primer nivel con estrategias de ventas probadas."
+      },
+      {
+        "q": "¿Por qué dicen que soy el dueño legal de mi web?",
+        "a": "Porque lo eres. A diferencia de otros modelos, en Nasua el dominio y los activos están a tu nombre. Nosotros gestionamos la técnica por comodidad para ti, pero tú tienes la soberanía total por contrato."
+      },
+      {
+        "q": "¿Cómo ayuda un Director de Mercadeo en la creación de mi web?",
+        "a": "Alex se encarga de que tu contenido no sea solo 'bonito'. Él organiza la información para que Google la entienda (semántica), mejorando tus posibilidades de aparecer en los primeros resultados."
+      },
+      {
+        "q": "¿Qué significa que Paola sea Creadora Oficial de Canva?",
+        "a": "Es un sello de calidad global. Significa que su criterio estético y capacidad de diseño han sido validados por una de las plataformas tecnológicas más grandes del mundo. Tu web tendrá estándares de diseño internacional."
+      }
+    ]
+  },
+  "servicios": {
+    "seo": {
+      "title": "Soluciones Estratégicas para Escalar tu Facturación | Nasua",
+      "description": "Conoce nuestros servicios diseñados para potenciar tu marca y acelerar tus ventas. Soluciones de marketing digital directo y efectivo con Nasua."
+    },
+    "hero": {
+      "title": "Soluciones estratégicas para",
+      "highlight": "escalar tu facturación",
+      "text": "Diseñamos el camino para que tu empresa crezca con solidez. Nuestros servicios integran tecnología, diseño y pauta para potenciar tu presencia en el mercado."
+    },
+    "intro": {
+      "title": "Marketing diseñado para",
+      "highlight": "mover la aguja del negocio",
+      "text": "Entendemos que el marketing no es un fin, sino un medio para vender más y posicionarte mejor. Nuestra metodología se basa en la agilidad y la efectividad: eliminamos los procesos lentos y nos enfocamos en lo que realmente genera impacto visual y comercial para tu marca."
+    },
+    "groups": [
+      {
+        "emoji": "💻",
+        "label": "Presencia y Soporte",
+        "services": [
+          {
+            "icon": "Globe",
+            "title": "Sitios Web de Alto Rendimiento",
+            "text": "Páginas optimizadas para convertir, con tiempos de carga mínimos y diseño actual. Despliegue en 48h para que tu negocio no pierda ni un día.",
+            "href": "/infraestructura-digital"
+          },
+          {
+            "icon": "Wrench",
+            "title": "Webmaster & Soporte",
+            "text": "Nos encargamos de que tu sitio esté siempre operativo, seguro y al día. Tú te ocupas del negocio, nosotros de que la tecnología responda.",
+            "href": "/infraestructura-digital"
+          }
+        ]
+      },
+      {
+        "emoji": "🚀",
+        "label": "Visibilidad y Resultados",
+        "services": [
+          {
+            "icon": "Search",
+            "title": "Estrategia SEO & GEO",
+            "text": "Posicionamos tu marca donde están las respuestas. Optimizamos tu contenido para buscadores como Google y para las nuevas consultas en Inteligencia Artificial como ChatGPT.",
+            "href": "/seo-geo"
+          },
+          {
+            "icon": "Target",
+            "title": "Pauta Digital (Performance)",
+            "text": "Gestión profesional de inversión en anuncios (Ads). Maximizamos tu presupuesto para atraer clientes potenciales con intención de compra.",
+            "href": "/pauta-digital"
+          }
+        ]
+      },
+      {
+        "emoji": "📣",
+        "label": "Autoridad y Mensaje",
+        "services": [
+          {
+            "icon": "Megaphone",
+            "title": "Estrategia & Contenido Social",
+            "text": "Creamos contenido que genera confianza y comunica el valor real de tu empresa.",
+            "href": "/estrategia"
+          },
+          {
+            "icon": "PenTool",
+            "title": "Copywriting Estratégico",
+            "text": "Redacción persuasiva diseñada para guiar al usuario. Textos que aclaran dudas, eliminan barreras y facilitan la venta.",
+            "href": "/copywriting"
+          }
+        ]
+      },
+      {
+        "emoji": "📈",
+        "label": "Escala y Marca",
+        "services": [
+          {
+            "icon": "Cog",
+            "title": "Automatización Operativa",
+            "text": "Implementamos sistemas para que el seguimiento de tus clientes sea automático y eficiente, evitando que se pierdan oportunidades comerciales.",
+            "href": "/automatizacion"
+          },
+          {
+            "icon": "Palette",
+            "title": "Branding con Propósito",
+            "text": "Identidades visuales que proyectan solidez. Diseñamos marcas preparadas para competir y destacar en cualquier mercado.",
+            "href": "/branding"
+          }
+        ]
+      }
+    ],
+    "differentiators": {
+      "title": "Velocidad, claridad y",
+      "highlight": "resultados",
+      "items": [
+        {
+          "icon": "Zap",
+          "title": "Agilidad Real",
+          "text": "Gracias a nuestras herramientas de desarrollo ágil, pasamos de la idea al lanzamiento en tiempos récord."
+        },
+        {
+          "icon": "Eye",
+          "title": "Transparencia Total",
+          "text": "Cuentas claras y procesos sencillos. Sabes exactamente qué estamos haciendo y por qué."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Visión Comercial",
+          "text": "Cada acción que tomamos tiene un objetivo: que tu empresa sea percibida como líder y aumente su rentabilidad."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "¿Qué tan rápido podemos empezar a ver resultados?",
+        "a": "Depende del servicio, pero nuestra metodología está diseñada para la agilidad. Un sitio web puede estar al aire en 48 horas, mientras que una estrategia de pauta suele mostrar datos relevantes en las primeras dos semanas."
+      },
+      {
+        "q": "¿Qué pasa si ya tengo algunos canales funcionando (ej. una web o redes sociales)?",
+        "a": "No tienes que empezar de cero. Realizamos un diagnóstico de lo que ya tienes para integrarlo a nuestra estrategia. Si tu web actual es funcional, nos enfocamos en potenciarla."
+      }
+    ]
+  },
+  "contacto": {
+    "seo": {
+      "title": "Contacto | Nasua Marketing | Agencia de Growth y WordPress",
+      "description": "¿Listo para escalar tu negocio? Contacta a Nasua Marketing. Expertos en SEO, Ads, UX/UI y Desarrollo Web en Colombia."
+    },
+    "hero": {
+      "title": "Hablemos de tu proyecto digital",
+      "text": "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
+    },
+    "differentiators": [
+      { "icon": "Zap", "title": "Entrega en 7 días", "desc": "Vibe Coding con IA para resultados rápidos y de calidad." },
+      { "icon": "CreditCard", "title": "Financiación Wompi", "desc": "Empieza sin descapitalizarte. Paga a tu ritmo." },
+      { "icon": "Shield", "title": "100% tuyo", "desc": "Código fuente y dominio bajo tu propiedad total." }
+    ]
+  }
+}

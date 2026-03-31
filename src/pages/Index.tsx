@@ -7,15 +7,18 @@ import SovereigntySection from "@/components/SovereigntySection";
 import CtaSection from "@/components/CtaSection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
+import content from "@/data/site-content.json";
 
 const Index = () => {
+  const { seo } = content.home;
+
   return (
     <main>
       <Helmet>
-        <title>Nasua | Socio de Crecimiento Digital para Escalar tu Facturación</title>
-        <meta name="description" content="Deja de comprar páginas y construye activos rentables. Nasua es el equipo de expertos que diseña tu sistema de ventas con soberanía digital y resultados." />
-        <meta property="og:title" content="Nasua | Socio de Crecimiento Digital para Escalar tu Facturación" />
-        <meta property="og:description" content="Deja de comprar páginas y construye activos rentables. Nasua es el equipo de expertos que diseña tu sistema de ventas con soberanía digital y resultados." />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.description} />
         <meta property="og:image" content="https://nasua.marketing/Nasua-PaginasWebProfesionalesEnColombia.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

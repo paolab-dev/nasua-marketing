@@ -1,58 +1,46 @@
 import { motion } from "framer-motion";
 import { Shield, Clock, Wrench } from "lucide-react";
-import { ClientOnly } from "@/components/ClientOnly";
+import content from "@/data/site-content.json";
 
-const values = [
-  {
-    icon: Shield,
-    title: "Soberanía Total",
-    text: "Dominios, códigos y datos son tuyos. Trabajamos para que te quedes por resultados, no por dependencia.",
-  },
-  {
-    icon: Clock,
-    title: "Cumplimiento Radical",
-    text: "Respetamos los tiempos. Pactamos fechas y entregamos resultados sin excusas técnicas.",
-  },
-  {
-    icon: Wrench,
-    title: "Tecnología de Resultados",
-    text: "Usamos la herramienta que mejor sirva a tu retorno de inversión, no la que nos parezca más fácil.",
-  },
-];
-
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.7 },
+const icons: Record<string, any> = {
+  Shield,
+  Clock,
+  Wrench,
 };
 
 const SovereigntySection = () => {
+  const { sovereignty } = content.home;
+
   return (
     <section className="section-padding bg-background">
       <div className="container mx-auto max-w-5xl">
-        <ClientOnly minHeight="60px">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display">
-              Tecnología con criterio y{" "}
-              <span className="text-gradient">honestidad</span>.
-            </h2>
-          </motion.div>
-        </ClientOnly>
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          initial={false}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display">
+            {sovereignty.title}{" "}
+            <span className="text-gradient">{sovereignty.highlight}</span>.
+          </h2>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {values.map((v, i) => (
-            <ClientOnly key={v.title} minHeight="150px">
+          {sovereignty.values.map((v, i) => {
+            const Icon = icons[v.icon];
+            return (
               <motion.div
                 key={v.title}
-                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
+                initial={false}
                 className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
               >
                 <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <v.icon className="w-7 h-7 text-secondary" />
+                  {Icon && <Icon className="w-7 h-7 text-secondary" />}
                 </div>
                 <h3 className="font-display font-medium text-xl text-foreground mb-3">
                   {v.title}
@@ -61,8 +49,8 @@ const SovereigntySection = () => {
                   {v.text}
                 </p>
               </motion.div>
-            </ClientOnly>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -70,3 +58,4 @@ const SovereigntySection = () => {
 };
 
 export default SovereigntySection;
+

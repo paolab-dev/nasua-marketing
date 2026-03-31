@@ -18,6 +18,7 @@ import Footer from "@/components/Footer";
 import TurnstileCaptcha from "@/components/TurnstileCaptcha";
 import { useCaptcha } from "@/hooks/use-captcha";
 import { ClientOnly } from "@/components/ClientOnly";
+import content from "@/data/site-content.json";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Mínimo 2 caracteres").max(100, "Máximo 100 caracteres"),
@@ -30,20 +31,17 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
+const iconMap: Record<string, any> = {
+  Zap,
+  CreditCard,
+  Shield,
+  Mail,
+  MapPin,
+  Clock,
 };
 
-const differentiators = [
-  { icon: Zap, title: "Entrega en 7 días", desc: "Vibe Coding con IA para resultados rápidos y de calidad." },
-  { icon: CreditCard, title: "Financiación Wompi", desc: "Empieza sin descapitalizarte. Paga a tu ritmo." },
-  { icon: Shield, title: "100% tuyo", desc: "Código fuente y dominio bajo tu propiedad total." },
-];
-
 const Contacto = () => {
+  const { contacto } = content;
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { isVerified, onVerify, onError, onExpire, resetCaptcha, resetRef } = useCaptcha();
@@ -79,10 +77,10 @@ const Contacto = () => {
   return (
     <div className="min-h-screen bg-background" id="contacto">
       <Helmet>
-        <title>Contacto | Nasua Marketing | Agencia de Growth y WordPress</title>
-        <meta name="description" content="¿Listo para escalar tu negocio? Contacta a Nasua Marketing. Expertos en SEO, Ads, UX/UI y Desarrollo Web en Colombia. Agenda tu consultoría estratégica hoy." />
-        <meta property="og:title" content="Contacto | Nasua Marketing | Agencia de Growth y WordPress" />
-        <meta property="og:description" content="¿Listo para escalar tu negocio? Contacta a Nasua Marketing. Expertos en SEO, Ads, UX/UI y Desarrollo Web en Colombia. Agenda tu consultoría estratégica hoy." />
+        <title>{contacto.seo.title}</title>
+        <meta name="description" content={contacto.seo.description} />
+        <meta property="og:title" content={contacto.seo.title} />
+        <meta property="og:description" content={contacto.seo.description} />
         <meta property="og:image" content="https://nasua.marketing/EmpezarProyectoNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -92,147 +90,166 @@ const Contacto = () => {
 
       {/* Hero */}
       <section className="pt-28 pb-10 section-padding bg-primary text-primary-foreground text-center">
-        <ClientOnly minHeight="60px">
-          <motion.h1 {...fadeUp} className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Hablemos de tu proyecto digital
-          </motion.h1>
-        </ClientOnly>
-        <ClientOnly minHeight="40px">
-          <motion.p {...fadeUp} transition={{ duration: 0.5, delay: 0.1 }} className="text-primary-foreground/70 max-w-2xl mx-auto text-lg">
-            Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos.
-          </motion.p>
-        </ClientOnly>
+        <motion.h1 
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          className="font-display text-3xl md:text-5xl font-bold mb-4"
+        >
+          {contacto.hero.title}
+        </motion.h1>
+        <motion.p 
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }} 
+          className="text-primary-foreground/70 max-w-2xl mx-auto text-lg"
+        >
+          {contacto.hero.text}
+        </motion.p>
       </section>
 
       {/* Form + Sidebar */}
       <section className="section-padding">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Form */}
-          <ClientOnly minHeight="500px">
-            <motion.div {...fadeUp} className="lg:col-span-2">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nombre completo</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Tu nombre" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>WhatsApp</FormLabel>
-                          <FormControl>
-                            <div className="flex">
-                              <span className="inline-flex items-center px-3 rounded-l-md border border-input bg-muted text-muted-foreground text-sm">
-                                +57
-                              </span>
-                              <Input className="rounded-l-none" placeholder="300 123 4567" {...field} />
-                            </div>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Correo electrónico</FormLabel>
-                          <FormControl>
-                            <Input type="email" placeholder="tu@email.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="service"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>¿Qué servicio te interesa?</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+          <div className="lg:col-span-2">
+            <ClientOnly minHeight="400px">
+              <motion.div initial={false} animate={{ opacity: 1, y: 0 }}>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Nombre completo</FormLabel>
                             <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Selecciona un servicio" />
-                              </SelectTrigger>
+                              <Input placeholder="Tu nombre" {...field} />
                             </FormControl>
-                            <SelectContent>
-                              <SelectItem value="landing">Landing Page</SelectItem>
-                              <SelectItem value="corporativo">Sitio Corporativo</SelectItem>
-                              <SelectItem value="ecommerce">Tienda Virtual</SelectItem>
-                              <SelectItem value="no-seguro">No estoy seguro</SelectItem>
-                            </SelectContent>
-                          </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>WhatsApp</FormLabel>
+                            <FormControl>
+                              <div className="flex">
+                                <span className="inline-flex items-center px-3 rounded-l-md border border-input bg-muted text-muted-foreground text-sm">
+                                  +57
+                                </span>
+                                <Input className="rounded-l-none" placeholder="300 123 4567" {...field} />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Correo electrónico</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="tu@email.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="service"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>¿Qué servicio te interesa?</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Selecciona un servicio" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="landing">Landing Page</SelectItem>
+                                <SelectItem value="corporativo">Sitio Corporativo</SelectItem>
+                                <SelectItem value="ecommerce">Tienda Virtual</SelectItem>
+                                <SelectItem value="no-seguro">No estoy seguro</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Cuéntanos brevemente tu proyecto</FormLabel>
+                          <FormControl>
+                            <Textarea placeholder="Describe lo que necesitas..." className="min-h-[120px]" {...field} />
+                          </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                  </div>
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Cuéntanos brevemente tu proyecto</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="Describe lo que necesitas..." className="min-h-[120px]" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="financing"
+                      render={({ field }) => (
+                        <FormItem className="flex items-start gap-3">
+                          <FormControl>
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                          </FormControl>
+                          <FormLabel className="text-sm font-normal leading-snug cursor-pointer">
+                            Sí, quiero conocer mis opciones de financiación con Wompi
+                          </FormLabel>
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="financing"
-                    render={({ field }) => (
-                      <FormItem className="flex items-start gap-3">
-                        <FormControl>
-                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                        </FormControl>
-                        <FormLabel className="text-sm font-normal leading-snug cursor-pointer">
-                          Sí, quiero conocer mis opciones de financiación con Wompi
-                        </FormLabel>
-                      </FormItem>
-                    )}
-                  />
+                    <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
 
-                  <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
+                    <Button type="submit" size="lg" disabled={isSubmitting || !isVerified} className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
+                      {isSubmitting ? "Enviando..." : "Enviar mi solicitud"}
+                    </Button>
 
-                  <Button type="submit" size="lg" disabled={isSubmitting || !isVerified} className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
-                    {isSubmitting ? "Enviando..." : "Enviar mi solicitud"}
-                  </Button>
-
-                  <p className="text-xs text-muted-foreground">
-                    Nasua protege tus datos. No compartimos tu información con terceros.
-                  </p>
-                </form>
-              </Form>
-            </motion.div>
-          </ClientOnly>
+                    <p className="text-xs text-muted-foreground">
+                      Nasua protege tus datos. No compartimos tu información con terceros.
+                    </p>
+                  </form>
+                </Form>
+              </motion.div>
+            </ClientOnly>
+          </div>
 
           {/* Sidebar */}
-          <ClientOnly minHeight="300px">
-            <motion.aside {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="space-y-6">
-              <h3 className="font-display text-xl font-medium text-foreground">Contacto directo</h3>
+          <aside className="space-y-6">
+            <motion.h3 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-display text-xl font-medium text-foreground"
+            >
+              Contacto directo
+            </motion.h3>
 
+            <motion.div 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
               <a
                 href="mailto:alex@nasua.marketing"
                 className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-secondary transition-colors group"
@@ -243,7 +260,14 @@ const Contacto = () => {
                   <p className="text-xs text-muted-foreground">alex@nasua.marketing</p>
                 </div>
               </a>
+            </motion.div>
 
+            <motion.div 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
               <a
                 href="mailto:pao@nasua.marketing"
                 className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-secondary transition-colors group"
@@ -254,50 +278,69 @@ const Contacto = () => {
                   <p className="text-xs text-muted-foreground">pao@nasua.marketing</p>
                 </div>
               </a>
+            </motion.div>
 
-              <div className="flex items-center gap-3 p-4 rounded-xl border border-border">
-                <MapPin className="h-5 w-5 text-secondary" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Ubicación</p>
-                  <p className="text-xs text-muted-foreground">Colombia 🇨🇴</p>
-                </div>
+            <motion.div 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex items-center gap-3 p-4 rounded-xl border border-border"
+            >
+              <MapPin className="h-5 w-5 text-secondary" />
+              <div>
+                <p className="text-sm font-semibold text-foreground">Ubicación</p>
+                <p className="text-xs text-muted-foreground">Colombia 🇨🇴</p>
               </div>
+            </motion.div>
 
-              <div className="flex items-center gap-3 p-4 rounded-xl border border-border">
-                <Clock className="h-5 w-5 text-secondary" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Horario</p>
-                  <p className="text-xs text-muted-foreground">Lun – Vie, 8:00 AM – 6:00 PM</p>
-                </div>
+            <motion.div 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center gap-3 p-4 rounded-xl border border-border"
+            >
+              <Clock className="h-5 w-5 text-secondary" />
+              <div>
+                <p className="text-sm font-semibold text-foreground">Horario</p>
+                <p className="text-xs text-muted-foreground">Lun – Vie, 8:00 AM – 6:00 PM</p>
               </div>
-            </motion.aside>
-          </ClientOnly>
+            </motion.div>
+          </aside>
         </div>
       </section>
 
       {/* Differentiators */}
       <section className="section-padding bg-muted/50">
         <div className="container mx-auto text-center mb-12">
-          <ClientOnly minHeight="40px">
-            <motion.h2 {...fadeUp} className="font-display text-2xl md:text-3xl font-bold text-foreground">
-              ¿Por qué elegirnos?
-            </motion.h2>
-          </ClientOnly>
+          <motion.h2 
+            initial={false}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-display text-2xl md:text-3xl font-bold text-foreground"
+          >
+            ¿Por qué elegirnos?
+          </motion.h2>
         </div>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {differentiators.map((d, i) => (
-            <ClientOnly key={d.title} minHeight="150px">
+          {contacto.differentiators.map((d, i) => {
+            const Icon = iconMap[d.icon] || Zap;
+            return (
               <motion.div
-                {...fadeUp}
+                key={d.title}
+                initial={false}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="bg-card rounded-2xl p-8 text-center border border-border"
               >
-                <d.icon className="h-10 w-10 mx-auto mb-4 text-secondary" />
+                <Icon className="h-10 w-10 mx-auto mb-4 text-secondary" />
                 <h3 className="font-display text-lg font-medium text-foreground mb-2">{d.title}</h3>
                 <p className="text-sm text-muted-foreground">{d.desc}</p>
               </motion.div>
-            </ClientOnly>
-          ))}
+            );
+          })}
         </div>
       </section>
 
