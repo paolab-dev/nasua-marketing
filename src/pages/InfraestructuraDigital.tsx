@@ -38,6 +38,7 @@ const InfraestructuraDigital = () => {
       <Helmet>
         <title>{infra.seo.title}</title>
         <meta name="description" content={infra.seo.description} />
+        <link rel="canonical" href="https://nasua.marketing/desarrollo-web-estrategico" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
