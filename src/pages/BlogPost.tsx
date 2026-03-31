@@ -148,3 +148,11 @@ const BlogPostPage = () => {
 
 export default BlogPostPage;
 export const prerender = true;
+
+export async function getStaticPaths() {
+  const { data } = await supabase
+    .from("posts")
+    .select("slug")
+    .eq("status", "published");
+  return data?.map((p) => `/blog/${p.slug}`) ?? [];
+}
