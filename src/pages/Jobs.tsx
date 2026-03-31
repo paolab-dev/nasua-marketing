@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { Calendar, Clock, DollarSign, ArrowRight } from "lucide-react";
 
 function stripHtml(html: string): string {
+  if (typeof window === "undefined") return html.replace(/<[^>]*>/g, "");
   const doc = new DOMParser().parseFromString(html, "text/html");
   return doc.body.textContent || "";
 }
@@ -165,3 +166,4 @@ const Jobs = () => {
 };
 
 export default Jobs;
+export const prerender = true;

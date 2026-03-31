@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EcommerceLeadForm from "@/components/EcommerceLeadForm";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   Accordion,
   AccordionContent,
@@ -118,72 +119,83 @@ const Ecommerce = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            E-commerce Escalable:{" "}
-            <span className="text-gradient">Construimos ecosistemas de venta de alto rendimiento.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            Deja de depender de algoritmos externos y toma el control de tu facturación. El equipo de Nasua diseña ecosistemas de venta de alto rendimiento, integrados con tu operación y optimizados para maximizar el retorno de tu inversión publicitaria.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Agendar Consultoría de E-commerce
-            </button>
-          </motion.div>
+              E-commerce Escalable:{" "}
+              <span className="text-gradient">Construimos ecosistemas de venta de alto rendimiento.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              Deja de depender de algoritmos externos y toma el control de tu facturación. El equipo de Nasua diseña ecosistemas de venta de alto rendimiento, integrados con tu operación y optimizados para maximizar el retorno de tu inversión publicitaria.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <button
+                onClick={() => setFormOpen(true)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Agendar Consultoría de E-commerce
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* Más allá del carrito */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Ingeniería de ventas para negocios que buscan{" "}
-              <span className="text-gradient">escala</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Tener una tienda online es el primer paso; tener un negocio rentable requiere una estructura técnica sólida que soporte el crecimiento.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Ingeniería de ventas para negocios que buscan{" "}
+                <span className="text-gradient">escala</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Tener una tienda online es el primer paso; tener un negocio rentable requiere una estructura técnica sólida que soporte el crecimiento.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
             {differentials.map((d, i) => (
-              <motion.div
-                key={d.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <d.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">
-                  {d.title}
-                </h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">
-                  {d.text}
-                </p>
-              </motion.div>
+              <ClientOnly key={d.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <d.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">
+                    {d.title}
+                  </h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">
+                    {d.text}
+                  </p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -192,39 +204,44 @@ const Ecommerce = () => {
       {/* Tecnología */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              Implementamos la infraestructura que tu operación{" "}
-              <span className="text-gradient">necesita</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Evitamos las soluciones genéricas. El equipo evalúa tu volumen de ventas, capacidad logística y equipo interno para decidir qué plataforma impulsará mejor tu crecimiento.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                Implementamos la infraestructura que tu operación{" "}
+                <span className="text-gradient">necesita</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Evitamos las soluciones genéricas. El equipo evalúa tu volumen de ventas, capacidad logística y equipo interno para decidir qué plataforma impulsará mejor tu crecimiento.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
             {platforms.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <p.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-primary-foreground mb-1">
-                  {p.title}
-                </h3>
-                <p className="text-secondary font-semibold text-sm font-body mb-3">
-                  {p.subtitle}
-                </p>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">
-                  {p.text}
-                </p>
-              </motion.div>
+              <ClientOnly key={p.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <p.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-primary-foreground mb-1">
+                    {p.title}
+                  </h3>
+                  <p className="text-secondary font-semibold text-sm font-body mb-3">
+                    {p.subtitle}
+                  </p>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">
+                    {p.text}
+                  </p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -233,36 +250,41 @@ const Ecommerce = () => {
       {/* Operación bajo la superficie */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Integración total con tu ecosistema de{" "}
-              <span className="text-gradient">negocio</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Una tienda de Nasua no es una isla; es una pieza conectada con tu logística y tu marketing.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Integración total con tu ecosistema de{" "}
+                <span className="text-gradient">negocio</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Una tienda de Nasua no es una isla; es una pieza conectada con tu logística y tu marketing.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8">
             {operations.map((o, i) => (
-              <motion.div
-                key={o.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <o.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">
-                  {o.title}
-                </h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">
-                  {o.text}
-                </p>
-              </motion.div>
+              <ClientOnly key={o.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <o.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">
+                    {o.title}
+                  </h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">
+                    {o.text}
+                  </p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -271,12 +293,14 @@ const Ecommerce = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqItems.map((faq, i) => (
               <AccordionItem
@@ -299,21 +323,23 @@ const Ecommerce = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              ¿Listo para transformar tu tienda en un{" "}
-              <span className="text-gradient">activo rentable</span>?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              El equipo de Nasua está listo para auditar tu modelo de negocio y trazar el Roadmap de tu nuevo canal de ventas. Sin promesas vacías, solo tecnología orientada a resultados.
-            </p>
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
-            >
-              Agendar Consultoría de E-commerce
-            </button>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                ¿Listo para transformar tu tienda en un{" "}
+                <span className="text-gradient">activo rentable</span>?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                El equipo de Nasua está listo para auditar tu modelo de negocio y trazar el Roadmap de tu nuevo canal de ventas. Sin promesas vacías, solo tecnología orientada a resultados.
+              </p>
+              <button
+                onClick={() => setFormOpen(true)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Agendar Consultoría de E-commerce
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
@@ -324,3 +350,4 @@ const Ecommerce = () => {
 };
 
 export default Ecommerce;
+export const prerender = true;

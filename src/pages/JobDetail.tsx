@@ -290,3 +290,4 @@ const JobDetail = () => {
 };
 
 export default JobDetail;
+export const prerender = true;

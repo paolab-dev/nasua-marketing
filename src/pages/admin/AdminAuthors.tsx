@@ -96,3 +96,5 @@ const AdminAuthors = () => {
 };
 
 export default AdminAuthors;
+
+export const prerender = false;

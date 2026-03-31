@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { ClientOnly } from "@/components/ClientOnly";
 
 const faqs = [
   {
@@ -70,14 +71,16 @@ const FaqSection = () => {
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <div className="container mx-auto max-w-3xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-        >
-          Preguntas <span className="text-gradient">frecuentes</span>
-        </motion.h2>
+        <ClientOnly minHeight="40px">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+          >
+            Preguntas <span className="text-gradient">frecuentes</span>
+          </motion.h2>
+        </ClientOnly>
         <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, i) => (
             <AccordionItem

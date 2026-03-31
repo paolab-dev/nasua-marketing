@@ -8,3 +8,5 @@ const AdminJobNew = () => (
 );
 
 export default AdminJobNew;
+
+export const prerender = false;

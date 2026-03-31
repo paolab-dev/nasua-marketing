@@ -1,16 +1,16 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StrategyLeadForm from "@/components/StrategyLeadForm";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ClipboardCheck, Map, Target, TrendingUp, RefreshCw, Brain, Shield } from "lucide-react";
+import { BarChart3, Camera, Video, Layers, ArrowRight, Users, Globe } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -19,57 +19,64 @@ const fadeUp = {
   transition: { duration: 0.7 },
 };
 
-const planFeatures = [
+const productionFeatures = [
   {
-    icon: ClipboardCheck,
-    title: "Diagnóstico de Infraestructura y Conversión",
-    text: "Antes de proponer una solución, el equipo realiza una auditoría profunda de tu ecosistema actual. Identificamos dónde se rompe tu proceso de ventas, por qué tu tráfico no convierte y qué cuellos de botella técnicos están frenando tu crecimiento. No basamos nuestras decisiones en suposiciones, sino en la evidencia que arrojan tus métricas y el comportamiento de tu mercado.",
+    icon: Camera,
+    title: "Fotografía de Marca",
+    text: "Sesiones programadas para capturar la esencia de tu equipo, tus procesos y tu infraestructura.",
   },
   {
-    icon: Map,
-    title: "Definición del Roadmap de Crecimiento",
-    text: "El resultado de nuestro análisis es un Roadmap estratégico: un paso a paso detallado de las acciones que tu empresa necesita realizar. Este plan define qué tecnología implementar, cómo estructurar tu mensaje de ventas y qué canales de pauta activar. Es una hoja de ruta honesta diseñada para maximizar el retorno de tu inversión (ROI) y reducir el costo de adquisición de tus clientes (CAC).",
-  },
-];
-
-const pillars = [
-  {
-    icon: Target,
-    title: "Atracción de Calidad",
-    text: "Usamos SEO y Pauta Digital para traer al usuario que ya tiene la intención de compra, evitando el desperdicio de presupuesto en audiencias irrelevantes.",
+    icon: Video,
+    title: "Video Marketing & Reels",
+    text: "Guionizamos, grabamos y editamos contenido dinámico optimizado para los algoritmos actuales.",
   },
   {
-    icon: TrendingUp,
-    title: "Conversión de Alto Rendimiento",
-    text: "Optimizamos tu infraestructura web para que el camino hacia la compra sea fluido y rápido. Si la tecnología es lenta o el mensaje es confuso, la estrategia falla.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Retención y Escala",
-    text: "Implementamos sistemas de automatización para que la relación con el cliente no termine en la primera compra, aumentando el valor de vida de cada usuario (LTV) y haciendo tu negocio más rentable.",
+    icon: Layers,
+    title: "Coherencia Total",
+    text: "Al ser nosotros quienes diseñamos la estrategia y producimos el material, garantizamos que cada pieza sea fiel a tu identidad y objetivos de negocio.",
   },
 ];
 
 const faqItems = [
   {
-    q: "¿Por qué debería pagar por una estrategia antes de empezar a vender?",
-    a: "Porque ejecutar sin estrategia es la forma más rápida de quemar presupuesto. Un plan de vuelo diseñado por el equipo de Nasua te ahorra meses de pruebas y errores técnicos. Invertir en estrategia es asegurar que el desarrollo web y la pauta que realices después tengan cimientos sólidos para generar rentabilidad desde el primer día.",
+    q: "¿Por qué Nasua incluye producción fotográfica y de video en el servicio?",
+    a: "Porque una estrategia sin contenido de alta calidad está incompleta. Al suministrar nosotros mismos el material audiovisual, garantizamos que la estética y el mensaje estén alineados al 100% con la autoridad que queremos proyectar para tu empresa.",
   },
   {
-    q: "¿Qué recibo exactamente al finalizar la fase de estrategia?",
-    a: "Recibes un Roadmap de Crecimiento Digital. Es un plan de acción técnica y comercial que incluye: diagnóstico de tu situación actual, definición de tus canales de venta más rentables, estructura de tu embudo de conversión y la selección de la tecnología (Shopify, WordPress o Vibe Coding) que mejor servirá a tus metas de escala.",
+    q: "¿Ustedes se desplazan a mi oficina o empresa para producir el contenido?",
+    a: "Sí. Coordinamos sesiones de producción para capturar contenido real y profesional. Esto le da una veracidad a tu marca que ninguna imagen genérica de internet puede igualar.",
   },
   {
-    q: "¿Cómo mide el equipo el éxito de la estrategia?",
-    a: "Nos basamos en indicadores de negocio reales: Retorno de Inversión Publicitaria (ROAS), Costo de Adquisición de Cliente (CAC) y Tasa de Conversión. No nos interesan las métricas de vanidad. El éxito para el equipo de Nasua se mide en la capacidad de tu infraestructura para generar una renta predecible y escalable mes tras mes.",
+    q: "¿Qué pasa si mi equipo o yo no tenemos tiempo para grabar videos?",
+    a: "Esa es nuestra especialidad. Nos encargamos de todo: desde los guiones y la dirección de arte hasta la edición final. Minimizamos el esfuerzo operativo de tu parte para que tú solo te encargues de validar el resultado.",
   },
   {
-    q: "¿La estrategia se adapta a mercados internacionales?",
-    a: "Sí. De hecho, es uno de nuestros puntos fuertes. El equipo analiza los retos de competir en Latinoamérica y el mercado hispano de Estados Unidos, ajustando el tono de comunicación, los canales de pauta y la infraestructura técnica para que tu marca sea competitiva en entornos de alta exigencia profesional.",
+    q: "¿Soy dueño del material audiovisual que produzcan para mi marca?",
+    a: "Absolutamente. Bajo nuestro principio de Soberanía Digital, todo el material producido (fotos y videos) es de tu propiedad legal. Puedes usarlo en tu web, presentaciones comerciales o publicidad pagada sin restricciones.",
   },
   {
-    q: "¿Cuál es el siguiente paso después de tener la estrategia?",
-    a: "Una vez definido el Roadmap, pasamos a la Fase de Activación. El equipo de Nasua se encarga de construir los activos (Web, Landing Pages, Pauta) que el plan requiere. Al ser un proceso modular, puedes elegir ejecutar el plan completo con nosotros o ir activando las piezas de forma progresiva según tu flujo de caja.",
+    q: "¿Cómo miden el éxito de la gestión en redes sociales?",
+    a: "Nos alejamos de las métricas de vanidad. Medimos el alcance de audiencia calificada, el guardado de contenido (valor real) y, sobre todo, el tráfico que enviamos hacia tu ecosistema de ventas (clics y leads).",
+  },
+  {
+    q: "¿Hacen guiones para los videos o solo editan?",
+    a: "Hacemos el proceso completo. Nuestro equipo de Copywriting redacta guiones persuasivos basados en tu estrategia de ventas antes de encender la primera cámara, asegurando que cada palabra cuente.",
+  },
+  {
+    q: "¿En qué redes sociales debería estar mi negocio?",
+    a: "No todas las redes son rentables para todos. Analizamos dónde está tu cliente ideal (LinkedIn para B2B, Instagram/TikTok para consumo o marca personal) y enfocamos los recursos donde el retorno sea mayor.",
+  },
+  {
+    q: "¿Cómo manejan el \"tono de voz\" de mi empresa?",
+    a: "Creamos un Manual de Identidad Verbal. Si tu empresa es de ingeniería, el tono será sólido y técnico; si es de estilo de vida, será más vibrante. La coherencia en todos los canales es nuestra prioridad.",
+  },
+  {
+    q: "¿La estrategia de contenido ayuda a mi posicionamiento SEO/GEO?",
+    a: "Sí. Las señales sociales y el contenido relevante ayudan a que los buscadores y las IAs (como ChatGPT) reconozcan a tu empresa como una entidad confiable y citen tu autoridad en sus respuestas.",
+  },
+  {
+    q: "¿Por qué elegir a Nasua y no a una agencia creativa convencional?",
+    a: "Porque somos Socios de Crecimiento. No buscamos ganar premios de diseño; buscamos que tu presencia social sea una pieza de ingeniería que impulse la rentabilidad and la autoridad de tu negocio.",
   },
 ];
 
@@ -84,15 +91,13 @@ const faqJsonLd = {
 };
 
 const Estrategia = () => {
-  const [formOpen, setFormOpen] = useState(false);
-
   return (
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Estrategia de Crecimiento Digital | Roadmap y Metodología Nasua</title>
-        <meta name="description" content="No ejecutes sin un plan. El equipo de Nasua diseña tu Roadmap de crecimiento basado en datos para asegurar rentabilidad y escalabilidad internacional." />
-        <meta property="og:title" content="Estrategia de Crecimiento Digital | Roadmap y Metodología Nasua" />
-        <meta property="og:description" content="No ejecutes sin un plan. El equipo de Nasua diseña tu Roadmap de crecimiento basado en datos para asegurar rentabilidad y escalabilidad internacional." />
+        <title>Estrategia & Contenido Social Media | Autoridad Visual con Nasua</title>
+        <meta name="description" content="No solo planeamos, ejecutamos. Estrategia de autoridad y producción audiovisual (foto y video) para convertir tus redes en canales de venta reales." />
+        <meta property="og:title" content="Estrategia & Contenido Social Media | Autoridad Visual con Nasua" />
+        <meta property="og:description" content="No solo planeamos, ejecutamos. Estrategia de autoridad and producción audiovisual (foto y video) para convertir tus redes en canales de venta reales." />
         <meta property="og:image" content="https://nasua.marketing/EstrategiaNasua.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -105,152 +110,163 @@ const Estrategia = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Estrategia de Crecimiento:{" "}
-            <span className="text-gradient">Tu Roadmap hacia la Rentabilidad.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            La mayoría de las empresas pierden dinero en digital porque ejecutan tácticas aisladas sin un hilo conductor. El equipo de Nasua diseña Estrategias de Crecimiento basadas en datos, lógica de negocio y una metodología Inbound que asegura que cada peso invertido tenga un propósito claro: escalar tu facturación de forma predecible.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Agendar Consultoría Estratégica
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* El valor de un plan de vuelo real */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Ingeniería de negocio antes que ejecución{" "}
-              <span className="text-gradient">técnica</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            En Nasua, la estrategia no es un documento decorativo; es el plano de construcción de tu próximo nivel de escala.
-          </motion.p>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {planFeatures.map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+              Estrategia & Contenido Social Media:{" "}
+              <span className="text-gradient">Autoridad que Genera Negocio.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              Dejar de publicar por rellenar un calendario y empezar a comunicar con intención. En Nasua diseñamos tu hoja de ruta estratégica y producimos el contenido fotográfico y audiovisual de alto impacto necesario para que tu marca destaque, eduque y convierta seguidores en clientes.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <Link
+                to="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
               >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <f.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">{f.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">{f.text}</p>
-              </motion.div>
-            ))}
-          </div>
+                Iniciar mi Estrategia & Contenido
+              </Link>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
-      {/* Tres ejes */}
+      {/* Estrategia basada en resultados */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Diseñamos la autoridad que tu industria{" "}
+                <span className="text-gradient">exige</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="20px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-4 leading-relaxed">
+              La atención es el activo más caro del mercado; nosotros te ayudamos a capturarla y rentabilizarla.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="100px">
+            <motion.div
+              {...fadeUp}
+              className="bg-card rounded-xl p-10 border border-border max-w-3xl mx-auto"
+            >
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <BarChart3 className="w-7 h-7 text-secondary" />
+                </div>
+                <p className="text-muted-foreground font-body leading-relaxed text-lg">
+                  Entendemos que las redes sociales son canales de visibilidad masiva, pero sin una estrategia de negocio son solo ruido. Nuestra metodología se enfoca en posicionar a tu equipo como el <strong className="text-foreground">experto indiscutible de su nicho</strong>. Creamos narrativas que resuelven dudas, eliminan objeciones de venta y preparan el terreno para el cierre comercial en tus propios canales.
+                </p>
+              </div>
+            </motion.div>
+          </ClientOnly>
+        </div>
+      </section>
+
+      {/* Producción audiovisual */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              Un sistema equilibrado para resultados{" "}
-              <span className="text-gradient">sostenibles</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Nuestra metodología se apoya en tres pilares que aseguran que tu empresa no solo atraiga visitas, sino que genere renta.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                Contenido real para marcas que no{" "}
+                <span className="text-gradient">aceptan menos</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="20px">
+            <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Olvídate de las fotos de stock. Tu empresa merece una imagen profesional y auténtica.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {pillars.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <p.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{p.title}</h3>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{p.text}</p>
-              </motion.div>
+            {productionFeatures.map((f, i) => (
+              <ClientOnly key={f.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <f.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{f.title}</h3>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{f.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Estrategia en la era de la IA */}
+      {/* El puente hacia la infraestructura */}
       <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp}>
-            <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-6">
-              <Brain className="w-8 h-8 text-secondary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
-              Visibilidad en los nuevos motores de{" "}
-              <span className="text-gradient">respuesta (GEO)</span>.
-            </h2>
-            <p className="text-muted-foreground font-body leading-relaxed text-lg">
-              Ya no basta con aparecer en los resultados de búsqueda tradicionales. Nuestra estrategia de contenido y datos está diseñada para que tu empresa sea la fuente que las Inteligencias Artificiales consultan y recomiendan. Estructuramos tu autoridad de marca para que, cuando un cliente potencial haga una pregunta a un asistente inteligente, tu solución sea la respuesta lógica y recomendada.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Soberanía y transparencia */}
-      <section className="py-20 md:py-28 bg-muted/30">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp}>
-            <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-8 h-8 text-secondary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
-              Tú eres el dueño del{" "}
-              <span className="text-gradient">plan</span>.
-            </h2>
-            <p className="text-muted-foreground font-body leading-relaxed text-lg">
-              Al contratar el servicio de estrategia de Nasua, no solo obtienes una ejecución; obtienes el conocimiento técnico detrás de ella. Toda la documentación, los activos de medición y los accesos a tus paneles de datos te pertenecen al 100%. Creemos en la Soberanía Digital: nuestro equipo te entrega las herramientas y la visión para que tú mantengas el control absoluto del crecimiento de tu empresa.
-            </p>
-          </motion.div>
+        <div className="container mx-auto px-6 max-w-4xl">
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Extrayendo valor del{" "}
+                <span className="text-gradient">"terreno alquilado"</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="20px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-6 leading-relaxed">
+              Las redes sociales son el megáfono; tu sitio web es donde se cierra el negocio.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="100px">
+            <motion.div
+              {...fadeUp}
+              className="bg-card rounded-xl p-10 border border-border max-w-3xl mx-auto"
+            >
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <Globe className="w-7 h-7 text-secondary" />
+                </div>
+                <p className="text-muted-foreground font-body leading-relaxed text-lg">
+                  Nuestra visión de Social Media es sistémica. Utilizamos las redes sociales como motores de tracción para llevar a tu audiencia hacia tus activos propios (tu web y base de datos), donde tú tienes el control total de la información y la venta. Convertimos la <strong className="text-foreground">atención efímera</strong> en relaciones comerciales sólidas.
+                </p>
+              </div>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqItems.map((faq, i) => (
               <AccordionItem
@@ -273,28 +289,30 @@ const Estrategia = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              ¿Listo para dejar de improvisar y empezar a{" "}
-              <span className="text-gradient">escalar</span>?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              El equipo de Nasua está listo para auditar tu modelo de negocio y diseñar el Roadmap que tu empresa necesita. Sin rodeos, solo estrategia sólida orientada a resultados.
-            </p>
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
-            >
-              Agendar Consultoría Estratégica
-            </button>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                Deja de preocuparte por qué publicar.{" "}
+                <span className="text-gradient">Nosotros lo planeamos y lo creamos.</span>
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                No permitas que una mala imagen arruine una gran estrategia. El equipo de Nasua está listo para darle a tu marca el impacto visual y la autoridad que merece.
+              </p>
+              <Link
+                to="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Iniciar mi Estrategia & Contenido
+              </Link>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
-      <StrategyLeadForm open={formOpen} onOpenChange={setFormOpen} />
       <Footer />
     </div>
   );
 };
 
 export default Estrategia;
+export const prerender = true;

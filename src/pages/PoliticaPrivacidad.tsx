@@ -49,3 +49,4 @@ const PoliticaPrivacidad = () => {
 };
 
 export default PoliticaPrivacidad;
+export const prerender = true;

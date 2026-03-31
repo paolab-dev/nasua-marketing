@@ -8,3 +8,5 @@ const AdminPostNew = () => (
 );
 
 export default AdminPostNew;
+
+export const prerender = false;

@@ -13,6 +13,7 @@ import { CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import TurnstileCaptcha from "@/components/TurnstileCaptcha";
 import { useCaptcha } from "@/hooks/use-captcha";
+import { ClientOnly } from "@/components/ClientOnly";
 
 interface StrategyLeadFormProps {
   open: boolean;
@@ -128,120 +129,122 @@ const StrategyLeadForm = ({ open, onOpenChange }: StrategyLeadFormProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto bg-card border-border">
-        {isSuccess ? (
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-10 text-center space-y-4">
-            <CheckCircle className="w-16 h-16 text-secondary mx-auto" />
-            <h3 className="text-2xl font-medium font-display text-foreground">¡Solicitud recibida!</h3>
-            <p className="text-muted-foreground font-body">
-              Gracias. Nuestro equipo revisará tu información y te contactará pronto para tu diagnóstico estratégico.
-            </p>
-          </motion.div>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle className="text-xl font-display font-bold text-foreground">
-                Solicita tu Diagnóstico Estratégico
-              </DialogTitle>
-              <DialogDescription className="text-muted-foreground font-body">
-                Cuéntanos sobre tu negocio y nuestro equipo diseñará una estrategia para acelerar tu crecimiento.
-              </DialogDescription>
-            </DialogHeader>
+        <ClientOnly minHeight="400px">
+          {isSuccess ? (
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-10 text-center space-y-4">
+              <CheckCircle className="w-16 h-16 text-secondary mx-auto" />
+              <h3 className="text-2xl font-medium font-display text-foreground">¡Solicitud recibida!</h3>
+              <p className="text-muted-foreground font-body">
+                Gracias. Nuestro equipo revisará tu información y te contactará pronto para tu diagnóstico estratégico.
+              </p>
+            </motion.div>
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl font-display font-bold text-foreground">
+                  Solicita tu Diagnóstico Estratégico
+                </DialogTitle>
+                <DialogDescription className="text-muted-foreground font-body">
+                  Cuéntanos sobre tu negocio y nuestro equipo diseñará una estrategia para acelerar tu crecimiento.
+                </DialogDescription>
+              </DialogHeader>
 
-            <div className="space-y-1 mt-2">
-              <div className="flex justify-between text-xs text-muted-foreground font-body">
-                <span>Paso {step} de 2</span>
-                <span>{progress}%</span>
+              <div className="space-y-1 mt-2">
+                <div className="flex justify-between text-xs text-muted-foreground font-body">
+                  <span>Paso {step} de 2</span>
+                  <span>{progress}%</span>
+                </div>
+                <Progress value={progress} className="h-2" />
               </div>
-              <Progress value={progress} className="h-2" />
-            </div>
 
-            <AnimatePresence mode="wait">
-              {step === 1 && (
-                <motion.div key="s1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4 mt-2">
-                  <div>
-                    <Label className="text-foreground font-body">Nombre completo *</Label>
-                    <Input value={form.name} onChange={(e) => updateField("name", e.target.value)} placeholder="Tu nombre" className="mt-1" />
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">Correo electrónico *</Label>
-                    <Input type="email" value={form.email} onChange={(e) => updateField("email", e.target.value)} placeholder="correo@empresa.com" className="mt-1" />
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">WhatsApp / Teléfono *</Label>
-                    <Input type="tel" value={form.phone} onChange={(e) => updateField("phone", e.target.value)} placeholder="+57 300 000 0000" className="mt-1" />
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">Empresa o marca</Label>
-                    <Input value={form.company} onChange={(e) => updateField("company", e.target.value)} placeholder="Nombre de tu empresa" className="mt-1" />
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">¿Cuál es tu principal objetivo ahora?</Label>
-                    <Select value={form.objective} onValueChange={(v) => updateField("objective", v)}>
-                      <SelectTrigger className="mt-1"><SelectValue placeholder="Selecciona una opción" /></SelectTrigger>
-                      <SelectContent>
-                        {objectives.map((o) => (<SelectItem key={o} value={o}>{o}</SelectItem>))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <Button onClick={handleNext} className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold">
-                    Continuar →
-                  </Button>
-                </motion.div>
-              )}
-
-              {step === 2 && (
-                <motion.div key="s2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4 mt-2">
-                  <div>
-                    <Label className="text-foreground font-body">Sitio web actual</Label>
-                    <Input value={form.website} onChange={(e) => updateField("website", e.target.value)} placeholder="https://tuempresa.com" className="mt-1" />
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">¿En qué industria se encuentra tu negocio?</Label>
-                    <Select value={form.industry} onValueChange={(v) => updateField("industry", v)}>
-                      <SelectTrigger className="mt-1"><SelectValue placeholder="Selecciona una opción" /></SelectTrigger>
-                      <SelectContent>
-                        {industries.map((i) => (<SelectItem key={i} value={i}>{i}</SelectItem>))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">¿Actualmente inviertes en marketing digital?</Label>
-                    <Select value={form.budget} onValueChange={(v) => updateField("budget", v)}>
-                      <SelectTrigger className="mt-1"><SelectValue placeholder="Selecciona una opción" /></SelectTrigger>
-                      <SelectContent>
-                        {budgets.map((b) => (<SelectItem key={b} value={b}>{b}</SelectItem>))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body mb-2 block">¿Qué canales utilizas actualmente?</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {channelOptions.map((ch) => (
-                        <label key={ch} className="flex items-center gap-2 cursor-pointer text-sm text-foreground font-body">
-                          <Checkbox checked={form.channels.includes(ch)} onCheckedChange={() => toggleChannel(ch)} />
-                          {ch}
-                        </label>
-                      ))}
+              <AnimatePresence mode="wait">
+                {step === 1 && (
+                  <motion.div key="s1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4 mt-2">
+                    <div>
+                      <Label className="text-foreground font-body">Nombre completo *</Label>
+                      <Input value={form.name} onChange={(e) => updateField("name", e.target.value)} placeholder="Tu nombre" className="mt-1" />
                     </div>
-                  </div>
-                  <div>
-                    <Label className="text-foreground font-body">¿Qué desafío principal quieres resolver?</Label>
-                    <Textarea value={form.challenge} onChange={(e) => updateField("challenge", e.target.value)} placeholder="Ej: conseguir más clientes, mejorar conversiones, posicionamiento en Google, automatizar procesos, etc." className="mt-1" rows={3} />
-                  </div>
-
-                  <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
-
-                  <div className="flex gap-3">
-                    <Button variant="outline" onClick={() => setStep(1)} className="flex-1">← Atrás</Button>
-                    <Button onClick={handleSubmit} disabled={isSubmitting || !isVerified} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold">
-                      {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin mr-2" /> Enviando...</> : "Solicitar diagnóstico estratégico"}
+                    <div>
+                      <Label className="text-foreground font-body">Correo electrónico *</Label>
+                      <Input type="email" value={form.email} onChange={(e) => updateField("email", e.target.value)} placeholder="correo@empresa.com" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body">WhatsApp / Teléfono *</Label>
+                      <Input type="tel" value={form.phone} onChange={(e) => updateField("phone", e.target.value)} placeholder="+57 300 000 0000" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body">Empresa o marca</Label>
+                      <Input value={form.company} onChange={(e) => updateField("company", e.target.value)} placeholder="Nombre de tu empresa" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body">¿Cuál es tu principal objetivo ahora?</Label>
+                      <Select value={form.objective} onValueChange={(v) => updateField("objective", v)}>
+                        <SelectTrigger className="mt-1"><SelectValue placeholder="Selecciona una opción" /></SelectTrigger>
+                        <SelectContent>
+                          {objectives.map((o) => (<SelectItem key={o} value={o}>{o}</SelectItem>))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <Button onClick={handleNext} className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold">
+                      Continuar →
                     </Button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </>
-        )}
+                  </motion.div>
+                )}
+
+                {step === 2 && (
+                  <motion.div key="s2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4 mt-2">
+                    <div>
+                      <Label className="text-foreground font-body">Sitio web actual</Label>
+                      <Input value={form.website} onChange={(e) => updateField("website", e.target.value)} placeholder="https://tuempresa.com" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body">¿En qué industria se encuentra tu negocio?</Label>
+                      <Select value={form.industry} onValueChange={(v) => updateField("industry", v)}>
+                        <SelectTrigger className="mt-1"><SelectValue placeholder="Selecciona una opción" /></SelectTrigger>
+                        <SelectContent>
+                          {industries.map((i) => (<SelectItem key={i} value={i}>{i}</SelectItem>))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body">¿Actualmente inviertes en marketing digital?</Label>
+                      <Select value={form.budget} onValueChange={(v) => updateField("budget", v)}>
+                        <SelectTrigger className="mt-1"><SelectValue placeholder="Selecciona una opción" /></SelectTrigger>
+                        <SelectContent>
+                          {budgets.map((b) => (<SelectItem key={b} value={b}>{b}</SelectItem>))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body mb-2 block">¿Qué canales utilizas actualmente?</Label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {channelOptions.map((ch) => (
+                          <label key={ch} className="flex items-center gap-2 cursor-pointer text-sm text-foreground font-body">
+                            <Checkbox checked={form.channels.includes(ch)} onCheckedChange={() => toggleChannel(ch)} />
+                            {ch}
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <Label className="text-foreground font-body">¿Qué desafío principal quieres resolver?</Label>
+                      <Textarea value={form.challenge} onChange={(e) => updateField("challenge", e.target.value)} placeholder="Ej: conseguir más clientes, mejorar conversiones, posicionamiento en Google, automatizar procesos, etc." className="mt-1" rows={3} />
+                    </div>
+
+                    <TurnstileCaptcha onVerify={onVerify} onError={onError} onExpire={onExpire} resetRef={resetRef} />
+
+                    <div className="flex gap-3">
+                      <Button variant="outline" onClick={() => setStep(1)} className="flex-1">← Atrás</Button>
+                      <Button onClick={handleSubmit} disabled={isSubmitting || !isVerified} className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold">
+                        {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin mr-2" /> Enviando...</> : "Solicitar diagnóstico estratégico"}
+                      </Button>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </>
+          )}
+        </ClientOnly>
       </DialogContent>
     </Dialog>
   );

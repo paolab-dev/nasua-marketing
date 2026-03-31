@@ -147,3 +147,4 @@ const BlogPostPage = () => {
 };
 
 export default BlogPostPage;
+export const prerender = true;

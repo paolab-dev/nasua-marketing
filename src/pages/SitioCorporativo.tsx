@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ClientOnly } from "@/components/ClientOnly";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -115,6 +116,10 @@ const faqItems = [
     a: "Un sitio lento es un sitio que pierde dinero. Si tu página tarda en cargar, los usuarios se irán con la competencia. Optimizamos cada activo para que la experiencia sea casi instantánea, lo que mejora tu posicionamiento y, sobre todo, tu tasa de cierre de ventas.",
   },
   {
+    q: "¿Qué pasa si mi empresa crece y necesito más funciones después?",
+    a: "Nuestros sitios son modulares y escalables. Puedes empezar con una estructura corporativa sólida y, a medida que tu facturación aumente, integrar un CRM, sistemas de automatización, blogs especializados o herramientas de venta sin tener que reconstruir todo desde cero.",
+  },
+  {
     q: "¿Qué seguridad tendré contra ataques o caídas del sistema?",
     a: "Tu sitio corporativo incluye protocolos de seguridad para proteger tu información y la de tus clientes. Además, con nuestro servicio de Webmaster, monitoreamos constantemente tu entorno digital para prevenir errores y asegurar que tu negocio esté siempre disponible para tus clientes.",
   },
@@ -160,68 +165,79 @@ const SitioCorporativo = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Sitio Web Corporativo:{" "}
-            <span className="text-gradient">Tu Centro de Mando Digital.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            No diseñamos simples páginas web; construimos el activo estratégico que centraliza tu operación, proyecta autoridad y facilita el cierre de ventas. En Nasua, pasamos de la idea al despliegue en tiempo récord para que tu negocio nunca se detenga.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Agendar Consultoría de Crecimiento
-            </button>
-          </motion.div>
+              Sitio Web Corporativo:{" "}
+              <span className="text-gradient">Tu Centro de Mando Digital.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              No diseñamos simples páginas web; construimos el activo estratégico que centraliza tu operación, proyecta autoridad y facilita el cierre de ventas. En Nasua, pasamos de la idea al despliegue en tiempo récord para que tu negocio nunca se detenga.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <button
+                onClick={() => setFormOpen(true)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Agendar Consultoría de Crecimiento
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* El fin de las páginas estáticas */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Un activo diseñado para generar{" "}
-              <span className="text-gradient">confianza y conversiones</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            En el mercado actual, tu sitio web es el lugar donde se cierran los tratos. Un sitio corporativo con el sello Nasua no solo se ve bien; está diseñado bajo una arquitectura de ventas que elimina las fricciones entre tu cliente y tu producto.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Un activo diseñado para generar{" "}
+                <span className="text-gradient">confianza y conversiones</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              En el mercado actual, tu sitio web es el lugar donde se cierran los tratos. Un sitio corporativo con el sello Nasua no solo se ve bien; está diseñado bajo una arquitectura de ventas que elimina las fricciones entre tu cliente y tu producto.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
             {differentials.map((d, i) => (
-              <motion.div
-                key={d.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <d.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">{d.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">{d.text}</p>
-              </motion.div>
+              <ClientOnly key={d.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <d.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">{d.title}</h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">{d.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -230,32 +246,37 @@ const SitioCorporativo = () => {
       {/* Tecnología */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              La infraestructura adecuada para tu nivel de{" "}
-              <span className="text-gradient">operación</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            El equipo técnico evalúa tus necesidades de contenido, seguridad y rendimiento para implementar la plataforma más rentable.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                La infraestructura adecuada para tu nivel de{" "}
+                <span className="text-gradient">operación</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              El equipo técnico evalúa tus necesidades de contenido, seguridad y rendimiento para implementar la plataforma más rentable.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
             {platforms.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <p.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{p.title}</h3>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{p.text}</p>
-              </motion.div>
+              <ClientOnly key={p.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <p.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{p.title}</h3>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{p.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -264,29 +285,32 @@ const SitioCorporativo = () => {
       {/* Características */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Tecnología de alto nivel al servicio de{" "}
-              <span className="text-gradient">tu rentabilidad</span>.
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Tecnología de alto nivel al servicio de{" "}
+                <span className="text-gradient">tu rentabilidad</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <f.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">{f.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">{f.text}</p>
-              </motion.div>
+              <ClientOnly key={f.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <f.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">{f.title}</h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">{f.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -295,33 +319,36 @@ const SitioCorporativo = () => {
       {/* Proceso */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              De la estrategia al lanzamiento en días,{" "}
-              <span className="text-gradient">no en meses</span>.
-            </h2>
-            <p className="text-muted-foreground text-lg font-body max-w-3xl mx-auto mt-4 leading-relaxed">
-              Gracias a nuestras herramientas de desarrollo ágil, hemos eliminado los procesos que tardaban a veces días y las esperas interminables. Menos reuniones innecesarias y más entregas de valor que puedes ver y probar en tiempo real.
-            </p>
-          </motion.div>
+          <ClientOnly minHeight="100px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                De la estrategia al lanzamiento en días,{" "}
+                <span className="text-gradient">no en meses</span>.
+              </h2>
+              <p className="text-muted-foreground text-lg font-body max-w-3xl mx-auto mt-4 leading-relaxed">
+                Gracias a nuestras herramientas de desarrollo ágil, hemos eliminado los procesos que tardaban a veces días y las esperas interminables. Menos reuniones innecesarias y más entregas de valor que puedes ver y probar en tiempo real.
+              </p>
+            </motion.div>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-4 gap-6">
             {processSteps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <p className="text-secondary font-bold text-sm mb-1 font-body">Paso {i + 1}</p>
-                <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
-              </motion.div>
+              <ClientOnly key={step.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <p className="text-secondary font-bold text-sm mb-1 font-body">Paso {i + 1}</p>
+                  <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -330,12 +357,14 @@ const SitioCorporativo = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqItems.map((faq, i) => (
               <AccordionItem
@@ -358,21 +387,23 @@ const SitioCorporativo = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              ¿Listo para construir tu centro de{" "}
-              <span className="text-gradient">mando digital</span>?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              El equipo de Nasua está listo para auditar tu infraestructura actual y diseñar el sitio empresarial que tu operación necesita. Sin promesas vacías, solo tecnología orientada a resultados.
-            </p>
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
-            >
-              Agendar Consultoría de Crecimiento
-            </button>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                ¿Listo para construir tu centro de{" "}
+                <span className="text-gradient">mando digital</span>?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                El equipo de Nasua está listo para auditar tu infraestructura actual y diseñar el sitio empresarial que tu operación necesita. Sin promesas vacías, solo tecnología orientada a resultados.
+              </p>
+              <button
+                onClick={() => setFormOpen(true)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Agendar Consultoría de Crecimiento
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
@@ -383,3 +414,4 @@ const SitioCorporativo = () => {
 };
 
 export default SitioCorporativo;
+export const prerender = true;

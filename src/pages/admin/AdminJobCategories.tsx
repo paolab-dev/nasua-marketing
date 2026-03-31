@@ -118,3 +118,5 @@ const AdminJobCategories = () => {
 };
 
 export default AdminJobCategories;
+
+export const prerender = false;

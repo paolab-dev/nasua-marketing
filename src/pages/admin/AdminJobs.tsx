@@ -114,3 +114,5 @@ const AdminJobs = () => {
 };
 
 export default AdminJobs;
+
+export const prerender = false;

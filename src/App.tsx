@@ -2,8 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import AdnNasua from "./pages/AdnNasua";
 import Ecommerce from "./pages/Ecommerce";
@@ -38,66 +42,76 @@ import AdminJobNew from "./pages/admin/AdminJobNew";
 import AdminJobEdit from "./pages/admin/AdminJobEdit";
 import AdminJobCategories from "./pages/admin/AdminJobCategories";
 import NotFound from "./pages/NotFound";
-import WhatsAppButton from "./components/WhatsAppButton";
-import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+// Layout component to wrap all routes
+export const App = () => (
   <HelmetProvider>
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/adn-nasua" element={<AdnNasua />} />
-          <Route path="/ecommerce" element={<Ecommerce />} />
-          <Route path="/landing-page" element={<LandingPage />} />
-          <Route path="/sitio-corporativo" element={<SitioCorporativo />} />
-          <Route path="/estrategia" element={<Estrategia />} />
-          <Route path="/infraestructura-digital" element={<InfraestructuraDigital />} />
-          <Route path="/desarrollo-web-estrategico" element={<InfraestructuraDigital />} />
-          <Route path="/branding" element={<Branding />} />
-          <Route path="/pauta-digital" element={<PautaDigital />} />
-          <Route path="/seo-geo" element={<SeoGeo />} />
-          <Route path="/copywriting" element={<Copywriting />} />
-          <Route path="/automatizacion" element={<Automatizacion />} />
-          <Route path="/servicios" element={<Servicios />} />
-          <Route path="/quienes-somos" element={<QuienesSomos />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/proyectos" element={<Jobs />} />
-          <Route path="/proyectos/:slug" element={<JobDetail />} />
-          <Route path="/login" element={<Login />} />
-
-          {/* Admin protegido */}
-          <Route path="/admin-NM" element={<ProtectedRoute />}>
-            <Route element={<AdminLayout />}>
-              <Route index element={<AdminPosts />} />
-              <Route path="posts/nuevo" element={<AdminPostNew />} />
-              <Route path="posts/editar/:id" element={<AdminPostEdit />} />
-              <Route path="categorias" element={<AdminCategories />} />
-              <Route path="autores" element={<AdminAuthors />} />
-              <Route path="vacantes" element={<AdminJobs />} />
-              <Route path="vacantes/nueva" element={<AdminJobNew />} />
-              <Route path="vacantes/editar/:id" element={<AdminJobEdit />} />
-              <Route path="vacantes/categorias" element={<AdminJobCategories />} />
-            </Route>
-          </Route>
-
-          <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
-          <Route path="/terminos-condiciones" element={<TerminosCondiciones />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Outlet />
         <WhatsAppButton />
-      </BrowserRouter>
-    </TooltipProvider>
-   </QueryClientProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
   </HelmetProvider>
 );
+
+export const routes = [
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { index: true, element: <Index /> },
+      { path: "adn-nasua", element: <AdnNasua /> },
+      { path: "ecommerce", element: <Ecommerce /> },
+      { path: "landing-page", element: <LandingPage /> },
+      { path: "sitio-corporativo", element: <SitioCorporativo /> },
+      { path: "estrategia", element: <Estrategia /> },
+      { path: "estrategia-social-media", element: <Estrategia /> },
+      { path: "infraestructura-digital", element: <InfraestructuraDigital /> },
+      { path: "desarrollo-web-estrategico", element: <InfraestructuraDigital /> },
+      { path: "branding", element: <Branding /> },
+      { path: "pauta-digital", element: <PautaDigital /> },
+      { path: "seo-geo", element: <SeoGeo /> },
+      { path: "copywriting", element: <Copywriting /> },
+      { path: "automatizacion", element: <Automatizacion /> },
+      { path: "servicios", element: <Servicios /> },
+      { path: "quienes-somos", element: <QuienesSomos /> },
+      { path: "contacto", element: <Contacto /> },
+      { path: "blog", element: <Blog /> },
+      { path: "blog/:slug", element: <BlogPost /> },
+      { path: "proyectos", element: <Jobs /> },
+      { path: "proyectos/:slug", element: <JobDetail /> },
+      { path: "login", element: <Login /> },
+      {
+        path: "admin-NM",
+        element: <ProtectedRoute />,
+        children: [
+          {
+            element: <AdminLayout />,
+            children: [
+              { index: true, element: <AdminPosts /> },
+              { path: "posts/nuevo", element: <AdminPostNew /> },
+              { path: "posts/editar/:id", element: <AdminPostEdit /> },
+              { path: "categorias", element: <AdminCategories /> },
+              { path: "autores", element: <AdminAuthors /> },
+              { path: "vacantes", element: <AdminJobs /> },
+              { path: "vacantes/nueva", element: <AdminJobNew /> },
+              { path: "vacantes/editar/:id", element: <AdminJobEdit /> },
+              { path: "vacantes/categorias", element: <AdminJobCategories /> },
+            ],
+          },
+        ],
+      },
+      { path: "politica-privacidad", element: <PoliticaPrivacidad /> },
+      { path: "terminos-condiciones", element: <TerminosCondiciones /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+];
 
 export default App;

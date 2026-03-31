@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   Accordion,
   AccordionContent,
@@ -75,7 +76,7 @@ const faqs = [
   },
   {
     q: "¿Cómo se integra el copy con el diseño UX/UI?",
-    a: "Trabajamos en espejo. El diseñador crea el flujo visual y el copywriter crea el flujo mental. Ambos aseguran que no haya \"ruido\" y que la experiencia del usuario sea fluida y persuasiva.",
+    a: "Trabajamos en espejo. El diseñador crea el flujo visual and el copywriter crea el flujo mental. Ambos aseguran que no haya \"ruido\" y que la experiencia del usuario sea fluida y persuasiva.",
   },
   {
     q: "¿Hacen copy para anuncios (Ads) también?",
@@ -117,68 +118,79 @@ const Copywriting = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Copywriting Estratégico:{" "}
-            <span className="text-gradient">Textos que convierten clics en ventas.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            Si tu web es la infraestructura, el copy es el vendedor que trabaja 24/7. En Nasua unimos la psicología del consumidor con la estrategia de negocio para redactar mensajes que no solo informan, sino que impulsan al usuario a tomar acción.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <Link
-              to="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Solicitar Consultoría de Copy
-            </Link>
-          </motion.div>
+              Copywriting Estratégico:{" "}
+              <span className="text-gradient">Textos que convierten clics en ventas.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              Si tu web es la infraestructura, el copy es el vendedor que trabaja 24/7. En Nasua unimos la psicología del consumidor con la estrategia de negocio para redactar mensajes que no solo informan, sino que impulsan al usuario a tomar acción.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <Link
+                to="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Solicitar Consultoría de Copy
+              </Link>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* Ingeniería de Persuasión */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              La estética atrae, pero el mensaje es el que{" "}
-              <span className="text-gradient">cierra la venta</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Un diseño impecable con un mensaje débil es solo un folleto mudo.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                La estética atrae, pero el mensaje es el que{" "}
+                <span className="text-gradient">cierra la venta</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Un diseño impecable con un mensaje débil es solo un folleto mudo.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8">
             {persuasionPillars.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
-                  <p.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">{p.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">{p.text}</p>
-              </motion.div>
+              <ClientOnly key={p.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
+                    <p.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">{p.title}</h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">{p.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -187,32 +199,37 @@ const Copywriting = () => {
       {/* SEO + Persuasión */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              Escribir para humanos sin olvidar{" "}
-              <span className="text-gradient">a las máquinas</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            En 2026, el copy debe ser irresistible para el usuario y legible para la IA.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                Escribir para humanos sin olvidar{" "}
+                <span className="text-gradient">a las máquinas</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              En 2026, el copy debe ser irresistible para el usuario y legible para la IA.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {seoFeatures.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
-                  <item.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{item.title}</h3>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{item.text}</p>
-              </motion.div>
+              <ClientOnly key={item.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
+                    <item.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{item.title}</h3>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{item.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -221,12 +238,14 @@ const Copywriting = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
               <AccordionItem
@@ -249,21 +268,23 @@ const Copywriting = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              ¿Listo para que tu mensaje empiece a{" "}
-              <span className="text-gradient">vender de verdad</span>?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              Deja de usar frases hechas y empieza a usar argumentos que cierren negocios. El equipo de Nasua está listo para redactar el futuro de tu marca.
-            </p>
-            <Link
-              to="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
-            >
-              Solicitar Consultoría de Copy
-            </Link>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                ¿Listo para que tu mensaje empiece a{" "}
+                <span className="text-gradient">vender de verdad</span>?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                Deja de usar frases hechas y empieza a usar argumentos que cierren negocios. El equipo de Nasua está listo para redactar el futuro de tu marca.
+              </p>
+              <button
+                onClick={() => window.scrollTo(0, 0)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Solicitar Consultoría de Copy
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
@@ -273,3 +294,4 @@ const Copywriting = () => {
 };
 
 export default Copywriting;
+export const prerender = true;

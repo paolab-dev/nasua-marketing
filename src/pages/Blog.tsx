@@ -118,3 +118,4 @@ const Blog = () => {
 };
 
 export default Blog;
+export const prerender = true;

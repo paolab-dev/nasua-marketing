@@ -83,3 +83,5 @@ const AdminPosts = () => {
 };
 
 export default AdminPosts;
+
+export const prerender = false;

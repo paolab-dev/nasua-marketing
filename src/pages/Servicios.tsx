@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   Accordion,
   AccordionContent,
@@ -195,94 +196,107 @@ const Servicios = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-accent/30" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Soluciones estratégicas para{" "}
-            <span className="text-gradient">escalar tu facturación</span>.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            Diseñamos el camino para que tu empresa crezca con solidez. Nuestros servicios integran tecnología, diseño y pauta para potenciar tu presencia en el mercado.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <a
-              href="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Agendar Consultoría Estratégica
-            </a>
-          </motion.div>
+              Soluciones estratégicas para{" "}
+              <span className="text-gradient">escalar tu facturación</span>.
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              Diseñamos el camino para que tu empresa crezca con solidez. Nuestros servicios integran tecnología, diseño y pauta para potenciar tu presencia en el mercado.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <a
+                href="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Agendar Consultoría Estratégica
+              </a>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* Servicios por grupos */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Marketing diseñado para{" "}
-              <span className="text-gradient">mover la aguja del negocio</span>.
-            </h2>
-          </motion.div>
-          <motion.p
-            {...fadeUp}
-            className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-16 leading-relaxed"
-          >
-            Entendemos que el marketing no es un fin, sino un medio para vender más y posicionarte mejor. Nuestra metodología se basa en la agilidad y la efectividad: eliminamos los procesos lentos y nos enfocamos en lo que realmente genera impacto visual y comercial para tu marca.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Marketing diseñado para{" "}
+                <span className="text-gradient">mover la aguja del negocio</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              {...fadeUp}
+              className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-16 leading-relaxed"
+            >
+              Entendemos que el marketing no es un fin, sino un medio para vender más y posicionarte mejor. Nuestra metodología se basa en la agilidad y la efectividad: eliminamos los procesos lentos y nos enfocamos en lo que realmente genera impacto visual y comercial para tu marca.
+            </motion.p>
+          </ClientOnly>
 
           <div className="space-y-16">
             {groups.map((group, gi) => (
               <div key={group.label}>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="flex items-center gap-3 mb-8"
-                >
-                  <span className="text-2xl">{group.emoji}</span>
-                  <h3 className="text-xl font-bold font-display text-foreground">{group.label}</h3>
-                  <div className="flex-1 h-px bg-border" />
-                </motion.div>
+                <ClientOnly minHeight="40px">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="flex items-center gap-3 mb-8"
+                  >
+                    <span className="text-2xl">{group.emoji}</span>
+                    <h3 className="text-xl font-bold font-display text-foreground">{group.label}</h3>
+                    <div className="flex-1 h-px bg-border" />
+                  </motion.div>
+                </ClientOnly>
                 <div className="grid md:grid-cols-2 gap-6">
                   {group.services.map((s, i) => (
-                    <motion.a
-                      key={s.title}
-                      href={s.href}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 + gi * 0.05 }}
-                      className="block bg-card rounded-xl p-8 border border-border hover:border-secondary/50 hover:shadow-md transition-all group"
-                    >
-                      <div className="flex items-start gap-5">
-                        <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center shrink-0 group-hover:bg-secondary/30 transition-colors">
-                          <s.icon className="w-6 h-6 text-secondary" />
+                    <ClientOnly key={s.title} minHeight="150px">
+                      <motion.a
+                        href={s.href}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 + gi * 0.05 }}
+                        className="block bg-card rounded-xl p-8 border border-border hover:border-secondary/50 hover:shadow-md transition-all group"
+                      >
+                        <div className="flex items-start gap-5">
+                          <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center shrink-0 group-hover:bg-secondary/30 transition-colors">
+                            <s.icon className="w-6 h-6 text-secondary" />
+                          </div>
+                          <div>
+                            <h4 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-secondary transition-colors">
+                              {s.title}
+                            </h4>
+                            <p className="text-muted-foreground font-body leading-relaxed text-sm">
+                              {s.text}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-secondary transition-colors">
-                            {s.title}
-                          </h4>
-                          <p className="text-muted-foreground font-body leading-relaxed text-sm">
-                            {s.text}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.a>
+                      </motion.a>
+                    </ClientOnly>
                   ))}
                 </div>
               </div>
@@ -294,32 +308,35 @@ const Servicios = () => {
       {/* Diferenciadores */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              Velocidad, claridad y{" "}
-              <span className="text-gradient">resultados</span>.
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                Velocidad, claridad y{" "}
+                <span className="text-gradient">resultados</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
           <div className="grid md:grid-cols-3 gap-8">
             {differentiators.map((d, i) => (
-              <motion.div
-                key={d.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <d.icon className="w-8 h-8 text-secondary" />
-                </div>
-                <h3 className="font-display font-semibold text-xl text-primary-foreground mb-3">
-                  {d.title}
-                </h3>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">
-                  {d.text}
-                </p>
-              </motion.div>
+              <ClientOnly key={d.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <d.icon className="w-8 h-8 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-xl text-primary-foreground mb-3">
+                    {d.title}
+                  </h3>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">
+                    {d.text}
+                  </p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -328,12 +345,14 @@ const Servicios = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-background" id="faq">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
               <AccordionItem
@@ -356,21 +375,23 @@ const Servicios = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              ¿Listo para dejar de buscar proveedores y empezar a{" "}
-              <span className="text-gradient">crecer con un socio</span>?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              Hablemos de tus retos y de cómo podemos poner nuestra infraestructura a trabajar para ti. Estamos listos para el diagnóstico inicial.
-            </p>
-            <a
-              href="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
-            >
-              Agendar Consultoría
-            </a>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                ¿Listo para dejar de buscar proveedores y empezar a{" "}
+                <span className="text-gradient">crecer con un socio</span>?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                Hablemos de tus retos y de cómo podemos poner nuestra infraestructura a trabajar para ti. Estamos listos para el diagnóstico inicial.
+              </p>
+              <a
+                href="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Agendar Consultoría
+              </a>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
@@ -380,3 +401,4 @@ const Servicios = () => {
 };
 
 export default Servicios;
+export const prerender = true;

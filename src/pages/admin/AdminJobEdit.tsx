@@ -37,3 +37,5 @@ const AdminJobEdit = () => {
 };
 
 export default AdminJobEdit;
+
+export const prerender = false;

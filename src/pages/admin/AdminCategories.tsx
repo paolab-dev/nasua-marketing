@@ -96,3 +96,5 @@ const AdminCategories = () => {
 };
 
 export default AdminCategories;
+
+export const prerender = false;

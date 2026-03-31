@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ClientOnly } from "@/components/ClientOnly";
 import { Palette, TrendingUp, Zap, Clock, Search, Shield, Linkedin } from "lucide-react";
 
 const fadeUp = {
@@ -107,92 +108,102 @@ const QuienesSomos = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Las mentes detrás de tu{" "}
-            <span className="text-gradient">infraestructura de crecimiento.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            En Nasua no solo construimos sitios web; diseñamos la base técnica y estratégica para que tu negocio escale sin fricciones. Somos el equipo que entiende que tú debes dedicarte a vender, mientras nosotros hacemos que la tecnología trabaje para ti.
-          </motion.p>
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
+            >
+              Las mentes detrás de tu{" "}
+              <span className="text-gradient">infraestructura de crecimiento.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              En Nasua no solo construimos sitios web; diseñamos la base técnica y estratégica para que tu negocio escale sin fricciones. Somos el equipo que entiende que tú debes dedicarte a vender, mientras nosotros hacemos que la tecnología trabaje para ti.
+            </motion.p>
+          </ClientOnly>
         </div>
       </section>
 
       {/* El Dúo Estratégico */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
-              El Dúo <span className="text-gradient">Estratégico</span>
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">
+                El Dúo <span className="text-gradient">Estratégico</span>
+              </h2>
+            </motion.div>
+          </ClientOnly>
 
           <div className="space-y-12">
             {/* Paola */}
-            <motion.div
-              {...fadeUp}
-              className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
-                  <Palette className="w-7 h-7 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-display font-medium text-xl text-foreground">Paola Bohórquez Guevara</h3>
-                  <div className="flex items-center gap-3">
-                    <p className="text-secondary font-semibold text-sm">Directora UX/UI</p>
-                    <a href="https://www.linkedin.com/in/paolabohorquez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Paola Bohórquez" className="bg-[#0A66C2] rounded p-1 hover:opacity-80 transition-opacity">
-                      <Linkedin className="w-4 h-4 text-white" />
-                    </a>
-                    <a href="https://www.canva.com/p/paola-bohorquez/" target="_blank" rel="noopener noreferrer" aria-label="Canva Creator de Paola Bohórquez" className="bg-gradient-to-r from-[#7D2AE8] to-[#00C4CC] rounded px-2 py-0.5 hover:opacity-80 transition-opacity">
-                      <span className="text-white text-xs font-bold">Canva Creator</span>
-                    </a>
+            <ClientOnly minHeight="300px">
+              <motion.div
+                {...fadeUp}
+                className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <Palette className="w-7 h-7 text-secondary" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-medium text-xl text-foreground">Paola Bohórquez Guevara</h3>
+                    <div className="flex items-center gap-3">
+                      <p className="text-secondary font-semibold text-sm">Directora UX/UI</p>
+                      <a href="https://www.linkedin.com/in/paolabohorquez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Paola Bohórquez" className="bg-[#0A66C2] rounded p-1 hover:opacity-80 transition-opacity">
+                        <Linkedin className="w-4 h-4 text-white" />
+                      </a>
+                      <a href="https://www.canva.com/p/paola-bohorquez/" target="_blank" rel="noopener noreferrer" aria-label="Canva Creator de Paola Bohórquez" className="bg-gradient-to-r from-[#7D2AE8] to-[#00C4CC] rounded px-2 py-0.5 hover:opacity-80 transition-opacity">
+                        <span className="text-white text-xs font-bold">Canva Creator</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p className="text-muted-foreground font-body leading-relaxed italic mb-4">
-                "La arquitectura digital no es solo que se vea bien, es que funcione para el usuario."
-              </p>
-              <p className="text-muted-foreground font-body leading-relaxed">
-                Arquitecta digital con más de 20 años de experiencia en mercados globales (EE.UU., Australia, Europa). Como Creadora Oficial de Canva para LATAM, Paola fusiona una sensibilidad estética de élite con la eficiencia del Vibe Coding. Su misión es asegurar que tu web no solo sea hermosa, sino que sea rápida, intuitiva y profesional.
-              </p>
-            </motion.div>
+                <p className="text-muted-foreground font-body leading-relaxed italic mb-4">
+                  "La arquitectura digital no es solo que se vea bien, es que funcione para el usuario."
+                </p>
+                <p className="text-muted-foreground font-body leading-relaxed">
+                  Arquitecta digital con más de 20 años de experiencia en mercados globales (EE.UU., Australia, Europa). Como Creadora Oficial de Canva para LATAM, Paola fusiona una sensibilidad estética de élite con la eficiencia del Vibe Coding. Su misión es asegurar que tu web no solo sea hermosa, sino que sea rápida, intuitiva y profesional.
+                </p>
+              </motion.div>
+            </ClientOnly>
 
             {/* John */}
-            <motion.div
-              {...fadeUp}
-              className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
-                  <TrendingUp className="w-7 h-7 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-display font-medium text-xl text-foreground">John Alexander Escobar Sánchez</h3>
-                  <div className="flex items-center gap-3">
-                    <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
-                    <a href="https://www.linkedin.com/in/alexanderescobarsanchez-marketing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de John Alexander Escobar" className="bg-[#0A66C2] rounded p-1 hover:opacity-80 transition-opacity">
-                      <Linkedin className="w-4 h-4 text-white" />
-                    </a>
+            <ClientOnly minHeight="300px">
+              <motion.div
+                {...fadeUp}
+                className="bg-card rounded-2xl border border-border p-8 md:p-10 hover:border-secondary/50 transition-colors"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <TrendingUp className="w-7 h-7 text-secondary" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-medium text-xl text-foreground">John Alexander Escobar Sánchez</h3>
+                    <div className="flex items-center gap-3">
+                      <p className="text-secondary font-semibold text-sm">Director de Mercadeo</p>
+                      <a href="https://www.linkedin.com/in/alexanderescobarsanchez-marketing" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de John Alexander Escobar" className="bg-[#0A66C2] rounded p-1 hover:opacity-80 transition-opacity">
+                        <Linkedin className="w-4 h-4 text-white" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p className="text-muted-foreground font-body leading-relaxed italic mb-4">
-                "La tecnología sin estrategia es solo un adorno. Hablémosle clarito a Google."
-              </p>
-              <p className="text-muted-foreground font-body leading-relaxed">
-                Estratega de mercadeo con más de una década de experiencia. Su trayectoria incluye el liderazgo SEO para Samsung Colombia y la gestión de presupuestos de pauta superiores a los $5.000 millones COP anuales. Alex es el experto en psicología del consumidor que toma tus textos y los organiza para que los buscadores te premien y tus clientes te elijan.
-              </p>
-            </motion.div>
+                <p className="text-muted-foreground font-body leading-relaxed italic mb-4">
+                  "La tecnología sin estrategia es solo un adorno. Hablémosle clarito a Google."
+                </p>
+                <p className="text-muted-foreground font-body leading-relaxed">
+                  Estratega de mercadeo con más de una década de experiencia. Su trayectoria incluye el liderazgo SEO para Samsung Colombia y la gestión de presupuestos de pauta superiores a los $5.000 millones COP anuales. Alex es el experto en psicología del consumidor que toma tus textos y los organiza para que los buscadores te premien y tus clientes te elijan.
+                </p>
+              </motion.div>
+            </ClientOnly>
           </div>
         </div>
       </section>
@@ -200,27 +211,30 @@ const QuienesSomos = () => {
       {/* Por qué Nasua es tu mejor aliado */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Por qué Nasua es tu <span className="text-gradient">mejor aliado</span>
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+                Por qué Nasua es tu <span className="text-gradient">mejor aliado</span>
+              </h2>
+            </motion.div>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8">
             {benefits.map((item) => (
-              <motion.div
-                key={item.title}
-                {...fadeUp}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
-              >
-                <item.icon className="w-10 h-10 text-secondary mb-4" />
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground font-body leading-relaxed">
-                  {item.text}
-                </p>
-              </motion.div>
+              <ClientOnly key={item.title} minHeight="200px">
+                <motion.div
+                  {...fadeUp}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
+                >
+                  <item.icon className="w-10 h-10 text-secondary mb-4" />
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground font-body leading-relaxed">
+                    {item.text}
+                  </p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -229,27 +243,30 @@ const QuienesSomos = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
-              Preguntas <span className="text-gradient">frecuentes</span>
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-foreground">
+                Preguntas <span className="text-gradient">frecuentes</span>
+              </h2>
+            </motion.div>
+          </ClientOnly>
 
           <div className="space-y-6">
             {faqItems.map((item, i) => (
-              <motion.details
-                key={i}
-                {...fadeUp}
-                className="group bg-card rounded-xl border border-border p-6 cursor-pointer hover:border-secondary/50 transition-colors"
-              >
-                <summary className="font-body font-bold text-foreground list-none flex items-center justify-between">
-                  <span>{item.q}</span>
-                  <span className="text-secondary ml-4 group-open:rotate-45 transition-transform text-2xl">+</span>
-                </summary>
-                <p className="text-muted-foreground font-body leading-relaxed mt-4">
-                  {item.a}
-                </p>
-              </motion.details>
+              <ClientOnly key={i} minHeight="80px">
+                <motion.details
+                  {...fadeUp}
+                  className="group bg-card rounded-xl border border-border p-6 cursor-pointer hover:border-secondary/50 transition-colors"
+                >
+                  <summary className="font-body font-bold text-foreground list-none flex items-center justify-between">
+                    <span>{item.q}</span>
+                    <span className="text-secondary ml-4 group-open:rotate-45 transition-transform text-2xl">+</span>
+                  </summary>
+                  <p className="text-muted-foreground font-body leading-relaxed mt-4">
+                    {item.a}
+                  </p>
+                </motion.details>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -261,3 +278,4 @@ const QuienesSomos = () => {
 };
 
 export default QuienesSomos;
+export const prerender = true;

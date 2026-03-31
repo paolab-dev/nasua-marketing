@@ -27,3 +27,5 @@ const AdminPostEdit = () => {
 };
 
 export default AdminPostEdit;
+
+export const prerender = false;

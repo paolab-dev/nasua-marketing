@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   Accordion,
   AccordionContent,
@@ -132,68 +133,79 @@ const LandingPage = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Landing Pages de Alta Conversión:{" "}
-            <span className="text-gradient">Optimiza tu pauta con el equipo Nasua.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            Si estás invirtiendo en Google o Meta Ads pero no recibes leads calificados, el problema suele estar en el destino. El equipo de Nasua diseña páginas de aterrizaje de alto rendimiento, optimizadas técnicamente para maximizar cada peso de tu inversión publicitaria y reducir tu costo de adquisición.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Agendar Consultoría de Conversión
-            </button>
-          </motion.div>
+              Landing Pages de Alta Conversión:{" "}
+              <span className="text-gradient">Optimiza tu pauta con el equipo Nasua.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              Si estás invirtiendo en Google o Meta Ads pero no recibes leads calificados, el problema suele estar en el destino. El equipo de Nasua diseña páginas de aterrizaje de alto rendimiento, optimizadas técnicamente para maximizar cada peso de tu inversión publicitaria y reducir tu costo de adquisición.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <button
+                onClick={() => setFormOpen(true)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Agendar Consultoría de Conversión
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* Eslabón crítico */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Ingeniería de conversión para resultados{" "}
-              <span className="text-gradient">medibles</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Muchos negocios fallan porque envían tráfico de calidad a sitios lentos o confusos. En Nasua construimos el motor que transforma ese tráfico en clientes.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Ingeniería de conversión para resultados{" "}
+                <span className="text-gradient">medibles</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Muchos negocios fallan porque envían tráfico de calidad a sitios lentos o confusos. En Nasua construimos el motor que transforma ese tráfico en clientes.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8">
             {conversionFeatures.map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <f.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">{f.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">{f.text}</p>
-              </motion.div>
+              <ClientOnly key={f.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <f.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">{f.title}</h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">{f.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -202,32 +214,37 @@ const LandingPage = () => {
       {/* Sistema conectado */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              Integración técnica con tu operación{" "}
-              <span className="text-gradient">comercial</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            Para que una landing page sea rentable, debe estar vinculada con el resto de tu negocio. El equipo se encarga de que la tecnología trabaje para ti.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                Integración técnica con tu operación{" "}
+                <span className="text-gradient">comercial</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              Para que una landing page sea rentable, debe estar vinculada con el resto de tu negocio. El equipo se encarga de que la tecnología trabaje para ti.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-3 gap-8">
             {integrations.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
-                  <item.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{item.title}</h3>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{item.text}</p>
-              </motion.div>
+              <ClientOnly key={item.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20 text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5">
+                    <item.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{item.title}</h3>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{item.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -236,45 +253,50 @@ const LandingPage = () => {
       {/* Tecnología basada en objetivos */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.div {...fadeUp} className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
-              El motor adecuado para tu volumen de{" "}
-              <span className="text-gradient">tráfico</span>.
-            </h2>
-            <p className="text-muted-foreground font-body leading-relaxed text-lg">
-              Si buscas una escala masiva y un rendimiento técnico superior, el equipo desarrolla bajo Vibe Coding (React/Lovable). Si necesitas una herramienta que tu propio equipo de marketing pueda editar y ajustar en minutos para promociones rápidas, implementamos WordPress Moderno. Elegimos la herramienta que maximice tu retorno de inversión, manteniendo siempre tu Soberanía Digital: tú eres el dueño del código y de los datos.
-            </p>
-          </motion.div>
+          <ClientOnly minHeight="150px">
+            <motion.div {...fadeUp} className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground mb-6">
+                El motor adecuado para tu volumen de{" "}
+                <span className="text-gradient">tráfico</span>.
+              </h2>
+              <p className="text-muted-foreground font-body leading-relaxed text-lg">
+                Si buscas una escala masiva y un rendimiento técnico superior, el equipo desarrolla bajo Vibe Coding (React/Lovable). Si necesitas una herramienta que tu propio equipo de marketing pueda editar y ajustar en minutos para promociones rápidas, implementamos WordPress Moderno. Elegimos la herramienta que maximice tu retorno de inversión, manteniendo siempre tu Soberanía Digital: tú eres el dueño del código y de los datos.
+              </p>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* Proceso */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              De 0 a leads en{" "}
-              <span className="text-gradient">tiempo récord</span>.
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                De 0 a leads en{" "}
+                <span className="text-gradient">tiempo récord</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-4 gap-6">
             {processSteps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <p className="text-secondary font-bold text-sm mb-1 font-body">Paso {i + 1}</p>
-                <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
-              </motion.div>
+              <ClientOnly key={step.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <p className="text-secondary font-bold text-sm mb-1 font-body">Paso {i + 1}</p>
+                  <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -283,12 +305,14 @@ const LandingPage = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqItems.map((faq, i) => (
               <AccordionItem
@@ -311,21 +335,23 @@ const LandingPage = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              Deja de adivinar y empieza a{" "}
-              <span className="text-gradient">convertir</span>.
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              El equipo de Nasua está listo para auditar tus campañas actuales y diseñar la landing page que tu negocio necesita para escalar. Sin rodeos, solo resultados técnicos.
-            </p>
-            <button
-              onClick={() => setFormOpen(true)}
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
-            >
-              Agendar Consultoría de Conversión
-            </button>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                Deja de adivinar y empieza a{" "}
+                <span className="text-gradient">convertir</span>.
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                El equipo de Nasua está listo para auditar tus campañas actuales y diseñar la landing page que tu negocio necesita para escalar. Sin rodeos, solo resultados técnicos.
+              </p>
+              <button
+                onClick={() => setFormOpen(true)}
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg cursor-pointer"
+              >
+                Agendar Consultoría de Conversión
+              </button>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
@@ -336,3 +362,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+export const prerender = true;

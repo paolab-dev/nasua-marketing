@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ClientOnly } from "@/components/ClientOnly";
 import {
   Accordion,
   AccordionContent,
@@ -17,7 +18,6 @@ import {
   FileText,
   Lightbulb,
   Target,
-  TrendingUp,
 } from "lucide-react";
 
 const fadeUp = {
@@ -158,68 +158,79 @@ const Branding = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/20" />
         <div className="relative z-10 container mx-auto px-6 py-32 text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
-          >
-            Branding &amp; Autoridad:{" "}
-            <span className="text-gradient">Identidad visual estratégica para negocios.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
-          >
-            La estética sin estrategia es solo decoración. En Nasua creamos identidades visuales diseñadas para proyectar solidez, generar confianza inmediata y elevar el valor percibido de tu empresa en el mercado global.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10"
-          >
-            <Link
-              to="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+          <ClientOnly minHeight="60px">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground font-display"
             >
-              Cotizar Proyecto de Branding
-            </Link>
-          </motion.div>
+              Branding &amp; Autoridad:{" "}
+              <span className="text-gradient">Identidad visual estratégica para negocios.</span>
+            </motion.h1>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 text-lg md:text-xl text-primary-foreground/80 font-body max-w-3xl mx-auto"
+            >
+              La estética sin estrategia es solo decoración. En Nasua creamos identidades visuales diseñadas para proyectar solidez, generar confianza inmediata y elevar el valor percibido de tu empresa en el mercado global.
+            </motion.p>
+          </ClientOnly>
+          <ClientOnly minHeight="50px">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <Link
+                to="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Cotizar Proyecto de Branding
+              </Link>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
       {/* Más allá del logo */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Identidad visual pensada para{" "}
-              <span className="text-gradient">cerrar negocios</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            El mercado internacional no perdona una imagen descuidada. Tu branding es tu carta de presentación ante clientes de alto ticket.
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Identidad visual pensada para{" "}
+                <span className="text-gradient">cerrar negocios</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-muted-foreground text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              El mercado internacional no perdona una imagen descuidada. Tu branding es tu carta de presentación ante clientes de alto ticket.
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8">
             {pillars.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
-                  <p.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-foreground mb-3">{p.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed text-sm">{p.text}</p>
-              </motion.div>
+              <ClientOnly key={p.title} minHeight="200px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-card rounded-xl p-8 border border-border hover:border-secondary/50 transition-colors"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
+                    <p.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-foreground mb-3">{p.title}</h3>
+                  <p className="text-muted-foreground font-body leading-relaxed text-sm">{p.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -228,32 +239,37 @@ const Branding = () => {
       {/* Branding integrado */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
-              Diseño que respeta la ingeniería y el{" "}
-              <span className="text-gradient">rendimiento</span>.
-            </h2>
-          </motion.div>
-          <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
-            A diferencia de agencias creativas tradicionales, el equipo de Nasua diseña marcas que funcionan en el mundo real (y digital).
-          </motion.p>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-primary-foreground">
+                Diseño que respeta la ingeniería y el{" "}
+                <span className="text-gradient">rendimiento</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
+          <ClientOnly minHeight="40px">
+            <motion.p {...fadeUp} className="text-center text-primary-foreground/80 text-lg font-body max-w-3xl mx-auto mb-14 leading-relaxed">
+              A diferencia de agencias creativas tradicionales, el equipo de Nasua diseña marcas que funcionan en el mundo real (y digital).
+            </motion.p>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {integrations.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
-                  <item.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{item.title}</h3>
-                <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{item.text}</p>
-              </motion.div>
+              <ClientOnly key={item.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mb-5">
+                    <item.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <h3 className="font-display font-medium text-xl text-primary-foreground mb-3">{item.title}</h3>
+                  <p className="text-primary-foreground/70 font-body leading-relaxed text-sm">{item.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -262,30 +278,33 @@ const Branding = () => {
       {/* Proceso */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              El camino estratégico de{" "}
-              <span className="text-gradient">Nasua</span>.
-            </h2>
-          </motion.div>
+          <ClientOnly minHeight="40px">
+            <motion.div {...fadeUp} className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                El camino estratégico de{" "}
+                <span className="text-gradient">Nasua</span>.
+              </h2>
+            </motion.div>
+          </ClientOnly>
 
           <div className="grid md:grid-cols-4 gap-6">
             {processSteps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-7 h-7 text-secondary" />
-                </div>
-                <p className="text-secondary font-bold text-sm mb-1 font-body">Fase {i + 1}</p>
-                <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
-              </motion.div>
+              <ClientOnly key={step.title} minHeight="150px">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="text-center"
+                >
+                  <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-7 h-7 text-secondary" />
+                  </div>
+                  <p className="text-secondary font-bold text-sm mb-1 font-body">Fase {i + 1}</p>
+                  <h3 className="font-display font-medium text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed">{step.text}</p>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -294,28 +313,31 @@ const Branding = () => {
       {/* Herramientas y tecnologías */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-4xl">
-          <motion.div {...fadeUp} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-              Herramientas de{" "}
-              <span className="text-gradient">alto estándar</span>.
-            </h2>
-            <p className="text-muted-foreground text-lg font-body mt-4 max-w-2xl mx-auto">
-              Trabajamos con las mismas herramientas que usan los equipos de diseño de las empresas Fortune 500.
-            </p>
-          </motion.div>
+          <ClientOnly minHeight="150px">
+            <motion.div {...fadeUp} className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                Herramientas de{" "}
+                <span className="text-gradient">alto estándar</span>.
+              </h2>
+              <p className="text-muted-foreground text-lg font-body mt-4 max-w-2xl mx-auto">
+                Trabajamos con las mismas herramientas que usan los equipos de diseño de las empresas Fortune 500.
+              </p>
+            </motion.div>
+          </ClientOnly>
           <div className="flex flex-wrap justify-center gap-4">
             {tools.map((tool, i) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-card border border-border rounded-xl px-6 py-4 flex items-center gap-3 hover:border-secondary/50 transition-colors"
-              >
-                <span className="text-2xl">{tool.icon}</span>
-                <span className="font-body font-medium text-foreground">{tool.name}</span>
-              </motion.div>
+              <ClientOnly key={tool.name} minHeight="60px">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="bg-card border border-border rounded-xl px-6 py-4 flex items-center gap-3 hover:border-secondary/50 transition-colors"
+                >
+                  <span className="text-2xl">{tool.icon}</span>
+                  <span className="font-body font-medium text-foreground">{tool.name}</span>
+                </motion.div>
+              </ClientOnly>
             ))}
           </div>
         </div>
@@ -324,12 +346,14 @@ const Branding = () => {
       {/* FAQ */}
       <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-6 max-w-3xl">
-          <motion.h2
-            {...fadeUp}
-            className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
-          >
-            Preguntas <span className="text-gradient">frecuentes</span>
-          </motion.h2>
+          <ClientOnly minHeight="40px">
+            <motion.h2
+              {...fadeUp}
+              className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
+            >
+              Preguntas <span className="text-gradient">frecuentes</span>
+            </motion.h2>
+          </ClientOnly>
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
               <AccordionItem
@@ -352,21 +376,23 @@ const Branding = () => {
       {/* Cierre CTA */}
       <section className="py-20 md:py-28 bg-primary">
         <div className="container mx-auto px-6 max-w-3xl text-center">
-          <motion.div {...fadeUp} className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
-              ¿Listo para proyectar la autoridad que tu negocio{" "}
-              <span className="text-gradient">merece</span>?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
-              Deja de ser una opción más y conviértete en la referencia de tu industria. El equipo de Nasua está listo para construir tu identidad de alto impacto.
-            </p>
-            <Link
-              to="/contacto"
-              className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
-            >
-              Cotizar Proyecto de Branding
-            </Link>
-          </motion.div>
+          <ClientOnly minHeight="200px">
+            <motion.div {...fadeUp} className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-display">
+                ¿Listo para proyectar la autoridad que tu negocio{" "}
+                <span className="text-gradient">merece</span>?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
+                Deja de ser una opción más y conviértete en la referencia de tu industria. El equipo de Nasua está listo para construir tu identidad de alto impacto.
+              </p>
+              <Link
+                to="/contacto"
+                className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
+              >
+                Cotizar Proyecto de Branding
+              </Link>
+            </motion.div>
+          </ClientOnly>
         </div>
       </section>
 
@@ -376,3 +402,4 @@ const Branding = () => {
 };
 
 export default Branding;
+export const prerender = true;

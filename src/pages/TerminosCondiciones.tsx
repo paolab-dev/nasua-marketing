@@ -49,3 +49,4 @@ const TerminosCondiciones = () => {
 };
 
 export default TerminosCondiciones;
+export const prerender = true;
