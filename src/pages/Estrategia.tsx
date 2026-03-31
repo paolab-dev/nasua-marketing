@@ -26,10 +26,18 @@ const Estrategia = () => {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: estrategia.faq.map((faq) => ({
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".faq-answer"],
+    },
+    mainEntity: estrategia.faq.map((faq, i) => ({
       "@type": "Question",
       name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+        url: `https://nasua.marketing/estrategia-social-media#faq-${i}`,
+      },
     })),
   };
 
@@ -200,6 +208,7 @@ const Estrategia = () => {
           <Accordion type="single" collapsible className="space-y-3">
             {estrategia.faq.map((faq, i) => (
               <AccordionItem
+                id={`faq-${i}`}
                 key={i}
                 value={`item-${i}`}
                 className="bg-card border border-border rounded-lg px-6"
@@ -207,7 +216,7 @@ const Estrategia = () => {
                 <AccordionTrigger className="text-left font-body font-bold text-foreground hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
+                <AccordionContent className="faq-answer text-muted-foreground leading-relaxed">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -45,9 +45,22 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Nasua",
+  url: "https://nasua.marketing",
+  logo: "https://nasua.marketing/nasua-logo.jpg",
+  description: "Socios de Crecimiento Digital. Diseñamos sistemas de ventas con soberanía digital para escalar la facturación de tu empresa.",
+  sameAs: [],
+};
+
 // Layout component to wrap all routes
 export const App = () => (
   <HelmetProvider>
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
+    </Helmet>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />

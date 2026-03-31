@@ -36,10 +36,18 @@ const SeoGeo = () => {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: seoGeo.faq.map((faq) => ({
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".faq-answer"],
+    },
+    mainEntity: seoGeo.faq.map((faq, i) => ({
       "@type": "Question",
       name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+        url: `https://nasua.marketing/seo-geo#faq-${i}`,
+      },
     })),
   };
 
@@ -54,6 +62,7 @@ const SeoGeo = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://nasua.marketing/SeoGeoNasua.jpg" />
+        <link rel="canonical" href="https://nasua.marketing/seo-geo" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Navbar />
@@ -236,6 +245,7 @@ const SeoGeo = () => {
           <Accordion type="single" collapsible className="space-y-3">
             {seoGeo.faq.map((faq, i) => (
               <AccordionItem
+                id={`faq-${i}`}
                 key={i}
                 value={`item-${i}`}
                 className="bg-card border border-border rounded-lg px-6"
@@ -243,7 +253,7 @@ const SeoGeo = () => {
                 <AccordionTrigger className="text-left font-body font-bold text-foreground hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
+                <AccordionContent className="faq-answer text-muted-foreground leading-relaxed">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
