@@ -85,7 +85,6 @@ export const routes = [
       { path: "sitio-corporativo", element: <SitioCorporativo /> },
       { path: "estrategia", element: <Estrategia /> },
       { path: "estrategia-social-media", element: <Estrategia /> },
-      { path: "infraestructura-digital", element: <InfraestructuraDigital /> },
       { path: "desarrollo-web-estrategico", element: <InfraestructuraDigital /> },
       { path: "branding", element: <Branding /> },
       { path: "pauta-digital", element: <PautaDigital /> },

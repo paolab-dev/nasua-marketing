@@ -76,7 +76,7 @@ const Navbar = () => {
                   {/* Grupo: Diseño y Desarrollo Web */}
                   <div className="px-4 pt-2 pb-1">
                     <a
-                      href="/infraestructura-digital"
+                      href="/desarrollo-web-estrategico"
                       className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2 hover:text-secondary/80 transition-colors"
                     >
                       Diseño y Desarrollo Web
@@ -154,7 +154,7 @@ const Navbar = () => {
               <div className="pl-3 mt-3 space-y-1">
                 {/* Diseño y Desarrollo Web */}
                 <a
-                  href="/infraestructura-digital"
+                  href="/desarrollo-web-estrategico"
                   className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2"
                   onClick={() => setOpen(false)}
                 >

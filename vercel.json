@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/infraestructura-digital", "destination": "/desarrollo-web-estrategico", "permanent": true }
+  ],
   "routes": [
     { "src": "/sitemap.xml", "dest": "/api/sitemap" },
     { "src": "/api/(.*)", "dest": "/api/$1" },

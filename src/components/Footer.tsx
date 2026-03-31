@@ -2,7 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 import nasuaLogo from "@/assets/nasua-logo.jpg";
 
 const webLinks = [
-  { href: "/infraestructura-digital", label: "Diseño y Desarrollo Web" },
+  { href: "/desarrollo-web-estrategico", label: "Diseño y Desarrollo Web" },
   { href: "/landing-page", label: "Landing Pages" },
   { href: "/sitio-corporativo", label: "Sitios Corporativos" },
   { href: "/ecommerce", label: "E-commerce" },
@@ -56,7 +56,7 @@ const Footer = () => {
                   key={link.href}
                   href={link.href}
                   className={`text-sm transition-colors ${
-                    link.href === "/infraestructura-digital"
+                    link.href === "/desarrollo-web-estrategico"
                       ? "text-primary-foreground/80 hover:text-primary-foreground font-medium"
                       : "text-primary-foreground/60 hover:text-primary-foreground pl-2"
                   }`}

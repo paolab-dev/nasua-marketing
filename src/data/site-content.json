@@ -28,7 +28,7 @@
           "title": "Nuestra Tecnología",
           "links": [
             {
-              "href": "/infraestructura-digital",
+              "href": "/desarrollo-web-estrategico",
               "label": "Web de Alto Rendimiento"
             },
             {
@@ -164,7 +164,7 @@
         {
           "title": "Web de Alto Rendimiento",
           "text": "Sitios ultra-rápidos, soberanos y listos para convertir.",
-          "href": "/infraestructura-digital",
+          "href": "/desarrollo-web-estrategico",
           "icon": "Globe"
         },
         {
@@ -206,7 +206,7 @@
         {
           "title": "Webmaster & Soporte Técnico",
           "text": "Tu sitio web siempre al 100%, seguro y actualizado.",
-          "href": "/infraestructura-digital",
+          "href": "/desarrollo-web-estrategico",
           "icon": "Wrench"
         }
       ]
@@ -1053,13 +1053,13 @@
             "icon": "Globe",
             "title": "Sitios Web de Alto Rendimiento",
             "text": "Páginas optimizadas para convertir, con tiempos de carga mínimos y diseño actual. Despliegue en 48h para que tu negocio no pierda ni un día.",
-            "href": "/infraestructura-digital"
+            "href": "/desarrollo-web-estrategico"
           },
           {
             "icon": "Wrench",
             "title": "Webmaster & Soporte",
             "text": "Nos encargamos de que tu sitio esté siempre operativo, seguro y al día. Tú te ocupas del negocio, nosotros de que la tecnología responda.",
-            "href": "/infraestructura-digital"
+            "href": "/desarrollo-web-estrategico"
           }
         ]
       },
