@@ -42,6 +42,7 @@ const Estrategia = () => {
         <meta property="og:description" content={estrategia.seo.description} />
         <meta property="og:image" content="https://nasua.marketing/EstrategiaNasua.jpg" />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://nasua.marketing/estrategia-social-media" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://nasua.marketing/EstrategiaNasua.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>

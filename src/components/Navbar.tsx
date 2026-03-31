@@ -9,6 +9,7 @@ const serviciosWeb = [
 ];
 
 const otrosServicios = [
+  { href: "/estrategia-social-media", label: "Estrategia & Contenido Social Media" },
   { href: "/branding", label: "Branding & Autoridad" },
   { href: "/pauta-digital", label: "Pauta Digital & Performance" },
   { href: "/seo-geo", label: "SEO & Visibilidad IA (GEO)" },

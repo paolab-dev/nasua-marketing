@@ -3,11 +3,23 @@
     "navbar": {
       "brand": "nasua",
       "links": [
-        { "href": "/adn-nasua", "label": "ADN Nasua" },
-        { "href": "/blog", "label": "Blog" },
-        { "href": "/quienes-somos", "label": "Quiénes Somos" }
+        {
+          "href": "/adn-nasua",
+          "label": "ADN Nasua"
+        },
+        {
+          "href": "/blog",
+          "label": "Blog"
+        },
+        {
+          "href": "/quienes-somos",
+          "label": "Quiénes Somos"
+        }
       ],
-      "cta": { "href": "/contacto", "label": "Agendar consultoría" }
+      "cta": {
+        "href": "/contacto",
+        "label": "Agendar consultoría"
+      }
     },
     "footer": {
       "tagline": "Socio de Crecimiento Digital para empresas que buscan escala, velocidad y soberanía tecnológica.",
@@ -15,35 +27,80 @@
         {
           "title": "Nuestra Tecnología",
           "links": [
-            { "href": "/infraestructura-digital", "label": "Web de Alto Rendimiento" },
-            { "href": "/landing-page", "label": "Landing Pages de Conversión" },
-            { "href": "/ecommerce", "label": "E-commerce Estratégico" },
-            { "href": "/digital-infra", "label": "Webmaster & Soporte" }
+            {
+              "href": "/infraestructura-digital",
+              "label": "Web de Alto Rendimiento"
+            },
+            {
+              "href": "/landing-page",
+              "label": "Landing Pages de Conversión"
+            },
+            {
+              "href": "/ecommerce",
+              "label": "E-commerce Estratégico"
+            },
+            {
+              "href": "/digital-infra",
+              "label": "Webmaster & Soporte"
+            }
           ]
         },
         {
           "title": "Crecimiento",
           "links": [
-            { "href": "/seo-geo", "label": "Visibilidad IA (SEO & GEO)" },
-            { "href": "/pauta-digital", "label": "Pauta & Performance" },
-            { "href": "/copywriting", "label": "Copywriting Estratégico" },
-            { "href": "/estrategia", "label": "Estrategia Social Media" },
-            { "href": "/automatizacion", "label": "Automatización CRM" }
+            {
+              "href": "/seo-geo",
+              "label": "Visibilidad IA (SEO & GEO)"
+            },
+            {
+              "href": "/pauta-digital",
+              "label": "Pauta & Performance"
+            },
+            {
+              "href": "/copywriting",
+              "label": "Copywriting Estratégico"
+            },
+            {
+              "href": "/estrategia",
+              "label": "Estrategia Social Media"
+            },
+            {
+              "href": "/automatizacion",
+              "label": "Automatización CRM"
+            }
           ]
         },
         {
           "title": "Compañía",
           "links": [
-            { "href": "/adn-nasua", "label": "ADN Nasua" },
-            { "href": "/quienes-somos", "label": "Quiénes Somos" },
-            { "href": "/proyectos", "label": "Proyectos Abiertos" },
-            { "href": "/contacto", "label": "Contacto" }
+            {
+              "href": "/adn-nasua",
+              "label": "ADN Nasua"
+            },
+            {
+              "href": "/quienes-somos",
+              "label": "Quiénes Somos"
+            },
+            {
+              "href": "/proyectos",
+              "label": "Proyectos Abiertos"
+            },
+            {
+              "href": "/contacto",
+              "label": "Contacto"
+            }
           ]
         }
       ],
       "legal": [
-        { "href": "/politica-privacidad", "label": "Política de Privacidad" },
-        { "href": "/terminos-condiciones", "label": "Términos y Condiciones" }
+        {
+          "href": "/politica-privacidad",
+          "label": "Política de Privacidad"
+        },
+        {
+          "href": "/terminos-condiciones",
+          "label": "Términos y Condiciones"
+        }
       ]
     },
     "faq": [
@@ -104,32 +161,93 @@
       "highlight": "escalar tu facturación",
       "text": "Ocho pilares estratégicos diseñados para que tu empresa sea la autoridad de su industria.",
       "items": [
-        { "title": "Web de Alto Rendimiento", "text": "Sitios ultra-rápidos, soberanos y listos para convertir.", "href": "/infraestructura-digital", "icon": "Globe" },
-        { "title": "Visibilidad IA (SEO & GEO)", "text": "Sé la respuesta que Google y ChatGPT recomiendan.", "href": "/seo-geo", "icon": "Bot" },
-        { "title": "Pauta Digital (Performance)", "text": "Inversión estratégica en anuncios con retorno medible.", "href": "/pauta-digital", "icon": "Target" },
-        { "title": "Estrategia & Contenido Social", "text": "Autoridad visual y narrativa con producción profesional.", "href": "/estrategia", "icon": "Film" },
-        { "title": "Copywriting", "text": "Persuasión para convertir clics en ventas.", "href": "/copywriting", "icon": "PenTool" },
-        { "title": "Automatización", "text": "Sistemas y CRMs que trabajan para ti.", "href": "/automatizacion", "icon": "Cog" },
-        { "title": "Branding", "text": "Identidad sólida para destacar en mercados internacionales.", "href": "/branding", "icon": "Palette" },
-        { "title": "Webmaster & Soporte Técnico", "text": "Tu sitio web siempre al 100%, seguro y actualizado.", "href": "/infraestructura-digital", "icon": "Wrench" }
+        {
+          "title": "Web de Alto Rendimiento",
+          "text": "Sitios ultra-rápidos, soberanos y listos para convertir.",
+          "href": "/infraestructura-digital",
+          "icon": "Globe"
+        },
+        {
+          "title": "Visibilidad IA (SEO & GEO)",
+          "text": "Sé la respuesta que Google y ChatGPT recomiendan.",
+          "href": "/seo-geo",
+          "icon": "Bot"
+        },
+        {
+          "title": "Pauta Digital (Performance)",
+          "text": "Inversión estratégica en anuncios con retorno medible.",
+          "href": "/pauta-digital",
+          "icon": "Target"
+        },
+        {
+          "title": "Estrategia & Contenido Social",
+          "text": "Autoridad visual y narrativa con producción profesional.",
+          "href": "/estrategia",
+          "icon": "Film"
+        },
+        {
+          "title": "Copywriting",
+          "text": "Persuasión para convertir clics en ventas.",
+          "href": "/copywriting",
+          "icon": "PenTool"
+        },
+        {
+          "title": "Automatización",
+          "text": "Sistemas y CRMs que trabajan para ti.",
+          "href": "/automatizacion",
+          "icon": "Cog"
+        },
+        {
+          "title": "Branding",
+          "text": "Identidad sólida para destacar en mercados internacionales.",
+          "href": "/branding",
+          "icon": "Palette"
+        },
+        {
+          "title": "Webmaster & Soporte Técnico",
+          "text": "Tu sitio web siempre al 100%, seguro y actualizado.",
+          "href": "/infraestructura-digital",
+          "icon": "Wrench"
+        }
       ]
     },
     "roadmap": {
       "title": "Un Roadmap diseñado para",
       "highlight": "no perder tiempo",
       "steps": [
-        { "title": "Diagnóstico", "text": "Auditamos tu embudo actual y trazamos un plan de vuelo basado en tus números." },
-        { "title": "Activación", "text": "Ejecutamos con agilidad técnica para salir al mercado en días, no en meses." },
-        { "title": "Optimización", "text": "Medimos y ajustamos mensualmente para asegurar que tu inversión sea predecible." }
+        {
+          "title": "Diagnóstico",
+          "text": "Auditamos tu embudo actual y trazamos un plan de vuelo basado en tus números."
+        },
+        {
+          "title": "Activación",
+          "text": "Ejecutamos con agilidad técnica para salir al mercado en días, no en meses."
+        },
+        {
+          "title": "Optimización",
+          "text": "Medimos y ajustamos mensualmente para asegurar que tu inversión sea predecible."
+        }
       ]
     },
     "sovereignty": {
       "title": "Tecnología con criterio y",
       "highlight": "honestidad",
       "values": [
-        { "title": "Soberanía Total", "text": "Dominios, códigos y datos son tuyos. Trabajamos para que te quedes por resultados, no por dependencia.", "icon": "Shield" },
-        { "title": "Cumplimiento Radical", "text": "Respetamos los tiempos. Pactamos fechas y entregamos resultados sin excusas técnicas.", "icon": "Clock" },
-        { "title": "Tecnología de Resultados", "text": "Usamos la herramienta que mejor sirva a tu retorno de inversión, no la que nos parezca más fácil.", "icon": "Wrench" }
+        {
+          "title": "Soberanía Total",
+          "text": "Dominios, códigos y datos son tuyos. Trabajamos para que te quedes por resultados, no por dependencia.",
+          "icon": "Shield"
+        },
+        {
+          "title": "Cumplimiento Radical",
+          "text": "Respetamos los tiempos. Pactamos fechas y entregamos resultados sin excusas técnicas.",
+          "icon": "Clock"
+        },
+        {
+          "title": "Tecnología de Resultados",
+          "text": "Usamos la herramienta que mejor sirva a tu retorno de inversión, no la que nos parezca más fácil.",
+          "icon": "Wrench"
+        }
       ]
     },
     "cta": {
@@ -166,14 +284,32 @@
       "highlight": "comercial",
       "text": "Para que una landing page sea rentable, debe estar vinculada con el resto de tu negocio. El equipo se encarga de que la tecnología trabaje para ti.",
       "items": [
-        { "title": "Conexión con tu CRM", "text": "Los datos de tus clientes potenciales llegan automáticamente a tu base de datos (HubSpot, Salesforce o Google Sheets), permitiendo que tu equipo comercial actúe de inmediato.", "icon": "Link" },
-        { "title": "Automatización de Respuesta", "text": "Configuramos disparadores para que el lead reciba un correo o mensaje de WhatsApp apenas se registre. La rapidez en el primer contacto es vital para no enfriar la venta.", "icon": "Bot" },
-        { "title": "Tracking de Precisión", "text": "Instalamos APIs de Conversión y Píxeles de seguimiento para que sepas exactamente cuánto te cuesta cada cliente y qué anuncios están generando rentabilidad real.", "icon": "Target" }
+        {
+          "title": "Conexión con tu CRM",
+          "text": "Los datos de tus clientes potenciales llegan automáticamente a tu base de datos (HubSpot, Salesforce o Google Sheets), permitiendo que tu equipo comercial actúe de inmediato.",
+          "icon": "Link"
+        },
+        {
+          "title": "Automatización de Respuesta",
+          "text": "Configuramos disparadores para que el lead reciba un correo o mensaje de WhatsApp apenas se registre. La rapidez en el primer contacto es vital para no enfriar la venta.",
+          "icon": "Bot"
+        },
+        {
+          "title": "Tracking de Precisión",
+          "text": "Instalamos APIs de Conversión y Píxeles de seguimiento para que sepas exactamente cuánto te cuesta cada cliente y qué anuncios están generando rentabilidad real.",
+          "icon": "Target"
+        }
       ]
     },
     "faq": [
-      { "q": "¿Por qué no es recomendable enviar el tráfico de mis anuncios a mi sitio web principal?", "a": "Un sitio web corporativo está diseñado para informar sobre la empresa, mostrar servicios y generar confianza general..." },
-      { "q": "¿Qué tecnología utiliza el equipo para desarrollar las Landing Pages?", "a": "La selección técnica se basa en tus metas de escala y velocidad..." }
+      {
+        "q": "¿Por qué no es recomendable enviar el tráfico de mis anuncios a mi sitio web principal?",
+        "a": "Un sitio web corporativo está diseñado para informar sobre la empresa, mostrar servicios y generar confianza general..."
+      },
+      {
+        "q": "¿Qué tecnología utiliza el equipo para desarrollar las Landing Pages?",
+        "a": "La selección técnica se basa en tus metas de escala y velocidad..."
+      }
     ]
   },
   "ecommerce": {
@@ -380,12 +516,30 @@
       }
     ],
     "tools": [
-      { "name": "Figma", "icon": "🎨" },
-      { "name": "Adobe Illustrator", "icon": "✏️" },
-      { "name": "Adobe Photoshop", "icon": "🖼️" },
-      { "name": "After Effects", "icon": "🎬" },
-      { "name": "Vibe Coding", "icon": "⚡" },
-      { "name": "Soberanía Digital", "icon": "🛡️" }
+      {
+        "name": "Figma",
+        "icon": "🎨"
+      },
+      {
+        "name": "Adobe Illustrator",
+        "icon": "✏️"
+      },
+      {
+        "name": "Adobe Photoshop",
+        "icon": "🖼️"
+      },
+      {
+        "name": "After Effects",
+        "icon": "🎬"
+      },
+      {
+        "name": "Vibe Coding",
+        "icon": "⚡"
+      },
+      {
+        "name": "Soberanía Digital",
+        "icon": "🛡️"
+      }
     ],
     "faq": [
       {
@@ -719,6 +873,30 @@
       {
         "q": "¿Soy dueño del material audiovisual que produzcan para mi marca?",
         "a": "Absolutamente. Bajo nuestro principio de Soberanía Digital, todo el material producido (fotos y videos) es de tu propiedad legal. Puedes usarlo en tu web, presentaciones comerciales o publicidad pagada sin restricciones."
+      },
+      {
+        "q": "¿Cómo miden el éxito de la gestión en redes sociales?",
+        "a": "Nos alejamos de las métricas de vanidad. Medimos el alcance de audiencia calificada, el guardado de contenido (valor real) y, sobre todo, el tráfico que enviamos hacia tu ecosistema de ventas (clics y leads)."
+      },
+      {
+        "q": "¿Hacen guiones para los videos o solo editan?",
+        "a": "Hacemos el proceso completo. Nuestro equipo de Copywriting redacta guiones persuasivos basados en tu estrategia de ventas antes de encender la primera cámara, asegurando que cada palabra cuente."
+      },
+      {
+        "q": "¿En qué redes sociales debería estar mi negocio?",
+        "a": "No todas las redes son rentables para todos. Analizamos dónde está tu cliente ideal (LinkedIn para B2B, Instagram/TikTok para consumo o marca personal) y enfocamos los recursos donde el retorno sea mayor."
+      },
+      {
+        "q": "¿Cómo manejan el \"tono de voz\" de mi empresa?",
+        "a": "Creamos un Manual de Identidad Verbal. Si tu empresa es de ingeniería, el tono será sólido y técnico; si es de estilo de vida, será más vibrante. La coherencia en todos los canales es nuestra prioridad."
+      },
+      {
+        "q": "¿La estrategia de contenido ayuda a mi posicionamiento SEO/GEO?",
+        "a": "Sí. Las señales sociales y el contenido relevante ayudan a que los buscadores y las IAs (como ChatGPT) reconozcan a tu empresa como una entidad confiable y citen tu autoridad en sus respuestas."
+      },
+      {
+        "q": "¿Por qué elegir a Nasua y no a una agencia creativa convencional?",
+        "a": "Porque somos Socios de Crecimiento. No buscamos ganar premios de diseño; buscamos que tu presencia social sea una pieza de ingeniería que impulse la rentabilidad y la autoridad de tu negocio."
       }
     ]
   },
@@ -982,9 +1160,21 @@
       "text": "Cuéntanos qué necesitas y en menos de 24 horas un estratega de Nasua te contactará con una propuesta personalizada. Sin compromisos."
     },
     "differentiators": [
-      { "icon": "Zap", "title": "Entrega en 7 días", "desc": "Vibe Coding con IA para resultados rápidos y de calidad." },
-      { "icon": "CreditCard", "title": "Financiación Wompi", "desc": "Empieza sin descapitalizarte. Paga a tu ritmo." },
-      { "icon": "Shield", "title": "100% tuyo", "desc": "Código fuente y dominio bajo tu propiedad total." }
+      {
+        "icon": "Zap",
+        "title": "Entrega en 7 días",
+        "desc": "Vibe Coding con IA para resultados rápidos y de calidad."
+      },
+      {
+        "icon": "CreditCard",
+        "title": "Financiación Wompi",
+        "desc": "Empieza sin descapitalizarte. Paga a tu ritmo."
+      },
+      {
+        "icon": "Shield",
+        "title": "100% tuyo",
+        "desc": "Código fuente y dominio bajo tu propiedad total."
+      }
     ]
   }
 }
