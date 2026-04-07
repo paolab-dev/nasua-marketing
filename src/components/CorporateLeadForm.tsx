@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { sendLead } from "@/lib/send-lead";
 import { useToast } from "@/hooks/use-toast";

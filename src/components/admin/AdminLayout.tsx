@@ -1,5 +1,6 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+"use client";
+
+import { useRouter } from "next/navigation";
 import { FileText, Users, FolderOpen, Briefcase, Tag, LogOut } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { supabase } from "@/lib/supabase";
@@ -62,41 +63,34 @@ function AdminSidebar() {
   );
 }
 
-const AdminLayout = () => {
-  const navigate = useNavigate();
+const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    navigate("/login");
+    router.push("/login");
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Admin | Nasua</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full">
+        <AdminSidebar />
 
-      <SidebarProvider>
-        <div className="min-h-screen flex w-full">
-          <AdminSidebar />
+        <div className="flex-1 flex flex-col">
+          <header className="h-14 flex items-center justify-between border-b border-border px-4">
+            <SidebarTrigger className="ml-1" />
+            <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-2">
+              <LogOut className="h-4 w-4" />
+              <span className="hidden sm:inline">Cerrar sesión</span>
+            </Button>
+          </header>
 
-          <div className="flex-1 flex flex-col">
-            <header className="h-14 flex items-center justify-between border-b border-border px-4">
-              <SidebarTrigger className="ml-1" />
-              <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-2">
-                <LogOut className="h-4 w-4" />
-                <span className="hidden sm:inline">Cerrar sesión</span>
-              </Button>
-            </header>
-
-            <main className="flex-1 p-4 md:p-8 overflow-auto">
-              <Outlet />
-            </main>
-          </div>
+          <main className="flex-1 p-4 md:p-8 overflow-auto">
+            {children}
+          </main>
         </div>
-      </SidebarProvider>
-    </>
+      </div>
+    </SidebarProvider>
   );
 };
 

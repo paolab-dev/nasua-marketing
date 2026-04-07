@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { Globe, Bot, Target, Film, PenTool, Cog, Palette, Wrench } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import content from "@/data/site-content.json";
 
 const icons: Record<string, any> = {
@@ -48,7 +49,7 @@ const ValueSection = () => {
                 initial={false}
               >
                 <Link
-                  to={p.href}
+                  href={p.href}
                   className="block bg-card rounded-xl p-8 border border-border hover:border-secondary/50 hover:shadow-md transition-all text-center h-full group"
                 >
                   <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-secondary/30 transition-colors">
@@ -71,4 +72,3 @@ const ValueSection = () => {
 };
 
 export default ValueSection;
-

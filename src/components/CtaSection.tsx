@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import content from "@/data/site-content.json";
 
@@ -33,4 +34,3 @@ const CtaSection = () => {
 };
 
 export default CtaSection;
-

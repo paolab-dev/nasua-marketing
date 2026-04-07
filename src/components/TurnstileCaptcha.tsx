@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useEffect, MutableRefObject } from "react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
@@ -8,7 +9,7 @@ interface TurnstileCaptchaProps {
   resetRef?: MutableRefObject<(() => void) | null>;
 }
 
-const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || "";
+const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 
 const TurnstileCaptcha = ({ onVerify, onError, onExpire, resetRef }: TurnstileCaptchaProps) => {
   const ref = useRef<TurnstileInstance>(null);
@@ -22,7 +23,7 @@ const TurnstileCaptcha = ({ onVerify, onError, onExpire, resetRef }: TurnstileCa
   }, [resetRef]);
 
   if (!SITE_KEY) {
-    console.warn("VITE_TURNSTILE_SITE_KEY is not set.");
+    console.warn("NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set.");
     return null;
   }
 

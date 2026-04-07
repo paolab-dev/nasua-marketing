@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import bgImage from "@/assets/background.jpg";
 import phoneMockup from "@/assets/phone-mockup.png";
@@ -10,7 +11,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={bgImage} alt="" className="w-full h-full object-cover" />
+        <img src={(bgImage as { src: string }).src} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-primary/80" />
       </div>
 
@@ -36,7 +37,7 @@ const HeroSection = () => {
             className="flex justify-center"
           >
             <img
-              src={phoneMockup}
+              src={(phoneMockup as { src: string }).src}
               alt="Mockup de un sitio web profesional en un dispositivo móvil"
               className="w-56 md:w-72 lg:w-80 animate-float drop-shadow-2xl"
             />

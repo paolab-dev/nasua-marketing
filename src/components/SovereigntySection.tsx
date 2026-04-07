@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Shield, Clock, Wrench } from "lucide-react";
 import content from "@/data/site-content.json";
@@ -58,4 +59,3 @@ const SovereigntySection = () => {
 };
 
 export default SovereigntySection;
-

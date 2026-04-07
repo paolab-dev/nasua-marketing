@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { ClipboardCheck, Rocket, BarChart3 } from "lucide-react";
 import content from "@/data/site-content.json";
@@ -59,4 +60,3 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
-

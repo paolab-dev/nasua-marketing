@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { uploadImage } from "@/lib/storage";
 import type { Post, Author, Category } from "@/lib/types";
@@ -22,7 +24,7 @@ interface PostFormProps {
 }
 
 const PostForm = ({ post }: PostFormProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   const [authors, setAuthors] = useState<Author[]>([]);
@@ -111,7 +113,7 @@ const PostForm = ({ post }: PostFormProps) => {
       if (error) throw error;
 
       toast({ title: post?.id ? "Post actualizado" : "Post creado" });
-      navigate("/admin-NM");
+      router.push("/admin-NM");
     } catch (err: any) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
     } finally {
@@ -270,7 +272,7 @@ const PostForm = ({ post }: PostFormProps) => {
         <Button type="submit" disabled={saving}>
           {saving ? "Guardando…" : post?.id ? "Actualizar" : "Crear post"}
         </Button>
-        <Button type="button" variant="outline" onClick={() => navigate("/admin-NM")}>
+        <Button type="button" variant="outline" onClick={() => router.push("/admin-NM")}>
           Cancelar
         </Button>
       </div>

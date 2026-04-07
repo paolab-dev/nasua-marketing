@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -5,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Script from "next/script";
 import content from "@/data/site-content.json";
 
 const FaqSection = () => {
@@ -26,9 +28,11 @@ const FaqSection = () => {
 
   return (
     <section className="section-padding bg-background" id="faq">
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-      </Helmet>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="container mx-auto max-w-3xl">
         <motion.h2
           initial={false}

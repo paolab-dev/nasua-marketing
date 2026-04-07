@@ -34,7 +34,7 @@ const Footer = () => {
           <div className="md:col-span-1 flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-3">
               <a href="/">
-                <img src={nasuaLogo} alt="Nasua" className="w-12 h-12 rounded-lg object-cover" />
+                <img src={(nasuaLogo as { src: string }).src} alt="Nasua" className="w-12 h-12 rounded-lg object-cover" />
               </a>
               <a href="/" className="text-primary-foreground font-display font-bold text-xl">
                 nasua

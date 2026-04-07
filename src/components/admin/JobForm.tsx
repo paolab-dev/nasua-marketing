@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import type { Job, JobCategory } from "@/lib/types";
 import { Input } from "@/components/ui/input";
@@ -23,7 +25,7 @@ function slugify(text: string) {
 }
 
 const JobForm = ({ initialData }: Props) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
   const isEditing = !!initialData;
 
@@ -88,7 +90,7 @@ const JobForm = ({ initialData }: Props) => {
       toast({ title: "Error", description: error.message, variant: "destructive" });
     } else {
       toast({ title: isEditing ? "Vacante actualizada" : "Vacante creada" });
-      navigate("/admin-NM/vacantes");
+      router.push("/admin-NM/vacantes");
     }
   };
 
@@ -167,7 +169,7 @@ const JobForm = ({ initialData }: Props) => {
         <Button type="submit" disabled={saving}>
           {saving ? "Guardando..." : isEditing ? "Guardar Cambios" : "Crear Vacante"}
         </Button>
-        <Button type="button" variant="outline" onClick={() => navigate("/admin-NM/vacantes")}>
+        <Button type="button" variant="outline" onClick={() => router.push("/admin-NM/vacantes")}>
           Cancelar
         </Button>
       </div>
