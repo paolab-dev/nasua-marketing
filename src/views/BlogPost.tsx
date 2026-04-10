@@ -16,7 +16,7 @@ const BlogPostPage = () => {
   useEffect(() => {
     supabase
       .from("posts")
-      .select("*, authors(name), categories(name)")
+      .select("*, authors(name), categories(name), subcategories(name)")
       .eq("slug", slug)
       .eq("status", "published")
       .single()
@@ -71,6 +71,9 @@ const BlogPostPage = () => {
           {post.categories?.name && (
             <span className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2 block">
               {post.categories.name}
+              {post.subcategories?.name && (
+                <span className="text-muted-foreground font-normal"> / {post.subcategories.name}</span>
+              )}
             </span>
           )}
 
@@ -111,6 +114,32 @@ const BlogPostPage = () => {
               prose-img:rounded-xl"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* CTA Button */}
+          {post.cta_label && post.cta_url && (
+            <div className="mt-10 flex justify-center">
+              <a
+                href={post.cta_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-secondary text-white font-body font-semibold px-8 py-4 rounded-xl hover:bg-secondary/90 transition-colors text-center"
+              >
+                {post.cta_label}
+              </a>
+            </div>
+          )}
+
+          {/* Author Bio */}
+          {post.author_bio && (
+            <div className="mt-12 border-t border-border pt-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                Sobre el autor
+              </p>
+              <p className="text-sm text-muted-foreground font-body leading-relaxed italic">
+                {post.author_bio}
+              </p>
+            </div>
+          )}
 
           <Link
             href="/blog"

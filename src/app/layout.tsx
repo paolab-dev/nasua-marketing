@@ -3,7 +3,6 @@ import Script from "next/script";
 import "@/index.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Providers } from "./providers";
 
@@ -50,7 +49,6 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <WhatsAppButton />
         </Providers>
 
         <Script

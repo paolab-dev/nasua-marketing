@@ -70,7 +70,7 @@ const AdminPosts = () => {
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex gap-2 justify-end">
-                      <Button size="sm" variant="outline" onClick={() => router.push(`/admin-NM/posts/editar/${p.id}`)}>Editar</Button>
+                      <Button size="sm" variant="outline" onClick={() => router.push(`/admin-NM/posts/${p.id}`)}>Editar</Button>
                       <Button size="sm" variant="destructive" onClick={() => handleDelete(p.id)}>Eliminar</Button>
                     </div>
                   </TableCell>

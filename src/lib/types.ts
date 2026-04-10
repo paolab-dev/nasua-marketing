@@ -6,6 +6,18 @@ export interface Author {
 export interface Category {
   id: string;
   name: string;
+  slug?: string;
+  meta_description?: string;
+  keywords?: string;
+}
+
+export interface Subcategory {
+  id: string;
+  name: string;
+  slug?: string;
+  meta_description?: string;
+  keywords?: string;
+  category_id: string;
 }
 
 export interface Post {
@@ -15,16 +27,22 @@ export interface Post {
   content: string;
   summary_tldr: string;
   meta_description: string;
+  keywords?: string;
   canonical_url: string;
   featured_image: string;
   author_id: string;
   category_id: string;
+  subcategory_id?: string;
+  cta_label?: string;
+  cta_url?: string;
+  author_bio?: string;
   status: "draft" | "published";
   published_at: string | null;
   created_at?: string;
   updated_at?: string;
   authors?: Author;
   categories?: Category;
+  subcategories?: Subcategory;
 }
 
 export interface Job {

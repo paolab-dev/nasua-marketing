@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { title: "Posts", url: "/admin-NM", icon: FileText },
+  { title: "Artículos", url: "/admin-NM", icon: FileText },
   { title: "Categorías", url: "/admin-NM/categorias", icon: FolderOpen },
   { title: "Autores", url: "/admin-NM/autores", icon: Users },
   { title: "Vacantes", url: "/admin-NM/vacantes", icon: Briefcase },

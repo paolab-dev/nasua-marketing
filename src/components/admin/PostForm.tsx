@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { uploadImage } from "@/lib/storage";
-import type { Post, Author, Category } from "@/lib/types";
+import type { Post, Author, Category, Subcategory } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -29,6 +29,8 @@ const PostForm = ({ post }: PostFormProps) => {
 
   const [authors, setAuthors] = useState<Author[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
+  const [filteredSubs, setFilteredSubs] = useState<Subcategory[]>([]);
   const [saving, setSaving] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>(post?.featured_image ?? "");
@@ -39,25 +41,41 @@ const PostForm = ({ post }: PostFormProps) => {
     content: post?.content ?? "",
     summary_tldr: post?.summary_tldr ?? "",
     meta_description: post?.meta_description ?? "",
+    keywords: post?.keywords ?? "",
     canonical_url: post?.canonical_url ?? "",
     featured_image: post?.featured_image ?? "",
     author_id: post?.author_id ?? "",
     category_id: post?.category_id ?? "",
+    subcategory_id: post?.subcategory_id ?? "",
+    cta_label: post?.cta_label ?? "",
+    cta_url: post?.cta_url ?? "",
+    author_bio: post?.author_bio ?? "",
     status: post?.status ?? "draft" as "draft" | "published",
     published_at: post?.published_at ? post.published_at.slice(0, 16) : "",
   });
 
   useEffect(() => {
     const load = async () => {
-      const [a, c] = await Promise.all([
+      const [a, c, s] = await Promise.all([
         supabase.from("authors").select("id, name").order("name"),
         supabase.from("categories").select("id, name").order("name"),
+        supabase.from("subcategories").select("*").order("name"),
       ]);
       if (a.data) setAuthors(a.data);
       if (c.data) setCategories(c.data);
+      if (s.data) setSubcategories(s.data);
     };
     load();
   }, []);
+
+  // Filter subcategories when category changes
+  useEffect(() => {
+    if (form.category_id) {
+      setFilteredSubs(subcategories.filter((s) => s.category_id === form.category_id));
+    } else {
+      setFilteredSubs([]);
+    }
+  }, [form.category_id, subcategories]);
 
   const handleTitleChange = (title: string) => {
     setForm((f) => ({
@@ -95,10 +113,15 @@ const PostForm = ({ post }: PostFormProps) => {
         content: form.content,
         summary_tldr: form.summary_tldr.trim(),
         meta_description: form.meta_description.trim(),
+        keywords: form.keywords.trim() || null,
         canonical_url: form.canonical_url.trim() || null,
         featured_image: featuredImage || null,
         author_id: form.author_id || null,
         category_id: form.category_id || null,
+        subcategory_id: form.subcategory_id || null,
+        cta_label: form.cta_label.trim() || null,
+        cta_url: form.cta_url.trim() || null,
+        author_bio: form.author_bio.trim() || null,
         status: form.status,
         published_at: form.published_at ? new Date(form.published_at).toISOString() : null,
       };
@@ -112,7 +135,7 @@ const PostForm = ({ post }: PostFormProps) => {
 
       if (error) throw error;
 
-      toast({ title: post?.id ? "Post actualizado" : "Post creado" });
+      toast({ title: post?.id ? "Artículo actualizado" : "Artículo creado" });
       router.push("/admin-NM");
     } catch (err: any) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
@@ -125,9 +148,10 @@ const PostForm = ({ post }: PostFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl">
-      {/* Title */}
+
+      {/* Title (H1) */}
       <div className="space-y-2">
-        <Label htmlFor="title">Título</Label>
+        <Label htmlFor="title">Título (H1)</Label>
         <Input
           id="title"
           value={form.title}
@@ -148,6 +172,62 @@ const PostForm = ({ post }: PostFormProps) => {
         />
       </div>
 
+      {/* Featured Image */}
+      <div className="space-y-2">
+        <Label>Imagen destacada</Label>
+        <Input type="file" accept="image/*" onChange={handleImageSelect} />
+        <p className="text-xs text-muted-foreground">Se convertirá automáticamente a WebP.</p>
+        {imagePreview && (
+          <img
+            src={imagePreview}
+            alt="Preview"
+            className="mt-2 rounded-lg max-h-48 object-cover border border-border"
+          />
+        )}
+      </div>
+
+      {/* Author & Category */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label>Autor</Label>
+          <Select value={form.author_id} onValueChange={(v) => set("author_id", v)}>
+            <SelectTrigger><SelectValue placeholder="Seleccionar autor" /></SelectTrigger>
+            <SelectContent>
+              {authors.map((a) => (
+                <SelectItem key={a.id} value={a.id}>{a.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label>Categoría</Label>
+          <Select value={form.category_id} onValueChange={(v) => { set("category_id", v); set("subcategory_id", ""); }}>
+            <SelectTrigger><SelectValue placeholder="Seleccionar categoría" /></SelectTrigger>
+            <SelectContent>
+              {categories.map((c) => (
+                <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      {/* Subcategory */}
+      {filteredSubs.length > 0 && (
+        <div className="space-y-2">
+          <Label>Subcategoría</Label>
+          <Select value={form.subcategory_id} onValueChange={(v) => set("subcategory_id", v)}>
+            <SelectTrigger><SelectValue placeholder="Seleccionar subcategoría" /></SelectTrigger>
+            <SelectContent>
+              {filteredSubs.map((s) => (
+                <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      )}
+
       {/* Content - WYSIWYG */}
       <div className="space-y-2">
         <Label>Contenido</Label>
@@ -155,6 +235,47 @@ const PostForm = ({ post }: PostFormProps) => {
           value={form.content}
           onChange={(v) => set("content", v)}
           placeholder="Escribe el contenido del artículo..."
+        />
+      </div>
+
+      {/* CTA */}
+      <fieldset className="border border-border rounded-xl p-5 space-y-4">
+        <legend className="text-sm font-bold uppercase tracking-wider text-secondary px-2">
+          Call to Action
+        </legend>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="cta_label">Texto del botón</Label>
+            <Input
+              id="cta_label"
+              value={form.cta_label}
+              onChange={(e) => set("cta_label", e.target.value)}
+              placeholder="Ej: Descarga el checklist gratis"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="cta_url">URL del botón</Label>
+            <Input
+              id="cta_url"
+              type="url"
+              value={form.cta_url}
+              onChange={(e) => set("cta_url", e.target.value)}
+              placeholder="https://..."
+            />
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground">El botón se mostrará al final del artículo y se abrirá en una nueva pestaña.</p>
+      </fieldset>
+
+      {/* Author Bio */}
+      <div className="space-y-2">
+        <Label htmlFor="author_bio">Sobre el autor</Label>
+        <Textarea
+          id="author_bio"
+          value={form.author_bio}
+          onChange={(e) => set("author_bio", e.target.value)}
+          rows={3}
+          placeholder="Breve biografía del autor que aparecerá al final del artículo..."
         />
       </div>
 
@@ -175,12 +296,24 @@ const PostForm = ({ post }: PostFormProps) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="meta_description">Meta Description</Label>
+          <Label htmlFor="meta_description">Meta descripción</Label>
           <Textarea
             id="meta_description"
             value={form.meta_description}
             onChange={(e) => set("meta_description", e.target.value)}
             rows={2}
+            maxLength={160}
+            placeholder="Máx. 160 caracteres"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="keywords">Keywords</Label>
+          <Input
+            id="keywords"
+            value={form.keywords}
+            onChange={(e) => set("keywords", e.target.value)}
+            placeholder="seo, marketing digital, posicionamiento"
           />
         </div>
 
@@ -195,53 +328,6 @@ const PostForm = ({ post }: PostFormProps) => {
           />
         </div>
       </fieldset>
-
-      {/* Featured Image */}
-      <div className="space-y-2">
-        <Label>Imagen destacada</Label>
-        <Input type="file" accept="image/*" onChange={handleImageSelect} />
-        <p className="text-xs text-muted-foreground">
-          Se convertirá automáticamente a WebP antes de subirla.
-        </p>
-        {imagePreview && (
-          <img
-            src={imagePreview}
-            alt="Preview"
-            className="mt-2 rounded-lg max-h-48 object-cover border border-border"
-          />
-        )}
-      </div>
-
-      {/* Author & Category */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label>Autor</Label>
-          <Select value={form.author_id} onValueChange={(v) => set("author_id", v)}>
-            <SelectTrigger>
-              <SelectValue placeholder="Seleccionar autor" />
-            </SelectTrigger>
-            <SelectContent>
-              {authors.map((a) => (
-                <SelectItem key={a.id} value={a.id}>{a.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-2">
-          <Label>Categoría</Label>
-          <Select value={form.category_id} onValueChange={(v) => set("category_id", v)}>
-            <SelectTrigger>
-              <SelectValue placeholder="Seleccionar categoría" />
-            </SelectTrigger>
-            <SelectContent>
-              {categories.map((c) => (
-                <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
 
       {/* Status & Published At */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -270,7 +356,7 @@ const PostForm = ({ post }: PostFormProps) => {
       {/* Actions */}
       <div className="flex gap-3 pt-4">
         <Button type="submit" disabled={saving}>
-          {saving ? "Guardando…" : post?.id ? "Actualizar" : "Crear post"}
+          {saving ? "Guardando…" : post?.id ? "Actualizar artículo" : "Crear artículo"}
         </Button>
         <Button type="button" variant="outline" onClick={() => router.push("/admin-NM")}>
           Cancelar
