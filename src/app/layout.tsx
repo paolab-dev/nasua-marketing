@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "@/index.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import PublicShell from "@/components/PublicShell";
 import { Providers } from "./providers";
 
 const orgSchema = {
@@ -45,10 +43,7 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <Providers>
-          <ScrollToTop />
-          <Navbar />
-          {children}
-          <Footer />
+          <PublicShell>{children}</PublicShell>
         </Providers>
 
         <Script
