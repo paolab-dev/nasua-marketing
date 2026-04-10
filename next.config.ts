@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: "/desarrollo-web-estrategico",
         permanent: true,
       },
+      {
+        source: "/estrategia-social-media",
+        destination: "/estrategia",
+        permanent: true,
+      },
     ];
   },
   images: {
