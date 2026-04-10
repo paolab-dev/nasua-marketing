@@ -145,10 +145,14 @@ const BlogPostPage = () => {
 
             {/* Article content */}
             <div
-              className="prose prose-base max-w-none break-words
-                [&_*]:max-w-full
-                prose-headings:font-display prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-snug prose-headings:mt-8 prose-headings:mb-3
-                prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg
+              style={{ overflowWrap: "anywhere", wordBreak: "normal" }}
+              className="prose prose-base max-w-none
+                [&_img]:max-w-full
+                prose-headings:font-display prose-headings:text-foreground prose-headings:leading-snug prose-headings:mt-8 prose-headings:mb-3
+                prose-h1:font-bold prose-h1:text-3xl
+                prose-h2:font-medium prose-h2:text-2xl
+                prose-h3:font-medium prose-h3:text-xl
+                prose-h4:font-medium prose-h4:text-lg
                 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
                 prose-a:text-secondary prose-a:no-underline hover:prose-a:underline prose-a:font-semibold
                 prose-strong:text-foreground prose-strong:font-semibold
