@@ -7,6 +7,23 @@ import { supabase } from "@/lib/supabase";
 import type { Post } from "@/lib/types";
 import { ArrowLeft, Calendar, User, Tag, ChevronRight, Zap } from "lucide-react";
 
+/**
+ * Fixes <br> tags injected by copy-paste from PDFs/Docs that split words
+ * across lines (e.g. "h<br>acen" → "hacen") or leave short labels alone
+ * on a line (e.g. "I -<br>Intención real:" → "I - Intención real:").
+ */
+const sanitizeContent = (html: string): string => {
+  if (typeof document === "undefined") return html;
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  doc.querySelectorAll("p br, li br").forEach((br) => {
+    const prevChar = (br.previousSibling?.textContent ?? "").slice(-1);
+    // If the character right before <br> is a letter/digit → mid-word break → join with no space
+    const isMidWord = /[\wáéíóúüñÁÉÍÓÚÜÑ]/.test(prevChar);
+    br.replaceWith(document.createTextNode(isMidWord ? "" : " "));
+  });
+  return doc.body.innerHTML;
+};
+
 const BlogPostPage = () => {
   const params = useParams<{ slug: string }>();
   const slug = params?.slug;
@@ -161,7 +178,7 @@ const BlogPostPage = () => {
                 prose-img:rounded-2xl prose-img:shadow-md prose-img:w-full
                 prose-code:bg-muted prose-code:text-foreground prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:font-mono
                 prose-pre:bg-primary prose-pre:text-primary-foreground prose-pre:rounded-xl prose-pre:overflow-x-auto"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizeContent(post.content) }}
             />
 
             {/* CTA */}
