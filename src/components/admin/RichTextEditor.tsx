@@ -22,13 +22,21 @@ const modules = {
 
 const RichTextEditor = ({ value, onChange, placeholder }: Props) => {
   const [QuillComponent, setQuillComponent] = useState<any>(null);
+  const [showHtml, setShowHtml] = useState(false);
+  const [htmlValue, setHtmlValue] = useState(value);
 
   useEffect(() => {
-    // Dynamically import react-quill-new only on the client side
     import("react-quill-new").then((mod) => {
       setQuillComponent(() => mod.default);
     });
   }, []);
+
+  const handleToggleHtml = () => {
+    if (!showHtml) {
+      setHtmlValue(value);
+    }
+    setShowHtml(!showHtml);
+  };
 
   if (!QuillComponent) {
     return (
@@ -40,13 +48,34 @@ const RichTextEditor = ({ value, onChange, placeholder }: Props) => {
 
   return (
     <div className="rich-editor">
-      <QuillComponent
-        theme="snow"
-        value={value}
-        onChange={onChange}
-        modules={modules}
-        placeholder={placeholder}
-      />
+      <div className="flex justify-end mb-1">
+        <button
+          type="button"
+          onClick={handleToggleHtml}
+          className="text-xs px-2.5 py-1 rounded border border-border bg-muted hover:bg-accent text-muted-foreground font-mono transition-colors"
+        >
+          {showHtml ? "Visual" : "HTML"}
+        </button>
+      </div>
+      {showHtml ? (
+        <textarea
+          value={htmlValue}
+          onChange={(e) => {
+            setHtmlValue(e.target.value);
+            onChange(e.target.value);
+          }}
+          className="w-full min-h-[300px] font-mono text-xs p-3 rounded-md border border-border bg-muted text-foreground resize-y focus:outline-none focus:ring-2 focus:ring-ring"
+          spellCheck={false}
+        />
+      ) : (
+        <QuillComponent
+          theme="snow"
+          value={value}
+          onChange={onChange}
+          modules={modules}
+          placeholder={placeholder}
+        />
+      )}
     </div>
   );
 };

@@ -145,7 +145,7 @@ const BlogPostPage = () => {
 
             {/* Article content */}
             <div
-              style={{ wordBreak: "normal", overflowWrap: "break-word" }}
+              style={{ wordBreak: "normal", overflowWrap: "break-word", hyphens: "none" }}
               className="prose prose-base max-w-none
                 [&_img]:max-w-full
                 prose-headings:font-display prose-headings:text-foreground prose-headings:leading-snug prose-headings:mt-8 prose-headings:mb-3
