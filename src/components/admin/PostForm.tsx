@@ -110,7 +110,7 @@ const PostForm = ({ post }: PostFormProps) => {
       const payload = {
         title: form.title.trim(),
         slug: form.slug.trim(),
-        content: form.content,
+        content: form.content.replace(/&nbsp;/g, " ").replace(/\u00A0/g, " "),
         summary_tldr: form.summary_tldr.trim(),
         meta_description: form.meta_description.trim(),
         keywords: form.keywords.trim() || null,

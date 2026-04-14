@@ -18,6 +18,20 @@ const modules = {
     ["link", "image"],
     ["clean"],
   ],
+  // Replace non-breaking spaces (&nbsp;) with regular spaces on paste
+  clipboard: {
+    matchers: [
+      [3 /* Node.TEXT_NODE */, (_node: any, delta: any) => {
+        delta.ops = delta.ops.map((op: any) => {
+          if (typeof op.insert === "string") {
+            op.insert = op.insert.replace(/\u00A0/g, " ");
+          }
+          return op;
+        });
+        return delta;
+      }],
+    ],
+  },
 };
 
 const RichTextEditor = ({ value, onChange, placeholder }: Props) => {

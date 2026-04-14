@@ -14,7 +14,9 @@ import { ArrowLeft, Calendar, User, Tag, ChevronRight, Zap } from "lucide-react"
  */
 const sanitizeContent = (html: string): string => {
   if (typeof document === "undefined") return html;
-  const doc = new DOMParser().parseFromString(html, "text/html");
+  // Replace &nbsp; injected by copy-paste from web pages / Google Docs
+  const cleanHtml = html.replace(/&nbsp;/g, " ").replace(/\u00A0/g, " ");
+  const doc = new DOMParser().parseFromString(cleanHtml, "text/html");
   doc.querySelectorAll("p br, li br").forEach((br) => {
     const prevChar = (br.previousSibling?.textContent ?? "").slice(-1);
     // If the character right before <br> is a letter/digit → mid-word break → join with no space
