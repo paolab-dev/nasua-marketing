@@ -6,6 +6,7 @@ const webLinks = [
   { href: "/landing-page", label: "Landing Pages" },
   { href: "/sitio-corporativo", label: "Sitios Corporativos" },
   { href: "/ecommerce", label: "E-commerce" },
+  { href: "/webmaster", label: "Webmaster & Continuidad Digital" },
 ];
 
 const serviciosLinks = [

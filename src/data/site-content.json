@@ -1150,6 +1150,104 @@
       }
     ]
   },
+  "webmaster": {
+    "hero": {
+      "title": "Webmaster y Continuidad Digital:",
+      "highlight": "Tu web rápida, segura y siempre activa",
+      "text": "Un sitio web es un activo vivo que requiere atención constante para no perder su valor. En Nasua, nos encargamos de la salud técnica y la actualización de contenidos de tu entorno digital, permitiéndote delegar la operatividad para enfocarte exclusivamente en escalar tu facturación."
+    },
+    "plans": [
+      {
+        "icon": "Shield",
+        "title": "Plan de Mantenimiento Técnico",
+        "subtitle": "Salud, Seguridad y Rendimiento",
+        "concept": "Tu web siempre al día y segura",
+        "items": [
+          {
+            "title": "Actualización Proactiva",
+            "text": "Gestión de plugins, plantillas (temas) y la versión del núcleo de WordPress para evitar vulnerabilidades."
+          },
+          {
+            "title": "Seguridad Primero",
+            "text": "Ejecución de copias de seguridad completas antes y después de cada actualización, garantizando que nunca haya pérdida de datos."
+          },
+          {
+            "title": "Optimización de Velocidad (WPO)",
+            "text": "Limpieza profunda de caché tras los ajustes para asegurar que el sitio cargue de forma óptima para el usuario final."
+          }
+        ],
+        "benefit": "Evitar hackeos, errores de compatibilidad y sitios lentos que espantan a tus clientes."
+      },
+      {
+        "icon": "Edit3",
+        "title": "Plan de Gestión de Contenidos",
+        "subtitle": "Dinamismo y Operatividad Diaria",
+        "concept": "Nosotros mantenemos tu web viva por ti",
+        "items": [
+          {
+            "title": "Edición Editorial",
+            "text": "Cambios de textos, actualización de datos de contacto o ajustes en información corporativa."
+          },
+          {
+            "title": "Gestión de Catálogo y Blog",
+            "text": "Subida y configuración de nuevos productos o publicación de artículos con el material entregado por el cliente."
+          },
+          {
+            "title": "Mantenimiento Visual",
+            "text": "Reemplazo de imágenes o banners según la temporada o la necesidad de tus campañas comerciales."
+          }
+        ],
+        "benefit": "Ahorro masivo de tiempo para el dueño del negocio y una web que proyecta autoridad constante."
+      }
+    ],
+    "transparency": [
+      {
+        "icon": "ShieldCheck",
+        "title": "Enfoque Preventivo",
+        "text": "Trabajamos para mantener el sitio sano y evitar fallos. Nuestra gestión reduce riesgos, pero no operamos como una póliza de seguros contra ataques masivos externos fuera de nuestro control."
+      },
+      {
+        "icon": "Clock",
+        "title": "Gestión en Horario Laboral",
+        "text": "Todas las solicitudes se procesan dentro de los horarios comerciales de Nasua. No somos un servicio de respuesta inmediata ante incidencias de servidor en horarios de madrugada."
+      },
+      {
+        "icon": "Wrench",
+        "title": "Mantenimiento y Actualización",
+        "text": "El servicio se centra en la estabilidad y mejora del sitio, no en el monitoreo de caídas (uptime) o vigilancia en tiempo real."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué incluye exactamente el servicio de Webmaster mensual?",
+        "a": "En Nasua, el servicio abarca desde la salud técnica (actualizaciones de sistema y seguridad) hasta la gestión operativa de contenidos. Dependiendo del plan elegido, nos aseguramos de que el sistema esté actualizado, respaldado y con la información comercial al día para que el entorno digital nunca se vea abandonado."
+      },
+      {
+        "q": "¿Podemos solicitar cambios en nuestra web en cualquier momento?",
+        "a": "Sí. Contamos con canales de comunicación directos para recibir requerimientos de cambios de texto, imágenes o subida de artículos. Estas solicitudes se gestionan con agilidad dentro de nuestra jornada laboral, asegurando que tu web evolucione al ritmo de tus necesidades comerciales."
+      },
+      {
+        "q": "¿Este servicio ayuda a que la Inteligencia Artificial me recomiende?",
+        "a": "Totalmente. El GEO (Generative Engine Optimization) depende de que la información sea reciente y la carga sea rápida. Al mantener tu contenido actualizado y tu código limpio de errores, facilitamos que modelos como ChatGPT y Gemini identifiquen tu marca como una fuente confiable y de alta calidad."
+      },
+      {
+        "q": "¿Por qué contratar un Webmaster en lugar de hacerlo nosotros mismos?",
+        "a": "El costo de oportunidad es la clave. El tiempo que un equipo de ventas o un dueño de negocio gasta tratando de corregir un error técnico o subiendo un banner, es tiempo que no dedica a facturar. En Nasua eliminamos esa carga operativa con la precisión que solo 15 años de experiencia pueden ofrecer."
+      },
+      {
+        "q": "¿Qué sucede si el sitio tiene un problema de seguridad grave?",
+        "a": "Nuestra gestión es preventiva para minimizar estas situaciones. En caso de detectar una vulnerabilidad, actuamos de inmediato dentro de nuestro alcance técnico para restaurar la integridad del sitio utilizando los backups previos, garantizando la Continuidad Digital de la marca."
+      },
+      {
+        "q": "¿Existe algún contrato de permanencia obligatoria?",
+        "a": "En Nasua preferimos que nuestros clientes se queden por los resultados y la paz mental que les brindamos. Ofrecemos planes flexibles, ya que nuestra prioridad es ser un apoyo real en el crecimiento de la empresa, no una carga administrativa."
+      },
+      {
+        "q": "¿Nasua monitorea si mi servidor se cae a medianoche?",
+        "a": "Nuestro enfoque es el mantenimiento y la actualización preventiva del sitio web. No ofrecemos un servicio de monitoreo de uptime 24/7 ni respuesta ante caídas de servidor en horarios no laborales. Para esos casos, siempre recomendamos contar con proveedores de hosting de alta gama que garanticen su propia estabilidad de hardware."
+      }
+    ]
+  },
   "contacto": {
     "seo": {
       "title": "Contacto | Nasua Marketing | Agencia de Growth y WordPress",
