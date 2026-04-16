@@ -90,18 +90,18 @@ const Webmaster = () => {
             >
               Agendar Auditoría de 15 Minutos
             </Link>
-            <Link
-              href="/contacto"
+            <a
+              href="#planes"
               className="inline-block bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/30 font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
             >
               Ver Planes de Webmaster
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
 
       {/* Qué incluye el servicio */}
-      <section className="py-20 md:py-28 bg-background">
+      <section id="planes" className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div
             initial={false}
@@ -278,7 +278,7 @@ const Webmaster = () => {
             transition={{ duration: 0.7 }}
             className="text-3xl md:text-4xl font-bold text-foreground font-display text-center mb-12"
           >
-            FAQ — <span className="text-gradient">Webmaster</span>
+            Preguntas <span className="text-gradient">frecuentes</span>
           </motion.h2>
           <Accordion type="single" collapsible className="space-y-3">
             {webmaster.faq.map((faq, i) => (
@@ -324,12 +324,12 @@ const Webmaster = () => {
               >
                 Agendar Auditoría de 15 Minutos
               </Link>
-              <Link
-                href="/contacto"
+              <a
+                href="#planes"
                 className="inline-block bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/30 font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
               >
                 Ver Planes de Webmaster
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
