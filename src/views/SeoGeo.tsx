@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +18,7 @@ import {
   Star,
 } from "lucide-react";
 import content from "@/data/site-content.json";
+import SeoGeoLeadForm from "@/components/SeoGeoLeadForm";
 
 const iconMap: Record<string, any> = {
   TrendingUp,
@@ -31,6 +32,7 @@ const iconMap: Record<string, any> = {
 
 const SeoGeo = () => {
   const { seoGeo } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -80,12 +82,12 @@ const SeoGeo = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Iniciar mi Estrategia de Autoridad
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -259,16 +261,17 @@ const SeoGeo = () => {
             <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
               Es momento de transformar tu sitio web en una autoridad que las IAs recomienden y tus clientes elijan. El equipo de Nasua está listo para auditar tu ecosistema y trazar tu Roadmap de Visibilidad Total.
             </p>
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Iniciar mi Estrategia de Autoridad
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <SeoGeoLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };

@@ -17,6 +17,13 @@ const FORM_LABELS: Record<string, string> = {
   ecommerce: "Tienda Virtual",
   estrategia: "Diagnóstico Estratégico",
   contacto: "Contacto General",
+  webmaster: "Webmaster & Continuidad",
+  automatizacion: "Automatización & CRM",
+  copywriting: "Copywriting",
+  "seo-geo": "SEO & GEO",
+  "pauta-digital": "Pauta Digital",
+  branding: "Branding & Identidad",
+  "social-media": "Estrategia & Contenido",
 };
 
 const FIELD_LABELS: Record<string, string> = {
@@ -57,6 +64,40 @@ const FIELD_LABELS: Record<string, string> = {
   service: "Servicio",
   message: "Mensaje",
   financing: "Financiación Wompi",
+  // Webmaster
+  plataforma: "Plataforma web",
+  problemasActuales: "Problemas actuales",
+  servicioActual: "Gestión actual",
+  urgencia: "Urgencia",
+  // Automatización
+  tamanioEquipo: "Tamaño del equipo",
+  procesoActual: "Proceso actual de leads",
+  necesidades: "Necesidades de automatización",
+  // Copywriting
+  tipoCopy: "Tipo de copy",
+  tono: "Tono de marca",
+  productoServicio: "Producto / Servicio",
+  audiencia: "Audiencia objetivo",
+  // SEO & GEO
+  estadoSeo: "Estado SEO actual",
+  objetivoSeo: "Objetivo SEO",
+  competidores: "Competidores en Google",
+  presupuestoMensual: "Presupuesto mensual",
+  // Pauta Digital
+  plataformas: "Plataformas de pauta",
+  objetivoCampana: "Objetivo campaña",
+  estadoActual: "Estado actual campañas",
+  // Branding
+  estadoMarca: "Estado de la marca",
+  tipoNegocio: "Tipo de negocio",
+  entregables: "Entregables solicitados",
+  referentes: "Referencias visuales",
+  // Estrategia & Social Media
+  redes: "Redes sociales",
+  seguidoresActuales: "Seguidores actuales",
+  contenidoActual: "Situación de contenido",
+  objetivoEstrategia: "Objetivo estrategia",
+  produccionContenido: "Producción de contenido",
 };
 
 function formatValue(value: unknown): string {

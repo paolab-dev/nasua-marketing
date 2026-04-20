@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { Database, Mail, Link2, Bell, Shield } from "lucide-react";
 import content from "@/data/site-content.json";
+import AutomatizacionLeadForm from "@/components/AutomatizacionLeadForm";
 
 const iconMap: Record<string, any> = {
   Database,
@@ -21,6 +22,7 @@ const iconMap: Record<string, any> = {
 
 const Automatizacion = () => {
   const { automatizacion } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -62,12 +64,12 @@ const Automatizacion = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Agendar Consultoría de Procesos
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -188,16 +190,17 @@ const Automatizacion = () => {
             <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
               Tu infraestructura digital está lista. Es hora de que tu operación también lo esté. El equipo de Nasua está listo para automatizar tu crecimiento.
             </p>
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Agendar Consultoría de Procesos
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <AutomatizacionLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };

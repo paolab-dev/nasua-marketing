@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -19,6 +19,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import content from "@/data/site-content.json";
+import PautaDigitalLeadForm from "@/components/PautaDigitalLeadForm";
 
 const iconMap: Record<string, any> = {
   Shield,
@@ -33,6 +34,7 @@ const iconMap: Record<string, any> = {
 
 const PautaDigital = () => {
   const { pautaDigital } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -74,12 +76,12 @@ const PautaDigital = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Solicitar Auditoría de Pauta
-            </Link>
+            </button>
             <span className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground font-semibold px-5 py-3 rounded-lg text-sm font-body">
               ⭐ Google Partners Certificados
             </span>
@@ -245,16 +247,17 @@ const PautaDigital = () => {
             <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
               No permitas que tu presupuesto se evapore. El equipo de Nasua está listo para realizar una auditoría técnica de tus campañas y trazar un Roadmap de Performance rentable.
             </p>
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Solicitar Auditoría de Pauta
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <PautaDigitalLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };

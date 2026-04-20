@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { Brain, Layout, Search, Layers } from "lucide-react";
 import content from "@/data/site-content.json";
+import CopywritingLeadForm from "@/components/CopywritingLeadForm";
 
 const iconMap: Record<string, any> = {
   Brain,
@@ -20,6 +21,7 @@ const iconMap: Record<string, any> = {
 
 const Copywriting = () => {
   const { copywriting } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -69,12 +71,12 @@ const Copywriting = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Solicitar Consultoría de Copy
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -196,16 +198,17 @@ const Copywriting = () => {
             <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
               Deja de usar frases hechas y empieza a usar argumentos que cierren negocios. El equipo de Nasua está listo para redactar el futuro de tu marca.
             </p>
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Solicitar Consultoría de Copy
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <CopywritingLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };

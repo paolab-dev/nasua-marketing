@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { BarChart3, Camera, Video, Layers, Globe } from "lucide-react";
 import content from "@/data/site-content.json";
+import EstrategiaLeadForm from "@/components/EstrategiaLeadForm";
 
 const iconMap: Record<string, any> = {
   BarChart3,
@@ -21,6 +22,7 @@ const iconMap: Record<string, any> = {
 
 const Estrategia = () => {
   const { estrategia } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -70,12 +72,12 @@ const Estrategia = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Iniciar mi Estrategia & Contenido
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -222,16 +224,17 @@ const Estrategia = () => {
             <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
               No permitas que una mala imagen arruine una gran estrategia. El equipo de Nasua está listo para darle a tu marca el impacto visual y la autoridad que merece.
             </p>
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Iniciar mi Estrategia & Contenido
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <EstrategiaLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };

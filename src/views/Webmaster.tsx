@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +18,7 @@ import {
   Star,
 } from "lucide-react";
 import content from "@/data/site-content.json";
+import WebmasterLeadForm from "@/components/WebmasterLeadForm";
 
 const iconMap: Record<string, any> = {
   Shield,
@@ -31,6 +32,7 @@ const iconMap: Record<string, any> = {
 
 const Webmaster = () => {
   const { webmaster } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -84,12 +86,12 @@ const Webmaster = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Agendar Auditoría de 15 Minutos
-            </Link>
+            </button>
             <a
               href="#planes"
               className="inline-block bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/30 font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
@@ -318,12 +320,12 @@ const Webmaster = () => {
               Tu web merece el mismo nivel de excelencia que tu producto o servicio. El equipo de Nasua está listo para mantener tu entorno digital en su máximo rendimiento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contacto"
+              <button
+                onClick={() => setFormOpen(true)}
                 className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
               >
                 Agendar Auditoría de 15 Minutos
-              </Link>
+              </button>
               <a
                 href="#planes"
                 className="inline-block bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/30 font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
@@ -334,6 +336,7 @@ const Webmaster = () => {
           </motion.div>
         </div>
       </section>
+      <WebmasterLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };

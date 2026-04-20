@@ -1,7 +1,7 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +18,7 @@ import {
   Target,
 } from "lucide-react";
 import content from "@/data/site-content.json";
+import BrandingLeadForm from "@/components/BrandingLeadForm";
 
 const iconMap: Record<string, any> = {
   Award,
@@ -31,6 +32,7 @@ const iconMap: Record<string, any> = {
 
 const Branding = () => {
   const { branding } = content;
+  const [formOpen, setFormOpen] = useState(false);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -80,12 +82,12 @@ const Branding = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10"
           >
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Cotizar Proyecto de Branding
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -272,16 +274,17 @@ const Branding = () => {
             <p className="text-primary-foreground/80 text-lg leading-relaxed font-body max-w-2xl mx-auto">
               Deja de ser una opción más y conviértete en la referencia de tu industria. El equipo de Nasua está listo para construir tu identidad de alto impacto.
             </p>
-            <Link
-              href="/contacto"
+            <button
+              onClick={() => setFormOpen(true)}
               className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-4 rounded-lg text-lg transition-all hover:scale-105 shadow-lg"
             >
               Cotizar Proyecto de Branding
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>
 
+      <BrandingLeadForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };
