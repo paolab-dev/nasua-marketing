@@ -100,6 +100,114 @@ const FIELD_LABELS: Record<string, string> = {
   produccionContenido: "Producción de contenido",
 };
 
+// ─── MailerLite integration ────────────────────────────────────────────────
+
+const MAILERLITE_API = "https://connect.mailerlite.com/api";
+
+/** One group per form type — created automatically on first lead if missing */
+const FORM_TO_GROUP: Record<string, string> = {
+  landing: "Leads - Landing Page",
+  corporativo: "Leads - Sitio Corporativo",
+  ecommerce: "Leads - E-commerce",
+  webmaster: "Leads - Webmaster",
+  automatizacion: "Leads - Automatización",
+  copywriting: "Leads - Copywriting",
+  "seo-geo": "Leads - SEO & GEO",
+  "pauta-digital": "Leads - Pauta Digital",
+  branding: "Leads - Branding",
+  "social-media": "Leads - Estrategia & Contenido",
+  estrategia: "Leads - Diagnóstico Estratégico",
+  contacto: "Leads - Contacto General",
+};
+
+/** Module-level cache so we don't look up groups on every request */
+const groupIdCache = new Map<string, string>();
+
+function mailerLiteHeaders(apiKey: string) {
+  return {
+    Authorization: `Bearer ${apiKey}`,
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+}
+
+async function getOrCreateGroup(apiKey: string, name: string): Promise<string | null> {
+  if (groupIdCache.has(name)) return groupIdCache.get(name)!;
+
+  try {
+    // Search existing groups
+    const searchRes = await fetch(
+      `${MAILERLITE_API}/groups?filter[name]=${encodeURIComponent(name)}&limit=25`,
+      { headers: mailerLiteHeaders(apiKey) }
+    );
+    if (searchRes.ok) {
+      const { data } = await searchRes.json() as { data: { id: string; name: string }[] };
+      const found = data?.find((g) => g.name === name);
+      if (found) {
+        groupIdCache.set(name, found.id);
+        return found.id;
+      }
+    }
+
+    // Create group if not found
+    const createRes = await fetch(`${MAILERLITE_API}/groups`, {
+      method: "POST",
+      headers: mailerLiteHeaders(apiKey),
+      body: JSON.stringify({ name }),
+    });
+    if (createRes.ok) {
+      const { data } = await createRes.json() as { data: { id: string } };
+      if (data?.id) {
+        groupIdCache.set(name, data.id);
+        return data.id;
+      }
+    }
+  } catch {
+    // MailerLite errors must never break the main lead flow
+  }
+
+  return null;
+}
+
+async function syncToMailerLite(formType: string, data: Record<string, unknown>): Promise<void> {
+  const apiKey = process.env.MAILERLITE_API_KEY;
+  if (!apiKey) return;
+
+  const email = getLeadEmail(data);
+  if (!email) return;
+
+  const groupName = FORM_TO_GROUP[formType];
+  if (!groupName) return;
+
+  const groupId = await getOrCreateGroup(apiKey, groupName);
+  if (!groupId) return;
+
+  const name = String(data.nombre ?? data.name ?? "").trim();
+  const phone = String(data.whatsapp ?? data.phone ?? "").trim();
+  const company = String(data.empresa ?? data.marca ?? data.negocio ?? data.company ?? "").trim();
+
+  try {
+    await fetch(`${MAILERLITE_API}/subscribers`, {
+      method: "POST",
+      headers: mailerLiteHeaders(apiKey),
+      body: JSON.stringify({
+        email,
+        fields: {
+          ...(name && { name }),
+          ...(phone && { phone }),
+          ...(company && { company }),
+        },
+        groups: [groupId],
+        status: "active",
+      }),
+    });
+  } catch {
+    // Silently ignore — email already sent
+  }
+}
+
+// ─── Email helpers ─────────────────────────────────────────────────────────
+
 function formatValue(value: unknown): string {
   if (Array.isArray(value)) return value.length > 0 ? value.join(", ") : "—";
   if (typeof value === "boolean") return value ? "Sí" : "No";
@@ -181,6 +289,8 @@ function buildEmailHtml(formType: string, data: Record<string, unknown>): string
 </html>`;
 }
 
+// ─── Route handlers ────────────────────────────────────────────────────────
+
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,
@@ -238,6 +348,9 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Fire-and-forget: MailerLite sync never blocks or fails the response
+    syncToMailerLite(formType, data).catch(() => {});
 
     return NextResponse.json({ success: true });
   } catch (err) {
