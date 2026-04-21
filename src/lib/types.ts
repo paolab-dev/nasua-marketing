@@ -33,6 +33,7 @@ export interface Post {
   author_id: string;
   category_id: string;
   subcategory_id?: string;
+  title_tag?: string;
   cta_label?: string;
   cta_url?: string;
   author_bio?: string;

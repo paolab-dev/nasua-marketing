@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   const { data: post } = await supabase
     .from("posts")
-    .select("title, meta_description, featured_image, canonical_url")
+    .select("title, title_tag, meta_description, featured_image, canonical_url")
     .eq("slug", slug)
     .eq("status", "published")
     .single();
@@ -26,7 +26,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | Nasua Blog`,
+    title: `${post.title_tag || post.title} | Nasua Blog`,
     description: post.meta_description || undefined,
     alternates: {
       canonical: post.canonical_url || `https://nasua.marketing/blog/${slug}`,

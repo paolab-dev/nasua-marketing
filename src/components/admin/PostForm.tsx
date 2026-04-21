@@ -47,6 +47,7 @@ const PostForm = ({ post }: PostFormProps) => {
     author_id: post?.author_id ?? "",
     category_id: post?.category_id ?? "",
     subcategory_id: post?.subcategory_id ?? "",
+    title_tag: post?.title_tag ?? "",
     cta_label: post?.cta_label ?? "",
     cta_url: post?.cta_url ?? "",
     author_bio: post?.author_bio ?? "",
@@ -114,6 +115,7 @@ const PostForm = ({ post }: PostFormProps) => {
         summary_tldr: form.summary_tldr.trim(),
         meta_description: form.meta_description.trim(),
         keywords: form.keywords.trim() || null,
+        title_tag: form.title_tag.trim() || null,
         canonical_url: form.canonical_url.trim() || null,
         featured_image: featuredImage || null,
         author_id: form.author_id || null,
@@ -284,6 +286,17 @@ const PostForm = ({ post }: PostFormProps) => {
         <legend className="text-sm font-bold uppercase tracking-wider text-secondary px-2">
           SEO
         </legend>
+
+        <div className="space-y-2">
+          <Label htmlFor="title_tag">Title Tag (Título para buscadores)</Label>
+          <Input
+            id="title_tag"
+            value={form.title_tag}
+            onChange={(e) => set("title_tag", e.target.value)}
+            maxLength={70}
+            placeholder="Máx. 60–70 caracteres · se mostrará en la pestaña del navegador y resultados de Google"
+          />
+        </div>
 
         <div className="space-y-2">
           <Label htmlFor="summary_tldr">TL;DR / Resumen AEO</Label>
