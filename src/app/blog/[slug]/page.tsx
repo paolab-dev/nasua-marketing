@@ -1,3 +1,4 @@
+import { cache } from "react";
 import type { Metadata } from "next";
 import { createClient } from "@supabase/supabase-js";
 import BlogPostPage from "@/views/BlogPost";
@@ -7,19 +8,24 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+/** Cached so generateMetadata and Page share the same DB round-trip */
+const getPost = cache(async (slug: string) => {
+  const { data } = await supabase
+    .from("posts")
+    .select("*, authors(name), categories(name), subcategories(name)")
+    .eq("slug", slug)
+    .eq("status", "published")
+    .single();
+  return data as import("@/lib/types").Post | null;
+});
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-
-  const { data: post } = await supabase
-    .from("posts")
-    .select("title, title_tag, meta_description, featured_image, canonical_url")
-    .eq("slug", slug)
-    .eq("status", "published")
-    .single();
+  const post = await getPost(slug);
 
   if (!post) {
     return { title: "Post no encontrado | Nasua Blog" };
@@ -40,6 +46,12 @@ export async function generateMetadata({
   };
 }
 
-export default function Page() {
-  return <BlogPostPage />;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+  return <BlogPostPage post={post} />;
 }

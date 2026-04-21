@@ -1,71 +1,29 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
 import type { Post } from "@/lib/types";
 import { ArrowLeft, Calendar, User, Tag, ChevronRight, Zap } from "lucide-react";
 
 /**
  * Fixes <br> tags injected by copy-paste from PDFs/Docs that split words
- * across lines (e.g. "h<br>acen" → "hacen") or leave short labels alone
- * on a line (e.g. "I -<br>Intención real:" → "I - Intención real:").
+ * across lines (e.g. "h<br>acen" → "hacen").
+ * Works on both server (Node.js) and client — no DOMParser needed.
  */
 const sanitizeContent = (html: string): string => {
-  if (typeof document === "undefined") return html;
-  // Replace &nbsp; injected by copy-paste from web pages / Google Docs
-  const cleanHtml = html.replace(/&nbsp;/g, " ").replace(/\u00A0/g, " ");
-  const doc = new DOMParser().parseFromString(cleanHtml, "text/html");
-  doc.querySelectorAll("p br, li br").forEach((br) => {
-    const prevChar = (br.previousSibling?.textContent ?? "").slice(-1);
-    // If the character right before <br> is a letter/digit → mid-word break → join with no space
-    const isMidWord = /[\wáéíóúüñÁÉÍÓÚÜÑ]/.test(prevChar);
-    br.replaceWith(document.createTextNode(isMidWord ? "" : " "));
-  });
-  return doc.body.innerHTML;
+  let clean = html.replace(/&nbsp;/g, " ").replace(/\u00A0/g, " ");
+  // Remove <br> between word characters (mid-word break)
+  clean = clean.replace(
+    /([\wáéíóúüñÁÉÍÓÚÜÑ])<br\s*\/?>([\wáéíóúüñÁÉÍÓÚÜÑ])/g,
+    "$1$2"
+  );
+  // Replace remaining <br> tags inside block elements with a space
+  clean = clean.replace(/<br\s*\/?>/g, " ");
+  return clean;
 };
 
-const BlogPostPage = () => {
-  const params = useParams<{ slug: string }>();
-  const slug = params?.slug;
-  const [post, setPost] = useState<Post | null>(null);
-  const [loading, setLoading] = useState(true);
+interface Props {
+  post: Post | null;
+}
 
-  useEffect(() => {
-    supabase
-      .from("posts")
-      .select("*, authors(name), categories(name), subcategories(name)")
-      .eq("slug", slug)
-      .eq("status", "published")
-      .single()
-      .then(({ data }) => {
-        setPost(data);
-        setLoading(false);
-      });
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <main className="bg-background min-h-screen overflow-x-hidden">
-        <div className="bg-primary pt-24 pb-14 px-6">
-          <div className="mx-auto max-w-3xl animate-pulse space-y-4">
-            <div className="h-4 bg-white/10 rounded w-32" />
-            <div className="h-10 bg-white/10 rounded w-3/4" />
-            <div className="h-10 bg-white/10 rounded w-1/2" />
-            <div className="h-4 bg-white/10 rounded w-48" />
-          </div>
-        </div>
-        <div className="mx-auto max-w-3xl px-6 py-12 animate-pulse space-y-4">
-          <div className="h-72 bg-muted rounded-2xl" />
-          <div className="h-4 bg-muted rounded" />
-          <div className="h-4 bg-muted rounded w-5/6" />
-          <div className="h-4 bg-muted rounded w-4/6" />
-        </div>
-      </main>
-    );
-  }
-
+const BlogPostPage = ({ post }: Props) => {
   if (!post) {
     return (
       <main className="bg-background min-h-screen flex items-center justify-center overflow-x-hidden">
